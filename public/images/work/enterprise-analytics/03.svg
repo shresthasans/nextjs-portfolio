@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bae6fd"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg3)"/>
+  <line x1="0" y1="266" x2="1200" y2="266" stroke="#0ea5e9" stroke-width="1" opacity="0.25"/>
+  <line x1="0" y1="533" x2="1200" y2="533" stroke="#0ea5e9" stroke-width="1" opacity="0.25"/>
+  <line x1="400" y1="0" x2="400" y2="800" stroke="#0ea5e9" stroke-width="1" opacity="0.25"/>
+  <line x1="800" y1="0" x2="800" y2="800" stroke="#0ea5e9" stroke-width="1" opacity="0.25"/>
+  <!-- screen frame -->
+  <rect x="160" y="80" width="880" height="620" rx="14" fill="white" opacity="0.12"/>
+  <!-- content blocks vary per num -->
+  <rect x="200" y="120" width="600" height="32" rx="6" fill="white" opacity="0.22"/>
+  <rect x="200" y="168" width="400" height="16" rx="4" fill="white" opacity="0.14"/>
+  <rect x="200" y="192" width="480" height="16" rx="4" fill="white" opacity="0.11"/>
+  <rect x="200" y="240" width="780" height="320" rx="10" fill="white" opacity="0.1"/>
+  <rect x="220" y="260" width="360" height="180" rx="8" fill="#0ea5e9" opacity="0.2"/>
+  <rect x="600" y="260" width="360" height="80" rx="6" fill="white" opacity="0.12"/>
+  <rect x="600" y="356" width="360" height="80" rx="6" fill="white" opacity="0.1"/>
+  <!-- badge -->
+  <rect x="28" y="28" width="160" height="30" rx="15" fill="#0ea5e9" opacity="0.3"/>
+  <text x="108" y="48" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#075985">Screen 3 / 3</text>
+  <text x="600" y="748" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" font-weight="600" fill="#075985" opacity="0.6">Enterprise Analytics · Screen 3 · Replace with actual screenshot · 1200×800</text>
+</svg>

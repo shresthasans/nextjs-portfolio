@@ -1,0 +1,150 @@
+---
+title: "Product Design Concepts Explained, Part 3 of 5: Design Process"
+date: "2026-07-03"
+readingTime: "9 min read"
+tag: "UX"
+excerpt: "A strong design process brings structure to complex problems. Discover how user flows, information architecture, prioritization, design trade-offs, and critique work together to guide better decisions from idea to execution."
+coverImage: "/images/blog/design-process.png"
+series: "Product Design Concepts Explained"
+seriesPart: 3
+seriesTotal: 5
+---
+
+_This is Part 3 of a 5-part series that explores the concepts, frameworks, and decision-making behind great digital products. Each article goes beyond definitions to explain when these concepts matter, why they matter, and how experienced product designers apply them in real-world work. [Part 1 covered User Research](/blog/user-research-applied) and [Part 2 covered Product Thinking](/blog/product-thinking-applied). This post covers Design Process._
+
+---
+
+Process is the part of design that sounds the most rehearsable, and is the hardest to fake. Anyone can recite a double-diamond. <mark>What separates a real process from a framework put on slides is whether it's a tool you actually use to make decisions.</mark>
+
+The five concepts below are the ones where that distinction shows most clearly.
+
+---
+
+## User Flows: Mapping How Users Complete a Task
+
+**What most people say:** "A diagram showing the steps a user takes to complete a task."
+
+**What shows experience:** <mark>User flows are a thinking tool, not a deliverable.</mark> Their value isn't the diagram. It's what the act of drawing it forces you to confront: every decision point, every error state, every assumption about what a user knows at each step.
+
+The failure mode is drawing the happy path and calling it a flow. Real flows include:
+
+- **Decision branches**: what happens when a user says no, or doesn't have what's needed
+- **Error states**: what the system does when input is wrong or a step fails
+- **Re-entry points**: where does a user land if they leave and come back?
+
+> A flow that only shows success is a wishful thinking diagram, not a design tool.
+
+On a complex multi-step enterprise form, I drew the user flow before touching Figma. <mark>The flow revealed a step where users needed information from a different system they had to open in a separate tab.</mark> We'd have designed the entire middle section around a context-switch that could have been avoided by pulling the data via API. The flow, not the prototype, caught that.
+
+**Where this shows up:** During product discovery, drawing the flow before touching a design tool is often what surfaces the edge case or dependency that changes the design approach entirely.
+
+---
+
+## Information Architecture: Organising Content So Users Can Find What They Need
+
+**What most people say:** "The structure and organisation of content within a product."
+
+**What shows experience:** IA is invisible when it works and infuriating when it doesn't. <mark>The skill is designing a structure that matches how users think about content, not how the organisation thinks about it.</mark>
+
+The most common IA failure: internal org structure leaking into product navigation. Teams build nav that mirrors their departments ("HR," "Finance," "Operations") when users think in tasks ("request time off," "submit an expense," "book a room"). These are different mental models and they produce completely different structures.
+
+Methods that actually surface the right structure:
+
+- **Card sorting**: users group and label content themselves; reveals mental models
+- **Tree testing**: tests whether users can find things in a proposed structure without visual design interference
+- **First-click testing**: <mark>where users click first is almost always more telling than where they eventually land</mark>
+
+On a large intranet redesign for a government department, the existing navigation had 11 top-level categories built around internal teams. Card sorting with 24 employees produced 5 natural clusters, none of which matched the existing structure. We rebuilt the IA around those clusters. Task-completion rate in tree testing went from 41% to 79% before a single screen was designed.
+
+**In real product work:** The research method matters less than the discipline of validating or challenging an IA decision with data before it ships, rather than defending it after the fact.
+
+---
+
+## Prioritisation: Deciding What Matters Most
+
+**What most people say:** "Deciding which features or problems to tackle first."
+
+**What shows experience:** Prioritisation isn't a framework choice. It's a judgment call made under incomplete information, usually with competing stakeholders. <mark>The frameworks (RICE, MoSCoW, effort/impact) are useful scaffolding, but the real skill is knowing which inputs to trust and which to push back on.</mark>
+
+Common prioritisation mistakes designers make:
+
+- Letting engineering effort dominate (easy things get built, not important things)
+- Treating all user feedback equally (the loudest users are rarely the most representative)
+- <mark>Optimising for what's measurable rather than what matters</mark>
+
+The most useful prioritisation question I've used: **"If we could only ship one thing this quarter, what would move the metric we care about most?"** It bypasses negotiation about relative priority and forces clarity on the actual goal.
+
+> Prioritisation is a political act as much as a rational one. Pretending otherwise leads to bad decisions disguised as frameworks.
+
+On a product with a 60-item backlog and one designer, I facilitated a prioritisation session using effort/impact mapping. After initial sorting, we had 12 items in the high-impact/low-effort quadrant. Then I asked a second question: <mark>"Which of these do users actually block on right now?"</mark> That cut the list to 4. We shipped those 4 in six weeks. Support tickets in those areas dropped 55%.
+
+**Where this shows up:** In real product teams, the decisions that hold up are the ones where the criteria and the trade-off were made explicit at the time, not reconstructed after the fact.
+
+---
+
+## Design Trade-offs: Balancing User, Business, and Technical Constraints
+
+**What most people say:** "Balancing competing needs when designing a solution."
+
+**What shows experience:** <mark>Every design decision is a trade-off. Designers who can't name what they traded away can't defend their decisions, and can't learn from them when something goes wrong.</mark>
+
+The three-way tension is always present:
+
+- **User needs**: what makes the experience better for the person using it
+- **Business needs**: what moves the metric the organisation cares about
+- **Technical constraints**: what's feasible within time, stack, and resources
+
+The most honest design conversations name the trade-off explicitly instead of pretending it doesn't exist. "We chose X, which is better for the user but costs Y in engineering time, and we accepted that because Z."
+
+> Refusing to name a trade-off doesn't make it disappear. It just means someone else decides it implicitly.
+
+On a mobile checkout flow, the ideal UX required a 4-step form. Engineering flagged that it would take 3 sprints to build the validation logic. Business wanted it shipped in 4 weeks. <mark>The trade-off we named explicitly: reduce to 2 steps, accept higher error rate on the address field, add a correction screen post-submission.</mark> We measured the error rate. It was 4%. We fixed the validation in the following sprint. Naming the trade-off meant we had a plan, not a compromise we'd forgotten by the time the data came in.
+
+**In real product work:** Naming what was traded away, and then tracking whether the trade paid off, is what separates a deliberate decision from a compromise nobody remembers making.
+
+---
+
+## Design Critique: Evaluating Decisions with Clear Reasoning
+
+**What most people say:** "Giving and receiving feedback on designs."
+
+**What shows experience:** <mark>Critique is the highest-leverage skill in a design team and the one most often done badly.</mark> Bad critique is: "I don't like this," "this doesn't feel right," "can we try it the other way?" Good critique is: "This pattern breaks user expectation X because Y, which will likely cause Z."
+
+The structure that makes critique useful:
+
+- **Name the observation**: what you see, not what you feel
+- **Connect it to a principle**: why it matters (user expectation, accessibility, consistency)
+- **Propose or invite a direction**: not a solution, but a path
+
+What makes critique fail:
+
+- Critiquing taste instead of decisions
+- <mark>Skipping the "why" and going straight to the "what instead"</mark>
+- Running critique as a status meeting where everyone says the work looks good
+
+The best critique sessions I've run start with the designer framing their own decisions: "Here's the problem I was solving, here's what I tried, here's where I'm uncertain." That briefing changes everything: reviewers respond to the stated problem, not their personal preference.
+
+> A critique that makes a designer defensive has failed, regardless of whether the feedback was correct.
+
+On a junior designer's work, I introduced a critique framework where every piece of feedback had to follow: _"I notice [observation] which might cause [consequence] because [principle]."_ Within two weeks, <mark>the quality of feedback in sessions changed visibly, and more importantly, the junior designer started applying the same framework to their own self-critique</mark> before bringing work to review.
+
+**Where this shows up:** In how a team structures critique, in the feedback that actually changes a design's direction, and in the deliberate work of making critique psychologically safe.
+
+---
+
+## The Through-Line
+
+User flows surface hidden dependencies. IA aligns structure to mental models. Prioritisation forces honest decisions about what matters. Trade-offs make constraints visible instead of invisible. Critique builds the feedback loop that makes everything else improve.
+
+<mark>
+  These aren't five separate process steps. They're the habits that separate
+  designers who execute from designers who think.
+</mark>
+
+The real test of a design process isn't which steps you follow. It's whether you've built these habits deeply enough to use them under pressure, with imperfect information, and with stakeholders who don't always agree.
+
+**That's what a strong design process actually delivers.**
+
+---
+
+_Next in the series, Part 4 of 5: Collaboration & Influence. How great product designers work with PMs, engineers, and stakeholders in ways that move work forward, not just alongside it._

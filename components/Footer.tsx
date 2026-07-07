@@ -1,0 +1,94 @@
+import Link from 'next/link'
+import { Mail, Linkedin, ArrowUpRight } from 'lucide-react'
+
+const navLinks = [
+  { href: '/work', label: 'Work' },
+  { href: '/about', label: 'About' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact' },
+]
+
+export default function Footer() {
+  return (
+    <footer className="border-t border-stone-200 dark:border-stone-800 mt-32">
+      <div className="container-portfolio py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {/* Brand */}
+          <div className="space-y-4">
+            <h3 className="font-heading font-semibold text-stone-900 dark:text-stone-50 text-lg">
+              Sanjay Shrestha
+            </h3>
+            <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed max-w-[28ch]">
+              Senior Product Designer · CUA™ Certified<br />
+              Kathmandu, Nepal · Open to global remote
+            </p>
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 rounded-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-xs text-emerald-700 dark:text-emerald-400 font-medium">
+                Open to new opportunities
+              </span>
+            </div>
+          </div>
+
+          {/* Nav */}
+          <nav aria-label="Footer navigation">
+            <h4 className="text-xs font-semibold text-stone-600 dark:text-stone-400 uppercase tracking-widest mb-4">
+              Pages
+            </h4>
+            <ul className="space-y-2.5" role="list">
+              {navLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-sm text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50 transition-colors duration-200"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-xs font-semibold text-stone-600 dark:text-stone-400 uppercase tracking-widest mb-4">
+              Get in touch
+            </h4>
+            <ul className="space-y-3" role="list">
+              <li>
+                <a
+                  href="mailto:contact@sanjayshrestha.com"
+                  className="inline-flex items-center gap-2 text-sm text-stone-600 dark:text-stone-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-200"
+                >
+                  <Mail size={14} aria-hidden="true" />
+                  contact@sanjayshrestha.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linkedin.com/in/shresthasans"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-stone-600 dark:text-stone-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-200"
+                >
+                  <Linkedin size={14} aria-hidden="true" />
+                  linkedin.com/in/shresthasans
+                  <ArrowUpRight size={12} aria-hidden="true" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-16 pt-8 border-t border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-stone-600 dark:text-stone-400">
+            &copy; {new Date().getFullYear()} Sanjay Shrestha. All rights reserved.
+          </p>
+          <p className="text-xs text-stone-600 dark:text-stone-400">
+            Designed &amp; built with craft.
+          </p>
+        </div>
+      </div>
+    </footer>
+  )
+}

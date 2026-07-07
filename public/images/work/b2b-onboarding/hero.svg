@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0e7ff"/>
+      <stop offset="100%" stop-color="#c7d2fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <!-- grid -->
+  <line x1="0" y1="225" x2="1200" y2="225" stroke="#4f46e5" stroke-width="1" opacity="0.3"/>
+  <line x1="0" y1="450" x2="1200" y2="450" stroke="#4f46e5" stroke-width="1" opacity="0.3"/>
+  <line x1="300" y1="0" x2="300" y2="675" stroke="#4f46e5" stroke-width="1" opacity="0.3"/>
+  <line x1="600" y1="0" x2="600" y2="675" stroke="#4f46e5" stroke-width="1" opacity="0.3"/>
+  <line x1="900" y1="0" x2="900" y2="675" stroke="#4f46e5" stroke-width="1" opacity="0.3"/>
+  <!-- browser mockup -->
+  <rect x="180" y="100" width="840" height="480" rx="12" fill="white" opacity="0.15"/>
+  <rect x="180" y="100" width="840" height="44" rx="12" fill="white" opacity="0.2"/>
+  <circle cx="208" cy="122" r="7" fill="#4f46e5" opacity="0.5"/>
+  <circle cx="228" cy="122" r="7" fill="#4f46e5" opacity="0.35"/>
+  <circle cx="248" cy="122" r="7" fill="#4f46e5" opacity="0.25"/>
+  <rect x="280" y="112" width="440" height="20" rx="10" fill="white" opacity="0.2"/>
+  <!-- content blocks -->
+  <rect x="220" y="180" width="360" height="28" rx="6" fill="white" opacity="0.25"/>
+  <rect x="220" y="220" width="500" height="14" rx="4" fill="white" opacity="0.15"/>
+  <rect x="220" y="242" width="420" height="14" rx="4" fill="white" opacity="0.12"/>
+  <rect x="220" y="290" width="120" height="40" rx="8" fill="#4f46e5" opacity="0.6"/>
+  <rect x="356" y="290" width="120" height="40" rx="8" fill="white" opacity="0.2"/>
+  <!-- cards row -->
+  <rect x="220" y="380" width="240" height="140" rx="10" fill="white" opacity="0.15"/>
+  <rect x="480" y="380" width="240" height="140" rx="10" fill="white" opacity="0.12"/>
+  <rect x="740" y="380" width="200" height="140" rx="10" fill="white" opacity="0.1"/>
+  <!-- label -->
+  <rect x="28" y="28" width="120" height="30" rx="15" fill="#4f46e5" opacity="0.3"/>
+  <text x="88" y="48" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#1e1b4b">Hero Image</text>
+  <text x="600" y="620" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#1e1b4b" opacity="0.7">B2B Onboarding · Replace with hero image · 1200×675</text>
+</svg>

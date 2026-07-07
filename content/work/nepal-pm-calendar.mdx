@@ -1,0 +1,170 @@
+---
+title: "Designing Nepal's First Government Calendar for Office 365"
+client: "Microsoft · Nepal Prime Minister's Office"
+role: "UX Consultant"
+year: "2014–2016"
+timeline: "Compressed, earthquake context"
+teamSize: "Solo UX + Exchange backend team"
+tools: ["Photoshop", "Exchange Online", "Outlook", "Exchange ActiveSync"]
+type: "Government"
+outcome: "First O365 solution in Nepal to support Bikram Sambat. Deployed to the PM's office. Proof of concept for Microsoft's broader government market strategy in Nepal."
+description: "Nepal's official Bikram Sambat calendar had no support in Office 365, making the platform unusable for day-to-day government work. I designed a dual-calendar appointment system, native to O365, that treats BS as the primary calendar with no third-party tools or workarounds."
+---
+
+## 60-Second Summary
+
+**The problem:** Nepal's Prime Minister's Office wanted to move appointment management onto Office 365. The blocker was **cultural, not technical**: O365 had no support for **Bikram Sambat (BS)**, Nepal's official calendar used across every government office, document, and public holiday. Without it, the platform was unusable for day-to-day government work.
+
+**My role:** Sole designer. Responsible for everything from stakeholder discovery to final design system and developer handoff. The work ran during **Nepal's 2015 earthquake disaster response**, which compressed timelines and raised the stakes on getting it right the first time.
+
+**What I designed:**
+- A **dual-calendar appointment management system**: mobile and desktop
+- **Bikram Sambat as the primary calendar**, integrated natively with O365
+- **No third-party tools. No workarounds.**
+
+**Outcome:** Deployed to the PM's office. <mark>The first O365 solution in Nepal to support the Nepali calendar</mark>, and a proof of concept for Microsoft's broader government market strategy in the country.
+
+## The Challenge
+
+Nepal officially runs on Bikram Sambat, a calendar **56 to 57 years ahead of Gregorian**, with different month lengths and a distinct year structure. Every government appointment, official correspondence, and public holiday is dated in BS. For the PM's office, a system that didn't speak that calendar wasn't a minor inconvenience. <mark>It was a non-starter.</mark>
+
+Before this project, staff were reconciling dates across paper calendars, personal phones, and third-party apps. The friction was constant: every scheduling interaction required mental translation, and there was no shared source of truth. Microsoft's goal of establishing O365 in Nepal's government sector depended entirely on closing this gap.
+
+The design problem wasn't just "add BS dates." It was:
+
+> **How do you make a scheduling system feel native to people who think in one calendar and operate in a world that demands the other?**
+
+That tension, two calendars, one workflow, was the core challenge.
+
+**Hard constraints:**
+- **No dedicated production support** for at least a year. Whatever shipped had to stand on its own.
+- Users were **mobile-heavy**, in the field six days a week, often in low-connectivity conditions.
+- **Earthquake context**: the PM's office had minimal time for extended feedback cycles.
+
+## My Approach
+
+I started where the problem lived: with the people scheduling for the Prime Minister. Early sessions with PM office staff revealed something important.
+
+> These users weren't looking to switch between calendars. **They needed to hold both simultaneously.**
+
+A typical moment: confirming an appointment means checking the BS date for the official record, the Gregorian date for a visiting delegation, and the public holiday calendar before committing. <mark>That happens in under a minute, often mid-conversation.</mark>
+
+That insight shaped every decision that followed. The system couldn't be a Gregorian calendar with a Nepali translation layer. It had to be built around how Nepali government users actually think about time.
+
+I ran prototyping early and iteratively, validating with PM office staff rather than waiting until the design felt polished. The earthquake context made short cycles the right call: fast feedback, decisions grounded in real reactions rather than assumptions.
+
+## Key Design Decisions
+
+### 1. BS Date as Primary, Not Equal, Not Secondary
+
+The most consequential decision in the system: <mark>Bikram Sambat leads everywhere.</mark>
+
+- Larger text
+- Top position in every header, cell, and record
+- Gregorian shown below it, smaller, as a supporting reference
+
+I tested an equal-weighting approach early. It looked balanced on screen. In practice, users slowed down: they had to figure out which date to read first on every interaction. The BS-first hierarchy removed that decision entirely. For users who think in BS, the system finally felt like it was **built for them, not adapted for them**.
+
+<CaseStudyImage
+  src="https://placehold.co/1200x630/EFF6FF/1D4ED8?text=BS-First+Calendar+Hierarchy&font=montserrat"
+  alt="Dual-calendar layout showing Bikram Sambat date as primary with Gregorian as supporting reference"
+  caption="BS-first hierarchy: Bikram Sambat leads in size and position across every calendar view. Gregorian is present but secondary."
+/>
+
+### 2. Simultaneous Display Over Toggling
+
+An early concept let users toggle between calendar views. Technically cleaner. Looked elegant in static screens. I rejected it after watching how users actually scheduled: they scan BS and Gregorian together, in the same moment, every time.
+
+- A toggle adds **a click and a context switch** to every appointment interaction
+- For a PM's assistant handling **20+ scheduling tasks a day**, that compounds fast
+- Simultaneous display was harder to lay out well, but it was **the only honest response to the workflow**
+
+### 3. Validated Placement Through Testing, Not Instinct
+
+I tested three positions for the dual-calendar reference header:
+
+| Position | Result |
+| --- | --- |
+| **Top bar** ✓ | Fastest to reference, no scanning movement required |
+| Side panel | Felt like a reference tool, not a first-class element |
+| Bottom strip | Missed during quick scans |
+
+Government users on calls or in meetings while scheduling responded fastest to the top bar. <mark>This was a case where the less "original" solution was the right one, and I needed testing to confirm it rather than defaulting to something novel.</mark>
+
+### 4. Mobile-First, Not Mobile-Adapted
+
+With users in the field most of the week, I designed for mobile first and expanded outward:
+
+- Core calendar logic, appointment detail view, and date picker **all validated at 375px before anything else**
+- **Touch targets set large** enough for fast use under pressure
+- **Offline sync indicator surfaced prominently**: not buried in settings, because connectivity uncertainty was part of daily reality
+
+### 5. Print as a Core Workflow
+
+Print wasn't a nice-to-have. Nepal's government environment still runs on printed schedules: for official records, for meetings without screen access, for reference in the field.
+
+- Designed **day, week, and month print templates** as full features
+- **Full dual-calendar rendering** with the same visual hierarchy as the digital view
+- Validated against **real government appointment records** so officials could use them from day one
+
+## Design Highlights
+
+**Information architecture principle:** Reduce the cognitive cost of operating across two calendars.
+
+- **BS/Gregorian date pair shown persistently** in navigation
+- **Every appointment card carries both dates**
+- **Status indicators** (confirmed, tentative, conflict) use colour *and* label together, so meaning is clear without relying on colour alone
+
+**Visual language, intentional for government context:**
+
+| Element | Choice | Why |
+| --- | --- | --- |
+| Primary colour | Navy blue | Authority and formality appropriate for the PM's office |
+| Accent colour | Teal | Highlights BS dates and interactive elements |
+| Typography | Segoe UI | Cross-platform consistency within O365 |
+| Nepali date text | Large, meets accessibility thresholds | Legibility under field conditions |
+
+<CaseStudyImage
+  src="https://placehold.co/1200x630/F5F3FF/6D28D9?text=Component+Library+%26+Print+Templates&font=montserrat"
+  alt="Component library showing calendar grids, appointment cards, and print templates"
+  caption="Component library built for reuse: date pickers, calendar grids, appointment cards, alert states, and print templates."
+/>
+
+**The 38-page design specification** covered every view, interaction state, and edge case. Given that production support wouldn't be available for over a year, I treated the spec as a product in itself.
+
+> Written so developers who hadn't been part of the process could **build and maintain it confidently**.
+
+## Collaboration & Leadership
+
+**PM office stakeholders:** Hierarchy was real, time was scarce, and I had one chance to get requirements right. I ran structured sessions that gave decision-makers something to react to rather than open-ended questions, so alignment could happen in the time available.
+
+**Satish (calendar data owner):** The 10-year BS dataset came from Nepal's astrological committee. I worked closely with Satish to validate correct mapping, paying particular attention to month length variations and edge cases in conversion logic. <mark>A design that looked correct but produced wrong dates would have destroyed trust immediately.</mark>
+
+**Microsoft's business team:** I framed the PM office deployment explicitly as a market strategy moment, not just a client project. That framing:
+- Aligned the design ambition with the business case for a thorough engagement
+- Opened the conversation about contributing patterns back to **Microsoft's O365 localisation roadmap for South Asia**
+
+## Outcome
+
+The system deployed to Nepal's Prime Minister's Office on Office 365. The PM and key assistants moved from a fragmented mix of paper calendars and disconnected apps to a unified platform with native dual-calendar support across mobile and desktop.
+
+At a broader level:
+- Demonstrated, for the first time, that <mark>O365 could serve Nepal's government sector</mark>
+- Removed the localisation barrier that had previously made the platform unusable for this context
+- Established a foundation for national-scale rollout
+
+> Qualitative feedback from PM office staff during validation confirmed the BS-first hierarchy read as natural and meaningfully reduced the friction of scheduling across two calendars.
+
+## Reflection
+
+**The design I almost shipped had a toggle.** It was cleaner. It looked more considered. But it was wrong, and early testing caught it before it caused real problems.
+
+The instinct toward elegance can work against users who need directness. The dual-display pattern was harder to get right: more visual complexity, more layout edge cases. But it reflected how people actually think. <mark>Designing to match the mental model, even when a simpler abstraction was available, was the call that made the system usable.</mark>
+
+**What I'd revisit:** More mobile field testing, earlier. Most validation happened on desktop given the context, and some offline state edge cases would have benefited from real-world testing rather than simulated conditions.
+
+## Portfolio Takeaway
+
+This project reflects how I approach design leadership: start with the problem as users experience it, not as the brief defines it. Make decisions that are defensible through evidence rather than convention.
+
+The willingness to reject a cleaner solution in favour of a more honest one, and to back that call with testing rather than instinct, is the kind of judgment that defines good work at this level.

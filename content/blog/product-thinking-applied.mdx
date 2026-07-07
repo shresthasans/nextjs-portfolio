@@ -1,0 +1,130 @@
+---
+title: "Product Design Concepts Explained, Part 2 of 5: Product Thinking"
+date: "2026-07-03"
+readingTime: "8 min read"
+tag: "UX"
+excerpt: "Great design goes beyond creating interfaces. Learn how product thinking helps designers define the right problems, measure success, prioritize outcomes, and build products that deliver lasting value for both users and businesses."
+coverImage: "/images/blog/product-thinking.png"
+series: "Product Design Concepts Explained"
+seriesPart: 2
+seriesTotal: 5
+---
+
+_This is Part 2 of a 5-part series that explores the concepts, frameworks, and decision-making behind great digital products. Each article goes beyond definitions to explain when these concepts matter, why they matter, and how experienced product designers apply them in real-world work. [Part 1 covered User Research](/blog/user-research-applied). This post covers Product Thinking._
+
+---
+
+There's a version of a designer who ships beautiful screens. And there's a version who changes what gets built in the first place.
+
+Great product designers, especially at product-led companies, learn to operate as the second kind. Product thinking isn't a separate skill from design. <mark>It's the lens that makes your design decisions legible to the business</mark>, and makes you someone worth including in early conversations.
+
+These five concepts are what that looks like in practice.
+
+---
+
+## Problem Framing: Defining the Right Problem Before Solving It
+
+**What most people say:** "It's about understanding the problem space before jumping to solutions."
+
+**What shows experience:** <mark>Problem framing is the skill of refusing the brief long enough to ask whether it's the right brief.</mark> Most design problems arrive pre-framed. Someone has already decided what the problem is. Your job is to pressure-test that framing before investing weeks into solving the wrong thing.
+
+The classic failure mode: a stakeholder says "users need a better onboarding flow." A designer builds a better onboarding flow. Retention doesn't move. Post-mortem reveals the real problem was that users didn't understand the product's value proposition, and that problem lives in marketing, not onboarding.
+
+> The brief is a hypothesis, not a directive. Treat it like one.
+
+On a government portal project, the stated problem was "the form is too long and users drop off." We reframed it after two days of research: <mark>users weren't dropping off because the form was long. They were dropping off because they didn't know what documents they'd need before they started.</mark> The fix wasn't a shorter form. It was a requirements checklist on the landing page, built in a day, that reduced drop-off by 34%.
+
+**Where this shows up:** During product discovery, this looks like pushing back on a problem definition before committing engineering time to it, being explicit about what evidence you used to reframe the problem, and tracking what changed as a result.
+
+---
+
+## Success Metrics: Measuring Whether a Solution Actually Worked
+
+**What most people say:** "KPIs that tell you if the design is performing."
+
+**What shows experience:** Most designers can name metrics. Fewer can define them _before_ the work starts, and fewer still can explain why a metric moved (or didn't) after launch.
+
+<mark>
+  The discipline is in choosing metrics that are sensitive to your specific
+  design change
+</mark>
+, not just the metrics your company already tracks. If you changed a checkout
+flow, "revenue" is too blunt. "Checkout completion rate by step" is the right
+instrument.
+
+Three questions worth asking before any project:
+
+- **What does success look like in 30 days?** This forces specificity.
+- **What's the counter-metric?** Every optimisation has a tradeoff. If you increase click-through, does satisfaction drop?
+- **What would make us roll this back?** <mark>Defining failure criteria upfront is more useful than defining success.</mark>
+
+On a feature I shipped for an enterprise workflow tool, we tracked task completion rate as our primary metric. It improved. But our counter-metric, time-to-complete, went up, which told us users were finishing tasks but doing more work to do so. We'd moved load from one step to another. We wouldn't have caught that without the counter-metric.
+
+**In real product work:** This means defining a specific metric before a project starts, being ready to explain what you learned once you measured it, and treating any surprise the data reveals as a signal worth investigating rather than noise.
+
+---
+
+## North Star Metric: The Metric That Best Reflects Product Value
+
+**What most people say:** "The single metric that represents the core value of your product."
+
+**What shows experience:** <mark>A North Star Metric is a forcing function for alignment, not just a dashboard number.</mark> Its value isn't measurement. It's the conversations it forces when teams disagree about direction.
+
+The common mistakes:
+
+- **Revenue as North Star**: too downstream, too many variables, too slow to respond to design decisions
+- **DAU/MAU**: measures presence, not value. Users who log in and leave immediately still count
+- **NPS**: a lagging indicator. By the time it moves, the damage is done
+
+> A good North Star Metric moves when users get value. Not when they show up. Not when they pay. When they _succeed_.
+
+For a meeting productivity tool I worked on, the candidate metrics were: MAU, meeting count, and "meetings where action items were completed within 48 hours." <mark>Only the third one tracked whether the product actually worked.</mark> It was harder to measure. It was the right one.
+
+**Where this shows up:** When building successful products, this means being able to name the metric you'd choose as a product's North Star, articulate why alternatives fall short, and use that metric to force alignment when a team disagrees about direction.
+
+---
+
+## Activation: The Moment Users First Experience Value
+
+**What most people say:** "When a user first gets value from the product."
+
+**What shows experience:** Activation is the most underinvested moment in most products. Companies spend heavily on acquisition and retention, then wonder why both leak. <mark>Activation is the seam between the two, and it's almost always a design problem.</mark>
+
+The activation moment is specific. It's not "a user signs up." It's "a user completes their first project" or "a user sends their first message to a teammate" or "a user sees their first insight." Defining it precisely is what makes it improvable.
+
+- Vague: "User completes onboarding"
+- Specific: <mark>"User publishes their first piece of content within 7 days of signup"</mark>
+
+On a SaaS analytics product, activation was defined as "user views a dashboard." Post-analysis showed users who viewed _and filtered_ a dashboard within 72 hours retained at 3× the rate of those who only viewed. The filtering behaviour was the real activation event. We redesigned onboarding to guide users to their first filter, not just their first view. Activation-to-retention conversion improved by 28%.
+
+**In real product work:** This means defining an activation moment specifically, rather than settling for a vague proxy, and being able to point to the design change that improved it.
+
+---
+
+## Retention: How Well Your Product Brings Users Back
+
+**What most people say:** "Whether users keep coming back to use the product."
+
+**What shows experience:** Retention isn't a metric you optimise at the end. <mark>It's a signal that tells you whether your core product loop is working.</mark> If you're losing users after their first or second session, no growth tactic fixes that. You have a product problem.
+
+The design-specific lens on retention: habit formation. Users return when the product fits into an existing behaviour pattern, or creates a new one worth repeating. That's a design problem: triggers, rewards, and value loops.
+
+> Retention problems are almost always core-value problems. Dark patterns delay the signal. They never fix the underlying issue.
+
+On a productivity app, retention at week 4 was 18%, low for the category. Analysis showed users who set up a recurring reminder on day 1 retained at 61%. The reminder setup was buried in settings, three taps deep. <mark>Moving it to the end of the first-run flow, not as an option but as a step, lifted 4-week retention to 39%</mark> in an A/B test. Same core product, same value proposition. The design change surfaced the habit trigger earlier.
+
+**Where this shows up:** Throughout the design process, this means diagnosing retention problems down to their root cause, rather than reaching for a growth tactic, and knowing which design lever actually moves the underlying behaviour.
+
+---
+
+## The Thread That Connects All Five
+
+Problem framing, success metrics, North Star, activation, retention: these aren't separate concepts. <mark>They're a single chain of reasoning</mark>:
+
+**Define the right problem → measure the right outcome → know what success looks like → design the moment value lands → make sure users return for it.**
+
+A designer who can walk through that chain for any project they've worked on isn't just a designer. They're a product partner. In real product teams, that's who earns a seat in early conversations, and who keeps it.
+
+---
+
+_Next in the series, Part 3 of 5: Design Systems Thinking. How scale, tokens, and component architecture shape decisions once a product grows beyond a single team._

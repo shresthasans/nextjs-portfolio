@@ -1,0 +1,82 @@
+@import 'yet-another-react-lightbox/styles.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 250 249;
+    --foreground: 12 10 9;
+    --accent: 202 138 4;
+  }
+
+  .dark {
+    --background: 12 10 9;
+    --foreground: 250 250 249;
+    --accent: 202 138 4;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-stone-50 text-stone-900 font-sans transition-colors duration-300;
+    @apply dark:bg-stone-950 dark:text-stone-50;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold tracking-tight;
+  }
+
+  mark {
+    @apply bg-blue-100 text-blue-900 not-italic;
+    padding: 0.1em 0.35em;
+    border-radius: 0.2em;
+    font: inherit;
+  }
+
+  .dark mark {
+    @apply bg-blue-950/60 text-blue-200;
+  }
+
+  ::selection {
+    @apply bg-amber-200 text-stone-900 dark:bg-amber-700 dark:text-stone-50;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-amber-600 rounded-sm;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .prose-portfolio {
+    @apply max-w-[70ch];
+  }
+
+  /* Artifact components embedded in MDX should not be constrained by prose max-width */
+  .prose-portfolio > :where([class*="rounded-"],[class*="grid"]) {
+    max-width: none;
+  }
+
+  .container-portfolio {
+    @apply max-w-6xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+}

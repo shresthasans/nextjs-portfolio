@@ -1,0 +1,60 @@
+---
+title: "What I learned building a design system from scratch"
+date: "2024-03-15"
+readingTime: "8 min read"
+tag: "Design Systems"
+excerpt: "After building three design systems from the ground up, in healthcare, eCommerce, and SaaS, here's what I'd do differently on day one."
+coverImage: "/images/blog/designing-design-system-from-scratch.png"
+---
+
+Every design system starts with the same optimism. A Figma file. A Notion doc. A kickoff meeting where everyone agrees this time it will be different.
+
+Most design systems die quietly. Not with a bang but with a gradual drift: components that fall out of sync with production, a token system nobody uses, documentation that's six months stale, and eventually designers going rogue because it's faster.
+
+After building three systems from scratch across very different organisations, I've developed some hard opinions.
+
+## The first mistake: starting with components
+
+It feels natural to start with buttons. Buttons are tangible. You can show them to stakeholders. You can tick them off a list.
+
+But buttons are downstream of decisions you haven't made yet. What is your spacing scale? What does "primary" mean in your system: is it your brand colour, or is it contextual? What's your border radius philosophy? If you can't answer these, your button component will be wrong in ways you can't see yet.
+
+**Start with tokens, not components.**
+
+Tokens are your system's vocabulary. Define colour (semantic aliases, not hex values), spacing (a scale with a clear rationale), typography (a limited set of text styles, not a font picker), and elevation. Then build components that consume those tokens.
+
+When your tokens are right, changing your brand colour is a one-variable change. When they're wrong, it's 400 find-and-replace operations.
+
+## The second mistake: building for perfection
+
+The first version of every design system I've built has shipped incomplete. This used to bother me.
+
+It doesn't anymore, because I've learned that an incomplete system that's actually used beats a perfect system that's too heavy to adopt. Ship the 20 components that solve 80% of the use cases. Ship real documentation even if it's rough. Ship something your first consumer team can build with _today_.
+
+Adoption is the only metric that matters. A design system with no users is just an art project.
+
+## What nobody talks about: governance
+
+The hardest problem in design system work is not the design. It's the governance.
+
+Who decides when a component should go in the system versus stay in a product-specific library? Who reviews pull requests? What happens when Product Team A wants to modify a component in a way that breaks Product Team B's usage?
+
+You need a decision-making framework _before_ you have the first conflict, not after. The conflict will come. Teams will want exceptions. Engineers will have strong opinions about implementation. Designers will diverge.
+
+My recommendation: a small system team (1–2 designers, 1 engineer) with explicit decision authority, a lightweight RFC process for additions, and a versioning strategy that lets product teams stay on older versions while migrating at their own pace.
+
+## On documentation
+
+Documentation is a product. It has users (your colleagues), it has jobs to do (answer questions before they become Slack messages), and it degrades if you don't maintain it.
+
+The best documentation I've written has been written _while building the component_, not after. The context is freshest then. You know why you made the decisions you made. Six months later you'll have forgotten.
+
+Two things in every component doc: **usage guidelines** (when to use this, when not to) and **accessibility requirements** (keyboard behaviour, ARIA patterns, focus management). Everything else is useful. Those two are essential.
+
+## The long game
+
+A design system is a living product. It is never done. The systems that succeed are the ones that have someone who cares about them: someone who treats component requests as product requirements, advocates for the system's value in roadmap meetings, and maintains documentation the way a library maintains its catalogue.
+
+If nobody owns the design system, nobody will use it.
+
+That's not an abstraction. It's the reason most design systems die.

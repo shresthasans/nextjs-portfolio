@@ -1,0 +1,87 @@
+---
+title: "Webscale Stratus Platform"
+client: "Webscale Networks"
+role: "Senior Product Designer"
+year: "2021"
+timeline: "2.5 years"
+teamSize: "12 people"
+tools: ["Figma", "Storybook", "Miro", "Amplitude", "FullStory", "HTML/CSS"]
+type: "eCommerce"
+outcome: "Improved onboarding conversion by 60%. Reduced support tickets by 35%. Design system used by 6 product teams."
+description: "Designing a global cloud platform for Fortune 500 eCommerce retailers, from onboarding to real-time performance dashboards."
+---
+
+## Overview
+
+Webscale Stratus is a cloud infrastructure platform purpose-built for eCommerce, think smart CDN, traffic management, and performance optimisation as a managed service. When I joined as Senior Product Designer, the platform was technically powerful but visually and experientially dated, with an onboarding drop-off rate that was silently costing the company significant ARR.
+
+## My Role
+
+Over 2.5 years I owned:
+
+- End-to-end UX for the core platform (onboarding, dashboard, alerts, configuration)
+- Building Stratus Design System from scratch, the first design system the company had
+- User research programme: quarterly usability testing, session recording analysis, support ticket triage
+- Design operations: aligning with 4 frontend engineers across US and India timezones
+
+## The Challenge
+
+Webscale's customers are enterprise eCommerce teams, technically sophisticated, time-poor, and under constant pressure from trading peaks (Black Friday, Cyber Monday). The platform had to serve both a DevOps engineer tuning performance configurations and a VP of eCommerce checking uptime before a flash sale.
+
+Key problems:
+
+- **Onboarding**: New customers required extensive hand-holding from solutions engineers because the self-serve setup was opaque. The journey from sign-up to first live site was 14 days average, with most of that time waiting for humans.
+- **Dashboard complexity**: The main dashboard surfaced 80+ metrics with no hierarchy. Users couldn't tell what was important.
+- **Alert fatigue**: The alerting system generated noise. Customers had trained themselves to ignore alerts, a genuine risk during actual incidents.
+
+## Process
+
+### Research First
+
+I audited 6 months of support tickets and categorised every issue. 42% of tickets related to onboarding configuration, things that should have been self-explanatory. I ran moderated usability tests with 8 customers and identified 3 critical failure points in the first-run experience.
+
+### Onboarding Redesign
+
+The old onboarding was a wizard with 12 steps, most of which required information the customer didn't have at hand (DNS records, origin IPs, SSL certificates). We restructured it as an asynchronous journey:
+
+- Collect only what's needed right now
+- "Park" steps that need backend configuration, with email reminders
+- Progress saved automatically; resume from any device
+- Contextual help embedded in-line, not in a separate help centre
+
+Time-to-first-live-site dropped from 14 days to 3 days. Onboarding conversion improved by 60%.
+
+<UserFlowPlaceholder />
+
+### Dashboard Hierarchy
+
+I introduced a three-layer architecture: **Health** (is anything broken?), **Performance** (how fast is the site?), **Traffic** (what's the pattern?). Each layer had a progressive detail model, a single health score at a glance, with drill-down for root cause.
+
+The 80+ metrics were organised into these three lenses. Only 8 metrics were surfaced at the top level; everything else was one click away with context about why it mattered.
+
+<WireframePlaceholder />
+
+### Design System
+
+Stratus Design System shipped with:
+
+- 200+ components across web and email
+- Design tokens for colour, spacing, typography
+- Figma + Storybook paired documentation
+- Accessibility annotation kit for engineering handoff
+- Contribution guidelines so product teams could extend it
+
+The design system reduced designer-to-engineer friction significantly and cut UI-related QA cycles in half.
+
+<VisualDesignPlaceholder />
+
+## Outcome
+
+- Onboarding conversion improved by **60%**
+- Time-to-first-live-site reduced from 14 days to **3 days**
+- Support ticket volume for onboarding issues down **35%**
+- Alert fatigue reduced: actionable alert rate improved from 22% to **71%**
+- Design system adopted by **6 product teams** across the organisation
+
+
+*Webscale Networks was acquired in 2023. Selected details have been generalised.*

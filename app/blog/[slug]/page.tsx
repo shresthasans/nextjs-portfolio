@@ -1,0 +1,270 @@
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import Link from 'next/link'
+import Image from 'next/image'
+import { clsx } from 'clsx'
+import { ArrowLeft, ArrowUpRight, Clock } from 'lucide-react'
+import AnimatedSection from '@/components/AnimatedSection'
+import BlogCard, { BlogPost } from '@/components/BlogCard'
+import ReadingProgress from '@/components/ReadingProgress'
+import TableOfContents from '@/components/TableOfContents'
+import { getMDXComponents } from '@/components/mdx-components'
+import { extractHeadings } from '@/lib/toc'
+
+interface BlogFrontmatter {
+  title: string
+  date: string
+  readingTime: string
+  tag: BlogPost['tag']
+  excerpt: string
+  coverImage?: string
+}
+
+function getPost(slug: string) {
+  const filePath = path.join(process.cwd(), 'content', 'blog', `${slug}.mdx`)
+  if (!fs.existsSync(filePath)) return null
+  const raw = fs.readFileSync(filePath, 'utf-8')
+  const { data, content } = matter(raw)
+  return { frontmatter: data as BlogFrontmatter, content }
+}
+
+function getMorePosts(currentSlug: string, tag: string, limit = 3): BlogPost[] {
+  const dir = path.join(process.cwd(), 'content', 'blog')
+  if (!fs.existsSync(dir)) return []
+
+  const others = fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith('.mdx') && f.replace('.mdx', '') !== currentSlug)
+    .map((filename) => {
+      const slug = filename.replace('.mdx', '')
+      const raw = fs.readFileSync(path.join(dir, filename), 'utf-8')
+      const { data } = matter(raw)
+      return { slug, ...data } as BlogPost
+    })
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
+  const sameTag = others.filter((p) => p.tag === tag)
+  const diffTag = others.filter((p) => p.tag !== tag)
+  return [...sameTag, ...diffTag].slice(0, limit)
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const post = getPost(slug)
+  if (!post) return { title: 'Post Not Found' }
+  const { frontmatter: fm } = post
+  return {
+    title: fm.title,
+    description: fm.excerpt,
+    openGraph: {
+      title: `${fm.title} | Sanjay Shrestha`,
+      description: fm.excerpt,
+      url: `https://sanjayshrestha.com/blog/${slug}`,
+      type: 'article',
+      publishedTime: fm.date,
+    },
+  }
+}
+
+export async function generateStaticParams() {
+  const dir = path.join(process.cwd(), 'content', 'blog')
+  if (!fs.existsSync(dir)) return []
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith('.mdx'))
+    .map((f) => ({ slug: f.replace('.mdx', '') }))
+}
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
+}
+
+const tagHeaderBg: Record<BlogPost['tag'], string> = {
+  AI: 'from-amber-50/70 dark:from-amber-950/20',
+  UX: 'from-blue-50/70 dark:from-blue-950/20',
+  'Design Systems': 'from-purple-50/70 dark:from-purple-950/20',
+  Career: 'from-emerald-50/70 dark:from-emerald-950/20',
+}
+
+const tagAccentBg: Record<BlogPost['tag'], string> = {
+  AI: 'bg-amber-400 dark:bg-amber-500',
+  UX: 'bg-blue-500 dark:bg-blue-500',
+  'Design Systems': 'bg-purple-500 dark:bg-purple-500',
+  Career: 'bg-emerald-500 dark:bg-emerald-500',
+}
+
+const tagCoverImage: Record<BlogPost['tag'], string> = {
+  AI: 'https://placehold.co/1200x630/FFFBEB/B45309?text=AI+%26+Design&font=montserrat',
+  UX: 'https://placehold.co/1200x630/EFF6FF/1D4ED8?text=UX+Research&font=montserrat',
+  'Design Systems': 'https://placehold.co/1200x630/F5F3FF/6D28D9?text=Design+Systems&font=montserrat',
+  Career: 'https://placehold.co/1200x630/ECFDF5/065F46?text=Career+Growth&font=montserrat',
+}
+
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = getPost(slug)
+  if (!post) notFound()
+
+  const { frontmatter: fm, content } = post
+  const morePosts = getMorePosts(slug, fm.tag)
+  const headings = extractHeadings(content)
+
+  return (
+    <>
+      <ReadingProgress />
+
+      {/* Header */}
+      <section className={`relative bg-gradient-to-b ${tagHeaderBg[fm.tag]} to-transparent dark:to-transparent pt-28 pb-16`}>
+        <div className="container-portfolio">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-sm text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50 transition-colors duration-200 cursor-pointer mb-8"
+          >
+            <ArrowLeft size={14} aria-hidden="true" /> All posts
+          </Link>
+
+          <AnimatedSection className="max-w-3xl">
+            <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-3">
+              {fm.tag}
+            </p>
+            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-stone-900 dark:text-stone-50 tracking-tight leading-[1.1] mb-4 text-balance">
+              {fm.title}
+            </h1>
+            <p className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+              {fm.excerpt}
+            </p>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-stone-100 dark:bg-stone-800 rounded-lg">
+              <span className="flex items-center gap-1.5 text-xs font-medium text-stone-600 dark:text-stone-300">
+                <Clock size={12} aria-hidden="true" />
+                {fm.readingTime}
+              </span>
+              <span className="text-stone-300 dark:text-stone-600" aria-hidden="true">·</span>
+              <time dateTime={fm.date} className="text-xs font-medium text-stone-600 dark:text-stone-300">
+                {formatDate(fm.date)}
+              </time>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Featured image — deliberately wider than the article column below */}
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <AnimatedSection delay={0.05}>
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-stone-200 dark:border-stone-800 bg-stone-100 dark:bg-stone-900">
+            <Image
+              src={fm.coverImage ?? tagCoverImage[fm.tag]}
+              alt={`Cover image for ${fm.title}`}
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+        </AnimatedSection>
+      </div>
+
+      {/* Article body */}
+      <section className="pb-24">
+        <div className="container-portfolio">
+          <div className={clsx('grid grid-cols-1 gap-12', headings.length > 0 && 'lg:grid-cols-12')}>
+            {/* Main content */}
+            <div className={headings.length > 0 ? 'lg:col-span-8' : 'max-w-[70ch] mx-auto w-full'}>
+              <AnimatedSection delay={0.1}>
+                <div className="max-w-[70ch] mx-auto prose prose-lg prose-stone dark:prose-invert prose-headings:font-heading prose-headings:tracking-tight prose-headings:leading-snug prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-a:text-amber-700 dark:prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-stone-900 dark:prose-strong:text-stone-100 prose-blockquote:border-l-amber-400 prose-blockquote:text-stone-600 dark:prose-blockquote:text-stone-400 prose-lead:text-stone-600 dark:prose-lead:text-stone-400 prose-hr:border-stone-200 dark:prose-hr:border-stone-800">
+                  <MDXRemote source={content} components={getMDXComponents()} />
+                </div>
+              </AnimatedSection>
+
+              {/* Author card */}
+              <AnimatedSection delay={0.2} className="mt-16 max-w-[70ch] mx-auto">
+                <div className="rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900/60 overflow-hidden flex">
+                  <div className={`w-1 shrink-0 ${tagAccentBg[fm.tag]}`} aria-hidden="true" />
+                  <div className="flex items-start gap-5 p-6 flex-1">
+                    <div
+                      className="w-11 h-11 rounded-full bg-gradient-to-br from-stone-300 to-stone-400 dark:from-stone-600 dark:to-stone-700 shrink-0 flex items-center justify-center text-white font-heading font-semibold text-sm select-none"
+                      aria-hidden="true"
+                    >
+                      SS
+                    </div>
+                    <div>
+                      <p className="font-heading font-semibold text-stone-900 dark:text-stone-50 text-sm mb-0.5">
+                        Sanjay Shrestha
+                      </p>
+                      <p className="text-xs text-stone-500 dark:text-stone-400 mb-2">
+                        Senior Product Designer · CUA™ Certified
+                      </p>
+                      <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+                        15+ years designing enterprise SaaS, B2B, and government digital products. Currently at Decisions.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </AnimatedSection>
+            </div>
+
+            {/* Sidebar */}
+            {headings.length > 0 && (
+              <AnimatedSection className="lg:col-span-4" delay={0.2}>
+                <div className="sticky top-28">
+                  <TableOfContents headings={headings} />
+                </div>
+              </AnimatedSection>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Continue reading */}
+      {morePosts.length > 0 && (
+        <section className="pb-24 border-t border-stone-200 dark:border-stone-800 pt-16">
+          <div className="container-portfolio">
+            <AnimatedSection className="flex items-end justify-between mb-10">
+              <div>
+                <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-2">
+                  Keep Reading
+                </p>
+                <h2 className="font-heading text-3xl sm:text-4xl font-bold text-stone-900 dark:text-stone-50 tracking-tight leading-tight">
+                  {morePosts.some((p) => p.tag === fm.tag) ? 'Related Posts' : 'More from the Blog'}
+                </h2>
+              </div>
+              <Link
+                href="/blog"
+                className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-200 cursor-pointer shrink-0"
+              >
+                All posts <ArrowUpRight size={14} aria-hidden="true" />
+              </Link>
+            </AnimatedSection>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {morePosts.map((p, i) => (
+                <AnimatedSection key={p.slug} delay={i * 0.08}>
+                  <BlogCard {...p} />
+                </AnimatedSection>
+              ))}
+            </div>
+
+            <div className="mt-8 sm:hidden">
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-200 cursor-pointer"
+              >
+                All posts <ArrowUpRight size={14} aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+    </>
+  )
+}

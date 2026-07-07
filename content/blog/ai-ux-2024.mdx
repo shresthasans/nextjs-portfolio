@@ -1,0 +1,52 @@
+---
+title: "Designing for AI: the interface patterns that actually work"
+date: "2024-06-02"
+readingTime: "6 min read"
+tag: "AI"
+excerpt: "AI features are landing in every product. Most of them feel bolted on. Here's what separates AI-native UX from AI-as-a-feature."
+coverImage: "/images/blog/ai-interface-design.png"
+---
+
+There is a version of AI UX that is a chatbot jammed into a sidebar. You've seen it. A little sparkle icon. A panel that slides out. A text field that says "Ask me anything." Most of them go largely unused.
+
+Then there's the kind of AI UX that changes how people work, quietly, without fanfare, in a way that makes the old way feel broken.
+
+The difference isn't the model. It's the design.
+
+## The fundamental question
+
+Before you design an AI feature, answer this: **what is the user trying to accomplish, and where in that workflow does AI genuinely reduce friction?**
+
+Most bad AI UX answers a different question: "Where can we put the AI?" The answer is usually "in a chatbot." Chatbots are not always the right interface for AI. They're the right interface for open-ended query resolution. For most product workflows, a more opinionated UI will serve users better.
+
+The user trying to categorise 500 support tickets doesn't want to describe their taxonomy to a chat interface. They want the AI to suggest categories, they want to accept or modify, and they want to be done. That's not a chatbot. It's a workflow with embedded intelligence.
+
+## Patterns that work
+
+**1. AI as pre-fill, not first-fill.** The best AI integrations surface a suggestion and ask the user to confirm, correct, or discard it. This keeps the human in control, builds trust incrementally, and produces better outcomes because users catch errors. It's slower than pure automation but more reliable, and users feel ownership of the output.
+
+**2. Confidence as a first-class signal.** When AI is uncertain, say so. Not with a disclaimer buried in fine print. Visually, inline, in the moment. A low-confidence suggestion should look different from a high-confidence one. Users develop calibrated trust in systems that are honest about their limits.
+
+**3. Graceful degradation.** What happens when the AI can't help? The worst AI features leave the user stranded: no suggestion, no fallback, no way to proceed. Design the empty/failure state as carefully as the happy path. In many cases the fallback is just the manual flow the user would have used before the AI existed.
+
+**4. Progressive trust-building.** Don't ask for high-stakes AI actions before low-stakes ones have succeeded. If your AI writes email responses, start with drafts in a review queue. Move to one-click send after users have seen enough good outputs. Trust is earned interaction by interaction.
+
+## The transparency obligation
+
+AI outputs can be wrong. This is not a bug; it is an inherent characteristic of probabilistic systems. The design obligation is to make it easy for users to understand what the AI did and to correct it.
+
+This means: editable outputs, not read-only ones. Explanations users can interrogate ("Why did you suggest this?"). Undo for consequential AI actions. Audit logs for teams.
+
+These features cost engineering effort. They are not optional if your AI feature has real consequences in the world.
+
+## A note on trust in enterprise contexts
+
+Enterprise users are a specific case. They are often required to produce auditable outputs. They work within compliance constraints. They cannot simply trust a black box.
+
+For enterprise AI, explainability is not a nice-to-have. It is a buying criterion. "Why did it say this?" needs to have an answer, not a perfect answer, but a coherent one. Design for the question.
+
+## Where this is going
+
+The products that will win over the next few years are the ones that make AI invisible, not in the sense that users don't know it's there, but in the sense that it doesn't feel like a feature. It feels like the product is smarter than it used to be.
+
+That's harder to design than a chatbot. But it's the work worth doing.

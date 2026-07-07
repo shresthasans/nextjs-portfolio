@@ -1,0 +1,124 @@
+---
+title: "Product Design Concepts Explained, Part 1 of 5: User Research"
+date: "2026-07-03"
+readingTime: "9 min read"
+tag: "UX"
+excerpt: "Understanding users is the foundation of every successful product. Explore generative and evaluative research, Jobs to Be Done, mental models, and affinity mapping, and learn how these methods uncover insights that lead to better product decisions."
+coverImage: "/images/blog/user-research.png"
+series: "Product Design Concepts Explained"
+seriesCoverImage: "/images/blog/ux-concepts.png"
+seriesPart: 1
+seriesTotal: 5
+---
+
+_A practical series that explores the concepts, frameworks, and decision-making behind great digital products. Each article goes beyond definitions to explain when these concepts matter, why they matter, and how experienced product designers apply them in real-world work. This is Part 1, covering user research. Next up: Information Architecture._
+
+---
+
+There's a pattern I've seen across design teams, and honestly in my own early career. Someone asks about user research methods and the answer becomes a recitation: <mark>"Generative research is about understanding problems before designing. Evaluative research validates your designs."</mark>
+
+Correct. And completely forgettable.
+
+What separates good research from great research is **judgment**. Not whether you know what a mental model is, but whether you've used one to make a better decision under real constraints. This post covers five core research concepts, not as definitions, but as tools experienced product designers actually use and can speak to with specificity.
+
+---
+
+## Generative Research: Understanding the Problem Before Designing
+
+**What most people say:** "It's exploratory research done early in the process to understand user needs."
+
+**What shows experience:** <mark>Generative research is how you avoid building the wrong thing with high craft.</mark> It's the work that earns you the right to open Figma.
+
+In practice, this looks like contextual inquiry, diary studies, stakeholder interviews, or simply sitting next to someone while they do their actual job. The goal isn't to confirm your assumptions. It's to surface the ones you didn't know you had.
+
+> The actual problem was trust, not information overload. No amount of better layout would fix a trust problem.
+
+On one project, I was brought in to redesign a dashboard for operations teams. The brief assumed the core problem was information overload. Three contextual interviews later, the actual problem was clearer: users weren't overwhelmed by information, <mark>they didn't trust it</mark>. Data was stale. They'd learned to verify everything manually before acting on it.
+
+Generative research changed the entire problem statement. That's the story worth telling.
+
+**Where this shows up:** In how research reframes a project's scope, changes stakeholder assumptions, or prevents a specific wrong turn before real resources are committed to it.
+
+---
+
+## Evaluative Research: Validating Designs with Users
+
+**What most people say:** "Usability testing to see if the design works."
+
+**What shows experience:** Evaluative research is a conversation with reality. <mark>The question isn't "do users like this?" It's "can users accomplish the goal, and where does the design get in the way?"</mark>
+
+The distinction matters because liking and usability are different things. Users will often say they like something while failing to complete the task. **What you observe matters more than what they report.**
+
+> Five sessions. Fifteen minutes each. One label change that removed a top support ticket category.
+
+I've run evaluative sessions where five participants couldn't find a feature that the product team was certain was obvious. Not because users were unsophisticated, but because the label was written in <mark>internal jargon that meant nothing to someone outside the company</mark>.
+
+**In real product work:** the value shows up in a specific finding that was counterintuitive, or a case where observed user behaviour contradicted stakeholder confidence.
+
+---
+
+## Jobs To Be Done: What Users Are Actually Trying to Accomplish
+
+**What most people say:** "It's a framework for understanding user goals beyond features."
+
+**What shows experience:** JTBD reframes the question from "what do users want?" to <mark>"what progress are they trying to make, and what's getting in the way?"</mark>
+
+- **Feature thinking:** "Users need a calendar view"
+- **JTBD thinking:** "Users need to coordinate across teams without missing dependencies"
+
+One constrains the solution space. The other opens it.
+
+On a scheduling tool project, the stated requirement was a Gantt chart. JTBD interviews revealed the real job: <mark>project leads needed to have confident conversations with executives about timeline risk</mark>, not to manage tasks themselves. The insight shifted us from building a task management view to building an exception-and-risk summary view. Completely different interaction model, same underlying data.
+
+**Where this shows up:** In the moment understanding the underlying job changes what a team builds, not just how they design it.
+
+---
+
+## Mental Models: How Users Expect Products to Work
+
+**What most people say:** "The assumptions users bring to a product based on prior experience."
+
+**What shows experience:** Mental models explain why technically correct designs still confuse people. Users don't read interfaces neutrally. <mark>They arrive with strong expectations built from every product they've used before.</mark>
+
+> When your interface violates those expectations, even subtly, you create friction that feels like a product bug even when it isn't.
+
+The practical implication: before you design a new pattern, ask whether it matches the mental model users already have, or if you're asking them to **learn something new**. Sometimes new is necessary. Usually it costs you.
+
+I worked on an enterprise workflow tool that introduced "adaptive approval chains" that rerouted based on conditions. Technically elegant. Completely mismatched with how approvers thought about their role. They expected: <mark>request comes in → I approve or reject → done</mark>. The new system created uncertainty about when approvals were final. We added an explicit "this is now locked" confirmation state, not because it was technically needed, but because it resolved the mental model gap.
+
+**In real product work:** the payoff is a design decision driven by mapping to existing expectations rather than introducing new patterns for their own sake.
+
+---
+
+## Affinity Mapping: Turning Research into Actionable Insights
+
+**What most people say:** "Organising sticky notes into themes after research sessions."
+
+**What shows experience:** <mark>Affinity mapping is only as useful as the quality of the observations going into it.</mark> If your notes are paraphrased interpretations, the clusters you form are your assumptions wearing a research costume.
+
+The method requires **raw observations**: things users said or did, not what you think they meant. The process:
+
+- Capture discrete observations (one per note)
+- Move them without pre-sorting
+- Let clusters emerge
+- <mark>Name clusters by what they reveal, not what you expected</mark>
+
+The uncomfortable clusters, the ones that don't fit your hypotheses, are usually where the real insight lives.
+
+> We almost ignored a cluster of just six notes. It became the feature users rated highest in follow-up evaluation.
+
+On a government digital service project, we ran twelve sessions and produced over 400 observations. The cluster we almost ignored was small, just six notes about users calling a family member for help during the process. We nearly grouped it under "complexity." Instead we kept it separate and named it: <mark>"Users don't trust their own understanding enough to proceed alone."</mark> That insight led to a co-completion feature that became one of the highest-rated features in evaluation.
+
+**Where this shows up:** In how a team handles unexpected or inconvenient clusters, and what the synthesis reveals that individual sessions didn't.
+
+---
+
+## The Pattern Across All Five
+
+Every one of these methods is a way of <mark>making decisions with less guesswork</mark>. What matters isn't the textbook definition. It's the specific moment the method changed something: the problem statement, the design direction, the product feature, the stakeholder's assumption.
+
+If a team can say **"we used X, found Y, and changed Z because of it"**, that's research doing its job. Everything else is just vocabulary.
+
+---
+
+_This is Part 1 of a 5-part series on the concepts, frameworks, and decision-making behind great digital products. Next up: Information Architecture._

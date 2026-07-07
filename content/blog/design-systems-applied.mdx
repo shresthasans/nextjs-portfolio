@@ -1,0 +1,150 @@
+---
+title: "Product Design Concepts Explained, Part 4 of 5: Design Systems"
+date: "2026-07-03"
+readingTime: "8 min read"
+tag: "Design Systems"
+excerpt: "Design systems create consistency, speed, and scalability across products. Learn how components, design tokens, documentation, design debt, and developer handoff enable teams to design and build with confidence."
+coverImage: "/images/blog/design-systems.png"
+series: "Product Design Concepts Explained"
+seriesPart: 4
+seriesTotal: 5
+---
+
+_This is Part 4 of a 5-part series that explores the concepts, frameworks, and decision-making behind great digital products. Each article goes beyond definitions to explain when these concepts matter, why they matter, and how experienced product designers apply them in real-world work. [Part 1 covered User Research](/blog/user-research-applied), [Part 2 Product Thinking](/blog/product-thinking-applied), and [Part 3 Design Process](/blog/design-process-applied). This post covers Design Systems._
+
+---
+
+Design systems are the topic where design maturity becomes easiest to fake, and hardest to hide.
+
+Anyone can say they "worked with a design system." <mark>The question that cuts through is: "Tell me about a system decision you made, and what problem it solved."</mark> If the answer is vague, the experience is shallow. If it's specific, specific component, specific constraint, specific trade-off, the experience is real.
+
+These five concepts are where that specificity lives.
+
+---
+
+## Components: Reusable UI Building Blocks
+
+**What most people say:** "Reusable UI elements like buttons, inputs, and cards that maintain consistency."
+
+**What shows experience:** <mark>A component is a contract between design and engineering.</mark> It defines not just what something looks like, but what variants it supports, what states it handles, and what it explicitly does _not_ do. The boundary is as important as the content.
+
+The common failure: components built for the happy path that fall apart at the edges. A card component designed for a two-line title that breaks when the title is eight words. A button component that doesn't account for loading, disabled, or destructive states.
+
+Good component thinking asks:
+
+- **What are all the states?** Default, hover, focus, active, disabled, loading, error
+- **What are the content constraints?** Min/max characters, image required or optional
+- **What does this component NOT do?** <mark>Explicit non-scope prevents scope creep at the component level</mark>
+
+> A component without documented constraints is a ticking inconsistency machine.
+
+On a B2B dashboard, we had 14 variations of "card" that had evolved independently across four product areas. Rather than unifying them into one mega-component, I categorised them: data cards, action cards, status cards. Each got its own component with strict constraints. The consolidation reduced Figma component count by 60% and cut the time to build new screens by roughly a third, because designers stopped making decisions that should have been made at the system level.
+
+**Where this shows up:** In real product work, this plays out as a component decision, the constraints defined for it, and a specific problem that decision prevented down the line.
+
+---
+
+## Design Tokens: Reusable Design Decisions
+
+**What most people say:** "Named values for colours, spacing, and typography that keep design consistent."
+
+**What shows experience:** Tokens are not colour variables. <mark>Tokens are decisions about _intent_, and the naming is the design.</mark> The difference between `color-blue-500` and `color-action-primary` is the difference between a palette and a system.
+
+The naming hierarchy that actually scales:
+
+- **Global tokens**: raw values: `blue-500: #3B82F6`
+- **Semantic tokens**: intent: `action-primary: blue-500`
+- **Component tokens**: specific usage: `button-background: action-primary`
+
+Why this matters: when you rebrand or introduce dark mode, you change the global token. Everything downstream updates. When you use `blue-500` directly in a component, you change 400 instances manually.
+
+> The token is the policy. The value is just what the policy says today.
+
+On a product that introduced dark mode 18 months after launch, the engineering cost was enormous, because the original Figma file used raw hex values, not tokens. <mark>Every colour decision had to be traced and replaced manually across 200+ screens.</mark> When I rebuilt the system afterward, we introduced a three-tier token architecture. The next theming change, a white-label variant for an enterprise client, took two days, not two months.
+
+**In real product work:** A token naming decision, the hierarchy chosen, and a downstream change that proved the structure right (or taught the team to change it) is where this thinking earns its keep.
+
+---
+
+## Design Debt: Inconsistencies That Slow Future Work
+
+**What most people say:** "Accumulated inconsistencies in the design that need to be cleaned up."
+
+**What shows experience:** <mark>Design debt isn't a mess to clean up, it's a tax you pay on every future decision.</mark> The real cost isn't the inconsistency itself. It's the cognitive overhead of every designer who encounters it and has to decide: do I use the existing pattern, or introduce a new one? That decision, made hundreds of times across a team, compounds.
+
+Design debt comes from three sources:
+
+- **Speed debt**: shortcuts taken under deadline pressure, with every intention of returning
+- **Growth debt**: patterns that worked at 10 screens but break at 100
+- **<mark>Knowledge debt</mark>**: decisions made by people who've since left, with no documentation of why
+
+The hardest part of managing debt isn't identifying it, it's prioritising _which_ debt to pay. Not all inconsistencies are equal. A colour mismatch in a footer is cosmetic. An inconsistent interaction pattern across core workflows is functional debt that actively costs users.
+
+> You don't pay down all design debt. You pay down the debt that's blocking the next thing you need to build.
+
+On a mature SaaS product, I ran a debt audit that identified 34 inconsistencies across the UI. We scored each by: frequency of user exposure, engineering impact to fix, and design system leverage (fixing it would establish a pattern used in 10+ other places). That scoring cut the actionable list to 8. <mark>We fixed those 8 in one focused sprint. The remaining 26 went into a backlog with explicit "not now" reasoning.</mark> Naming the "not now" was as important as naming the "now."
+
+**Where this shows up:** During product discovery and roadmap planning, this looks like a debt audit, a clear prioritisation method, and explicit criteria for deciding what not to fix yet.
+
+---
+
+## Documentation: Making Designs Easier to Scale
+
+**What most people say:** "Writing guidelines that explain how to use the design system."
+
+**What shows experience:** Most design system documentation fails because <mark>it describes what components look like instead of explaining when and why to use them.</mark> Usage guidance is more valuable than visual specs. Engineers can read specs. Judgment requires context.
+
+Documentation that actually scales answers:
+
+- **When to use this component**: the problem it solves
+- **When NOT to use it**: the adjacent use case it's not designed for
+- **What to do when it doesn't fit**: escalation path, not just "don't improvise"
+- **<mark>The decision behind the decision</mark>**: why this variant and not another
+
+The format matters less than the habit. Storybook, Notion, Figma annotations, a README, the tool that gets maintained is the right tool. The one that requires a separate workflow from the design process is the one that goes stale.
+
+> Documentation written after the fact is archaeology. Documentation written during the decision is institutional memory.
+
+On a design system I built for a 12-person product team, I introduced a decision log, a simple table in Notion: component name, decision made, alternatives considered, reason for choice, date. Within six months, it had 40 entries. When a new designer joined, instead of tribal knowledge transfer, they read the log. <mark>Their first component contribution referenced two prior decisions correctly, without being told to.</mark> The documentation had done its job.
+
+**In real product work:** A documentation practice, how it changed onboarding or consistency, and which format proved most durable over time, that's the evidence of documentation done well.
+
+---
+
+## Developer Handoff: Communicating Designs for Implementation
+
+**What most people say:** "Sharing design files with engineers so they can build the feature."
+
+**What shows experience:** <mark>Handoff is not a moment, it's a relationship.</mark> The designer who throws a Figma link over the fence and considers the job done is the designer whose work gets built wrong and who never understands why.
+
+What good handoff actually involves:
+
+- **Specs that anticipate questions**: padding, spacing, responsive behaviour, state transitions documented _before_ engineering asks
+- **Annotations for intent, not just appearance**: "this button disables until all required fields are complete" is more useful than the button's hex code
+- **Edge case coverage**: empty states, error states, loading states, long content behaviour
+- **<mark>A conversation, not a delivery</mark>**: walk engineers through the design; the questions they ask reveal gaps
+
+The most expensive handoff failure: ambiguity about interactive behaviour. Static screens don't show animation timing, transition direction, or state change logic. These decisions get made by engineers under time pressure when they're not documented, and the result is a product that behaves differently from what was designed.
+
+> The gap between design and implementation is almost never a technology problem. It's a communication problem.
+
+On a complex data table feature, I introduced a handoff annotation layer in Figma, a separate page documenting: interaction states, sort/filter logic, responsive breakpoint behaviour, and empty/error states. Engineering time spent on clarification questions dropped by roughly half. More importantly, <mark>the feature launched matching the designed behaviour on the first QA pass</mark>, which had never happened before for a feature of that complexity.
+
+**Where this shows up:** A handoff practice that reduced back-and-forth, a miscommunication that taught the team to document something specific, or how the design-engineering relationship was built beyond file delivery, these are the signs of handoff done well.
+
+---
+
+## What Design Systems Experience Actually Signals
+
+Design systems experience isn't about whether someone can use Figma components. It's about whether a designer thinks systemically, whether they see the pattern behind the specific instance and design for it.
+
+<mark>
+  Components, tokens, debt, documentation, handoff, these are five angles on the
+  same underlying skill: the ability to make a decision once and let it scale.
+</mark>
+
+That's the skill that makes a design system worth having. Not taste. Not craft. The leverage.
+
+---
+
+_Next up, Part 5 of 5: Collaboration & Influence. Working with PMs, engineers, and executives in a way that actually moves work forward._
