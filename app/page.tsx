@@ -15,6 +15,69 @@ export const metadata: Metadata = {
   },
 }
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What does Sanjay Shrestha specialise in?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sanjay Shrestha is a Senior Product Designer specialising in Design Systems, AI-Powered UX, and B2B SaaS product design. With 15+ years of experience, he focuses on end-to-end product design including user research, interaction design, accessibility, and engineering handoff.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Sanjay Shrestha available for freelance or full-time work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, Sanjay Shrestha is open to Senior Product Designer and Lead UX Designer opportunities — both freelance and full-time. He is based in Kathmandu, Nepal and is open to global remote roles or relocation.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "What is Sanjay Shrestha's professional background?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sanjay Shrestha has 15+ years of experience designing digital products used by millions. He has worked at Decisions, Microsoft, and Webscale Networks, designing products for enterprise B2B SaaS platforms, government citizen services, and global eCommerce brands. He is a CUA™ (Certified Usability Analyst) certified by Human Factors International.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What tools and technologies does Sanjay Shrestha use?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sanjay Shrestha primarily uses Figma for product design and prototyping, along with Microsoft Teams, Google Workspace, and AI tools like Claude and ChatGPT. He also has front-end development skills in HTML and CSS, enabling close collaboration with engineering teams.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How can I contact Sanjay Shrestha?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'You can contact Sanjay Shrestha via email at hello@sanjayshrestha.com, or connect with him on LinkedIn at linkedin.com/in/shresthasans. His portfolio is available at sanjayshrestha.com.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What certifications does Sanjay Shrestha hold?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sanjay Shrestha holds the CUA™ (Certified Usability Analyst) certification from Human Factors International (HFI), one of the most respected credentials in the UX field. He also has Verified International Academic Qualifications from World Education Services (WES).',
+      },
+    },
+  ],
+}
+
 export default function Home() {
-  return <HomePageClient />
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <HomePageClient />
+    </>
+  )
 }

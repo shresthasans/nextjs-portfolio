@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowUpRight, Clock, Layers } from 'lucide-react'
 import { clsx } from 'clsx'
-import { StaggerContainer, StaggerItem } from '@/components/AnimatedSection'
+import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/AnimatedSection'
 import BlogCard, { BlogPost } from '@/components/BlogCard'
 import SeriesCard from '@/components/SeriesCard'
 import TagGraphic from '@/components/TagGraphic'
@@ -287,12 +287,15 @@ export default function BlogIndex({ posts }: { posts: BlogPost[] }) {
       )}
 
       {/* Featured */}
-      {featured &&
-        (featured.kind === 'post' ? (
-          <FeaturedCard post={featured.post} />
-        ) : (
-          <FeaturedSeriesCard title={featured.title} posts={featured.posts} coverImage={featured.coverImage} />
-        ))}
+      {featured && (
+        <AnimatedSection>
+          {featured.kind === 'post' ? (
+            <FeaturedCard post={featured.post} />
+          ) : (
+            <FeaturedSeriesCard title={featured.title} posts={featured.posts} coverImage={featured.coverImage} />
+          )}
+        </AnimatedSection>
+      )}
 
       {/* Uniform grid */}
       {rest.length > 0 && (

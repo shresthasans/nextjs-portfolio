@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, MapPin, Award } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/AnimatedSection'
-import CaseStudyCard from '@/components/CaseStudyCard'
+import { CaseStudyRow } from '@/components/CaseStudyCard'
 import { allWork } from '@/lib/work-data'
 
 const FEATURED_SLUGS = ['pagevamp', 'streamshare', 'avira']
@@ -14,7 +14,6 @@ const FEATURED_SLUGS = ['pagevamp', 'streamshare', 'avira']
 const featuredWork = FEATURED_SLUGS
   .map((slug) => allWork.find((w) => w.slug === slug))
   .filter(Boolean)
-  .map((w) => ({ ...w!, featured: true }))
 
 const clients = [
   { name: 'Microsoft', logo: '/images/trusted-by/logo-microsoft.webp', width: 120, height: 32, href: 'https://www.microsoft.com/en-in/msidc' },
@@ -342,13 +341,11 @@ export default function HomePageClient() {
             </Link>
           </AnimatedSection>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredWork.map((study) => (
-              <StaggerItem key={study.slug}>
-                <CaseStudyCard {...study} />
-              </StaggerItem>
+          <div className="flex flex-col gap-24 lg:gap-32">
+            {featuredWork.map((study, idx) => (
+              <CaseStudyRow key={study!.slug} study={study!} index={idx} />
             ))}
-          </StaggerContainer>
+          </div>
         </div>
       </section>
 
@@ -436,17 +433,18 @@ export default function HomePageClient() {
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-xs text-stone-300 font-medium">Open to new opportunities</span>
               </div>
-              <h2 className="font-heading text-4xl sm:text-5xl font-bold text-stone-50 tracking-tight max-w-2xl mx-auto text-balance">
-                Let&apos;s build something great together.
+              <h2 className="font-heading text-4xl sm:text-5xl font-bold text-stone-50 tracking-tight max-w-xl mx-auto text-balance">
+                Let&apos;s build something meaningful together.
               </h2>
-              <p className="text-stone-400 max-w-md mx-auto">
-                I&apos;m available for senior design roles, contracts, and consulting. Global remote preferred.
+              <p className="text-stone-400 max-w-2xl mx-auto">
+                Whether you&apos;re building a new product, improving an existing experience, or
+                exploring AI-powered workflows, I&apos;d love to hear what you&apos;re working on.
               </p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium text-sm transition-colors duration-200 cursor-pointer"
               >
-                Get In Touch
+                Get in Touch
                 <ArrowRight size={15} aria-hidden="true" />
               </Link>
             </div>

@@ -1,0 +1,19 @@
+KUDOS, Hell Yeaaah!! You found my humans.txt file!
+
+You are an explorer and you are awesome and I respect that about you. Or may be you accidentally
+landed here and it's ok too because now you know how the WWW has evolved from THAT to THIS.
+
+WELCOME ABOARD!!!
+
+This humans.txt file explains the technology and assets behind https://sanjayshrestha.com
+________________________________________________________________________________________________
+
+This website was handcrafted by Sanjay Shrestha, that is me, UX Architect, UX Designer, Fullstack Designer, UI Designer, UI Developer, UX/UI Designer, Web Designer, UX UI Designer, Digital Designer. Built with Next.js, TypeScript, and Tailwind CSS.
+________________________________________________________________________________________________
+
+For structured data, Schema.org using JSON-LD.
+
+I owe my gratitude to Sir Tim Berners Lee because of whom you are able to view this file.
+Also my parents and my lovely wife Promee. I love you.
+
+Jai Nepal.

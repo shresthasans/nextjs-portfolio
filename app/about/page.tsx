@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Award, MapPin } from 'lucide-react'
+import Link from 'next/link'
+import { Award, MapPin, ArrowRight } from 'lucide-react'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/AnimatedSection'
 
 export const metadata: Metadata = {
@@ -12,19 +13,75 @@ export const metadata: Metadata = {
     description:
       'Senior Product Designer with 15+ years crafting enterprise software used by millions.',
     url: 'https://sanjayshrestha.com/about',
+    images: ['/images/profile/sanjay.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About | Sanjay Shrestha',
+    description:
+      'Senior Product Designer with 15+ years crafting enterprise software used by millions.',
+    images: ['/images/profile/sanjay.png'],
   },
 }
 
-const skills = [
-  { name: 'UX Strategy', description: 'User research, journey mapping, information architecture' },
-  { name: 'Design Systems', description: 'Component libraries, tokens, cross-platform documentation' },
-  { name: 'AI-Powered UX', description: 'Generative AI features, intelligent workflows, recap automation' },
-  { name: 'Accessibility', description: 'WCAG 2.0/2.1, inclusive design, government-grade compliance' },
-  { name: 'Mobile Design', description: 'iOS & Android, React Native, native platform patterns' },
-  { name: 'Product Management', description: 'Roadmap planning, sprint facilitation, stakeholder alignment' },
-  { name: 'Interaction Design', description: 'Prototyping, user flows, high-fidelity mockups' },
-  { name: 'Figma', description: 'Advanced prototyping, auto-layout, variables, component APIs' },
-  { name: 'HTML / CSS', description: 'Production front-end, semantic markup, responsive implementation' },
+const capabilities = [
+  {
+    title: 'Enterprise SaaS',
+    description: 'Designing scalable products and workflows for enterprise teams.',
+  },
+  {
+    title: 'AI Product Design',
+    description: 'Creating AI-powered experiences that fit naturally into existing workflows.',
+  },
+  {
+    title: 'Design Systems',
+    description: 'Building reusable component libraries, design tokens and documentation from scratch.',
+  },
+  {
+    title: 'Accessibility',
+    description: 'Creating inclusive products that meet WCAG accessibility standards.',
+  },
+  {
+    title: 'Product Strategy',
+    description: 'Aligning user needs, business goals and technical constraints.',
+  },
+  {
+    title: 'User Research',
+    description: 'Using research and usability testing to validate product decisions.',
+  },
+]
+
+const principles = [
+  {
+    title: 'Solve Before Styling',
+    description: 'Beautiful interfaces matter only when they solve the right problem.',
+  },
+  {
+    title: 'Design With Engineers',
+    description: 'The best products are built through close collaboration, not handoffs.',
+  },
+  {
+    title: 'Systems Over Screens',
+    description: 'I focus on creating scalable systems instead of isolated interfaces.',
+  },
+]
+
+const highlights = [
+  {
+    title: 'Started in Startups',
+    description: 'Built products end-to-end across UX, UI and front-end development.',
+    href: '/work/webscale-stratus',
+  },
+  {
+    title: 'Government Digital Services',
+    description:
+      "Designed public platforms used by millions of citizens while working with Microsoft's design team.",
+  },
+  {
+    title: 'Enterprise SaaS',
+    description:
+      'Helped grow Decisions from fewer than 50 customers to over 5,000 enterprise organizations while leading product design initiatives.',
+  },
 ]
 
 const timeline = [
@@ -89,7 +146,7 @@ export default function AboutPage() {
               About
             </p>
             <h1 className="font-heading text-5xl sm:text-6xl font-bold text-stone-900 dark:text-stone-50 tracking-tight leading-[1.1] mb-8 text-balance">
-              15 years of designing products people actually use.
+              Designing products that millions depend on.
             </h1>
             <div className="flex items-center gap-1.5 text-sm text-stone-600 dark:text-stone-400">
               <MapPin size={13} aria-hidden="true" />
@@ -105,96 +162,78 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <AnimatedSection className="lg:col-span-7 space-y-8 text-stone-600 dark:text-stone-400 leading-relaxed">
               <p>
-                I started my design career in Kathmandu when the web was still finding its footing. What
-                began as designing websites for local businesses quickly turned into something much
-                bigger:{' '}
-                <mark>understanding people, solving complex problems, and building products that make
-                everyday work simpler.</mark>
+                I&apos;m a Senior Product Designer with 15+ years designing enterprise SaaS,
+                government and AI-powered products. I solve complex problems through
+                user-centred design, working across products used by millions of people as well
+                as enterprise platforms used by thousands of organizations.
               </p>
 
               <p>
-                Along the way, I&apos;ve had the opportunity to design across startups, enterprise
-                software, and AI-powered products, collaborating with global teams while staying grounded
-                in user needs.
+                My focus is simplicity, scalability and measurable product outcomes — building
+                systems that hold up as products grow, not just interfaces that look good on
+                day one.
               </p>
 
               <p className="font-heading font-semibold text-stone-900 dark:text-stone-100 text-base">
-                A few chapters from the journey
+                Career highlights
               </p>
 
-              <ul className="space-y-3">
-                {[
-                  <>
-                    <strong className="text-stone-900 dark:text-stone-100 font-semibold">Kathmandu → Bangalore → Hyderabad</strong> —
-                    Designed enterprise software for US clients before joining{' '}
-                    <strong className="text-stone-900 dark:text-stone-100 font-semibold">Microsoft&apos;s</strong> design team.
-                  </>,
-                  <>
-                    <strong className="text-stone-900 dark:text-stone-100 font-semibold">MageMojo → Webscale Networks</strong> —
-                    Joined as the company&apos;s only product designer and rebuilt the SaaS platform UX
-                    from the ground up.
-                  </>,
-                  <>
-                    <strong className="text-stone-900 dark:text-stone-100 font-semibold">Decisions (2019–Present)</strong> —
-                    Joined as an early product designer when the platform served fewer than 50 customers.
-                    Since then, I&apos;ve helped scale the product to over{' '}
-                    <strong className="text-stone-900 dark:text-stone-100 font-semibold">5,000 customer organizations</strong>,
-                    contributing to a platform that reaches{' '}
-                    <strong className="text-stone-900 dark:text-stone-100 font-semibold">48,000+ monthly active users</strong>,
-                    powers{' '}
-                    <strong className="text-stone-900 dark:text-stone-100 font-semibold">50,000+ meetings every week</strong>, and
-                    supports a business generating{' '}
-                    <strong className="text-stone-900 dark:text-stone-100 font-semibold">$10M+ in annual recurring revenue</strong>.
-                  </>,
-                ].map((item, i) => (
-                  <li key={i} className="flex gap-3">
+              <ul className="space-y-4">
+                {highlights.map(({ title, description, href }) => (
+                  <li key={title} className="flex gap-3">
                     <span
                       className="mt-2.5 w-1.5 h-1.5 rounded-full bg-amber-500 dark:bg-amber-400 shrink-0"
                       aria-hidden="true"
                     />
-                    <span>{item}</span>
+                    <span>
+                      <strong className="text-stone-900 dark:text-stone-100 font-semibold">
+                        {title}
+                      </strong>{' '}
+                      — {description}
+                      {href && (
+                        <>
+                          {' '}
+                          <Link
+                            href={href}
+                            className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-400 hover:underline cursor-pointer"
+                          >
+                            View case study <ArrowRight size={12} aria-hidden="true" />
+                          </Link>
+                        </>
+                      )}
+                    </span>
                   </li>
                 ))}
               </ul>
 
+              <Link
+                href="/work"
+                className="inline-flex items-center gap-2 text-sm font-medium text-stone-900 dark:text-stone-50 border-b border-stone-300 dark:border-stone-600 pb-0.5 hover:border-amber-700 dark:hover:border-amber-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-200 cursor-pointer"
+              >
+                See selected case studies <ArrowRight size={14} aria-hidden="true" />
+              </Link>
+
               <blockquote className="relative pl-6 border-l-4 border-amber-400 dark:border-amber-500">
                 <p className="text-xl sm:text-2xl font-heading font-medium italic text-stone-700 dark:text-stone-300 leading-relaxed">
-                  Four million citizens. Every interaction mattered. Every edge case represented
-                  someone&apos;s reality.
+                  Four million citizens. Every interaction represented someone&apos;s reality.
                 </p>
               </blockquote>
 
-              <p>
-                That was the Singapore Central Provident Fund portal, my most impactful project during my
-                time with Microsoft. It fundamentally changed how I think about accessibility, scale, and
-                designing for millions of people.
-              </p>
-
-              <p>Since then, I&apos;ve carried that mindset into every product I work on.</p>
-
-              <p>
-                At Decisions, I&apos;ve{' '}
-                <strong className="text-stone-900 dark:text-stone-100 font-semibold">built and evolved
-                the design system</strong>, established the product design process, led the UX for
-                Decisions AI, and partnered closely with product managers and engineers to shape product
-                strategy. Beyond designing interfaces, I&apos;ve helped define how design contributes to
-                the business.
-              </p>
-
-              <p>
-                I hold the{' '}
-                <strong className="text-stone-900 dark:text-stone-100 font-semibold">
-                  Certified Usability Analyst (CUA™) certification from Human Factors International
-                </strong>
-                , one of the industry&apos;s most respected usability credentials. It strengthened the
-                user-centered principles that have guided my work throughout my career.
+              <p className="text-sm">
+                Outside of work you&apos;ll usually find me playing futsal, staying active at the
+                gym, spending time with my family and my German Shepherd, Simba, or exploring the
+                latest AI tools simply because I&apos;m curious about what&apos;s possible.
               </p>
 
               <p className="text-sm">
-                Outside of work, I stay active through futsal, indoor cricket, and fitness, enjoy
-                exploring new places with my family, spend plenty of time with my German Shepherd, Simba,
-                and satisfy my curiosity by experimenting with the latest AI tools and emerging
-                technologies.
+                I also write about product design, AI, and career growth on{' '}
+                <Link
+                  href="/blog"
+                  className="text-amber-700 dark:text-amber-400 hover:underline cursor-pointer"
+                >
+                  the blog
+                </Link>
+                .
               </p>
             </AnimatedSection>
 
@@ -211,14 +250,14 @@ export default function AboutPage() {
               </div>
 
               {/* CUA Callout */}
-              <div className="rounded-2xl border border-amber-200 dark:border-amber-800/60 bg-amber-50 dark:bg-amber-950/20 p-6 mb-8 flex flex-col items-center text-center space-y-4">
+              <div className="rounded-2xl border border-amber-200 dark:border-amber-800/60 bg-amber-50/70 dark:bg-amber-950/20 p-7 mb-8 flex flex-col items-center text-center space-y-5">
                 <Image
                   src="/images/cua-badge.png"
                   alt="CUA™ Certified Usability Analyst, Human Factors International"
                   width={100}
                   height={100}
                 />
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <div className="flex items-center justify-center gap-2">
                     <Award size={16} className="text-amber-700 dark:text-amber-400" aria-hidden="true" />
                     <p className="font-heading font-semibold text-amber-900 dark:text-amber-300 text-sm">
@@ -234,7 +273,7 @@ export default function AboutPage() {
               </div>
 
               {/* Quick facts */}
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {[
                   { label: 'Experience', value: '15+ years' },
                   { label: 'Specialisation', value: 'Enterprise SaaS · B2B · Gov' },
@@ -246,7 +285,7 @@ export default function AboutPage() {
                 ].map(({ label, value }) => (
                   <div
                     key={label}
-                    className="flex justify-between items-center py-3 border-b border-stone-200 dark:border-stone-800 last:border-0"
+                    className="flex justify-between items-center py-3.5 border-b border-stone-200 dark:border-stone-800 last:border-0"
                   >
                     <span className="text-xs font-medium text-stone-600 dark:text-stone-400 uppercase tracking-wider">
                       {label}
@@ -262,7 +301,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Skills */}
+      {/* Core Capabilities */}
       <section className="py-20 bg-stone-100/50 dark:bg-stone-900/50 border-y border-stone-200 dark:border-stone-800">
         <div className="container-portfolio">
           <AnimatedSection className="mb-12">
@@ -270,17 +309,47 @@ export default function AboutPage() {
               Capabilities
             </p>
             <h2 className="font-heading text-3xl font-bold text-stone-900 dark:text-stone-50 tracking-tight">
-              Skills &amp; Expertise
+              Core Capabilities
             </h2>
           </AnimatedSection>
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {skills.map(({ name, description }) => (
-              <StaggerItem key={name}>
-                <div className="rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 p-5 space-y-2">
-                  <h3 className="font-heading font-semibold text-stone-900 dark:text-stone-50 text-base">
-                    {name}
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {capabilities.map(({ title, description }) => (
+              <StaggerItem key={title}>
+                <div className="h-full p-6 bg-white/70 dark:bg-stone-900/60 backdrop-blur-xl border border-stone-200/60 dark:border-stone-700/40 rounded-2xl shadow-sm hover:shadow-md hover:bg-white/90 dark:hover:bg-stone-900/80 transition-all duration-300">
+                  <h3 className="font-heading text-lg font-semibold text-stone-900 dark:text-stone-50 mb-2">
+                    {title}
                   </h3>
-                  <p className="text-sm text-stone-600 dark:text-stone-400">{description}</p>
+                  <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+                    {description}
+                  </p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* Design Principles */}
+      <section className="py-20">
+        <div className="container-portfolio">
+          <AnimatedSection className="mb-12">
+            <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-3">
+              How I Work
+            </p>
+            <h2 className="font-heading text-3xl font-bold text-stone-900 dark:text-stone-50 tracking-tight">
+              Design Principles
+            </h2>
+          </AnimatedSection>
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {principles.map(({ title, description }) => (
+              <StaggerItem key={title}>
+                <div className="h-full p-6 bg-white/70 dark:bg-stone-900/60 backdrop-blur-xl border border-stone-200/60 dark:border-stone-700/40 rounded-2xl shadow-sm hover:shadow-md hover:bg-white/90 dark:hover:bg-stone-900/80 transition-all duration-300">
+                  <h3 className="font-heading text-lg font-semibold text-stone-900 dark:text-stone-50 mb-2">
+                    {title}
+                  </h3>
+                  <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+                    {description}
+                  </p>
                 </div>
               </StaggerItem>
             ))}
@@ -289,7 +358,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-24">
+      <section className="py-24 bg-stone-100/50 dark:bg-stone-900/50 border-y border-stone-200 dark:border-stone-800">
         <div className="container-portfolio">
           <AnimatedSection className="mb-14">
             <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-3">
@@ -303,29 +372,29 @@ export default function AboutPage() {
           <StaggerContainer className="relative space-y-0">
             {/* Line */}
             <div
-              className="absolute left-[7px] top-2 bottom-2 w-px bg-stone-200 dark:bg-stone-800 hidden sm:block"
+              className="absolute left-[9px] top-2 bottom-2 w-px bg-stone-200 dark:bg-stone-800 hidden sm:block"
               aria-hidden="true"
             />
             {timeline.map(({ year, role, company, location, description }) => (
               <StaggerItem key={year}>
-                <div className="flex gap-8 sm:gap-12 pb-10">
+                <div className="flex gap-8 sm:gap-12 pb-14">
                   <div className="sm:relative flex flex-col items-center">
                     <div
-                      className="hidden sm:flex w-3.5 h-3.5 rounded-full bg-amber-600 dark:bg-amber-500 shrink-0 mt-1.5 z-10"
+                      className="hidden sm:flex w-[18px] h-[18px] rounded-full bg-amber-600 dark:bg-amber-500 shrink-0 mt-1.5 z-10 ring-4 ring-stone-100/50 dark:ring-stone-900/50"
                       aria-hidden="true"
                     />
                   </div>
                   <div className="flex-1 pb-2">
-                    <p className="text-xs font-medium text-stone-600 dark:text-stone-400 uppercase tracking-wider mb-1">
+                    <p className="text-xs font-medium text-stone-600 dark:text-stone-400 uppercase tracking-wider mb-1.5">
                       {year}
                     </p>
-                    <h3 className="font-heading font-semibold text-stone-900 dark:text-stone-50 text-lg">
+                    <h3 className="font-heading font-semibold text-stone-900 dark:text-stone-50 text-lg mb-1">
                       {role}
                     </h3>
-                    <p className="text-sm font-medium text-amber-700 dark:text-amber-400 mb-1">
-                      {company} · {location}
+                    <p className="text-sm font-medium text-amber-700 dark:text-amber-400 mb-2.5">
+                      <strong className="font-semibold">{company}</strong> · {location}
                     </p>
-                    <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed max-w-2xl">
+                    <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed max-w-xl">
                       {description}
                     </p>
                   </div>
@@ -333,6 +402,34 @@ export default function AboutPage() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20">
+        <div className="container-portfolio">
+          <AnimatedSection>
+            <div className="rounded-3xl bg-stone-900 dark:bg-stone-800 p-12 sm:p-16 text-center space-y-6">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-stone-800 dark:bg-stone-700 rounded-full mb-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-xs text-stone-300 font-medium">Open to new opportunities</span>
+              </div>
+              <h2 className="font-heading text-4xl sm:text-5xl font-bold text-stone-50 tracking-tight max-w-xl mx-auto text-balance">
+                Let&apos;s build something meaningful together.
+              </h2>
+              <p className="text-stone-400 max-w-2xl mx-auto">
+                Whether you&apos;re building a new product, improving an existing experience, or
+                exploring AI-powered workflows, I&apos;d love to hear what you&apos;re working on.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium text-sm transition-colors duration-200 cursor-pointer"
+              >
+                Get in Touch
+                <ArrowRight size={15} aria-hidden="true" />
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     </>

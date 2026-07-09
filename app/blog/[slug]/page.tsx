@@ -7,8 +7,9 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
 import Image from 'next/image'
 import { clsx } from 'clsx'
-import { ArrowLeft, ArrowUpRight, Clock } from 'lucide-react'
+import { ArrowUpRight, Clock } from 'lucide-react'
 import AnimatedSection from '@/components/AnimatedSection'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import BlogCard, { BlogPost } from '@/components/BlogCard'
 import ReadingProgress from '@/components/ReadingProgress'
 import TableOfContents from '@/components/TableOfContents'
@@ -64,12 +65,22 @@ export async function generateMetadata({
   return {
     title: fm.title,
     description: fm.excerpt,
+    alternates: {
+      canonical: `https://sanjayshrestha.com/blog/${slug}`,
+    },
     openGraph: {
       title: `${fm.title} | Sanjay Shrestha`,
       description: fm.excerpt,
       url: `https://sanjayshrestha.com/blog/${slug}`,
       type: 'article',
       publishedTime: fm.date,
+      images: [fm.coverImage ?? tagCoverImage[fm.tag]],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${fm.title} | Sanjay Shrestha`,
+      description: fm.excerpt,
+      images: [fm.coverImage ?? tagCoverImage[fm.tag]],
     },
   }
 }
@@ -121,19 +132,62 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const morePosts = getMorePosts(slug, fm.tag)
   const headings = extractHeadings(content)
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: fm.title,
+    description: fm.excerpt,
+    image: fm.coverImage ?? tagCoverImage[fm.tag],
+    datePublished: fm.date,
+    dateModified: fm.date,
+    url: `https://sanjayshrestha.com/blog/${slug}`,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://sanjayshrestha.com/blog/${slug}`,
+    },
+    author: {
+      '@type': 'Person',
+      name: 'Sanjay Shrestha',
+      url: 'https://sanjayshrestha.com/about',
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Sanjay Shrestha',
+    },
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sanjayshrestha.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://sanjayshrestha.com/blog' },
+      { '@type': 'ListItem', position: 3, name: fm.title, item: `https://sanjayshrestha.com/blog/${slug}` },
+    ],
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <ReadingProgress />
 
       {/* Header */}
       <section className={`relative bg-gradient-to-b ${tagHeaderBg[fm.tag]} to-transparent dark:to-transparent pt-28 pb-16`}>
         <div className="container-portfolio">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50 transition-colors duration-200 cursor-pointer mb-8"
-          >
-            <ArrowLeft size={14} aria-hidden="true" /> All posts
-          </Link>
+          <Breadcrumbs
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Blog', href: '/blog' },
+              { label: fm.title },
+            ]}
+          />
 
           <AnimatedSection className="max-w-3xl">
             <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-3">

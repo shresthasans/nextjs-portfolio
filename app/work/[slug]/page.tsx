@@ -6,13 +6,14 @@ import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 import AnimatedSection from '@/components/AnimatedSection'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import CaseStudyCard, { CaseStudy } from '@/components/CaseStudyCard'
 import CaseStudyGallery from '@/components/CaseStudyGallery'
 import CaseStudyImage from '@/components/CaseStudyImage'
 import CaseStudyCarousel from '@/components/CaseStudyCarousel'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowLeft, ArrowRight, Clock, Users, ArrowUpRight } from 'lucide-react'
+import { ArrowRight, Clock, Users, ArrowUpRight } from 'lucide-react'
 import { allWork } from '@/lib/work-data'
 import { getProjectImages } from '@/lib/project-images'
 
@@ -41,6 +42,10 @@ function getOtherWork(currentSlug: string, limit = 3): CaseStudy[] {
   return allWork.filter((w) => w.slug !== currentSlug).slice(0, limit)
 }
 
+// Case studies published on disk but not yet finalized for public listing —
+// kept crawlable-by-URL for review, but hidden from search engines and the /work index.
+const UNLISTED_SLUGS = new Set(['nepal-pm-calendar'])
+
 export async function generateMetadata({
   params,
 }: {
@@ -50,13 +55,32 @@ export async function generateMetadata({
   const study = await getCaseStudy(slug)
   if (!study) return { title: 'Case Study Not Found' }
   const { frontmatter } = study
+
+  const imgDir = path.join(process.cwd(), 'public', 'images', 'work', slug)
+  const heroImage = fs.existsSync(imgDir)
+    ? ['hero.jpg', 'hero.jpeg', 'hero.png', 'hero.webp', 'hero.svg']
+        .find((f) => fs.existsSync(path.join(imgDir, f)))
+        ?.replace(/^/, `/images/work/${slug}/`)
+    : undefined
+
   return {
     title: frontmatter.title,
     description: frontmatter.description,
+    alternates: {
+      canonical: `https://sanjayshrestha.com/work/${slug}`,
+    },
+    ...(UNLISTED_SLUGS.has(slug) ? { robots: { index: false, follow: false } } : {}),
     openGraph: {
       title: `${frontmatter.title} | Sanjay Shrestha`,
       description: frontmatter.description,
       url: `https://sanjayshrestha.com/work/${slug}`,
+      ...(heroImage ? { images: [heroImage] } : {}),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${frontmatter.title} | Sanjay Shrestha`,
+      description: frontmatter.description,
+      ...(heroImage ? { images: [heroImage] } : {}),
     },
   }
 }
@@ -409,17 +433,53 @@ export default async function CaseStudyPage({
           }))
       : []
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sanjayshrestha.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Work', item: 'https://sanjayshrestha.com/work' },
+      { '@type': 'ListItem', position: 3, name: fm.title, item: `https://sanjayshrestha.com/work/${slug}` },
+    ],
+  }
+
+  const caseStudyJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: fm.title,
+    description: fm.description,
+    url: `https://sanjayshrestha.com/work/${slug}`,
+    ...(heroImage ? { image: `https://sanjayshrestha.com${heroImage}` } : {}),
+    creator: {
+      '@type': 'Person',
+      name: 'Sanjay Shrestha',
+      url: 'https://sanjayshrestha.com/about',
+    },
+    about: fm.client,
+    keywords: fm.tools?.join(', '),
+    dateCreated: fm.year,
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudyJsonLd) }}
+      />
       {/* Back */}
       <div className="pt-28 pb-0">
         <div className="container-portfolio">
-          <Link
-            href="/work"
-            className="inline-flex items-center gap-2 text-sm text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50 transition-colors duration-200 cursor-pointer mb-8"
-          >
-            <ArrowLeft size={14} aria-hidden="true" /> All work
-          </Link>
+          <Breadcrumbs
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Work', href: '/work' },
+              { label: fm.title },
+            ]}
+          />
         </div>
       </div>
 

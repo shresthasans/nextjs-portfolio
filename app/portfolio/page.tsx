@@ -3,6 +3,18 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Portfolio',
   description: 'Sanjay Shrestha, Senior Product Designer portfolio PDF.',
+  openGraph: {
+    title: 'Portfolio | Sanjay Shrestha',
+    description: 'Sanjay Shrestha, Senior Product Designer portfolio PDF.',
+    url: 'https://sanjayshrestha.com/portfolio',
+    images: ['/og-image.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Portfolio | Sanjay Shrestha',
+    description: 'Sanjay Shrestha, Senior Product Designer portfolio PDF.',
+    images: ['/og-image.jpg'],
+  },
 }
 
 export default function PortfolioPage() {

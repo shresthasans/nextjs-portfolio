@@ -14,6 +14,13 @@ export const metadata: Metadata = {
     title: 'Blog | Sanjay Shrestha',
     description: 'Thoughts on UX, design systems, AI, and career in product design.',
     url: 'https://sanjayshrestha.com/blog',
+    images: ['/og-image.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog | Sanjay Shrestha',
+    description: 'Thoughts on UX, design systems, AI, and career in product design.',
+    images: ['/og-image.jpg'],
   },
 }
 
