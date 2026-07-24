@@ -5,17 +5,21 @@ import path from 'path'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
+import { clsx } from 'clsx'
 import AnimatedSection from '@/components/AnimatedSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import CaseStudyCard, { CaseStudy } from '@/components/CaseStudyCard'
-import CaseStudyGallery from '@/components/CaseStudyGallery'
 import CaseStudyImage from '@/components/CaseStudyImage'
 import CaseStudyCarousel from '@/components/CaseStudyCarousel'
+import BeforeAfterSlider from '@/components/BeforeAfterSlider'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Clock, Users, ArrowUpRight } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Briefcase, CalendarClock, Users, TrendingUp, Sparkles } from 'lucide-react'
 import { allWork } from '@/lib/work-data'
 import { getProjectImages } from '@/lib/project-images'
+import { getMDXComponents } from '@/components/mdx-components'
+import { extractHeadings } from '@/lib/toc'
+import TableOfContents from '@/components/TableOfContents'
 
 interface Frontmatter {
   title: string
@@ -28,6 +32,12 @@ interface Frontmatter {
   type: string
   outcome: string
   description: string
+  duration?: string
+  roleSummary?: string
+  roleItems?: string[]
+  team?: string[]
+  impact?: string
+  highlights?: { title: string; text: string }[]
 }
 
 async function getCaseStudy(slug: string) {
@@ -388,6 +398,17 @@ function VisualDesignPlaceholder() {
   )
 }
 
+/* ─── Per-project header gradients — every case study gets a distinct tint ─── */
+const slugHeaderBg: Record<string, string> = {
+  pagevamp: 'from-emerald-50/70 dark:from-emerald-950/20',
+  avira: 'from-rose-50/70 dark:from-rose-950/20',
+  'linkedin-feed-redesign': 'from-blue-50/70 dark:from-blue-950/20',
+  'nepal-pm-calendar': 'from-indigo-50/70 dark:from-indigo-950/20',
+  streamshare: 'from-purple-50/70 dark:from-purple-950/20',
+  'webscale-stratus': 'from-sky-50/70 dark:from-sky-950/20',
+  _default: 'from-amber-50/70 dark:from-amber-950/20',
+}
+
 /* ─── Page ─── */
 
 export default async function CaseStudyPage({
@@ -402,36 +423,16 @@ export default async function CaseStudyPage({
   const { frontmatter: fm, content } = study
   const otherWork = getOtherWork(slug)
   const projectImages = getProjectImages(slug)
+  const headings = extractHeadings(content)
 
   // Auto-detect images from public/images/work/[slug]/
   const imgDir = path.join(process.cwd(), 'public', 'images', 'work', slug)
-  const GALLERY_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.svg'])
 
   const heroImage: string | null = fs.existsSync(imgDir)
     ? (['hero.jpg', 'hero.jpeg', 'hero.png', 'hero.webp', 'hero.svg']
         .find((f) => fs.existsSync(path.join(imgDir, f)))
         ?.replace(/^/, `/images/work/${slug}/`) ?? projectImages?.hero ?? null)
     : (projectImages?.hero ?? null)
-
-  // Use project-images.ts order when defined — filter to only files that actually exist on disk.
-  // Fall back to alphabetical filesystem scan when no entry exists for this slug.
-  const galleryImages: { src: string; alt: string }[] = projectImages?.gallery
-    ? projectImages.gallery.filter((img) => {
-        const filename = img.src.split('/').pop() ?? ''
-        return fs.existsSync(path.join(imgDir, filename))
-      })
-    : fs.existsSync(imgDir)
-      ? fs.readdirSync(imgDir)
-          .filter((f) => {
-            const ext = path.extname(f).toLowerCase()
-            return GALLERY_EXTENSIONS.has(ext) && !f.startsWith('hero')
-          })
-          .sort()
-          .map((f) => ({
-            src: `/images/work/${slug}/${f}`,
-            alt: `${fm.title}: ${path.basename(f, path.extname(f)).replace(/[-_]/g, ' ')}`,
-          }))
-      : []
 
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
@@ -470,8 +471,8 @@ export default async function CaseStudyPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudyJsonLd) }}
       />
-      {/* Back */}
-      <div className="pt-28 pb-0">
+      {/* Back + Header */}
+      <section className={`relative bg-gradient-to-b ${slugHeaderBg[slug] ?? slugHeaderBg._default} to-transparent dark:to-transparent pt-28 pb-16`}>
         <div className="container-portfolio">
           <Breadcrumbs
             items={[
@@ -480,13 +481,7 @@ export default async function CaseStudyPage({
               { label: fm.title },
             ]}
           />
-        </div>
-      </div>
-
-      {/* Header */}
-      <section className="pb-16">
-        <div className="container-portfolio">
-          <AnimatedSection className="max-w-3xl">
+          <AnimatedSection className="max-w-3xl mt-6">
             <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-3">
               {fm.type} · {fm.year}
             </p>
@@ -535,73 +530,127 @@ export default async function CaseStudyPage({
         </div>
       </AnimatedSection>
 
+      {/* Project Details */}
+      {(fm.roleItems?.length || fm.team?.length || fm.impact || fm.highlights?.length) && (
+        <AnimatedSection delay={0.2}>
+          <div className="container-portfolio mb-16">
+            <div className="relative overflow-hidden rounded-3xl border border-stone-200 dark:border-stone-800 bg-gradient-to-br from-amber-50/70 via-white to-stone-50 dark:from-amber-950/10 dark:via-stone-900 dark:to-stone-900/60">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-400 via-amber-300 to-transparent dark:from-amber-500 dark:via-amber-600" />
+
+              <div className="p-8 sm:p-10">
+                <h2 className="font-heading text-xl font-bold text-stone-900 dark:text-stone-50 mb-8">
+                  Project Details
+                </h2>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+                  {fm.roleItems && fm.roleItems.length > 0 && (
+                    <div>
+                      <p className="flex items-center gap-1.5 text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-2">
+                        <Briefcase size={13} aria-hidden="true" />
+                        My Role
+                      </p>
+                      <p className="text-sm text-stone-700 dark:text-stone-300 mb-3">
+                        <strong className="text-stone-900 dark:text-stone-50">{fm.role}.</strong>{' '}
+                        {fm.roleSummary}
+                      </p>
+                      <ul className="space-y-1.5">
+                        {fm.roleItems.map((item) => (
+                          <li key={item} className="flex items-start gap-2 text-sm text-stone-600 dark:text-stone-400">
+                            <span className="w-1 h-1 rounded-full bg-stone-400 dark:bg-stone-600 mt-2 shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  <div className="space-y-6">
+                    <div>
+                      <p className="flex items-center gap-1.5 text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-2">
+                        <CalendarClock size={13} aria-hidden="true" />
+                        Duration
+                      </p>
+                      <p className="text-sm text-stone-700 dark:text-stone-300">{fm.duration ?? fm.timeline}</p>
+                    </div>
+
+                    {fm.team && fm.team.length > 0 && (
+                      <div>
+                        <p className="flex items-center gap-1.5 text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-2">
+                          <Users size={13} aria-hidden="true" />
+                          Team
+                        </p>
+                        <ul className="space-y-1.5">
+                          {fm.team.map((member) => (
+                            <li key={member} className="flex items-start gap-2 text-sm text-stone-600 dark:text-stone-400">
+                              <span className="w-1 h-1 rounded-full bg-stone-400 dark:bg-stone-600 mt-2 shrink-0" />
+                              {member}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {fm.impact && (
+                  <div className="mb-8 rounded-2xl border border-amber-200/70 dark:border-amber-800/30 bg-white/70 dark:bg-stone-900/50 p-6">
+                    <p className="flex items-center gap-1.5 text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-3">
+                      <TrendingUp size={13} aria-hidden="true" />
+                      The Impact
+                    </p>
+                    <p className="font-heading text-xl sm:text-2xl font-semibold text-stone-900 dark:text-stone-50 leading-snug text-balance">
+                      {fm.impact}
+                    </p>
+                  </div>
+                )}
+
+                {fm.highlights && fm.highlights.length > 0 && (
+                  <div className="pt-6 border-t border-stone-200/70 dark:border-stone-800">
+                    <p className="flex items-center gap-1.5 text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-3">
+                      <Sparkles size={13} aria-hidden="true" />
+                      Highlights
+                    </p>
+                    <ul className="space-y-3">
+                      {fm.highlights.map((h) => (
+                        <li key={h.title} className="flex items-start gap-2.5 text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+                          <span className="w-1 h-1 rounded-full bg-amber-500 mt-2 shrink-0" />
+                          <span>
+                            <strong className="font-semibold text-stone-900 dark:text-stone-50">{h.title}</strong>{' '}
+                            {h.text}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+      )}
+
       {/* Content + Sidebar */}
       <section className="pb-24">
         <div className="container-portfolio">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className={clsx('grid grid-cols-1 gap-12', headings.length > 0 && 'lg:grid-cols-12')}>
             {/* Main content */}
-            <AnimatedSection className="lg:col-span-8">
+            <AnimatedSection className={headings.length > 0 ? 'lg:col-span-8' : ''}>
               <div className="prose-portfolio prose prose-stone dark:prose-invert prose-headings:font-heading prose-headings:tracking-tight prose-headings:text-stone-900 dark:prose-headings:text-stone-50 prose-p:text-stone-600 dark:prose-p:text-stone-400 prose-li:text-stone-600 dark:prose-li:text-stone-400 prose-strong:text-stone-900 dark:prose-strong:text-stone-50 prose-a:text-amber-700 dark:prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline prose-hr:border-stone-200 dark:prose-hr:border-stone-800 prose-blockquote:border-amber-400 dark:prose-blockquote:border-amber-600 prose-blockquote:text-stone-600 dark:prose-blockquote:text-stone-400 prose-code:bg-stone-100 dark:prose-code:bg-stone-800 prose-code:text-stone-800 dark:prose-code:text-stone-200 max-w-none">
                 <MDXRemote
                   source={content}
                   options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
-                  components={{ WireframePlaceholder, UserFlowPlaceholder, MockupPlaceholder, VisualDesignPlaceholder, CaseStudyImage, CaseStudyCarousel }}
+                  components={{ ...getMDXComponents(), WireframePlaceholder, UserFlowPlaceholder, MockupPlaceholder, VisualDesignPlaceholder, CaseStudyImage, CaseStudyCarousel, BeforeAfterSlider }}
                 />
               </div>
 
-              {/* Gallery */}
-              {galleryImages.length > 0 && (
-                <div className="mt-16 pt-12 border-t border-stone-200 dark:border-stone-800">
-                  <CaseStudyGallery
-                    images={galleryImages}
-                    title="Project Screenshots"
-                  />
-                </div>
-              )}
-            </AnimatedSection>
-
-            {/* Sidebar */}
-            <AnimatedSection className="lg:col-span-4" delay={0.2}>
-              <div className="sticky top-28 space-y-6">
-                <div className="rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900/60 p-6 space-y-5">
-                  <h2 className="font-heading font-semibold text-stone-900 dark:text-stone-50 text-sm uppercase tracking-wider">
-                    Project Details
-                  </h2>
-
-                  <div className="space-y-4">
-                    {[
-                      { label: 'Client', value: fm.client },
-                      { label: 'My Role', value: fm.role },
-                      { label: 'Year', value: fm.year },
-                    ].map(({ label, value }) => (
-                      <div key={label}>
-                        <p className="text-xs text-stone-600 dark:text-stone-400 uppercase tracking-wider mb-0.5">
-                          {label}
-                        </p>
-                        <p className="text-sm text-stone-700 dark:text-stone-300">{value}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-4 pt-2 border-t border-stone-200 dark:border-stone-800">
-                    <div className="flex items-center gap-1.5 text-sm text-stone-600 dark:text-stone-400">
-                      <Clock size={13} aria-hidden="true" />
-                      <span>{fm.timeline}</span>
-                    </div>
-                    <div className="flex items-center gap-1.5 text-sm text-stone-600 dark:text-stone-400">
-                      <Users size={13} aria-hidden="true" />
-                      <span>{fm.teamSize}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Tools */}
-                <div className="rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900/60 p-6 space-y-4">
-                  <h2 className="font-heading font-semibold text-stone-900 dark:text-stone-50 text-sm uppercase tracking-wider">
+              {/* Tools */}
+              {fm.tools?.length > 0 && (
+                <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-800">
+                  <p className="text-xs font-semibold text-stone-500 dark:text-stone-500 uppercase tracking-widest mb-3">
                     Tools Used
-                  </h2>
+                  </p>
                   <div className="flex flex-wrap gap-2">
-                    {fm.tools.map((tool: string) => (
+                    {fm.tools.map((tool) => (
                       <span
                         key={tool}
                         className="px-2.5 py-1 bg-stone-100 dark:bg-stone-800 rounded-lg text-xs text-stone-600 dark:text-stone-400 border border-stone-200 dark:border-stone-700"
@@ -611,18 +660,18 @@ export default async function CaseStudyPage({
                     ))}
                   </div>
                 </div>
+              )}
 
-                {/* Outcome */}
-                <div className="rounded-2xl border border-amber-200 dark:border-amber-800/60 bg-amber-50 dark:bg-amber-950/20 p-6 space-y-2">
-                  <h2 className="font-heading font-semibold text-amber-900 dark:text-amber-300 text-sm uppercase tracking-wider">
-                    Outcome
-                  </h2>
-                  <p className="text-sm text-amber-800/80 dark:text-amber-400/80 leading-relaxed">
-                    {fm.outcome}
-                  </p>
-                </div>
-              </div>
             </AnimatedSection>
+
+            {/* Sidebar */}
+            {headings.length > 0 && (
+              <AnimatedSection className="lg:col-span-4" delay={0.2}>
+                <div className="sticky top-28">
+                  <TableOfContents headings={headings} />
+                </div>
+              </AnimatedSection>
+            )}
           </div>
         </div>
       </section>

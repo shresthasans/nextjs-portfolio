@@ -47,7 +47,7 @@ const projectImages: Record<string, ProjectImages> = {
     ],
   },
   'webscale-stratus': {
-    hero: '/images/work/webscale-stratus/hero.png',
+    hero: '/images/work/webscale-stratus/hero.jpg',
     gallery: [
       { src: '/images/work/webscale-stratus/01.svg', alt: 'Stratus: Platform dashboard' },
       { src: '/images/work/webscale-stratus/02.svg', alt: 'Stratus: Performance analytics' },

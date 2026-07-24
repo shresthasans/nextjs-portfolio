@@ -27,7 +27,7 @@ export const allWork: CaseStudy[] = [
       'Designed a global eCommerce SaaS platform for Fortune 500 retailers. Improved onboarding conversion by 60% and reduced support tickets by 35%.',
     type: 'eCommerce',
     year: '2021',
-    coverImage: '/images/work/webscale-stratus/hero.png',
+    coverImage: '/images/work/webscale-stratus/hero.jpg',
     metaLabel: 'Client Project • Enterprise SaaS',
     productName: 'Webscale Stratus Platform',
     caseStudyTitle: 'Simplifying Enterprise Infrastructure Management',

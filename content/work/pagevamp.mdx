@@ -9,6 +9,27 @@ tools: ["User Interviews", "Competitive Analysis", "Figma", "Prototyping"]
 type: "SaaS"
 outcome: "Free trial signups up 30%. Privacy concerns dropped from 15% to under 5%. 99% of users completed basic info. Built a path for 20% of trial users the product previously ignored."
 description: "Redesigning onboarding for a one-click website builder so trial users actually finish setting up, and building a real path for the segment the product had no answer for."
+duration: "2-week research sprint + full redesign"
+roleSummary: "Solely responsible for the end-to-end onboarding redesign:"
+roleItems:
+  - "User Research & Interviews"
+  - "UX Strategy & Flow Architecture"
+  - "Interaction Design & Prototyping"
+  - "Usability Testing"
+team:
+  - "1 UX Designer (me)"
+  - "Cross-functional input from engineering"
+  - "Cross-functional input from support"
+impact: "Redesigned onboarding lifted free trial signups by over 30% and cut privacy-related drop-off from 15% to under 5%."
+highlights:
+  - title: "Sequencing, not features."
+    text: "Domain selection, privacy disclosure, and basic info collection all existed in some form. They were just positioned after users had already lost patience."
+  - title: "Competitive analysis reframed the gap."
+    text: "An absent domain step wasn't a subtle omission. It made Pagevamp look less capable than alternatives at the exact moment users were deciding whether to trust it."
+  - title: "Designing for the segment outside the core assumption."
+    text: "Users without a Facebook Page were a fifth of the trial funnel, not an edge case. Building them a path drove real signup growth."
+  - title: "Prefilling protected the differentiator."
+    text: "Asking users to re-enter data the product already had access to would have undercut the entire one-click premise."
 ---
 
 ## Overview
@@ -18,12 +39,6 @@ Pagevamp turns a business's Facebook Page into a live, synced website in one cli
 Nearly a third of users hit a wall looking for a way to connect a domain they already owned. A fifth couldn't find where to fix Pagevamp's default subdomain. And one in five people without a Facebook Page simply left during the free trial, because the product had no idea what to do with them.
 
 I led the research, strategy, and design of a new onboarding flow that surfaced the decisions that actually mattered, earlier, and gave the product a way to say yes to people it used to turn away.
-
-<CaseStudyImage
-  src="/images/work/pagevamp/fb-to-website.png"
-  alt="Pagevamp concept: Facebook Page on the left, generated website on the right"
-  caption="Pagevamp's core promise: point it at a Facebook Page and it builds a real, synced website instantly."
-/>
 
 ## The Problem
 
@@ -40,7 +55,7 @@ The onboarding flow wasn't failing loudly. It was leaking users at several diffe
 If left alone, the product would keep losing trial users to confusion and mistrust at the exact moment it needed to earn confidence, and support would keep absorbing the cost of a flow that couldn't explain itself.
 
 <CaseStudyImage
-  src="/images/work/pagevamp/funnel-drop-off.png"
+  src="/images/work/pagevamp/funnel-drop-off.jpg"
   alt="Funnel diagram showing where each user segment stalled in the original onboarding flow"
   caption="Five distinct drop-off points in the original flow, each caused by information the product didn't ask for at the right time."
 />
@@ -73,7 +88,7 @@ A few things changed my thinking along the way.
 Different motivations, same underlying ask: minimize ongoing effort. <mark>That told me the fix wasn't about adding more configuration. It was about asking for the right things once, upfront.</mark>
 
 <CaseStudyImage
-  src="/images/work/pagevamp/persona-summary.png"
+  src="/images/work/pagevamp/persona-summary.jpg"
   alt="Side-by-side persona summaries for David Silva and Sarah Mitchell"
   caption="Two personas, different motivations, same underlying ask: minimize ongoing effort."
 />
@@ -81,7 +96,7 @@ Different motivations, same underlying ask: minimize ongoing effort. <mark>That 
 **The competitive analysis reframed the domain problem.** I expected Pagevamp's lack of an upfront domain step to be a minor gap. Instead, domain selection during setup was close to standard practice across competitors. Its absence wasn't a subtle omission — it was making Pagevamp look less capable at the exact moment users were deciding whether to trust it.
 
 <CaseStudyImage
-  src="/images/work/pagevamp/competitive-analysis-matrix.png"
+  src="/images/work/pagevamp/competitive-analysis-matrix.jpg"
   alt="Competitive analysis matrix comparing domain step placement and onboarding complexity"
   caption="Domain selection during setup was near-standard across competitors. Its absence read as a capability gap, not a simplicity choice."
 />
@@ -89,12 +104,6 @@ Different motivations, same underlying ask: minimize ongoing effort. <mark>That 
 **The privacy concern wasn't about steps, it was about trust.** Empathy and affinity mapping pointed to something closer to a trust gap: users were asked to link their Facebook Page without a clear, early explanation of why or what that meant for their data. Reducing friction wasn't the fix. Being upfront was.
 
 **The old flow and new flow told the real story.** <mark>The core issue wasn't how much information the product asked for, it was when. Domain choice, content review, and the privacy conversation were all pushed to the end, after users had already invested time.</mark> By then, any friction was more likely to end in abandonment than a support ticket.
-
-<CaseStudyImage
-  src="/images/work/pagevamp/old-vs-new-flow.png"
-  alt="Side-by-side diagram of the original onboarding flow versus the redesigned flow"
-  caption="Same decisions, different order. Moving domain, privacy, and content review earlier reduced abandonment at each step."
-/>
 
 ## Defining the Real Problem
 
@@ -106,37 +115,40 @@ That reframing changed the brief. Instead of "add a domain settings page," the r
 
 > Rebuild the order of the onboarding flow around the decisions users actually needed to make early, and build an actual path forward for the segment the product had never accounted for.
 
+## Iteration
+
+The process moved from low-fidelity paper sketches through to a visual prototype, testing and refining at each stage rather than jumping straight to polished screens.
+
+The structural decisions held up from ideation through to what shipped: prefill first, domain choice upfront, privacy conversation early, a real path for users without a Facebook Page.
+
+<CaseStudyImage
+  src="/images/work/pagevamp/process-iteration.jpg"
+  alt="Paper sketches next to corresponding final prototype screens"
+  caption="Paper sketches to prototype: the layout changed, the structure didn't."
+/>
+
 ## Design Decisions
 
 These four decisions did the most work in the redesign.
 
-### 1. Prefill from Facebook, Don't Re-ask
+### 1. Make the Privacy Conversation Explicit and Early
 
----
-
-**The problem:** Users needed to review and sometimes correct information for their new site, but re-entering it manually would undercut the entire one-click premise.
-
-**Alternatives considered:** A full manual setup form, which was simpler to build but directly contradicted what users valued about Pagevamp in the first place.
-
-**Why this approach:** The data already existed. Asking for it again wasted the product's biggest advantage and added friction at the exact point where friction was costing trial signups.
-
-> **Impact:** ~99% of users completed the necessary basic information through the new flow, eliminating the segment of sites that had previously launched missing basic details.
-
-### 2. Move Domain Selection into Setup, Not Settings
-
----
-
-**The problem:** Roughly half of users combined wanted either a custom domain or a customized subdomain, and neither was available during setup.
-
-**Alternatives considered:** Leaving domain configuration as a post-launch settings option. Lower effort, but ignored both the competitive standard and the user need for an early, shareable link.
-
-**Why this approach:** <mark>Users needed something to test and share early. Hiding a mainstream capability behind a settings menu was actively costing trust during the exact window where trust mattered most.</mark>
-
-> **Impact:** Users linked custom domains successfully without needing support assistance. Subdomain customization usage increased by 20%.
-
-### 3. Make the Privacy Conversation Explicit and Early
-
----
+<CaseStudyCarousel
+  images={[
+    {
+      src: "/images/work/pagevamp/privacy-concern-before.jpg",
+      alt: "Original onboarding flow with privacy step buried at the end",
+      caption:
+        "Before — privacy came up last, after users had already invested time in setup.",
+    },
+    {
+      src: "/images/work/pagevamp/privacy-concern-after.jpg",
+      alt: "Redesigned onboarding flow with privacy explained upfront",
+      caption:
+        "After — privacy explained upfront, closing the trust gap before it caused drop-off.",
+    },
+  ]}
+/>
 
 **The problem:** About 15% of users had concerns about linking their Facebook Page, and the flow never addressed why that access was needed.
 
@@ -146,9 +158,13 @@ These four decisions did the most work in the redesign.
 
 > **Impact:** Privacy-related concern dropped from ~15% to under 5%.
 
-### 4. Build a Path for Users Without a Facebook Page
+### 2. Build a Path for Users Without a Facebook Page
 
----
+<CaseStudyImage
+  src="/images/work/pagevamp/create-facebook-page.jpg"
+  alt="Onboarding screen guiding a user without an existing Facebook Page to create one"
+  caption="A real path forward for trial users without a Facebook Page, instead of a dead end."
+/>
 
 **The problem:** About 20% of trial signups had no Facebook Page, and the flow had no answer for them beyond dropping them out of the funnel.
 
@@ -158,27 +174,64 @@ These four decisions did the most work in the redesign.
 
 > **Impact:** Free trial signups increased by more than 30%. Users without a pre-owned Facebook Page could now create one from within Pagevamp's onboarding instead of leaving.
 
-<CaseStudyImage
-  src="/images/work/pagevamp/final-ui-screens.png"
-  alt="Final UI screens showing the prefill review step, domain selection step, and privacy disclosure"
-  caption="The three key screens that changed the most: content review (prefilled from Facebook), domain selection (moved to setup), and privacy disclosure (explicit, early)."
-/>
-
-## Iteration
-
-The process moved from low-fidelity paper sketches through to a visual prototype, testing and refining at each stage rather than jumping straight to polished screens.
-
-The structural decisions held up from ideation through to what shipped: prefill first, domain choice upfront, privacy conversation early, a real path for users without a Facebook Page.
+### 3. Prefill from Facebook, Don't Re-ask
 
 <CaseStudyImage
-  src="/images/work/pagevamp/sketches-to-prototype.png"
-  alt="Paper sketches next to corresponding final prototype screens"
-  caption="Paper sketches to prototype: the layout changed, the structure didn't."
+  src="/images/work/pagevamp/review-website-details.jpg"
+  alt="Onboarding screen showing website details prefilled from the linked Facebook Page for review"
+  caption="Details pulled straight from the Facebook Page, ready for a quick check rather than re-entry."
 />
+
+**The problem:** Users needed to review and sometimes correct information for their new site, but re-entering it manually would undercut the entire one-click premise.
+
+**Alternatives considered:** A full manual setup form, which was simpler to build but directly contradicted what users valued about Pagevamp in the first place.
+
+**Why this approach:** The data already existed. Asking for it again wasted the product's biggest advantage and added friction at the exact point where friction was costing trial signups.
+
+> **Impact:** ~99% of users completed the necessary basic information through the new flow, eliminating the segment of sites that had previously launched missing basic details.
+
+### 4. Move Domain Selection into Setup, Not Settings
+
+<CaseStudyCarousel
+  images={[
+    {
+      src: "/images/work/pagevamp/domain-setup-buy.jpg",
+      alt: "Onboarding screen offering to buy a new custom domain during setup",
+      caption:
+        "Buying a domain, moved from a hidden settings menu into the setup flow itself.",
+    },
+    {
+      src: "/images/work/pagevamp/domain-setup-subdomain.jpg",
+      alt: "Onboarding screen for customizing Pagevamp's default subdomain",
+      caption:
+        "Subdomain customization, surfaced as an upfront choice instead of a post-launch fix.",
+    },
+    {
+      src: "/images/work/pagevamp/domain-setup-owndomain.jpg",
+      alt: "Onboarding screen for connecting a domain the user already owns",
+      caption:
+        "Connecting an existing domain, now a first-class option during setup, not a support ticket.",
+    },
+  ]}
+/>
+
+**The problem:** Roughly half of users combined wanted either a custom domain or a customized subdomain, and neither was available during setup.
+
+**Alternatives considered:** Leaving domain configuration as a post-launch settings option. Lower effort, but ignored both the competitive standard and the user need for an early, shareable link.
+
+**Why this approach:** <mark>Users needed something to test and share early. Hiding a mainstream capability behind a settings menu was actively costing trust during the exact window where trust mattered most.</mark>
+
+> **Impact:** Users linked custom domains successfully without needing support assistance. Subdomain customization usage increased by 20%.
 
 ## Outcome
 
 Three months after release, every metric the original problem had touched moved.
+
+<CaseStudyImage
+  src="/images/work/pagevamp/outcome.png"
+  alt="Dashboard summarizing post-launch metrics: signups, privacy concern rate, and completion rate"
+  caption="Three months post-launch, every metric tied to the original problem had moved in the right direction."
+/>
 
 | Metric                        | Before           | After                  |
 | ----------------------------- | ---------------- | ---------------------- |

@@ -1,87 +1,238 @@
 ---
-title: "Webscale Stratus Platform"
-client: "Webscale Networks"
-role: "Senior Product Designer"
-year: "2021"
-timeline: "2.5 years"
-teamSize: "12 people"
-tools: ["Figma", "Storybook", "Miro", "Amplitude", "FullStory", "HTML/CSS"]
-type: "eCommerce"
-outcome: "Improved onboarding conversion by 60%. Reduced support tickets by 35%. Design system used by 6 product teams."
-description: "Designing a global cloud platform for Fortune 500 eCommerce retailers, from onboarding to real-time performance dashboards."
+title: "Stratus MaaS: One Interface, Three People Who Don't Want the Same Thing First"
+client: "MageMojo"
+role: "Product Designer"
+year: "2016-2019"
+timeline: "12+ months, research to shipped product"
+teamSize: "Weekly reviews with product and engineering"
+tools:
+  [
+    "User Interviews",
+    "Concept Sketching",
+    "Adobe XD",
+    "Usability Testing",
+    "Design Systems",
+  ]
+type: "Hosting / SaaS"
+outcome: "40% fewer support tickets, 30% faster resolutions, and full adoption from both developers and support staff on the same interface store owners used."
+description: "Redesigning MageMojo's Magento hosting control panel so a store owner, a developer, and a support agent could all use the same screen, once I found the one question all three were actually asking first."
+duration: "12+ months, research to shipped product. Launched month 6."
+roleSummary: "Product Designer, owning the redesign end to end:"
+roleItems:
+  - "User Research & Interviews"
+  - "Information Architecture"
+  - "Visual & Component System"
+  - "Usability Testing (4 rounds)"
+team:
+  - "Weekly reviews with product and engineering"
+  - "Design QA and shared accessibility sign-off"
+  - "Full headcount isn't detailed in the source material"
+impact: "40% fewer support tickets, 30% faster resolutions, and full adoption from both developers and support staff on the same interface store owners used."
+highlights:
+  - title: "One shared first question."
+    text: 'Store owners, developers, and support staff all wanted "is it working?" answered before anything else, just with different appetites for what came next.'
+  - title: "Language, not jargon removal."
+    text: "Technical terms stayed intact for developers; everyone else got a plain-language door into the same setting."
+  - title: "A component system that carries meaning."
+    text: "Color and typography signaled health and precision, so one screen could serve a glance and a deep configuration session."
+  - title: "Depth without a second product."
+    text: "Advanced settings expanded in place instead of living behind a separate developer mode."
 ---
 
 ## Overview
 
-Webscale Stratus is a cloud infrastructure platform purpose-built for eCommerce, think smart CDN, traffic management, and performance optimisation as a managed service. When I joined as Senior Product Designer, the platform was technically powerful but visually and experientially dated, with an onboarding drop-off rate that was silently costing the company significant ARR.
+Stratus MaaS was MageMojo's control panel for Magento hosting, and <mark>three very different people needed the same screen to work for them.</mark> A store owner wanted reassurance that the site was up. A developer wanted root-level control. A support agent needed to answer both without becoming a translator between them.
 
-## My Role
+Most competitors solved this by picking a side: friendly for beginners, or powerful for developers. That compromise was costing MageMojo about 80 support tickets a month and a slow bleed of technical customers who outgrew the tool.
 
-Over 2.5 years I owned:
+I led the research, information architecture, visual system, and testing behind a single panel built to serve all three at once.
 
-- End-to-end UX for the core platform (onboarding, dashboard, alerts, configuration)
-- Building Stratus Design System from scratch, the first design system the company had
-- User research programme: quarterly usability testing, session recording analysis, support ticket triage
-- Design operations: aligning with 4 frontend engineers across US and India timezones
+<CaseStudyCarousel
+  images={[
+    {
+      src: "/images/work/webscale-stratus/before-after-1.jpg",
+      alt: "Original Stratus control panel exposing raw technical vocabulary and scattered status indicators",
+      caption:
+        "Before — the original panel surfaced DNS, SSL, and server terminology upfront, with no shared entry point for less technical users.",
+    },
+    {
+      src: "/images/work/webscale-stratus/before-after-2.jpg",
+      alt: "Redesigned Stratus control panel leading with status before configuration detail",
+      caption:
+        "After — the redesigned panel led with status, then layered action and configuration detail beneath it.",
+    },
+  ]}
+/>
 
-## The Challenge
+## The Problem
 
-Webscale's customers are enterprise eCommerce teams, technically sophisticated, time-poor, and under constant pressure from trading peaks (Black Friday, Cyber Monday). The platform had to serve both a DevOps engineer tuning performance configurations and a VP of eCommerce checking uptime before a flash sale.
+The panel wasn't broken for anyone who already understood it. The cost showed up in the numbers around it:
 
-Key problems:
+- **~80 support tickets a month** traced to configuration confusion (DNS, SSL, deployment settings)
+- **20+ minutes per ticket** spent re-explaining features that should have explained themselves
+- **Technical users churning** within 6-12 months, outgrowing a beginner-simplified interface with no deeper layer to grow into
 
-- **Onboarding**: New customers required extensive hand-holding from solutions engineers because the self-serve setup was opaque. The journey from sign-up to first live site was 14 days average, with most of that time waiting for humans.
-- **Dashboard complexity**: The main dashboard surfaced 80+ metrics with no hierarchy. Users couldn't tell what was important.
-- **Alert fatigue**: The alerting system generated noise. Customers had trained themselves to ignore alerts, a genuine risk during actual incidents.
+> Left alone, MageMojo would keep losing exactly the higher-revenue technical accounts it most needed to retain, not because the hosting was bad, but because the interface forced a choice nobody should have had to make.
 
-## Process
+## Initial Understanding
 
-### Research First
+The obvious framing was simplicity versus power, the same tradeoff every competitor had already accepted. Whether a third option existed was the open question.
 
-I audited 6 months of support tickets and categorised every issue. 42% of tickets related to onboarding configuration, things that should have been self-explanatory. I ran moderated usability tests with 8 customers and identified 3 critical failure points in the first-run experience.
+I didn't know what store owners wanted beyond "less confusing," whether developers would tolerate a friendlier surface, or whether support staff faced the same confusion as customers. <mark>The hard constraint: it had to ship as one interface.</mark> No segmented modes, no separate logins per user type.
 
-### Onboarding Redesign
+## Discovery & Learning
 
-The old onboarding was a wizard with 12 steps, most of which required information the customer didn't have at hand (DNS records, origin IPs, SSL certificates). We restructured it as an asynchronous journey:
+Five interviews across the real user base: two store owners (~$500K/year and $10M+/year), one CTO, two support agents. A small sample, and I'll come back to that, but it surfaced the finding that reshaped the project.
 
-- Collect only what's needed right now
-- "Park" steps that need backend configuration, with email reminders
-- Progress saved automatically; resume from any device
-- Contextual help embedded in-line, not in a separate help centre
+**Store owners don't think in infrastructure.** Logging in, they have one question: is my site working? DNS, SSL, and server config are all secondary to that.
 
-Time-to-first-live-site dropped from 14 days to 3 days. Onboarding conversion improved by 60%.
+The surprise: this wasn't unique to store owners. <mark>The CTO and support agents also wanted "is everything healthy" answered first.</mark> The difference was tolerance for depth after that, not the existence of the question itself.
 
-<UserFlowPlaceholder />
+## Defining the Real Problem
 
-### Dashboard Hierarchy
+This was never simplicity versus power. It was sequencing. Every user wanted the same first answer and diverged only on how much came after it, and how fast.
 
-I introduced a three-layer architecture: **Health** (is anything broken?), **Performance** (how fast is the site?), **Traffic** (what's the pattern?). Each layer had a progressive detail model, a single health score at a glance, with drill-down for root cause.
+> That reframed the brief: build around the real order people needed information in, status, then action, then configuration detail, so a first-time store owner and a CTO could use the identical screen without either feeling like it was built for someone else.
 
-The 80+ metrics were organised into these three lenses. Only 8 metrics were surfaced at the top level; everything else was one click away with context about why it mattered.
+## Exploring Solutions
 
-<WireframePlaceholder />
+Three concepts, sketched and evaluated against real user behavior before committing to one:
 
-### Design System
+**Guided wizard.** Simple to follow, but rigid. Developers and any store owner with a non-standard setup would need to deviate from the happy path, and a wizard has no good answer for deviation.
 
-Stratus Design System shipped with:
+**Everything visible at once.** Full transparency, close to what already existed. It's what developers said they wanted when asked directly, but it recreates the exact overwhelm the project was meant to fix.
 
-- 200+ components across web and email
-- Design tokens for colour, spacing, typography
-- Figma + Storybook paired documentation
-- Accessibility annotation kit for engineering handoff
-- Contribution guidelines so product teams could extend it
+**Layered disclosure.** Status-first, expanding into full technical depth on demand. Selected, but conditionally: <mark>it only works if the layers follow the sequence users actually follow, not a basic-versus-advanced guess made at a desk.</mark>
 
-The design system reduced designer-to-engineer friction significantly and cut UI-related QA cycles in half.
+<CaseStudyCarousel
+  images={[
+    {
+      src: "/images/work/webscale-stratus/wireframe-1.jpg",
+      alt: "Wireframe sketch of the guided-wizard concept, a step-by-step setup flow",
+      caption:
+        "Concept 1 — a guided wizard walked users through setup step by step, but had no graceful path for non-standard configurations.",
+    },
+    {
+      src: "/images/work/webscale-stratus/wireframe-2.jpg",
+      alt: "Wireframe sketch of the everything-visible concept, all settings exposed at once",
+      caption:
+        "Concept 2 — full transparency exposed every setting at once, matching what developers asked for but overwhelming less technical users.",
+    },
+    {
+      src: "/images/work/webscale-stratus/wireframe-3.jpg",
+      alt: "Wireframe sketch of the layered-disclosure concept, status-first with expandable detail",
+      caption:
+        "Concept 3 — layered disclosure led with status and expanded into action and configuration detail on demand.",
+    },
+    {
+      src: "/images/work/webscale-stratus/wireframe-4.jpg",
+      alt: "Refined layered-disclosure wireframe sequencing status, action, and configuration",
+      caption:
+        "The selected concept, refined to follow the status → action → configuration sequence users actually followed.",
+    },
+  ]}
+/>
 
-<VisualDesignPlaceholder />
+## Design Decisions
+
+Four decisions carried the redesign.
+
+### 1. Sequence around "is it working," not the feature list
+
+**Problem:** Three user types, three depths of information, one shared screen.
+
+**Alternatives:** Guided wizard (too rigid outside the happy path). Everything visible (overwhelmed non-technical users).
+
+**Why this approach:** The divergence was about speed to the first answer, not the ceiling of what people wanted access to. Status → action → configuration gave everyone an immediate answer and room to go deeper.
+
+> **Impact:** Resolved most usability complaints in round-one testing. Store owners confirmed, unprompted, that status came before configuration.
+
+### 2. Organize labels around intent, not system architecture
+
+**Problem:** The real structure was technical (DNS, SSL, Nginx, autoscaling). Store owners don't reason in those terms; flattening the vocabulary risked frustrating developers who needed precision.
+
+**Alternatives:** Keep the existing technical vocabulary as-is. Matches the infrastructure, but testing showed users didn't know what "Docroot" or "Instance Type" meant without context.
+
+**Why this approach:** Sections named around intent ("Configure Domain," not "DNS Management"), with a one-sentence plain-language explanation on every technical option. Developers kept precise terms; everyone else got a way in.
+
+> **Impact:** Contextual help was one of the highest-leverage single changes in testing, targeting the exact failure mode behind most support tickets.
+
+### 3. Build a component system where color and type carry meaning
+
+**Problem:** 25+ screens needed to communicate health and technical precision at a glance, without a legend or a separate technical mode.
+
+**Alternatives:** A neutral system relying on text labels alone. Lower design overhead, but it puts the burden of parsing status on reading instead of scanning.
+
+**Why this approach:** A semantic color system (blue for healthy/primary, orange for warnings, red for errors), plus a monospace typeface reserved for technical content, signaling precision without a separate screen. 30+ components documented against this system.
+
+> **Impact:** Developers described the shipped product as showing "everything without clutter." Support staff described it as eliminating a knowledge silo.
+
+<CaseStudyImage
+  src="/images/work/webscale-stratus/information-architecture.jpg"
+  alt="DNS information architecture showing status, action, and configuration nesting"
+  caption="The DNS information architecture, showing how status, action, and configuration detail were nested for one representative section."
+/>
+
+### 4. Progressive disclosure instead of a separate advanced mode
+
+**Problem:** Developers needed fast, full access to advanced settings like autoscaling and server config.
+
+**Alternatives:** A distinct developer mode, functionally a second product. Ruled out for fragmenting the interface and reintroducing the simplicity-versus-power tradeoff.
+
+**Why this approach:** Advanced settings collapsed by default, expandable in place, inside the same navigation a store owner used.
+
+> **Impact:** Developers and support staff both reached 100% adoption, on the same interface, no separate mode required.
+
+## Iteration
+
+Four rounds of testing, each driving a structural change:
+
+- **Round 1** (3 users, wireframes): confirmed store owners lead with "is everything okay." Dashboard restructured around status.
+- **Round 2** (4 users, visual + copy): "Docroot" and "Instance Type" weren't self-explanatory. Contextual help added throughout.
+- **Rounds 3-4** (full review): advanced settings consolidated, change history added, ambiguous icons clarified.
+
+The clearest before-and-after is the URLs List page: scattered status and unclear validation states, replaced by color-coded indicators and organized columns for domain, status, SSL, DNS, and file validation.
+
+<BeforeAfterSlider
+  before="/images/work/webscale-stratus/url-before.jpg"
+  after="/images/work/webscale-stratus/url-after.jpg"
+  beforeAlt="DNS information architecture before redesign, showing status, action, and configuration nesting"
+  afterAlt="DNS information architecture after redesign, showing status, action, and configuration nesting"
+  caption="Drag to compare: the DNS information architecture before and after, showing how status, action, and configuration detail were nested for one representative section."
+/>
+
+> Before: minimal hierarchy, status scattered. After: color-coded status, organized columns, clear validation, at a glance.
 
 ## Outcome
 
-- Onboarding conversion improved by **60%**
-- Time-to-first-live-site reduced from 14 days to **3 days**
-- Support ticket volume for onboarding issues down **35%**
-- Alert fatigue reduced: actionable alert rate improved from 22% to **71%**
-- Design system adopted by **6 product teams** across the organisation
+Shipped in month six: desktop-optimized, responsive, WCAG 2.1 AA compliant, 25+ production screens.
 
+| Metric                             | Before    | After            |
+| ---------------------------------- | --------- | ---------------- |
+| Configuration-confusion tickets    | ~80/month | ~50/month (-40%) |
+| Avg. ticket resolution time        | 20 min    | 14 min (-30%)    |
+| Support calls prevented (6 months) | n/a       | 1,200+           |
+| Store owner "easy to use"          | n/a       | 85%              |
+| Store owner task completion        | n/a       | 95%              |
+| Developer adoption                 | n/a       | 100%             |
+| Support staff adoption             | n/a       | 100%             |
 
-*Webscale Networks was acquired in 2023. Selected details have been generalised.*
+## Reflection
+
+The biggest lesson: <mark>a multi-persona problem is sometimes a sequencing problem in disguise.</mark> I started out framing this as simplicity versus power, the same frame every competitor had accepted. The three groups weren't actually divided on what they wanted, only on how much of it they wanted immediately versus later.
+
+The second lesson: explaining jargon and removing jargon are different fixes. Keeping precise terms in place while adding plain-language context served both audiences better than simplifying the vocabulary would have.
+
+If I ran this again, I'd want a larger interview base before committing an entire information architecture to a pattern from five conversations. It held up here, through four rounds of testing and the numbers after launch, but it's a thin evidence base for a decision this structural.
+
+> The three user types weren't disagreeing about what they wanted first. They were disagreeing about what they wanted after.
+
+## Key Takeaways
+
+- **A three-way audience split can resolve to one interface,** if there's a shared first question underneath the disagreement.
+- **Explaining jargon and removing jargon are not the same fix.** Keeping precise terms while adding plain-language context beat simplifying the vocabulary.
+- **A layered interface is only as good as the sequence it's built on.** Layered disclosure won because it was grounded in real usage, not a basic-versus-advanced guess.
+- **Color and type can do functional work.** The semantic system let one screen speak to a store owner and a developer at once.
+- **Every metric traced back to sequencing or language,** not a visual refresh.
+
+_Tools Used: User Interviews · Concept Sketching · Adobe XD · Usability Testing · Design Systems_
