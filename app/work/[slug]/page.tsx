@@ -12,6 +12,7 @@ import CaseStudyCard, { CaseStudy } from '@/components/CaseStudyCard'
 import CaseStudyImage from '@/components/CaseStudyImage'
 import CaseStudyCarousel from '@/components/CaseStudyCarousel'
 import BeforeAfterSlider from '@/components/BeforeAfterSlider'
+import PrototypeViewer from '@/components/PrototypeViewer'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, ArrowUpRight, Briefcase, CalendarClock, Users, TrendingUp, Sparkles } from 'lucide-react'
@@ -398,15 +399,57 @@ function VisualDesignPlaceholder() {
   )
 }
 
-/* ─── Per-project header gradients — every case study gets a distinct tint ─── */
-const slugHeaderBg: Record<string, string> = {
-  pagevamp: 'from-emerald-50/70 dark:from-emerald-950/20',
-  avira: 'from-rose-50/70 dark:from-rose-950/20',
-  'linkedin-feed-redesign': 'from-blue-50/70 dark:from-blue-950/20',
-  'nepal-pm-calendar': 'from-indigo-50/70 dark:from-indigo-950/20',
-  streamshare: 'from-purple-50/70 dark:from-purple-950/20',
-  'webscale-stratus': 'from-sky-50/70 dark:from-sky-950/20',
-  _default: 'from-amber-50/70 dark:from-amber-950/20',
+/* ─── Per-project header + details-card theme — every case study gets a distinct tint ─── */
+interface SlugTheme {
+  headerFrom: string
+  cardBg: string
+  cardBorder: string
+  accentBar: string
+}
+
+const slugTheme: Record<string, SlugTheme> = {
+  pagevamp: {
+    headerFrom: 'from-emerald-50/70 dark:from-emerald-950/20',
+    cardBg: 'from-emerald-50/70 via-white to-stone-50 dark:from-emerald-950/10 dark:via-stone-900 dark:to-stone-900/60',
+    cardBorder: 'border-emerald-200/70 dark:border-emerald-800/30',
+    accentBar: 'from-emerald-400 via-emerald-300 to-transparent dark:from-emerald-500 dark:via-emerald-600',
+  },
+  avira: {
+    headerFrom: 'from-rose-50/70 dark:from-rose-950/20',
+    cardBg: 'from-rose-50/70 via-white to-stone-50 dark:from-rose-950/10 dark:via-stone-900 dark:to-stone-900/60',
+    cardBorder: 'border-rose-200/70 dark:border-rose-800/30',
+    accentBar: 'from-rose-400 via-rose-300 to-transparent dark:from-rose-500 dark:via-rose-600',
+  },
+  'linkedin-feed-redesign': {
+    headerFrom: 'from-blue-50/70 dark:from-blue-950/20',
+    cardBg: 'from-blue-50/70 via-white to-stone-50 dark:from-blue-950/10 dark:via-stone-900 dark:to-stone-900/60',
+    cardBorder: 'border-blue-200/70 dark:border-blue-800/30',
+    accentBar: 'from-blue-400 via-blue-300 to-transparent dark:from-blue-500 dark:via-blue-600',
+  },
+  'nepal-pm-calendar': {
+    headerFrom: 'from-indigo-50/70 dark:from-indigo-950/20',
+    cardBg: 'from-indigo-50/70 via-white to-stone-50 dark:from-indigo-950/10 dark:via-stone-900 dark:to-stone-900/60',
+    cardBorder: 'border-indigo-200/70 dark:border-indigo-800/30',
+    accentBar: 'from-indigo-400 via-indigo-300 to-transparent dark:from-indigo-500 dark:via-indigo-600',
+  },
+  streamshare: {
+    headerFrom: 'from-purple-50/70 dark:from-purple-950/20',
+    cardBg: 'from-purple-50/70 via-white to-stone-50 dark:from-purple-950/10 dark:via-stone-900 dark:to-stone-900/60',
+    cardBorder: 'border-purple-200/70 dark:border-purple-800/30',
+    accentBar: 'from-purple-400 via-purple-300 to-transparent dark:from-purple-500 dark:via-purple-600',
+  },
+  'webscale-stratus': {
+    headerFrom: 'from-sky-50/70 dark:from-sky-950/20',
+    cardBg: 'from-sky-50/70 via-white to-stone-50 dark:from-sky-950/10 dark:via-stone-900 dark:to-stone-900/60',
+    cardBorder: 'border-sky-200/70 dark:border-sky-800/30',
+    accentBar: 'from-sky-400 via-sky-300 to-transparent dark:from-sky-500 dark:via-sky-600',
+  },
+  _default: {
+    headerFrom: 'from-amber-50/70 dark:from-amber-950/20',
+    cardBg: 'from-amber-50/70 via-white to-stone-50 dark:from-amber-950/10 dark:via-stone-900 dark:to-stone-900/60',
+    cardBorder: 'border-amber-200/70 dark:border-amber-800/30',
+    accentBar: 'from-amber-400 via-amber-300 to-transparent dark:from-amber-500 dark:via-amber-600',
+  },
 }
 
 /* ─── Page ─── */
@@ -433,6 +476,8 @@ export default async function CaseStudyPage({
         .find((f) => fs.existsSync(path.join(imgDir, f)))
         ?.replace(/^/, `/images/work/${slug}/`) ?? projectImages?.hero ?? null)
     : (projectImages?.hero ?? null)
+
+  const theme = slugTheme[slug] ?? slugTheme._default
 
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
@@ -472,7 +517,7 @@ export default async function CaseStudyPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudyJsonLd) }}
       />
       {/* Back + Header */}
-      <section className={`relative bg-gradient-to-b ${slugHeaderBg[slug] ?? slugHeaderBg._default} to-transparent dark:to-transparent pt-28 pb-16`}>
+      <section className={`relative bg-gradient-to-b ${theme.headerFrom} to-transparent dark:to-transparent pt-28 pb-16`}>
         <div className="container-portfolio">
           <Breadcrumbs
             items={[
@@ -508,7 +553,7 @@ export default async function CaseStudyPage({
       {/* Hero image — deliberately wider than the content column below */}
       <AnimatedSection delay={0.15}>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-          <div className="w-full aspect-video rounded-3xl overflow-hidden relative border border-stone-200 dark:border-stone-800 bg-stone-100 dark:bg-stone-900">
+          <div className={`w-full aspect-video rounded-3xl overflow-hidden relative bg-stone-100 dark:bg-stone-900`}>
             {heroImage ? (
               <Image
                 src={heroImage}
@@ -534,8 +579,8 @@ export default async function CaseStudyPage({
       {(fm.roleItems?.length || fm.team?.length || fm.impact || fm.highlights?.length) && (
         <AnimatedSection delay={0.2}>
           <div className="container-portfolio mb-16">
-            <div className="relative overflow-hidden rounded-3xl border border-stone-200 dark:border-stone-800 bg-gradient-to-br from-amber-50/70 via-white to-stone-50 dark:from-amber-950/10 dark:via-stone-900 dark:to-stone-900/60">
-              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-400 via-amber-300 to-transparent dark:from-amber-500 dark:via-amber-600" />
+            <div className={`relative overflow-hidden rounded-3xl border ${theme.cardBorder} bg-gradient-to-br ${theme.cardBg}`}>
+              <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${theme.accentBar}`} />
 
               <div className="p-8 sm:p-10">
                 <h2 className="font-heading text-xl font-bold text-stone-900 dark:text-stone-50 mb-8">
@@ -639,7 +684,7 @@ export default async function CaseStudyPage({
                 <MDXRemote
                   source={content}
                   options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
-                  components={{ ...getMDXComponents(), WireframePlaceholder, UserFlowPlaceholder, MockupPlaceholder, VisualDesignPlaceholder, CaseStudyImage, CaseStudyCarousel, BeforeAfterSlider }}
+                  components={{ ...getMDXComponents(), WireframePlaceholder, UserFlowPlaceholder, MockupPlaceholder, VisualDesignPlaceholder, CaseStudyImage, CaseStudyCarousel, BeforeAfterSlider, PrototypeViewer }}
                 />
               </div>
 

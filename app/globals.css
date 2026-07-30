@@ -80,3 +80,9 @@
     @apply max-w-6xl mx-auto px-6 sm:px-8 lg:px-12;
   }
 }
+
+/* Lightbox: shrink slide to the image's own height instead of stretching to
+   full viewport height — stops the letterbox gap below wide images (e.g. 16:9). */
+.yarl__carousel {
+  align-items: center;
+}
