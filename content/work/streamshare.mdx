@@ -47,7 +47,11 @@ with nothing else constraining it.
 
 By the time I started this, live streaming apps were everywhere. Instagram, Facebook, and YouTube all had some version of "go live." What none of them had was a reason to keep coming back beyond whatever happened to be trending that day. I wanted to know if that gap was fixable with better design, or if I was just describing luck.
 
-<CaseStudyImage src="/images/work/streamshare/overview.jpg" alt="" caption="" />
+<CaseStudyImage
+  src="/images/work/streamshare/overview.jpg"
+  alt="StreamShare splash screen, sign-in screen, and interest-picker onboarding screen shown side by side"
+  caption="Splash screen, sign-in, and the interest picker that kicks off onboarding — the first three screens a new user sees."
+/>
 
 ## The Problem
 
@@ -62,9 +66,9 @@ After that first night, I went looking for streaming apps that could give me mor
 > None of this was really about the content. Live video was already there, and it was already interesting when I found the right stream. The actual failure was in the layer around it: the part responsible for getting me to that stream in the first place, and giving me a way to make my own small version of that experience for people I actually knew.
 
 <CaseStudyImage
-  src="/images/work/streamshare/streamshare.jpg"
-  alt="Existing streaming apps showing missing categories, personalization, and location context"
-  caption="No categories, no personalization, no location context. Live video was there. The layer around it wasn't."
+  src="/images/work/streamshare/streamshare-the-problem-mobile.png"
+  alt="Annotated competitor screens showing five discovery problems: hard to navigate, no relevant categories, generic trending feed, inconsistent UI, and too much competing information"
+  caption="Five recurring frustrations across competitor apps — none of them about the content itself, all of them about the discovery layer around it."
 />
 
 ## Initial Understanding
@@ -81,9 +85,9 @@ Going in, my working assumption was simple: better categories, better recommenda
 I ran contextual inquiries and video calls with five potential users, ages 20 to 40, across a deliberately varied set of situations: college students in shared housing, single professionals with heavy workloads, a married working mother, and people dealing with a general money crunch during the pandemic.
 
 <CaseStudyImage
-  src="/images/work/streamshare/usability-testing.jpg"
-  alt="Contextual interviews with five participants across varied life situations"
-  caption="Five contextual interviews, deliberately varied: students, working professionals, a working mother, all navigating the same pandemic constraints differently."
+  src="/images/work/streamshare/contextual inquiries.png"
+  alt="Five contextual interview video calls converging into three persona summaries: Rakesh, Vijay, and Prajina, under one shared need"
+  caption="Five contextual interviews across varied life situations, distilled into three personas who converged on the same missing piece."
 />
 
 **The personas converged on different needs, not the same one.**
@@ -95,17 +99,17 @@ I ran contextual inquiries and video calls with five potential users, ages 20 to
 Three different motivations, but all three kept landing on the same missing piece: <mark>a way to find people and content that actually matched their specific interests, not a generic trending feed.</mark>
 
 <CaseStudyImage
-  src="/images/work/streamshare/user-flow.jpg"
-  alt="Persona profiles for Rakesh Shakya, Vijay Karki, and Prajina Shrestha"
-  caption="Three personas, three different motivations, one shared missing piece: content and people matched to actual interest, not a trending feed."
+  src="/images/work/streamshare/streamshare-information-architecture.jpg"
+  alt="Information architecture diagram mapping onboarding and the main dashboard tabs, with the Stream and hosting flow expanded down to screen level"
+  caption="Information architecture for the Go Live and hosting flow, mapped down to screen level; the rest of the app's tabs are shown only at a top level here, not in full."
 />
 
 **Affinity mapping surfaced a second cluster I hadn't expected.** One set of notes was about finding content: exploring new places, trending streams, categories, getting inspired. A second, equally dense cluster was about making and sharing it: hosting a stream, inviting friends, sharing privately, creating a private or public group, following a favorite host. I'd gone in thinking about this as a discovery problem. <mark>The data said it was just as much a hosting and connection problem.</mark>
 
 <CaseStudyImage
-  src="/images/work/streamshare/affinity-mapping.jpg"
-  alt="Affinity mapping boards grouping discovery needs against hosting and connection needs"
-  caption="Interview notes split almost evenly between two clusters: finding content, and hosting and sharing it."
+  src="/images/work/streamshare/streamshare-affinity-mapping.png"
+  alt="Affinity mapping board splitting interview notes into two clusters: finding content, and hosting and connection"
+  caption="Interview notes clustered into two equally dense groups — finding content, and hosting and connection — reframing a single discovery problem into two."
 />
 
 **Competitive analysis explained why the gap existed, not just that it did.** I looked at five apps: Instagram, Facebook, and YouTube, where live video is one feature bolted onto a feed built for something else, and Twitch and TikTok, both live at the time and closer to a real streaming-first comparison for 2021.
@@ -146,8 +150,8 @@ That reframing is the reason the onboarding narrative in the finished design wal
 
 <CaseStudyImage
   src="/images/work/streamshare/wireframe-sketch.jpg"
-  alt="Early wireframe sketches exploring location placement and per-broadcast host controls"
-  caption="Early sketches testing where location should live and how much control a host needed before going live."
+  alt="Hand-drawn paper wireframes sketching the sign-up, phone verification, and core app screens"
+  caption="Early pencil-and-paper sketches, working out sign-up, verification, and the core screens before anything moved to Figma."
 />
 
 ## Design Decisions
@@ -166,24 +170,35 @@ These four decisions did the most work in shaping the final design.
 
 <CaseStudyImage
   src="/images/work/streamshare/host-control.jpg"
-  alt=""
-  caption=""
+  alt="Go Live setup screen showing public/private toggle, tagging, comment settings, and location sharing, alongside the external camera connection screen"
+  caption="Per-broadcast controls: public or private, tagging, comments, and an opt-in location toggle, plus the option to pair an external camera over Wi-Fi."
 />
 
-### 2. Move location into the main feed instead of giving it its own destination
+### 2. Put a host's schedule where their followers already look
 
-**The challenge:** People wanted to know what's nearby, and the literal answer was a dedicated map tab.
+**The challenge:** The original research had already flagged scheduling as a real want — being able to plan a stream ahead of time — but a schedule only helps if people actually see it before the stream starts.
 
-**Alternatives considered:** A standalone map tab in the primary navigation.
+**Alternatives considered:** A separate, dedicated streams calendar, the same place YouTube and Twitch put scheduling, which means checking a screen most people never think to open.
 
-**Why I chose this approach:** A dedicated tab asks for an extra decision at the exact moment the feature should feel immediate. Surfacing "streams near you" at the top of Home answers the same need and frees a nav slot for Communities.
+**Why I chose this approach:** Followers already check a creator's profile to see if they're live. Upcoming streams, with real dates and times, sit right next to that same live status, so the schedule shows up exactly where the relationship with that host already lives, instead of in a calendar someone has to remember exists.
 
-> **Impact:** The same location-awareness, delivered the moment the app opens instead of a place to remember to visit.
+> **Impact:** More people actually seeing a stream is coming before it starts, since the information sits where attention already is rather than in a screen built just for scheduling.
 
-<CaseStudyImage
-  src="/images/work/streamshare/wireframe.jpg"
-  alt="Go Live setup screen and home feed showing the streams near you module"
-  caption="The Go Live setup screen, and the home feed surfacing streams near you at the top instead of a separate map tab."
+<CaseStudyCarousel
+  images={[
+    {
+      src: "/images/work/streamshare/stream-host.jpg",
+      alt: "Creator profile with an Upcoming tab, the schedule-stream form, and the resulting upcoming-stream card",
+      caption:
+        "A host's profile lists upcoming streams next to live status, and scheduling one takes a title, description, date, time, and thumbnail.",
+    },
+    {
+      src: "/images/work/streamshare/stream-reminder.jpg",
+      alt: "Viewer-facing upcoming stream page with a Set Reminder action and the resulting reminder confirmation",
+      caption:
+        "From a follower's side: the same upcoming stream, a one-tap reminder, and confirmation that they'll be notified 15 minutes before it starts.",
+    },
+  ]}
 />
 
 ### 3. Give viewers a way to support a host directly, not just socially
@@ -192,14 +207,14 @@ These four decisions did the most work in shaping the final design.
 
 **Alternatives considered:** Stick to social-only signals, simpler and closer to what the original research actually asked about.
 
-**Why I chose this approach:** Not from the 2021 interviews directly — I want to be upfront about that — but from noticing how creator-facing products elsewhere had moved past social signals. It follows from persona motivations already there: Vijay wanting to learn from professionals, Prajina wanting to grow her network, both describing a relationship with a host, not just interest in content.
+**Why I chose this approach:** Not from the 2021 interviews directly — I want to be upfront about that — but from noticing how creator-facing products elsewhere had moved past social signals. It follows from persona motivations already there: Vijay wanting to learn from professionals, Prajina wanting to grow her network, both describing a relationship with a host, not just interest in content. The flow stays low-friction: preset tiers ($1, $5, $10, $25), a custom amount if none of those fit, and a short message to the creator, then a confirmation the viewer can choose to share.
 
-> **Impact:** A possible reason to keep streaming beyond a follower count. The decision I'd most want to test with real creators first.
+> **Impact:** A possible reason to keep streaming beyond a follower count, and a concrete way to turn "this is amazing" in the chat into something a host can actually use. The decision I'd most want to test with real creators first.
 
 <CaseStudyImage
   src="/images/work/streamshare/support-host.jpg"
-  alt=""
-  caption=""
+  alt="Live stream chat with a tip action, a support-tier picker with preset and custom amounts, and a support confirmation screen"
+  caption="The support flow: preset tiers, a custom amount, an optional message to the host, and a confirmation the viewer can choose to share."
 />
 
 ### 4. Treat the end of a stream as a moment worth designing
@@ -211,6 +226,12 @@ These four decisions did the most work in shaping the final design.
 **Why I chose this approach:** A summary — duration, peak viewers, likes, comments, new followers, the moment that landed best — turns an abrupt cutoff into a debrief.
 
 > **Impact:** Something concrete for a host to improve from stream to stream. Like the support feature, a hypothesis, not something validated by a real creator.
+
+<CaseStudyImage
+  src="/images/work/streamshare/post-stream.jpg"
+  alt="Post-stream summary screen with duration, peak viewers, and engagement stats, alongside a followers growth screen and a creator profile with live and upcoming streams"
+  caption="The post-stream debrief — duration, peak viewers, likes, comments, and top moment — next to the follower-growth and creator-profile screens."
+/>
 
 ## Iteration
 
@@ -227,12 +248,12 @@ This design didn't go through a new, separate round of usability testing. The re
 
 This remains a self-directed concept, not a shipped product. There's no live user base and no business metric attached to it, and I want to be direct about that rather than imply otherwise.
 
-What exists is a complete, high-fidelity design covering onboarding, an interest picker, a home feed with contextual location discovery, a Communities space with follower growth and engagement detail, Explore and Trending browsing, a fully specified Go Live setup, a live-viewing experience that pairs chat, safety controls, and creator support in one place, a post-stream summary, and account settings.
+What exists is a complete, high-fidelity design covering onboarding, an interest picker, a home feed with contextual location discovery, a Communities space with follower growth and engagement detail, Explore and Trending browsing, a fully specified Go Live setup that includes pairing an external camera over Wi-Fi for hosts who want better production quality than a phone camera, a live-viewing experience that pairs chat, safety controls, and creator support in one place, a post-stream summary, and account settings.
 
 <CaseStudyImage
-  src="/images/work/streamshare/prototype.jpg"
-  alt="Flow sequence from onboarding through the home feed, Go Live setup, live viewing, and post-stream summary"
-  caption="Onboarding through home feed, Go Live setup, live viewing, and post-stream summary: the finished flow, end to end."
+  src="/images/work/streamshare/streamshare-outcome.jpg"
+  alt="Eight-screen flow of the finished app: personalization, home with nearby streams, explore, go-live privacy setup, live chat, stream summary, support streamer, and schedule summary"
+  caption="The finished flow end to end — personalization through home, explore, go live, live chat, stream summary, support, and scheduling — each screen tied back to a research finding or an explainable decision."
 />
 
 I haven't run usability testing on this version, so I can't point to validated engagement numbers. What I can say is that every screen traces back either to a real research finding, or to a design decision I can explain and defend — which is the standard I try to hold myself to even without a client asking for a business case.
@@ -250,7 +271,7 @@ If I picked this back up with real users involved, direct creator support and th
 ## Key Takeaways
 
 - **Affinity mapping reframed a discovery problem into a discovery-and-hosting problem.** The interview notes split almost evenly between wanting to find content and wanting to host and share it privately, and that split still shapes the design's structure.
-- **Location works better folded into the main feed than as a destination people have to remember to visit.** Moving it off its own tab and into the top of the home feed kept it just as visible while freeing up navigation for Communities.
+- **Scheduling only works if it lives where attention already is.** Putting upcoming streams on a creator's profile, right next to their live status, answers the "plan a stream ahead" want the research surfaced without needing a separate calendar screen.
 - **Giving hosts granular, per-broadcast controls mattered more than one global privacy setting,** and traces directly back to what the original research surfaced.
 - **Supporting creators directly and closing the loop after a stream ends came from design reasoning and pattern awareness, not new interviews,** and I've tried to be explicit about that distinction rather than blur it.
 - **This project never shipped, so there are no production metrics to report.** Its value is in the reasoning trail: real research where I had it, and honest, explainable judgment where I didn't.
