@@ -74,15 +74,15 @@ export const allWork: CaseStudy[] = [
     client: 'Personal Project',
     role: 'Product Designer',
     outcome:
-      "A self-initiated redesign of LinkedIn's homepage feed. Kept the three-column structure but rebuilt the hierarchy inside it, treating a WCAG accessibility audit as the actual mechanism for the fix, not a separate pass.",
+      "A self-initiated audit and redesign of LinkedIn's homepage feed, cataloguing fourteen hierarchy and accessibility failures and rebuilding the page around one consistent rule for what earns visual weight. Validated directionally with 5 peers in a before/after usability test.",
     type: 'SaaS',
     year: '2026',
     coverImage: '/images/work/linkedin/hero.jpg',
     metaLabel: 'Self-Initiated Project • Redesign',
     productName: 'LinkedIn Feed Redesign',
-    caseStudyTitle: 'A Case Study in Hierarchy and Access',
+    caseStudyTitle: 'Giving Every Pixel a Job',
     summary:
-      "A self-initiated redesign of LinkedIn's homepage feed, built to prove that focus, hierarchy, and accessibility are decisions, not decoration.",
-    keyFocus: ['Visual Hierarchy', 'Accessibility (WCAG)', 'Information Architecture'],
+      "A self-initiated audit and redesign of the page LinkedIn's own members open more than any other, built to prove that hierarchy and accessibility are decisions, not decoration.",
+    keyFocus: ['Visual Hierarchy', 'Accessibility (WCAG)', 'Usability Testing'],
   },
 ]
