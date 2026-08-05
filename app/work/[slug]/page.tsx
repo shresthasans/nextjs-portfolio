@@ -37,7 +37,7 @@ interface Frontmatter {
   roleSummary?: string
   roleItems?: string[]
   team?: string[]
-  impact?: string
+  impact?: string | string[]
   highlights?: { title: string; text: string }[]
 }
 
@@ -408,13 +408,19 @@ interface SlugTheme {
 }
 
 const slugTheme: Record<string, SlugTheme> = {
-  pagevamp: {
+  'decisions-ai-mobile-meeting-app': {
+    headerFrom: 'from-teal-50/70 dark:from-teal-950/20',
+    cardBg: 'from-teal-50/70 via-white to-stone-50 dark:from-teal-950/10 dark:via-stone-900 dark:to-stone-900/60',
+    cardBorder: 'border-teal-200/70 dark:border-teal-800/30',
+    accentBar: 'from-teal-400 via-teal-300 to-transparent dark:from-teal-500 dark:via-teal-600',
+  },
+  'pagevamp-onboarding-redesign': {
     headerFrom: 'from-emerald-50/70 dark:from-emerald-950/20',
     cardBg: 'from-emerald-50/70 via-white to-stone-50 dark:from-emerald-950/10 dark:via-stone-900 dark:to-stone-900/60',
     cardBorder: 'border-emerald-200/70 dark:border-emerald-800/30',
     accentBar: 'from-emerald-400 via-emerald-300 to-transparent dark:from-emerald-500 dark:via-emerald-600',
   },
-  avira: {
+  'avira-antivirus-redesign': {
     headerFrom: 'from-rose-50/70 dark:from-rose-950/20',
     cardBg: 'from-rose-50/70 via-white to-stone-50 dark:from-rose-950/10 dark:via-stone-900 dark:to-stone-900/60',
     cardBorder: 'border-rose-200/70 dark:border-rose-800/30',
@@ -432,13 +438,13 @@ const slugTheme: Record<string, SlugTheme> = {
     cardBorder: 'border-indigo-200/70 dark:border-indigo-800/30',
     accentBar: 'from-indigo-400 via-indigo-300 to-transparent dark:from-indigo-500 dark:via-indigo-600',
   },
-  streamshare: {
+  'streamshare-streaming-app-design': {
     headerFrom: 'from-purple-50/70 dark:from-purple-950/20',
     cardBg: 'from-purple-50/70 via-white to-stone-50 dark:from-purple-950/10 dark:via-stone-900 dark:to-stone-900/60',
     cardBorder: 'border-purple-200/70 dark:border-purple-800/30',
     accentBar: 'from-purple-400 via-purple-300 to-transparent dark:from-purple-500 dark:via-purple-600',
   },
-  'webscale-stratus': {
+  'stratus-maas-saas-dashboard-redesign': {
     headerFrom: 'from-sky-50/70 dark:from-sky-950/20',
     cardBg: 'from-sky-50/70 via-white to-stone-50 dark:from-sky-950/10 dark:via-stone-900 dark:to-stone-900/60',
     cardBorder: 'border-sky-200/70 dark:border-sky-800/30',
@@ -553,25 +559,36 @@ export default async function CaseStudyPage({
       {/* Hero image — deliberately wider than the content column below */}
       <AnimatedSection delay={0.15}>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-          <div className={`w-full aspect-video rounded-3xl overflow-hidden relative bg-stone-100 dark:bg-stone-900`}>
-            {heroImage ? (
-              <Image
-                src={heroImage}
-                alt={`${fm.title} hero`}
-                fill
-                priority
-                className="object-contain"
-                sizes="(max-width: 1280px) 100vw, 1280px"
+          {projectImages?.heroBeforeAfter ? (
+            <div className="[&_figure]:my-0 [&_.rounded-2xl]:rounded-3xl">
+              <BeforeAfterSlider
+                before={projectImages.heroBeforeAfter.before}
+                after={projectImages.heroBeforeAfter.after}
+                beforeAlt={projectImages.heroBeforeAfter.beforeAlt}
+                afterAlt={projectImages.heroBeforeAfter.afterAlt}
               />
-            ) : (
-              <>
-                <div className="absolute inset-0 bg-gradient-to-br from-stone-100 via-stone-50 to-amber-50/60 dark:from-stone-800 dark:via-stone-900 dark:to-amber-950/30" />
-                <div className="absolute inset-0 flex items-center justify-center opacity-20">
-                  <div className="w-12 h-12 rounded-2xl border-2 border-stone-400 dark:border-stone-600" />
-                </div>
-              </>
-            )}
-          </div>
+            </div>
+          ) : (
+            <div className={`w-full aspect-video rounded-3xl overflow-hidden relative bg-stone-100 dark:bg-stone-900`}>
+              {heroImage ? (
+                <Image
+                  src={heroImage}
+                  alt={`${fm.title} hero`}
+                  fill
+                  priority
+                  className="object-contain"
+                  sizes="(max-width: 1280px) 100vw, 1280px"
+                />
+              ) : (
+                <>
+                  <div className="absolute inset-0 bg-gradient-to-br from-stone-100 via-stone-50 to-amber-50/60 dark:from-stone-800 dark:via-stone-900 dark:to-amber-950/30" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-20">
+                    <div className="w-12 h-12 rounded-2xl border-2 border-stone-400 dark:border-stone-600" />
+                  </div>
+                </>
+              )}
+            </div>
+          )}
         </div>
       </AnimatedSection>
 
@@ -643,9 +660,23 @@ export default async function CaseStudyPage({
                       <TrendingUp size={13} aria-hidden="true" />
                       The Impact
                     </p>
-                    <p className="font-heading text-xl sm:text-2xl font-semibold text-stone-900 dark:text-stone-50 leading-snug text-balance">
-                      {fm.impact}
-                    </p>
+                    {Array.isArray(fm.impact) ? (
+                      <ul className="space-y-2">
+                        {fm.impact.map((item) => (
+                          <li
+                            key={item}
+                            className="flex items-start gap-2.5 font-heading text-lg sm:text-xl font-semibold text-stone-900 dark:text-stone-50 leading-snug text-balance"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 dark:bg-amber-400 mt-2.5 shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="font-heading text-xl sm:text-2xl font-semibold text-stone-900 dark:text-stone-50 leading-snug text-balance">
+                        {fm.impact}
+                      </p>
+                    )}
                   </div>
                 )}
 

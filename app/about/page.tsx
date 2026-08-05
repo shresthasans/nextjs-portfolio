@@ -70,7 +70,7 @@ const highlights = [
   {
     title: 'Started in Startups',
     description: 'Built products end-to-end across UX, UI and front-end development.',
-    href: '/work/webscale-stratus',
+    href: '/work/stratus-maas-saas-dashboard-redesign',
   },
   {
     title: 'Government Digital Services',

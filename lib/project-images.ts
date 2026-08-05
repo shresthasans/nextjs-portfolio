@@ -1,10 +1,20 @@
 export interface ProjectImages {
   hero: string
   gallery: { src: string; alt: string }[]
+  heroBeforeAfter?: {
+    before: string
+    after: string
+    beforeAlt: string
+    afterAlt: string
+  }
 }
 
 const projectImages: Record<string, ProjectImages> = {
-  'pagevamp': {
+  'decisions-ai-mobile-meeting-app': {
+    hero: '/images/work/decisions-platform/hero.jpg',
+    gallery: [],
+  },
+  'pagevamp-onboarding-redesign': {
     hero: '/images/work/pagevamp/hero.jpg',
     gallery: [
       { src: 'https://placehold.co/1200x600/EFF6FF/1D4ED8?text=Onboarding+Flow&font=montserrat', alt: 'Pagevamp: Redesigned onboarding flow' },
@@ -14,7 +24,7 @@ const projectImages: Record<string, ProjectImages> = {
       { src: 'https://placehold.co/1200x600/EFF6FF/1D4ED8?text=Final+Screens&font=montserrat', alt: 'Pagevamp: Prefill, domain, and privacy screens' },
     ],
   },
-  'avira': {
+  'avira-antivirus-redesign': {
     hero: '/images/work/avira/hero.jpg',
     gallery: [
       { src: 'https://placehold.co/1200x600/FEF2F2/991B1B?text=Current+State%3A+Inconsistent+UI&font=montserrat', alt: 'Avira: Current-state inconsistencies across screens' },
@@ -25,7 +35,7 @@ const projectImages: Record<string, ProjectImages> = {
       { src: 'https://placehold.co/1200x600/1E1B4B/C7D2FE?text=Final+UI%3A+Dashboard+%7C+Scan+%7C+Quarantine+%7C+Upgrade&font=montserrat', alt: 'Avira: Final UI screens across all four core flows' },
     ],
   },
-  'streamshare': {
+  'streamshare-streaming-app-design': {
     hero: '/images/work/streamshare/hero.jpg',
     gallery: [
       { src: '/images/work/streamshare/user-flow.jpg', alt: 'Streamshare: Onboarding flow' },
@@ -46,7 +56,7 @@ const projectImages: Record<string, ProjectImages> = {
       { src: 'https://placehold.co/1200x600/F0FDF4/166534?text=Final+Design&font=montserrat', alt: "Nepal PM Calendar: Deployed in PM's Office" },
     ],
   },
-  'webscale-stratus': {
+  'stratus-maas-saas-dashboard-redesign': {
     hero: '/images/work/webscale-stratus/hero.jpg',
     gallery: [
       { src: '/images/work/webscale-stratus/01.svg', alt: 'Stratus: Platform dashboard' },
@@ -57,6 +67,12 @@ const projectImages: Record<string, ProjectImages> = {
   'linkedin-feed-redesign': {
     hero: '/images/work/linkedin/hero.jpg',
     gallery: [],
+    heroBeforeAfter: {
+      before: '/images/work/linkedin/linkedin-before.jpg',
+      after: '/images/work/linkedin/linkedin-after.jpg',
+      beforeAlt: 'Original LinkedIn homepage feed before the redesign',
+      afterAlt: 'Redesigned LinkedIn homepage feed after the redesign',
+    },
   },
 }
 

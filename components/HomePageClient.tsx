@@ -9,7 +9,7 @@ import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/Ani
 import { CaseStudyRow } from '@/components/CaseStudyCard'
 import { allWork } from '@/lib/work-data'
 
-const FEATURED_SLUGS = ['pagevamp', 'streamshare', 'avira']
+const FEATURED_SLUGS = ['pagevamp-onboarding-redesign', 'streamshare-streaming-app-design', 'avira-antivirus-redesign']
 
 const featuredWork = FEATURED_SLUGS
   .map((slug) => allWork.find((w) => w.slug === slug))
