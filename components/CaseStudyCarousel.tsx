@@ -3,7 +3,6 @@
 import { useState, useCallback } from 'react'
 import Image from 'next/image'
 import Lightbox from 'yet-another-react-lightbox'
-import Zoom from 'yet-another-react-lightbox/plugins/zoom'
 import Captions from 'yet-another-react-lightbox/plugins/captions'
 import 'yet-another-react-lightbox/plugins/captions.css'
 import { ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react'
@@ -63,21 +62,20 @@ export default function CaseStudyCarousel({ images }: CaseStudyCarouselProps) {
           aria-label={`Open ${images[current].alt} in lightbox`}
         >
           {/* Stack all images, show only current */}
-          <div className="relative w-full">
+          <div className="relative w-full" style={{ aspectRatio: '16 / 9' }}>
             {images.map((img, i) => (
               <div
                 key={img.src}
-                className={`transition-opacity duration-300 ${
-                  i === 0 ? 'relative' : 'absolute inset-0'
-                } ${i === current ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                className={`absolute inset-0 transition-opacity duration-300 ${
+                  i === current ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                }`}
               >
                 <Image
                   src={img.src}
                   alt={img.alt}
-                  width={0}
-                  height={0}
+                  fill
                   sizes="(max-width: 1024px) 100vw, 800px"
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  style={{ objectFit: 'cover', objectPosition: 'top' }}
                   priority={i === 0}
                 />
               </div>
@@ -164,9 +162,32 @@ export default function CaseStudyCarousel({ images }: CaseStudyCarouselProps) {
           },
         }}
         slides={slides}
-        plugins={[Captions, Zoom]}
+        plugins={[Captions]}
         captions={{ descriptionTextAlign: 'center', descriptionMaxLines: 3 }}
-        zoom={{ maxZoomPixelRatio: 4, scrollToZoom: true }}
+        render={{
+          slide: ({ slide }) => (
+            <div
+              className="flex items-start justify-center"
+              style={{ width: '100%', height: '100%' }}
+            >
+              <div
+                className="overflow-y-auto rounded-2xl"
+                style={{
+                  width: 'min(1920px, calc(100vw - 64px))',
+                  maxHeight: '100%',
+                  aspectRatio: '16 / 9',
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={slide.src}
+                  alt={'alt' in slide ? slide.alt : ''}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                />
+              </div>
+            </div>
+          ),
+        }}
         styles={{ root: { '--yarl__color_backdrop': 'rgba(0,0,0,0.92)' } }}
       />
     </figure>

@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Lightbox from 'yet-another-react-lightbox'
-import Zoom from 'yet-another-react-lightbox/plugins/zoom'
 import { ZoomIn } from 'lucide-react'
 
 interface CaseStudyImageProps {
@@ -22,14 +21,16 @@ export default function CaseStudyImage({ src, alt, caption }: CaseStudyImageProp
         className="group relative w-full cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-2xl block"
         aria-label={`Open ${alt} in lightbox`}
       >
-        <div className="relative w-full rounded-2xl overflow-hidden border border-stone-200 dark:border-stone-800 bg-stone-100 dark:bg-stone-900">
+        <div
+          className="relative w-full rounded-2xl overflow-hidden border border-stone-200 dark:border-stone-800 bg-stone-100 dark:bg-stone-900"
+          style={{ aspectRatio: '16 / 9' }}
+        >
           <Image
             src={src}
             alt={alt}
-            width={0}
-            height={0}
+            fill
             sizes="(max-width: 1024px) 100vw, 800px"
-            style={{ width: '100%', height: 'auto', display: 'block' }}
+            style={{ objectFit: 'cover', objectPosition: 'top' }}
           />
           <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/20 transition-colors duration-300 flex items-center justify-center">
             <ZoomIn
@@ -51,11 +52,36 @@ export default function CaseStudyImage({ src, alt, caption }: CaseStudyImageProp
         open={open}
         close={() => setOpen(false)}
         slides={[{ src, alt }]}
-        plugins={[Zoom]}
-        zoom={{ maxZoomPixelRatio: 4, scrollToZoom: true }}
         carousel={{ finite: true }}
-        render={{ buttonPrev: () => null, buttonNext: () => null }}
-        styles={{ root: { '--yarl__color_backdrop': 'rgba(0,0,0,0.92)' } }}
+        render={{
+          buttonPrev: () => null,
+          buttonNext: () => null,
+          slide: ({ slide }) => (
+            <div
+              className="flex items-start justify-center"
+              style={{ width: '100%', height: '100%' }}
+            >
+              <div
+                className="overflow-y-auto rounded-2xl"
+                style={{
+                  width: 'min(1920px, calc(100vw - 64px))',
+                  maxHeight: '100%',
+                  aspectRatio: '16 / 9',
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={slide.src}
+                  alt={'alt' in slide ? slide.alt : ''}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                />
+              </div>
+            </div>
+          ),
+        }}
+        styles={{
+          root: { '--yarl__color_backdrop': 'rgba(0,0,0,0.92)' },
+        }}
       />
     </figure>
   )

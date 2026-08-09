@@ -62,11 +62,21 @@ Decisions is an AI-powered meeting management platform built natively for **Micr
 
 It integrates directly with Outlook, Word, Excel, PowerPoint, OneNote, SharePoint, and Microsoft's Copilot and OpenAI infrastructure, and it's built for organizations that need everything to stay inside their own Microsoft 365 tenant.
 
-I work specifically on **Decisions AI**, the mobile companion app.
+My focus within the broader product is **Decisions AI**, the mobile companion app.
 
-> Download: App Store (iOS) · Google Play (Android)
-
-<mark>Before you download:</mark> this only works if your organization is already on Microsoft 365 or Teams, with IT admin approval for the Decisions enterprise app in Azure AD, made available through the Microsoft 365 Admin Center and Teams Admin Center. Without that setup, you'll hit a _"you don't have permissions to add this app, contact your IT admin"_ screen rather than the product itself. There's no personal, sign-up-with-any-email option — it isn't a "download and try it solo" app.
+<div className="not-prose rounded-xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900/40 p-5 mt-6 mb-[1.375rem]">
+  <div className="flex items-center justify-center gap-4">
+    <a href="https://apps.apple.com/us/app/meetings-by-decisions/id1532239791" target="_blank" rel="noopener noreferrer">
+      <img src="/images/work/decisions-platform/download-ios.svg" alt="Download on the App Store" width="152" height="51" />
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.meetingdecisions.androidApp" target="_blank" rel="noopener noreferrer">
+      <img src="/images/work/decisions-platform/download-android.svg" alt="Get it on Google Play" width="152" height="51" />
+    </a>
+  </div>
+  <p className="text-sm text-stone-500 dark:text-stone-400 mt-3 text-center">
+    Requires an organization already on Microsoft 365 or Teams, with IT admin approval for the Decisions enterprise app in Azure AD (via the M365 Admin Center / Teams Admin Center). <span title={'No org approval yet? You\'ll hit "you don\'t have permissions to add this app, contact your IT admin" instead of the product itself — there\'s no personal sign-up-with-any-email path.'} className="underline decoration-dotted cursor-help">Doesn't apply to you?</span>
+  </p>
+</div>
 
 Per the public listings and support documentation, the app includes:
 
@@ -97,20 +107,15 @@ Decisions' own App Store marketing also cites a **2018 and 2019 Microsoft App Aw
 
 Review volume on both stores is small — typical for a B2B, Teams-embedded app where most users never leave a rating — so I'm not treating this as statistically meaningful. It's still the only direct, public client voice available to quote, so here it is as-is, pulled verbatim from the live listings:
 
-> "Integrates my meetings easily from my computer to my phone super easy to view my same agendas here and there and make changes on the go. Great app."
-> — Angela, App Store
-
-> "Together with the Teams app, Decisions makes it super easy to run official voting in meetings, either straight in the app or in the Teams chat."
-> — Bjørn Bjørnsson, App Store
-
-> "So easy and helpful."
-> — Nicki, Google Play
-
-> "Excellent tool for meeting management and decision tracking."
-> — Ryan Connors, Google Play
-
-> "I like this app, helps guide me through what I need to do."
-> — Katelyn Halsell, Google Play
+<TestimonialCarousel
+  items={[
+    { quote: "Integrates my meetings easily from my computer to my phone super easy to view my same agendas here and there and make changes on the go. Great app.", author: "Angela, App Store" },
+    { quote: "Together with the Teams app, Decisions makes it super easy to run official voting in meetings, either straight in the app or in the Teams chat.", author: "Bjørn Bjørnsson, App Store" },
+    { quote: "So easy and helpful.", author: "Nicki, Google Play" },
+    { quote: "Excellent tool for meeting management and decision tracking.", author: "Ryan Connors, Google Play" },
+    { quote: "I like this app, helps guide me through what I need to do.", author: "Katelyn Halsell, Google Play" },
+  ]}
+/>
 
 ## My role
 

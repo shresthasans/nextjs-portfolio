@@ -36,23 +36,6 @@ export const allWork: CaseStudy[] = [
     keyFocus: ['User Onboarding', 'Information Architecture', 'Conversion Optimization'],
   },
   {
-    slug: 'stratus-maas-saas-dashboard-redesign',
-    title: 'Stratus MaaS Platform',
-    client: 'Webscale Networks',
-    role: 'Senior Product Designer',
-    outcome:
-      'Designed a global eCommerce SaaS platform for Fortune 500 retailers. Improved onboarding conversion by 60% and reduced support tickets by 35%.',
-    type: 'eCommerce',
-    year: '2021',
-    coverImage: '/images/work/webscale-stratus/hero.jpg',
-    metaLabel: 'Client Project • Enterprise SaaS',
-    productName: 'Stratus MaaS Platform',
-    caseStudyTitle: 'Simplifying Enterprise Infrastructure Management',
-    summary:
-      'Simplifying complex cloud infrastructure management for enterprise retailers through a scalable SaaS experience.',
-    keyFocus: ['Enterprise Workflows', 'Dashboard UX', 'Scalable SaaS'],
-  },
-  {
     slug: 'streamshare-streaming-app-design',
     title: 'Streamshare',
     client: 'Personal Project',
@@ -68,22 +51,6 @@ export const allWork: CaseStudy[] = [
     summary:
       'A personal exploration into making live content discovery faster through interest-based recommendations.',
     keyFocus: ['Mobile UX', 'Discovery Experience', 'Recommendation System'],
-  },
-  {
-    slug: 'avira-antivirus-redesign',
-    title: 'Avira Antivirus',
-    client: 'Avira (Self-directed)',
-    role: 'Product Designer',
-    outcome:
-      'Full IA, design system, and high-fidelity UI for Avira Free: dashboard, scanning, quarantine, and upgrade path. Reframed a visual-consistency problem as a trust problem — and designed around that specific failure mode.',
-    type: 'Enterprise',
-    year: '2020',
-    coverImage: '/images/work/avira/hero.webp',
-    metaLabel: 'Product Design Exercise',
-    productName: 'Avira Antivirus',
-    caseStudyTitle: 'Designing for Trust, Not Just Security',
-    summary: 'Reimagining the antivirus experience by improving clarity, trust and usability.',
-    keyFocus: ['Visual Redesign', 'Information Hierarchy', 'User Trust'],
   },
   {
     slug: 'linkedin-feed-redesign',

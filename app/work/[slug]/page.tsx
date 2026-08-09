@@ -13,6 +13,7 @@ import CaseStudyImage from '@/components/CaseStudyImage'
 import CaseStudyCarousel from '@/components/CaseStudyCarousel'
 import BeforeAfterSlider from '@/components/BeforeAfterSlider'
 import PrototypeViewer from '@/components/PrototypeViewer'
+import TestimonialCarousel from '@/components/TestimonialCarousel'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, ArrowUpRight, Briefcase, CalendarClock, Users, TrendingUp, Sparkles } from 'lucide-react'
@@ -540,7 +541,15 @@ export default async function CaseStudyPage({
               {fm.title}
             </h1>
             <p className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
-              {fm.description}
+              {fm.description.includes('NDA-covered commercial project') ? (
+                <>
+                  {fm.description.split('NDA-covered commercial project')[0]}
+                  <strong className="font-bold text-stone-800 dark:text-stone-200">NDA-covered commercial project</strong>
+                  {fm.description.split('NDA-covered commercial project')[1]}
+                </>
+              ) : (
+                fm.description
+              )}
             </p>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-stone-100 dark:bg-stone-800 rounded-lg">
               <span className="text-xs font-medium text-stone-600 dark:text-stone-300">
@@ -715,7 +724,7 @@ export default async function CaseStudyPage({
                 <MDXRemote
                   source={content}
                   options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
-                  components={{ ...getMDXComponents(), WireframePlaceholder, UserFlowPlaceholder, MockupPlaceholder, VisualDesignPlaceholder, CaseStudyImage, CaseStudyCarousel, BeforeAfterSlider, PrototypeViewer }}
+                  components={{ ...getMDXComponents(), WireframePlaceholder, UserFlowPlaceholder, MockupPlaceholder, VisualDesignPlaceholder, CaseStudyImage, CaseStudyCarousel, BeforeAfterSlider, PrototypeViewer, TestimonialCarousel }}
                 />
               </div>
 
