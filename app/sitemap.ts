@@ -65,6 +65,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.5,
     },
+    {
+      url: `${BASE_URL}/accessibility`,
+      lastModified: fileLastModified('app', 'accessibility', 'page.tsx'),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
   ]
 
   const workRoutes: MetadataRoute.Sitemap = allWork.map((work) => ({
