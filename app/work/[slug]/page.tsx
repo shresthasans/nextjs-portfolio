@@ -9,8 +9,9 @@ import { clsx } from 'clsx'
 import AnimatedSection from '@/components/AnimatedSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import CaseStudyCard, { CaseStudy } from '@/components/CaseStudyCard'
-import CaseStudyImage from '@/components/CaseStudyImage'
-import CaseStudyCarousel from '@/components/CaseStudyCarousel'
+import MediaFigure from '@/components/MediaFigure'
+import MediaCarousel from '@/components/MediaCarousel'
+import FAQAccordion from '@/components/FAQAccordion'
 import BeforeAfterSlider from '@/components/BeforeAfterSlider'
 import PrototypeViewer from '@/components/PrototypeViewer'
 import TestimonialCarousel from '@/components/TestimonialCarousel'
@@ -724,7 +725,7 @@ export default async function CaseStudyPage({
                 <MDXRemote
                   source={content}
                   options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
-                  components={{ ...getMDXComponents(), WireframePlaceholder, UserFlowPlaceholder, MockupPlaceholder, VisualDesignPlaceholder, CaseStudyImage, CaseStudyCarousel, BeforeAfterSlider, PrototypeViewer, TestimonialCarousel }}
+                  components={{ ...getMDXComponents(), WireframePlaceholder, UserFlowPlaceholder, MockupPlaceholder, VisualDesignPlaceholder, MediaFigure, MediaCarousel, BeforeAfterSlider, PrototypeViewer, TestimonialCarousel, FAQAccordion }}
                 />
               </div>
 

@@ -34,6 +34,11 @@ export const allWork: CaseStudy[] = [
     summary:
       'Helping first-time users launch their websites faster by simplifying onboarding and reducing early friction.',
     keyFocus: ['User Onboarding', 'Information Architecture', 'Conversion Optimization'],
+    stats: [
+      { value: '+30%', label: 'Signup Lift' },
+      { value: '15%→5%', label: 'Privacy Drop-off' },
+      { value: '99%', label: 'Info Completion' },
+    ],
   },
   {
     slug: 'streamshare-streaming-app-design',
@@ -51,22 +56,32 @@ export const allWork: CaseStudy[] = [
     summary:
       'A personal exploration into making live content discovery faster through interest-based recommendations.',
     keyFocus: ['Mobile UX', 'Discovery Experience', 'Recommendation System'],
+    stats: [
+      { value: '5', label: 'Interviews' },
+      { value: '5', label: 'Apps Compared' },
+      { value: '4', label: 'Key Decisions' },
+    ],
   },
   {
     slug: 'linkedin-feed-redesign',
-    title: 'LinkedIn Feed Redesign',
+    title: 'LinkedIn Homepage Feed Redesign',
     client: 'Personal Project',
     role: 'Product Designer',
     outcome:
-      "A self-initiated audit and redesign of LinkedIn's homepage feed, cataloguing fourteen hierarchy and accessibility failures and rebuilding the page around one consistent rule for what earns visual weight. Validated directionally with 5 peers in a before/after usability test.",
+      "A self-initiated audit and redesign of LinkedIn's homepage feed, cataloguing fourteen hierarchy and accessibility findings and rebuilding the page around one consistent rule for what earns visual weight. Validated directionally with 5 peers in a before/after usability test — not production analytics, but real timed tasks and real feedback, not just my own judgment.",
     type: 'SaaS',
     year: '2026',
     coverImage: '/images/work/linkedin/hero.jpg',
-    metaLabel: 'Self-Initiated Project • Redesign',
-    productName: 'LinkedIn Feed Redesign',
+    metaLabel: 'Self-Initiated Project • Audit & Redesign',
+    productName: 'LinkedIn Homepage Feed Redesign',
     caseStudyTitle: 'Giving Every Pixel a Job',
     summary:
-      "A self-initiated audit and redesign of the page LinkedIn's own members open more than any other, built to prove that hierarchy and accessibility are decisions, not decoration.",
-    keyFocus: ['Visual Hierarchy', 'Accessibility (WCAG)', 'Usability Testing'],
+      "A self-initiated audit and redesign of LinkedIn's homepage feed, built to prove that hierarchy and accessibility are decisions, not decoration.",
+    keyFocus: ['Accessibility (WCAG)', 'Visual Hierarchy', 'Usability Testing'],
+    stats: [
+      { value: '14', label: 'Findings' },
+      { value: '4', label: 'Decisions' },
+      { value: '5', label: 'Peers Tested' },
+    ],
   },
 ]

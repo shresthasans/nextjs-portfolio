@@ -86,3 +86,28 @@
 .yarl__carousel {
   align-items: center;
 }
+
+/* GFM task lists: remark-gfm renders a real bullet marker alongside the
+   checkbox unless it's explicitly stripped. Typography plugin sets list
+   indent via `padding-inline-start`, not `padding-left`, so that's what
+   has to be zeroed out here to actually win. */
+.prose ul.contains-task-list {
+  list-style: none;
+  padding-inline-start: 1.625em;
+}
+
+.prose li.task-list-item {
+  position: relative;
+  padding-inline-start: 1.625em;
+}
+
+.prose li.task-list-item::marker {
+  content: '';
+}
+
+.prose li.task-list-item input[type='checkbox'] {
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  margin: 0;
+}

@@ -46,6 +46,7 @@ function getBlogPosts(): BlogPost[] {
         seriesPart: data.seriesPart,
         seriesTotal: data.seriesTotal,
         seriesCoverImage: data.seriesCoverImage,
+        seriesShortTitle: data.seriesShortTitle,
       } as BlogPost
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

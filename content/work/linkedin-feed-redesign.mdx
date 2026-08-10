@@ -16,7 +16,7 @@ tools:
   ]
 type: "SaaS"
 outcome: "A self-initiated audit and redesign of LinkedIn's homepage feed, cataloguing fourteen hierarchy and accessibility findings and rebuilding the page around one consistent rule for what earns visual weight. Validated directionally with 5 peers in a before/after usability test — not production analytics, but real timed tasks and real feedback, not just my own judgment."
-description: "A self-initiated audit and redesign of one of LinkedIn's most familiar and frequently encountered surfaces, built to prove that hierarchy and accessibility are decisions, not decoration."
+description: "A self-initiated audit and redesign of LinkedIn's homepage feed, built to prove that hierarchy and accessibility are decisions, not decoration."
 duration: "Self-directed, run alongside other work — not tracked to a fixed timeline"
 roleSummary: "Ran every part of the audit and redesign, solo:"
 roleItems:
@@ -80,7 +80,7 @@ Nothing on the existing feed was catastrophically broken. It was death by a thou
   work of figuring out what mattered, every time they opened it.
 </mark>
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/linkedin/the-problems.jpg"
   alt="Annotated LinkedIn homepage feed showing recurring patterns distilled from fourteen audit findings: competing visual weight, a redundant profile summary, low-frequency metrics, low-engagement games, inconsistent icon styles, unlabeled engagement actions, and ambiguous engagement totals"
   caption="Recurring patterns distilled from fourteen audit findings. The profile-summary callout refers only to the identity card; the Premium promotion and profile metrics are separate adjacent modules."
@@ -89,22 +89,22 @@ Nothing on the existing feed was catastrophically broken. It was death by a thou
 <details>
 <summary>All fourteen audit findings</summary>
 
-| #   | Audit finding                                                              | Category                       | Design response                                                                   |
-| --- | -------------------------------------------------------------------------- | ------------------------------ | --------------------------------------------------------------------------------- |
-| 1   | Active navigation relied on subtle gray-on-gray differentiation            | Navigation state               | Used blue icon/text and a blue bottom border for the active destination           |
-| 2   | Icon treatments were inconsistent across actions and menus                 | Visual consistency             | Standardized the redesigned interface around one outline-icon treatment           |
-| 3   | Engagement actions lacked visible and accessible text labels               | Accessibility                  | Added visible labels to Like, Comment, Share, and Save                            |
-| 4   | The feed-sort control had insufficient visual prominence                   | Visual weight                  | Reframed the control as "Showing: Relevant" for clearer intent                    |
-| 5   | Network suggestions did not explain why they were shown                    | Content clarity                | Added a one-line relevance reason to every suggestion                             |
-| 6   | Post metadata received too much visual weight                              | Content hierarchy              | Compressed post headers into two clearly prioritized lines                        |
-| 7   | Engagement totals relied on icons and bare numbers                         | Content clarity, Accessibility | Replaced ambiguous totals with explicit text such as "42 reactions · 12 comments" |
-| 8   | The Premium promotion's relationship to account status was unclear         | Content clarity                | Relocated the promotion to a distinct right-rail card with clearer separation     |
-| 9   | Low-engagement games used the page's loudest color treatment               | Visual weight                  | Replaced puzzles with professionally relevant trending topics                     |
-| 10  | Low-frequency profile metrics occupied permanent space                     | Content strategy               | Removed the metrics from persistent placement                                     |
-| 11  | The three-column layout lacked a cohesive shared grid                      | Layout                         | Consolidated the page into a two-column system                                    |
-| 12  | The profile summary duplicated information without enough feed-level value | Information architecture       | Removed the redundant profile summary from the feed                               |
-| 13  | Navigation mixed page destinations and platform utilities in one row       | Information architecture       | Split navigation into utility and destination rows                                |
-| 14  | Secondary content became unavailable after scrolling                       | Layout                         | Combined secondary modules into a sticky utility rail                             |
+| #   | Audit finding                                                                | Category                        | Design response                                                                    |
+| --- | ----------------------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------ |
+| 1   | Active navigation relied on subtle gray-on-gray differentiation             | Navigation state                | Used blue icon/text and a blue bottom border for the active destination           |
+| 2   | Icon treatments were inconsistent across actions and menus                  | Visual consistency              | Standardized the redesigned interface around one outline-icon treatment           |
+| 3   | Engagement actions lacked visible and accessible text labels                | Accessibility                   | Added visible labels to Like, Comment, Share, and Save                            |
+| 4   | The feed-sort control had insufficient visual prominence                    | Visual weight                   | Reframed the control as "Showing: Relevant" for clearer intent                    |
+| 5   | Network suggestions did not explain why they were shown                     | Content clarity                 | Added a one-line relevance reason to every suggestion                             |
+| 6   | Post metadata received too much visual weight                               | Content hierarchy               | Compressed post headers into two clearly prioritized lines                        |
+| 7   | Engagement totals relied on icons and bare numbers                          | Content clarity, Accessibility  | Replaced ambiguous totals with explicit text such as "42 reactions · 12 comments" |
+| 8   | The Premium promotion's relationship to account status was unclear          | Content clarity                 | Relocated the promotion to a distinct right-rail card with clearer separation     |
+| 9   | Low-engagement games used the page's loudest color treatment                | Visual weight                   | Replaced puzzles with professionally relevant trending topics                     |
+| 10  | Low-frequency profile metrics occupied permanent space                      | Content strategy                | Removed the metrics from persistent placement                                     |
+| 11  | The three-column layout lacked a cohesive shared grid                       | Layout                          | Consolidated the page into a two-column system                                    |
+| 12  | The profile summary duplicated information without enough feed-level value  | Information architecture        | Removed the redundant profile summary from the feed                               |
+| 13  | Navigation mixed page destinations and platform utilities in one row        | Information architecture        | Split navigation into utility and destination rows                                |
+| 14  | Secondary content became unavailable after scrolling                        | Layout                          | Combined secondary modules into a sticky utility rail                             |
 
 </details>
 
@@ -123,7 +123,7 @@ Two patterns showed up across almost everyone:
 - **Quick scrollers** (3 of 5) skimmed past the entire right rail, puzzle widget included, and couldn't recall what was in their own profile card afterward.
 - **Careful readers** (2 of 5) noticed the Premium promotion beside the profile card, but both assumed, it was account-related information, not a separate ad.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/linkedin/discovery-and-learnings.png"
   alt="Notes from the contextual inquiry sessions showing the two behavior patterns observed across the five peers: quick scrollers skimming past the right rail, and careful readers misreading the Premium promotion as account-related information"
   caption="Two patterns from the contextual inquiry: quick scrollers missed the right rail entirely, careful readers misread the nearby Premium promotion as their own account data."
@@ -153,10 +153,10 @@ In practice, contrast ratios, touch target sizes, and landmark structure weren't
 
 A few directions came out of that reframe, and I didn't treat every option as equally worth exploring.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/linkedin/linkedin-exploring-solutions.png"
-  alt=""
-  caption=""
+  alt="Sketches comparing lighter-touch alternatives considered for the LinkedIn feed redesign against the structural fixes ultimately chosen — a contrast-only nav fix, a divider-only profile card fix, and higher-contrast icon-only reactions"
+  caption="Lighter-touch alternatives considered and ruled out for the navigation row, profile card, and reaction controls, before committing to the four structural decisions below."
 />
 
 **The overloaded nav row** (an **information architecture** problem) crammed platform utilities (search, notifications, profile) and page destinations (Home, Jobs, Messaging) into one line at equal weight. The lighter fix — raising icon contrast in place — wouldn't have fixed the real problem: two different questions competing for one visual treatment.
@@ -183,10 +183,10 @@ _Discipline: Information Architecture, Interaction Design_
 
 > **Expected impact:** Faster orientation, since users no longer parse eight equally-weighted icons to find their place.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/linkedin/linkedin-design-decision-01-navigation.png"
-  alt=""
-  caption=""
+  alt="Before and after comparison of the LinkedIn navigation bar: the original single row mixing platform utilities and page destinations at equal visual weight, versus the redesigned two-row navigation with a clear blue active state for Home"
+  caption="Before and after: one overloaded navigation row split into a utility row and a page-destination row, with a legible blue active state replacing the previous gray-on-gray treatment."
 />
 
 ### 2. Removing the redundant profile summary and low-frequency metrics
@@ -201,10 +201,10 @@ _Discipline: Information Architecture, Accessibility (WCAG)_
 
 > **Expected impact:** Reduces redundant identity content, removes this specific issue from the feed view, and frees space for network-relevant content.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/linkedin/linkedin-design-decision-02-profile-metrics.png"
-  alt=""
-  caption=""
+  alt="Before and after comparison of the LinkedIn sidebar: the original profile card with redundant identity info and low-frequency metrics sitting beside the Premium promotion, versus the redesigned sidebar with the profile summary removed and the Premium promotion relocated to its own right-rail card"
+  caption="Before and after: the redundant profile summary and low-frequency metrics removed from the feed, with the Premium promotion relocated to a clearly separate right-rail card."
 />
 
 ### 3. Collapsing three independent columns into one two-column system, with a persistent right rail
@@ -219,10 +219,10 @@ _Discipline: Information Architecture, Visual & Layout Design_
 
 > **Expected impact:** One cohesive layout instead of three independent modules, with secondary content reachable at any scroll depth.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/linkedin/linkedin-design-decision-03-two-column-system.png"
-  alt=""
-  caption=""
+  alt="Before and after comparison of the LinkedIn homepage layout: the original three-column grid with no shared structure, versus the redesigned two-column layout with a persistent sticky right rail"
+  caption="Before and after: three independent columns collapsed into one two-column system, with a sticky right rail that stays visible while scrolling."
 />
 
 ### 4. Giving every engagement action a visible text label instead of icon-only reactions
@@ -237,10 +237,10 @@ _Discipline: Interaction Design, Accessibility (WCAG)_
 
 > **Expected impact:** Every action and count is legible to a screen reader and a fast human scan at the same time.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/linkedin/linkedin-design-decision-04-visible-action-labels.png"
-  alt=""
-  caption=""
+  alt="Before and after comparison of LinkedIn post engagement controls: the original icon-only Like, Comment, Share, and Save buttons with bare reaction numbers, versus the redesigned controls with visible text labels and spelled-out counts like '42 reactions · 12 comments'"
+  caption="Before and after: icon-only engagement controls and bare reaction counts replaced with visible text labels and explicit, screen-reader-friendly counts."
 />
 
 ## Iteration
@@ -259,19 +259,19 @@ Finally, "Today's puzzles" was replaced with professionally relevant trending to
 
 Once the redesign was built, I brought back the same 5 peers and ran a moderated, within-subjects [usability test](https://www.nngroup.com/articles/usability-testing-101/): the same four tasks on both versions, followed by a post-task ease rating, order randomized per person to control for learning effects.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/linkedin/linkedin-validation-before-after-test.png"
-  alt=""
-  caption=""
+  alt="Summary chart of the before/after usability test results across five tasks, showing improvements in time-on-task, task success rate, error rate, and post-task ease rating between the original and redesigned LinkedIn feed"
+  caption="Before/after usability test results across five tasks: faster navigation orientation, higher task success, fewer Premium-promotion misreads, and a higher ease-of-use rating for the redesigned feed."
 />
 
-| Task                                                                    | Metric                                                                                            | Before                        | After                         |
-| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------- | ----------------------------- |
-| Time to identify current nav section                                    | [Time-on-task](https://www.nngroup.com/articles/success-rate-the-simplest-usability-metric/)      | avg 6.4s                      | avg 2.1s                      |
-| Correctly stated what a reaction icon + count meant, unprompted         | [Task success rate](https://www.nngroup.com/articles/success-rate-the-simplest-usability-metric/) | 2 of 5                        | 5 of 5                        |
-| Interpreted the nearby Premium promotion as account-related information | Error rate                                                                                        | 3 of 5                        | 0 of 5                        |
-| Found trending topics again after scrolling down the feed               | Task success rate                                                                                 | 0 of 5 (all scrolled back up) | 5 of 5 (used the sticky rail) |
-| "Easy to tell what matters on this page" (1–5)                          | [Single Ease Question](https://measuringu.com/seq10/)                                             | avg 2.4                       | avg 4.2                       |
+| Task                                                                      | Metric                                                                                             | Before                        | After                         |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------ | ------------------------------ |
+| Time to identify current nav section                                     | [Time-on-task](https://www.nngroup.com/articles/success-rate-the-simplest-usability-metric/)      | avg 6.4s                      | avg 2.1s                      |
+| Correctly stated what a reaction icon + count meant, unprompted          | [Task success rate](https://www.nngroup.com/articles/success-rate-the-simplest-usability-metric/) | 2 of 5                        | 5 of 5                        |
+| Interpreted the nearby Premium promotion as account-related information  | Error rate                                                                                          | 3 of 5                        | 0 of 5                        |
+| Found trending topics again after scrolling down the feed                | Task success rate                                                                                   | 0 of 5 (all scrolled back up) | 5 of 5 (used the sticky rail) |
+| "Easy to tell what matters on this page" (1–5)                           | [Single Ease Question](https://measuringu.com/seq10/)                                              | avg 2.4                       | avg 4.2                       |
 
 One peer who'd read the Premium promotion as "part of my profile" in the first session opened the redesign and said, unprompted, "oh, that's clearly a separate ad now." Another, previously one of the quick scrollers who missed the right rail entirely, found the trending topics without hesitation and asked why the old version didn't just do this.
 
@@ -283,17 +283,17 @@ LinkedIn's actual scale and diversity of users.
 
 This project didn't ship and was never going to. It's a self-directed audit, not a production initiative, so what I have is a small, real before/after test on top of the audit, not production telemetry.
 
-<CaseStudyCarousel
+<MediaCarousel
   images={[
     {
       src: "/images/work/linkedin/linkedin-dark.jpg",
-      alt: "",
-      caption: "",
+      alt: "Final redesigned LinkedIn homepage feed shown in dark mode, with the split navigation, two-column layout, sticky right rail, and labeled engagement actions",
+      caption: "The redesigned feed in dark mode.",
     },
     {
       src: "/images/work/linkedin/linkedin-light.jpg",
-      alt: "",
-      caption: "",
+      alt: "Final redesigned LinkedIn homepage feed shown in light mode, with the split navigation, two-column layout, sticky right rail, and labeled engagement actions",
+      caption: "The redesigned feed in light mode.",
     },
   ]}
 />

@@ -13,11 +13,11 @@ interface Slide {
   caption?: string
 }
 
-interface CaseStudyCarouselProps {
+interface MediaCarouselProps {
   images: Slide[]
 }
 
-export default function CaseStudyCarousel({ images }: CaseStudyCarouselProps) {
+export default function MediaCarousel({ images }: MediaCarouselProps) {
   const [current, setCurrent] = useState(0)
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)

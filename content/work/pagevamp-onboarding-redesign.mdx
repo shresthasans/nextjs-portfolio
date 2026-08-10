@@ -1,5 +1,5 @@
 ---
-title: "Pagevamp: Fixing the First Five Minutes"
+title: "Pagevamp Onboarding Redesign: Fixing the First Five Minutes"
 client: "Pagevamp"
 role: "Lead UX Designer"
 year: "2018"
@@ -8,7 +8,7 @@ teamSize: "Solo UX + cross-functional input"
 tools: ["User Interviews", "Competitive Analysis", "Figma", "Prototyping"]
 type: "SaaS"
 outcome: "Free trial signups up 30%. Privacy concerns dropped from 15% to under 5%. 99% of users completed basic info. Built a path for 20% of trial users the product previously ignored."
-description: "Redesigning onboarding for a one-click website builder so trial users actually finish setting up, and building a real path for the segment the product had no answer for."
+description: "A UX case study on redesigning SaaS onboarding for a one-click website builder — fixing five drop-off points and lifting free trial signups 30%+."
 duration: "2-week research sprint + full redesign"
 roleSummary: "Solely responsible for the end-to-end onboarding redesign:"
 roleItems:
@@ -40,6 +40,18 @@ Nearly a third of users hit a wall looking for a way to connect a domain they al
 
 I led the research, strategy, and design of a new onboarding flow that surfaced the decisions that actually mattered, earlier, and gave the product a way to say yes to people it used to turn away.
 
+- **Scope:** Solo UX design project — a two-week research sprint followed by a full onboarding redesign, with cross-functional input from engineering and support
+- **Process:** [User interviews](https://www.nngroup.com/articles/user-interviews/) & contextual inquiry → [competitive analysis](https://www.nngroup.com/articles/competitive-usability-evaluations/) → persona development → flow redesign & prototyping → usability testing
+- **Problem:** Five distinct drop-off points in the onboarding flow, each caused by information the product needed upfront but never asked for
+- **Fix:** Reordered the flow around the decisions that mattered early — domain choice, privacy, and prefilled data — and built a real path for the fifth of trial users the product had no answer for
+- **Impact:** Free trial signups up 30%+, privacy-related drop-off down from 15% to under 5%, ~99% basic-info completion
+
+## Context
+
+Pagevamp's entire pitch is speed: point it at a Facebook Page and it builds a real, synced website in one click — no coding, no blank page, no manual content migration. For small business owners, freelancers, and organizations with no time or technical background, that speed *is* the product.
+
+<mark>Onboarding is where that promise gets tested.</mark> It's the first few minutes of the free trial, the moment a time-poor restaurant owner or a self-employed photographer decides whether this tool will actually save them effort or become one more thing to manage. If onboarding didn't deliver the instant, done-for-you experience the marketing promised, the pitch fell apart before anyone got to see the result.
+
 ## The Problem
 
 The onboarding flow wasn't failing loudly. It was leaking users at several different points, for several different reasons, and each traced back to the same root: <mark>information the product needed upfront but didn't ask for.</mark>
@@ -54,9 +66,9 @@ The onboarding flow wasn't failing loudly. It was leaking users at several diffe
 
 If left alone, the product would keep losing trial users to confusion and mistrust at the exact moment it needed to earn confidence, and support would keep absorbing the cost of a flow that couldn't explain itself.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/pagevamp/funnel-drop-off.jpg"
-  alt="Funnel diagram showing where each user segment stalled in the original onboarding flow"
+  alt="Funnel diagram showing where each user segment stalled in Pagevamp's original onboarding flow"
   caption="Five distinct drop-off points in the original flow, each caused by information the product didn't ask for at the right time."
 />
 
@@ -72,7 +84,7 @@ The real constraint sat underneath all of it: <mark>whatever I changed couldn't 
 
 I ran a two-week research sprint combining qualitative and quantitative input:
 
-- **10+ user interviews** and contextual inquiries
+- **10+ [user interviews](https://www.nngroup.com/articles/user-interviews/)** and contextual inquiries
 - **10+ client demo observations**
 - Customer support ticket analysis
 - Competitive SWOT analysis
@@ -80,24 +92,24 @@ I ran a two-week research sprint combining qualitative and quantitative input:
 
 A few things changed my thinking along the way.
 
-**The personas converged on the same need from different directions.**
+**The [personas](https://www.nngroup.com/articles/persona/) converged on the same need from different directions.**
 
 - **David**, a restaurant owner with almost no spare time, wanted something he could set up once and mostly ignore
 - **Sarah**, a part-time photographer building a client base, wanted more control and a wider reach
 
 Different motivations, same underlying ask: minimize ongoing effort. <mark>That told me the fix wasn't about adding more configuration. It was about asking for the right things once, upfront.</mark>
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/pagevamp/persona-summary.jpg"
   alt="Side-by-side persona summaries for David Silva and Sarah Mitchell"
   caption="Two personas, different motivations, same underlying ask: minimize ongoing effort."
 />
 
-**The competitive analysis reframed the domain problem.** I expected Pagevamp's lack of an upfront domain step to be a minor gap. Instead, domain selection during setup was close to standard practice across competitors. Its absence wasn't a subtle omission — it was making Pagevamp look less capable at the exact moment users were deciding whether to trust it.
+**The [competitive analysis](https://www.nngroup.com/articles/competitive-usability-evaluations/) reframed the domain problem.** I expected Pagevamp's lack of an upfront domain step to be a minor gap. Instead, domain selection during setup was close to standard practice across competitors. Its absence wasn't a subtle omission — it was making Pagevamp look less capable at the exact moment users were deciding whether to trust it.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/pagevamp/competitive-analysis-matrix.jpg"
-  alt="Competitive analysis matrix comparing domain step placement and onboarding complexity"
+  alt="Competitive analysis matrix comparing domain step placement and onboarding complexity across competitors"
   caption="Domain selection during setup was near-standard across competitors. Its absence read as a capability gap, not a simplicity choice."
 />
 
@@ -115,17 +127,17 @@ That reframing changed the brief. Instead of "add a domain settings page," the r
 
 > Rebuild the order of the onboarding flow around the decisions users actually needed to make early, and build an actual path forward for the segment the product had never accounted for.
 
-## Iteration
+## Exploring Solutions
 
-The process moved from low-fidelity paper sketches through to a visual prototype, testing and refining at each stage rather than jumping straight to polished screens.
+A few directions came out of ideation, shaped directly by what the research surfaced.
 
-The structural decisions held up from ideation through to what shipped: prefill first, domain choice upfront, privacy conversation early, a real path for users without a Facebook Page.
+**Prefill versus manual entry.** The product already had rich data sitting in the linked Facebook Page. Rather than asking users to re-enter information the product could pull automatically, the direction was to [prefill as much as possible](https://www.nngroup.com/articles/eas-framework-simplify-forms/) and let users confirm or edit it, keeping the "instant" feeling intact instead of turning onboarding into a form.
 
-<CaseStudyImage
-  src="/images/work/pagevamp/process-iteration.jpg"
-  alt="Paper sketches next to corresponding final prototype screens"
-  caption="Paper sketches to prototype: the layout changed, the structure didn't."
-/>
+**Where domain selection lives.** The competitive read made this close to a settled question: domain and subdomain choices belonged in the setup flow itself, not buried in settings after launch. The tradeoff was adding a step to a flow built around speed, but interviews suggested users needed a real, shareable URL early anyway, for testing and for sharing with others before fully committing.
+
+**How to handle privacy.** Rather than treating the Facebook Page permission as a technical step to click through, the direction was to make the privacy conversation an explicit, early part of the flow, addressing the "why" before asking for the "yes."
+
+**What to do with users who don't have a Facebook Page.** This was the one true gap rather than a friction point. The direction was to give this segment an actual path: the ability to create a Facebook Page from within Pagevamp's own onboarding, rather than routing them out of the product entirely.
 
 ## Design Decisions
 
@@ -133,7 +145,9 @@ These four decisions did the most work in the redesign.
 
 ### 1. Make the Privacy Conversation Explicit and Early
 
-<CaseStudyCarousel
+*Discipline: UX Strategy, Interaction Design*
+
+<MediaCarousel
   images={[
     {
       src: "/images/work/pagevamp/privacy-concern-before.jpg",
@@ -160,7 +174,9 @@ These four decisions did the most work in the redesign.
 
 ### 2. Build a Path for Users Without a Facebook Page
 
-<CaseStudyImage
+*Discipline: UX Strategy, Flow Architecture*
+
+<MediaFigure
   src="/images/work/pagevamp/create-facebook-page.jpg"
   alt="Onboarding screen guiding a user without an existing Facebook Page to create one"
   caption="A real path forward for trial users without a Facebook Page, instead of a dead end."
@@ -176,7 +192,9 @@ These four decisions did the most work in the redesign.
 
 ### 3. Prefill from Facebook, Don't Re-ask
 
-<CaseStudyImage
+*Discipline: Interaction Design, Flow Architecture*
+
+<MediaFigure
   src="/images/work/pagevamp/review-website-details.jpg"
   alt="Onboarding screen showing website details prefilled from the linked Facebook Page for review"
   caption="Details pulled straight from the Facebook Page, ready for a quick check rather than re-entry."
@@ -192,7 +210,9 @@ These four decisions did the most work in the redesign.
 
 ### 4. Move Domain Selection into Setup, Not Settings
 
-<CaseStudyCarousel
+*Discipline: Flow Architecture, Interaction Design*
+
+<MediaCarousel
   images={[
     {
       src: "/images/work/pagevamp/domain-setup-buy.jpg",
@@ -223,11 +243,23 @@ These four decisions did the most work in the redesign.
 
 > **Impact:** Users linked custom domains successfully without needing support assistance. Subdomain customization usage increased by 20%.
 
+## Iteration
+
+The process moved from low-fidelity paper sketches through to a visual prototype, testing and refining at each stage rather than jumping straight to polished screens.
+
+The structural decisions held up from ideation through to what shipped: prefill first, domain choice upfront, privacy conversation early, a real path for users without a Facebook Page.
+
+<MediaFigure
+  src="/images/work/pagevamp/process-iteration.jpg"
+  alt="Paper sketches next to corresponding final prototype screens"
+  caption="Paper sketches to prototype: the layout changed, the structure didn't."
+/>
+
 ## Outcome
 
 Three months after release, every metric the original problem had touched moved.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/pagevamp/outcome.png"
   alt="Dashboard summarizing post-launch metrics: signups, privacy concern rate, and completion rate"
   caption="Three months post-launch, every metric tied to the original problem had moved in the right direction."

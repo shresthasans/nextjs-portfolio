@@ -8,7 +8,7 @@ teamSize: "Solo"
 tools: ["Pencil & Paper", "Miro", "Figma"]
 type: "Mobile App Concept"
 outcome: "Never shipped, so no production metrics. What it shows is a complete, defensible research-to-design process, run without a client's constraints."
-description: "A self-directed video streaming concept, built to solve the part of streaming that actually broke: finding something worth watching, and someone worth watching it with."
+description: "A self-directed live streaming app design case study: research-driven UX for finding content and hosts worth watching, built with no client brief."
 duration: "Originally conceived in 2021 during COVID-19 lockdown. Exact duration not tracked."
 roleSummary: "Every part of it, start to finish:"
 roleItems:
@@ -43,11 +43,14 @@ StreamShare started with a night I didn't plan for. Bored during a COVID-19 lock
 </mark>
 Client work rarely gives me room to run a full research-to-prototype cycle
 without a deadline compressing it. StreamShare is what my process looks like
-with nothing else constraining it.
+with nothing else constraining it. It's a complete live streaming app design
+case study — competitive analysis, user interviews, affinity mapping,
+information architecture, and UI design and prototyping, run start to finish
+on my own.
 
 By the time I started this, live streaming apps were everywhere. Instagram, Facebook, and YouTube all had some version of "go live." What none of them had was a reason to keep coming back beyond whatever happened to be trending that day. I wanted to know if that gap was fixable with better design, or if I was just describing luck.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/streamshare/overview.jpg"
   alt="StreamShare splash screen, sign-in screen, and interest-picker onboarding screen shown side by side"
   caption="Splash screen, sign-in, and the interest picker that kicks off onboarding — the first three screens a new user sees."
@@ -65,7 +68,7 @@ After that first night, I went looking for streaming apps that could give me mor
 
 > None of this was really about the content. Live video was already there, and it was already interesting when I found the right stream. The actual failure was in the layer around it: the part responsible for getting me to that stream in the first place, and giving me a way to make my own small version of that experience for people I actually knew.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/streamshare/streamshare-the-problem-mobile.png"
   alt="Annotated competitor screens showing five discovery problems: hard to navigate, no relevant categories, generic trending feed, inconsistent UI, and too much competing information"
   caption="Five recurring frustrations across competitor apps — none of them about the content itself, all of them about the discovery layer around it."
@@ -84,7 +87,7 @@ Going in, my working assumption was simple: better categories, better recommenda
 
 I ran contextual inquiries and video calls with five potential users, ages 20 to 40, across a deliberately varied set of situations: college students in shared housing, single professionals with heavy workloads, a married working mother, and people dealing with a general money crunch during the pandemic.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/streamshare/contextual inquiries.png"
   alt="Five contextual interview video calls converging into three persona summaries: Rakesh, Vijay, and Prajina, under one shared need"
   caption="Five contextual interviews across varied life situations, distilled into three personas who converged on the same missing piece."
@@ -98,7 +101,7 @@ I ran contextual inquiries and video calls with five potential users, ages 20 to
 
 Three different motivations, but all three kept landing on the same missing piece: <mark>a way to find people and content that actually matched their specific interests, not a generic trending feed.</mark>
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/streamshare/streamshare-information-architecture.jpg"
   alt="Information architecture diagram mapping onboarding and the main dashboard tabs, with the Stream and hosting flow expanded down to screen level"
   caption="Information architecture for the Go Live and hosting flow, mapped down to screen level; the rest of the app's tabs are shown only at a top level here, not in full."
@@ -106,7 +109,7 @@ Three different motivations, but all three kept landing on the same missing piec
 
 **Affinity mapping surfaced a second cluster I hadn't expected.** One set of notes was about finding content: exploring new places, trending streams, categories, getting inspired. A second, equally dense cluster was about making and sharing it: hosting a stream, inviting friends, sharing privately, creating a private or public group, following a favorite host. I'd gone in thinking about this as a discovery problem. <mark>The data said it was just as much a hosting and connection problem.</mark>
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/streamshare/streamshare-affinity-mapping.png"
   alt="Affinity mapping board splitting interview notes into two clusters: finding content, and hosting and connection"
   caption="Interview notes clustered into two equally dense groups — finding content, and hosting and connection — reframing a single discovery problem into two."
@@ -119,7 +122,7 @@ The pattern across the mainstream three: live never gets its own onboarding or d
 > One earlier app is worth a footnote: Periscope had tried a map view of live broadcasts around the world, close in spirit to what I was designing toward. Twitter shut it down in March 2021, the same year I started this — a reminder that a good idea without a bigger platform behind it can still fail for reasons that have nothing to do with the idea itself.
 
 | Feature                             | Instagram | Facebook | YouTube | Twitch | TikTok | StreamShare |
-| ----------------------------------- | --------- | -------- | ------- | ------ | ------ | ----------- |
+| ------------------------------------ | --------- | -------- | ------- | ------ | ------ | ----------- |
 | Live video streaming                | Yes       | Yes      | Yes     | Yes    | Yes    | Yes         |
 | In-app live chat                    | Yes       | Yes      | Yes     | Yes    | Yes    | Yes         |
 | Content categories for live streams | No        | No       | No      | Yes    | No     | Yes         |
@@ -148,7 +151,7 @@ That reframing is the reason the onboarding narrative in the finished design wal
 
 **What happens the moment a stream ends?** Most apps just return you to a feed. I wanted the end of a stream to give a host something to look at — an assumption about what hosts would want to know, not something a participant asked for by name.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/streamshare/wireframe-sketch.jpg"
   alt="Hand-drawn paper wireframes sketching the sign-up, phone verification, and core app screens"
   caption="Early pencil-and-paper sketches, working out sign-up, verification, and the core screens before anything moved to Figma."
@@ -168,7 +171,7 @@ These four decisions did the most work in shaping the final design.
 
 > **Impact:** A privacy posture that matches the actual stream, not a blanket setting. Untested with real hosts, so this is a hypothesis.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/streamshare/host-control.jpg"
   alt="Go Live setup screen showing public/private toggle, tagging, comment settings, and location sharing, alongside the external camera connection screen"
   caption="Per-broadcast controls: public or private, tagging, comments, and an opt-in location toggle, plus the option to pair an external camera over Wi-Fi."
@@ -184,7 +187,7 @@ These four decisions did the most work in shaping the final design.
 
 > **Impact:** More people actually seeing a stream is coming before it starts, since the information sits where attention already is rather than in a screen built just for scheduling.
 
-<CaseStudyCarousel
+<MediaCarousel
   images={[
     {
       src: "/images/work/streamshare/stream-host.jpg",
@@ -211,7 +214,7 @@ These four decisions did the most work in shaping the final design.
 
 > **Impact:** A possible reason to keep streaming beyond a follower count, and a concrete way to turn "this is amazing" in the chat into something a host can actually use. The decision I'd most want to test with real creators first.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/streamshare/support-host.jpg"
   alt="Live stream chat with a tip action, a support-tier picker with preset and custom amounts, and a support confirmation screen"
   caption="The support flow: preset tiers, a custom amount, an optional message to the host, and a confirmation the viewer can choose to share."
@@ -227,7 +230,7 @@ These four decisions did the most work in shaping the final design.
 
 > **Impact:** Something concrete for a host to improve from stream to stream. Like the support feature, a hypothesis, not something validated by a real creator.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/streamshare/post-stream.jpg"
   alt="Post-stream summary screen with duration, peak viewers, and engagement stats, alongside a followers growth screen and a creator profile with live and upcoming streams"
   caption="The post-stream debrief — duration, peak viewers, likes, comments, and top moment — next to the follower-growth and creator-profile screens."
@@ -250,7 +253,7 @@ This remains a self-directed concept, not a shipped product. There's no live use
 
 What exists is a complete, high-fidelity design covering onboarding, an interest picker, a home feed with contextual location discovery, a Communities space with follower growth and engagement detail, Explore and Trending browsing, a fully specified Go Live setup that includes pairing an external camera over Wi-Fi for hosts who want better production quality than a phone camera, a live-viewing experience that pairs chat, safety controls, and creator support in one place, a post-stream summary, and account settings.
 
-<CaseStudyImage
+<MediaFigure
   src="/images/work/streamshare/streamshare-outcome.jpg"
   alt="Eight-screen flow of the finished app: personalization, home with nearby streams, explore, go-live privacy setup, live chat, stream summary, support streamer, and schedule summary"
   caption="The finished flow end to end — personalization through home, explore, go live, live chat, stream summary, support, and scheduling — each screen tied back to a research finding or an explainable decision."

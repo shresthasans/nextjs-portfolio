@@ -38,19 +38,28 @@ export default function TableOfContents({ headings }: { headings: TocHeading[] }
       <ul className="space-y-0.5 border-l border-stone-200 dark:border-stone-800">
         {headings.map((heading) => {
           const active = heading.id === activeId
+          const numbered = heading.text.match(/^(\d+\.)\s*(.*)$/)
           return (
             <li key={heading.id}>
               <a
                 href={`#${heading.id}`}
                 className={clsx(
-                  'block border-l-2 -ml-px py-1.5 text-sm transition-colors duration-150',
+                  'border-l-2 -ml-px py-1.5 text-sm transition-colors duration-150',
+                  numbered ? 'flex' : 'block',
                   heading.level === 3 ? 'pl-7' : 'pl-4',
                   active
                     ? 'border-amber-500 text-stone-900 dark:text-stone-50 font-semibold'
                     : 'border-transparent text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200'
                 )}
               >
-                {heading.text}
+                {numbered ? (
+                  <>
+                    <span className="shrink-0 tabular-nums mr-1.5">{numbered[1]}</span>
+                    <span>{numbered[2]}</span>
+                  </>
+                ) : (
+                  heading.text
+                )}
               </a>
             </li>
           )

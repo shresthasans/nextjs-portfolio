@@ -186,7 +186,7 @@ function FeaturedSeriesCard({
                   {post.seriesPart}
                 </span>
                 <span className="line-clamp-1 flex-1">
-                  {post.title.replace(/^.*Part \d+ of \d+:\s*/, '')}
+                  {post.seriesShortTitle ?? post.title.replace(/^.*Part \d+ of \d+:\s*/, '')}
                 </span>
                 <ArrowUpRight
                   size={13}

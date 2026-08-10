@@ -1,44 +1,65 @@
 ---
-title: "9 simple UX fixes that boost conversion"
+title: "9 Simple UX Fixes That Boost Conversion"
+seoTitle: "9 UX Fixes That Boost Conversion Rate (No Redesign Needed)"
 date: "2026-07-07"
-readingTime: "6 min read"
+readingTime: "8 min read"
 tag: "UX"
-excerpt: "No redesign needed. Just nine small changes most apps skip — and each one quietly costs you signups and sales."
+excerpt: "No redesign needed. Nine small, specific UX changes — permission timing, inline errors, a shorter signup form, skeleton screens — that quietly cost you signups and sales until someone fixes them."
+slug: "ux-fixes-that-boost-conversion"
 coverImage: "/images/blog/ux-fixes-boost-conversions.png"
 ---
 
-Most apps don't lose users because the product is bad. <mark>They lose them because the path to using it is annoying.</mark>
+Most apps don't lose users because the product is bad. <mark>They lose them because the path to using it is annoying.</mark> A permission prompt that shows up before it means anything, a form that clears itself on error, a signup screen that asks for a phone number before proving any value: each one is small enough to overlook and consistent enough to cost real signups and sales.
 
-None of the fixes below need a redesign. Most take an afternoon. All of them are easy to miss until someone points them out.
+None of the nine fixes below need a redesign. Most take an afternoon of design and engineering time. All of them are easy to miss until someone points them out, and hard to unsee once you have.
+
+## The nine fixes at a glance
+
+| Fix                      | What changes                                                            | The moment it matters                                |
+| -------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Permission timing        | Ask for camera, location, or notifications only when they unlock something | The tap that needs the permission, not the welcome screen |
+| Inline errors            | Show what's wrong next to the field, in plain language                   | The instant the mistake happens                        |
+| Paywall trust signals    | Put reviews, refund policy, and guarantees where the risk-thinking starts | Right before payment                                   |
+| Perceived loading speed  | Replace blank screens and spinners with skeleton layouts or a moving progress bar | Any wait longer than a second                          |
+| Resumable flows          | Save progress and return people to where they left off                  | Signup, checkout, or onboarding interruptions          |
+| Shorter signup           | Ask for email and password only; move everything else later             | The very first screen                                  |
+| Lighter onboarding       | Cut tours and checklists down to the shortest path to real value        | The first few minutes in the product                   |
+| Smart defaults           | Pre-fill fields you can reasonably guess                                | Any form where context already gives you the answer    |
+| One clear CTA            | Give every screen a single, obviously primary action                    | Every screen with more than one button                 |
 
 ---
 
-## Don't Ask For Permission Before It's Needed
+## Don't ask for permission before it's needed
 
-Notifications, location, camera, contacts — apps love asking for these the moment someone opens them for the first time. Most people say no on reflex, because there's no context yet for why it matters.
+Notifications, location, camera, contacts: apps love asking for these the moment someone opens them for the first time. Most people say no on reflex, because there's no context yet for why it matters, and declining feels free while granting doesn't.
 
-Wait until the exact moment the permission is actually useful, and explain in one line what they get for saying yes:
+Wait until the exact moment the permission is actually useful, and explain in one line what someone gets for saying yes:
 
 - Ask for **camera access** when someone taps "scan," not on the welcome screen
 - Ask for **notifications** after someone creates something worth being notified about
 - Ask for **location** when it changes what's on screen, not before
 
+[Nielsen Norman Group's research on mobile permission requests](https://www.nngroup.com/articles/permission-requests/) makes the same point directly: initiate a permission request when the user selects the feature that needs it, not in a batch at launch. Stacking every request into the first session, camera, contacts, and notifications back to back, reads as overwhelming rather than transparent.
+
 > The same request, asked at the right time, gets said yes to far more often.
 
-## Show Errors Right Away
+## Show errors the moment they happen
 
 A generic "please fix the errors below" banner makes people hunt across the whole form to find what went wrong. Some just give up.
 
 **Put the message right under the field**, the moment the mistake happens, in plain language:
 
-- Not "invalid input" — "that email's missing an @"
-- Not "field required" — "we need your name to create your account"
+| Weak version                       | Improved version                                     |
+| ------------------------------------- | -------------------------------------------------------- |
+| "Invalid input"                    | "That email's missing an @"                          |
+| "Field required"                   | "We need your name to create your account"           |
+| One banner at the top of the form  | The message sits directly under the field that caused it |
 
-Small change. Fewer abandoned forms.
+[NN/g's guidelines for reporting form errors](https://www.nngroup.com/articles/errors-forms-design-guidelines/) recommend exactly this: keep the message adjacent to the field rather than in a distant summary, and word it so the reader can act on it without translating jargon first. It's a small change. It also means fewer abandoned forms.
 
-## Build Trust At The Paywall
+## Build trust at the paywall
 
-Right before someone pays, they've mostly stopped thinking about features and started thinking about risk. _Will this actually work? Can I get my money back if it doesn't?_
+Right before someone pays, they've mostly stopped thinking about features and started thinking about risk. *Will this actually work? Can I get my money back if it doesn't?*
 
 That's the moment to answer those questions directly:
 
@@ -46,59 +67,70 @@ That's the moment to answer those questions directly:
 - A clear refund policy
 - A visible guarantee
 
-<mark>
-  Trust signals earlier on the page do less work than the same signals shown at
-  the exact moment someone's about to commit money.
-</mark>
+<mark>Trust signals earlier on the page do less work than the same signals shown at the exact moment someone's about to commit money.</mark>
 
-## Make Loading Feel Fast
+## Make loading feel fast
 
-A blank screen with a spinner starts to feel broken after about a second, even if the app is working fine.
+A blank screen with a spinner starts to feel broken after about a second, even when the app is working fine behind it.
 
-A skeleton layout that shows the shape of the content, or a progress bar that visibly moves, feels alive instead. The actual wait time doesn't change — what changes is whether the person waiting believes something is happening.
+A skeleton layout that previews the shape of the content, or a progress bar that visibly moves, feels alive instead. [NN/g's research on skeleton screens](https://www.nngroup.com/articles/skeleton-screens/) found that a wireframe-style preview creates the impression of a page gradually resolving into its final form, which makes the same objective wait feel shorter than a blank screen or spinner does. The actual load time doesn't change; what changes is whether the person waiting believes something is happening.
 
 > That belief is often the difference between someone staying on the screen and someone tapping back.
 
-## Let People Pick Up Where They Left Off
+## Let people pick up where they left off
 
 If someone closes the app mid-signup, mid-checkout, or mid-onboarding, don't send them back to the start when they return. Save their progress and drop them right back where they stopped.
 
-Starting over feels like punishment for stepping away, even when the interruption wasn't their fault — a phone call, a notification, a train arriving. <mark>A flow that remembers where someone was gets finished far more often than one that resets on them.</mark>
+Starting over feels like punishment for stepping away, even when the interruption wasn't their fault: a phone call, a notification, a train arriving. <mark>A flow that remembers where someone was gets finished far more often than one that resets on them.</mark>
 
-## Shorten Signup
+## Shorten signup to the essentials
 
 Ask for an email and a password. That's the whole first step.
 
-Job title, company size, how they heard about you, phone number — none of that needs to happen before someone's even inside the product. **Every field on that first screen is a chance to lose someone who was one tap away from being a user.**
+Job title, company size, how they heard about you, phone number: none of that needs to happen before someone is even inside the product. **Every field on that first screen is a chance to lose someone who was one tap away from being a user.**
 
-Move the extra questions to later, once they've seen enough value to want to answer them.
+The clearest evidence for this comes from checkout research rather than signup research specifically, but the underlying mechanism is the same: [Baymard Institute's checkout studies](https://baymard.com/blog/checkout-flow-average-form-fields) found that the average checkout asks for 11.3 form fields, and that reducing the *number of visible fields* (not the number of steps) is what actually reduces abandonment. Signup forms fail for the identical reason: each extra field is one more reason to leave before the value has been proven.
 
-## Simplify Onboarding
+Move the extra questions to later, once someone has seen enough value to want to answer them.
 
-New users want to see the product work, not read about how it works. A long tour, a checklist of setup tasks, a series of "here's how this feature works" screens — most of that gets skipped or forgotten anyway.
+## Simplify onboarding to the first real "aha"
 
-Find the shortest real path to the first moment someone thinks _"oh, that's useful,"_ and cut everything standing between them and that moment.
+New users want to see the product work, not read about how it works. A long tour, a checklist of setup tasks, a series of "here's how this feature works" screens: most of that gets skipped or forgotten anyway.
+
+Find the shortest real path to the first moment someone thinks *"oh, that's useful,"* and cut everything standing between them and that moment.
 
 > Explaining can happen later, once they already care.
 
-## Guess What You Can
+## Guess what you can, and let people correct it
 
-If you already have a reasonable guess at someone's timezone, currency, or plan size based on team headcount — fill it in rather than asking. Let them correct it if it's wrong. That's a much smaller ask than typing it from scratch.
+If you already have a reasonable guess at someone's timezone, currency, or plan size based on team headcount, fill it in rather than asking. Let them correct it if it's wrong. That's a much smaller ask than typing it from scratch.
 
-<mark>
-  Every field you can pre-fill accurately is one less decision standing between
-  someone and finishing the task they came to do.
-</mark>
+<mark>Every field you can pre-fill accurately is one less decision standing between someone and finishing the task they came to do.</mark>
 
-## One Clear CTA
+## Give every screen one clear CTA
 
-When a screen has three buttons fighting for attention, most people either freeze or click the wrong one.
+When a screen has three buttons fighting for attention, most people either freeze or click the wrong one. This is [Hick's Law](https://lawsofux.com/hicks-law/) in practice: the more choices someone has to weigh, the longer it takes to decide, and the more likely they are to decide not to decide at all.
 
-Every screen should have exactly **one obvious next step** — visually bigger, higher contrast, impossible to miss. Secondary actions, alternate paths, "maybe later" links can still exist, but they should look like what they are: not the main event.
+Every screen should have exactly **one obvious next step**, visually bigger, higher contrast, impossible to miss. Secondary actions, alternate paths, and "maybe later" links can still exist, but they should look like what they are: not the main event.
 
----
+### Where these fixes won't save a broken flow
 
-## Pick One
+These are friction fixes, not product fixes. Removing a confusing permission prompt won't rescue an app that doesn't solve a real problem, and a faster-feeling loading state won't fix a checkout that fails at the payment step itself. Treat this list as removing unnecessary tax on a product people already want, not as a substitute for product-market fit.
+
+It's also worth sequencing these instead of shipping all nine in one release. Start with the fix that sits at your steepest drop-off point, usually the first signup screen or the first payment screen, so you can attribute any change in conversion to something specific, rather than shipping nine changes at once and losing the ability to tell which one moved the number.
+
+## Frequently asked questions
+
+**Which of these fixes should I do first?**
+Start with whichever step already shows the steepest drop-off in your analytics, usually the first signup screen or the first payment screen. Fixing the highest-traffic, highest-abandonment step gives you the clearest signal and the fastest payback.
+
+**Do these changes require engineering time, or are they design-only?**
+Most are front-end and copy changes: repositioning an error message, rewording a permission prompt, reordering form fields. A couple, resumable flows and pre-filled fields, need saved state on the backend, so plan for more engineering time on those two specifically.
+
+**How do I know whether a fix actually worked?**
+Track the specific funnel step you changed, not overall signups, using whatever analytics or experimentation tool you already have. Ship one fix at a time where you can, so you can isolate what caused the change; where you have enough traffic, an A/B test will tell you faster than watching the trend line.
+
+## Pick one
 
 None of these need a roadmap slot. Most are a form field, a permission prompt, or a loading state away from being fixed.
 

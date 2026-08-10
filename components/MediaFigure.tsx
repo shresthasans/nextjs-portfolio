@@ -5,13 +5,13 @@ import Image from 'next/image'
 import Lightbox from 'yet-another-react-lightbox'
 import { ZoomIn } from 'lucide-react'
 
-interface CaseStudyImageProps {
+interface MediaFigureProps {
   src: string
   alt: string
   caption?: string
 }
 
-export default function CaseStudyImage({ src, alt, caption }: CaseStudyImageProps) {
+export default function MediaFigure({ src, alt, caption }: MediaFigureProps) {
   const [open, setOpen] = useState(false)
 
   return (

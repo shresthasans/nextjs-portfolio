@@ -1,60 +1,117 @@
 ---
-title: "What I learned building a design system from scratch"
+title: "What I Learned Building a Design System From Scratch"
+seoTitle: "How to Build a Design System From Scratch: 5 Lessons From 3 Rollouts"
 date: "2024-03-15"
-readingTime: "8 min read"
+readingTime: "9 min read"
 tag: "Design Systems"
-excerpt: "After building three design systems from the ground up, in healthcare, eCommerce, and SaaS, here's what I'd do differently on day one."
+excerpt: "Lessons from building three design systems from scratch, in healthcare, eCommerce, and SaaS: start with tokens, ship incomplete, and decide governance before the first conflict."
+slug: "building-a-design-system-from-scratch"
 coverImage: "/images/blog/designing-design-system-from-scratch.png"
 ---
 
-Every design system starts with the same optimism. A Figma file. A Notion doc. A kickoff meeting where everyone agrees this time it will be different.
+Every design system starts the same way: a Figma file, a Notion doc, and a kickoff meeting where everyone agrees that this time it will be different.
 
-Most design systems die quietly. Not with a bang but with a gradual drift: components that fall out of sync with production, a token system nobody uses, documentation that's six months stale, and eventually designers going rogue because it's faster.
+Most design systems don't fail because the components are ugly. They fail quietly: a token system nobody references, documentation that's six months stale, and designers who work around the system because it's faster than working with it.
 
-After building three systems from scratch across very different organisations, I've developed some hard opinions.
+I've built three design systems from scratch, in healthcare, eCommerce, and SaaS, across organizations with almost nothing else in common. The tools were different. The teams were different. <mark>The mistakes were the same.</mark> This article covers what went wrong the first time, what changed on the second and third attempts, and what I'd tell anyone starting a design system today.
 
-## The first mistake: starting with components
+One scope note before the lessons: this is about a **version 1** design system — the first working set of tokens, components, and documentation a team ships — not a mature system with years of governance history. If your system already has adoption and history behind it, most of this still applies, but the risks shift toward deprecation and drift rather than getting off the ground.
 
-It feels natural to start with buttons. Buttons are tangible. You can show them to stakeholders. You can tick them off a list.
+## Start with tokens, not components
 
-But buttons are downstream of decisions you haven't made yet. What is your spacing scale? What does "primary" mean in your system: is it your brand colour, or is it contextual? What's your border radius philosophy? If you can't answer these, your button component will be wrong in ways you can't see yet.
+It's tempting to start with buttons. Buttons are tangible — you can show them to stakeholders and check them off a list. That's the first mistake nearly every new design system makes.
 
-**Start with tokens, not components.**
+Buttons are downstream of decisions you haven't made yet:
 
-Tokens are your system's vocabulary. Define colour (semantic aliases, not hex values), spacing (a scale with a clear rationale), typography (a limited set of text styles, not a font picker), and elevation. Then build components that consume those tokens.
+- What's your spacing scale?
+- What does "primary" mean in your system — your brand colour, or something contextual?
+- What's your border-radius philosophy?
 
-When your tokens are right, changing your brand colour is a one-variable change. When they're wrong, it's 400 find-and-replace operations.
+If you can't answer these questions, your button component will be wrong in ways you won't notice until it's already shipped everywhere.
 
-## The second mistake: building for perfection
+**Start with tokens instead.** Tokens are your system's vocabulary:
 
-The first version of every design system I've built has shipped incomplete. This used to bother me.
+| Token category | What it defines                    | Example                              |
+| -------------- | ----------------------------------- | ------------------------------------- |
+| Colour         | Semantic aliases, not raw hex values | `color-action-primary`, not `#0047FF` |
+| Spacing        | A scale with a clear rationale       | 4px base unit, used in multiples      |
+| Typography     | A limited set of text styles         | Heading, body, caption — not a font picker |
+| Elevation      | How layers stack visually            | Card, modal, and tooltip levels       |
 
-It doesn't anymore, because I've learned that an incomplete system that's actually used beats a perfect system that's too heavy to adopt. Ship the 20 components that solve 80% of the use cases. Ship real documentation even if it's rough. Ship something your first consumer team can build with _today_.
+Build components that consume these tokens, *not* the other way around.
 
-Adoption is the only metric that matters. A design system with no users is just an art project.
+> Get the tokens right, and changing your brand colour becomes a one-variable change. Get them wrong, and it's 400 find-and-replace operations six months from now.
 
-## What nobody talks about: governance
+## Ship an incomplete design system before you try to ship a perfect one
 
-The hardest problem in design system work is not the design. It's the governance.
+Every design system I've shipped went out the door incomplete. That used to bother me. It doesn't anymore, because an incomplete system that's actually used beats a perfect system that's too heavy to adopt.
 
-Who decides when a component should go in the system versus stay in a product-specific library? Who reviews pull requests? What happens when Product Team A wants to modify a component in a way that breaks Product Team B's usage?
+- Ship the 20 components that solve 80% of the real use cases
+- Ship documentation even if it's rough
+- Give your first consumer team something they can build with *today*
 
-You need a decision-making framework _before_ you have the first conflict, not after. The conflict will come. Teams will want exceptions. Engineers will have strong opinions about implementation. Designers will diverge.
+**Key takeaway:** Adoption is the only metric that matters here. A design system with no users is just an art project.
 
-My recommendation: a small system team (1–2 designers, 1 engineer) with explicit decision authority, a lightweight RFC process for additions, and a versioning strategy that lets product teams stay on older versions while migrating at their own pace.
+## Design system governance: decide before the first conflict, not after
 
-## On documentation
+The hardest problem in design system work was never the design. <mark>It was governance.</mark>
 
-Documentation is a product. It has users (your colleagues), it has jobs to do (answer questions before they become Slack messages), and it degrades if you don't maintain it.
+Who decides whether a component belongs in the shared system or should stay in a product-specific library? Who reviews pull requests? What happens when one product team wants to change a component in a way that breaks another team's usage?
 
-The best documentation I've written has been written _while building the component_, not after. The context is freshest then. You know why you made the decisions you made. Six months later you'll have forgotten.
+You need a decision-making framework before the first conflict, not after it. The conflict is coming — teams will want exceptions, engineers will have strong opinions about implementation, and designers will diverge on the details.
 
-Two things in every component doc: **usage guidelines** (when to use this, when not to) and **accessibility requirements** (keyboard behaviour, ARIA patterns, focus management). Everything else is useful. Those two are essential.
+Before you hit that first conflict, decide:
 
-## The long game
+- [ ] Who has final say on whether a component enters the shared system
+- [ ] Who reviews and approves pull requests against the system
+- [ ] How a breaking change to a shared component gets communicated and staged
+- [ ] Whether product teams can fork a component, and under what conditions
+- [ ] How long an older version stays supported while teams migrate
 
-A design system is a living product. It is never done. The systems that succeed are the ones that have someone who cares about them: someone who treats component requests as product requirements, advocates for the system's value in roadmap meetings, and maintains documentation the way a library maintains its catalogue.
+What's worked for me: a small system team (one or two designers, one engineer) with explicit decision authority, a lightweight [RFC process](https://en.wikipedia.org/wiki/Request_for_Comments) for new additions, and a versioning strategy that lets product teams stay on an older version while they migrate at their own pace.
 
-If nobody owns the design system, nobody will use it.
+## Documentation is part of the system, not an afterthought
 
-That's not an abstraction. It's the reason most design systems die.
+Documentation is a product in its own right. It has users — your colleagues — and a job to do: answer questions before they turn into Slack messages. Like any product, it degrades if nobody maintains it.
+
+The best documentation I've written was written *while* I was building the component, not after. That's when the context is freshest — you still remember why you made the decisions you made. Six months later, you won't.
+
+Two things belong in every component's documentation:
+
+- **Usage guidelines** — when to use this, and when not to
+- **Accessibility requirements** — keyboard behaviour, [ARIA patterns](https://www.w3.org/WAI/ARIA/apg/patterns/), focus management
+
+Everything else is helpful. *Those two are non-negotiable.*
+
+## Where this advice doesn't apply
+
+None of this is universal. A two-person startup with one designer and one engineer doesn't need an RFC process, a formal system team, or a versioning strategy — the overhead would slow them down more than an undocumented component ever would. Governance earns its cost once more than one team depends on the system and conflicts start happening more than once a quarter.
+
+If your organization already has a mature system with real adoption, the priority is different: it's less about shipping fast and more about managing deprecation, migration, and drift. <mark>The lessons above are specifically about the first stretch of a system that doesn't exist yet.</mark>
+
+## A design system is a product, not a project
+
+A design system is never done. It's a living product, and the systems that survive are the ones with someone who actually cares about them — someone who treats component requests like product requirements, argues for the system's value in roadmap meetings, and maintains the documentation the way a librarian maintains a catalogue.
+
+> If nobody owns the design system, nobody will use it.
+
+That's not a throwaway line. After three of these, it's the single biggest reason design systems die.
+
+## Common questions about building a design system from scratch
+
+**How many components should a version 1 design system include?**
+Enough to cover the patterns your first consumer team already uses in production, not a complete library. In my experience that's been closer to 15 to 25 components: the reusable primitives (buttons, inputs, cards, modals) rather than every variant a design file contains.
+
+**Who should own a design system?**
+Someone specific, not a rotating committee. A small, named team, typically one or two designers and one engineer with explicit authority, has worked better for me than shared ownership across product teams, because shared ownership tends to mean no ownership once deadlines get tight.
+
+**How long does it take to build a design system from scratch?**
+This depends enough on team size, existing product debt, and organizational buy-in that giving you a fixed number would be a guess dressed up as an answer. What I can say is that the first usable version — tokens plus a core component set plus basic documentation — took less time in every case than the governance and adoption work that followed it.
+
+## Where to start today
+
+If you're starting today, resist the urge to open a component library file first.
+
+1. Define your token categories (colour, spacing, typography, elevation)
+2. Decide who owns the first governance decisions
+3. Ship something incomplete to one real team before you try to make it complete for everyone

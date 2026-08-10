@@ -20,6 +20,7 @@ export interface CaseStudy {
   keyFocus?: string[]
   productName?: string
   caseStudyTitle?: string
+  stats?: { value: string; label: string }[]
 }
 
 const typeColors: Record<CaseStudy['type'], string> = {
@@ -241,6 +242,30 @@ export function CaseStudyRow({ study, index }: { study: CaseStudy; index: number
                   >
                     {item}
                   </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {study.stats && study.stats.length > 0 && (
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-stone-400 dark:text-stone-500 mb-2.5">
+                By the Numbers
+              </p>
+              <div className="flex flex-wrap gap-x-6 gap-y-3">
+                {study.stats.map((stat, i) => (
+                  <div
+                    key={stat.label}
+                    className={clsx(
+                      'flex flex-col pl-6 first:pl-0',
+                      i !== 0 && 'border-l border-stone-200 dark:border-stone-800'
+                    )}
+                  >
+                    <span className="font-heading font-bold text-2xl leading-none text-stone-900 dark:text-stone-50">
+                      {stat.value}
+                    </span>
+                    <span className="mt-1 text-xs text-stone-500 dark:text-stone-400">{stat.label}</span>
+                  </div>
                 ))}
               </div>
             </div>

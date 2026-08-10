@@ -4,6 +4,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
 import Link from 'next/link'
 import Image from 'next/image'
 import { clsx } from 'clsx'
@@ -14,10 +15,13 @@ import BlogCard, { BlogPost } from '@/components/BlogCard'
 import ReadingProgress from '@/components/ReadingProgress'
 import TableOfContents from '@/components/TableOfContents'
 import { getMDXComponents } from '@/components/mdx-components'
+import MediaFigure from '@/components/MediaFigure'
+import FAQAccordion from '@/components/FAQAccordion'
 import { extractHeadings } from '@/lib/toc'
 
 interface BlogFrontmatter {
   title: string
+  seoTitle?: string
   date: string
   readingTime: string
   tag: BlogPost['tag']
@@ -62,14 +66,15 @@ export async function generateMetadata({
   const post = getPost(slug)
   if (!post) return { title: 'Post Not Found' }
   const { frontmatter: fm } = post
+  const metaTitle = fm.seoTitle ?? fm.title
   return {
-    title: fm.title,
+    title: metaTitle,
     description: fm.excerpt,
     alternates: {
       canonical: `https://sanjayshrestha.com/blog/${slug}`,
     },
     openGraph: {
-      title: `${fm.title} | Sanjay Shrestha`,
+      title: `${metaTitle} | Sanjay Shrestha`,
       description: fm.excerpt,
       url: `https://sanjayshrestha.com/blog/${slug}`,
       type: 'article',
@@ -78,7 +83,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${fm.title} | Sanjay Shrestha`,
+      title: `${metaTitle} | Sanjay Shrestha`,
       description: fm.excerpt,
       images: [fm.coverImage ?? tagCoverImage[fm.tag]],
     },
@@ -236,7 +241,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className={headings.length > 0 ? 'lg:col-span-8' : 'max-w-[70ch] mx-auto w-full'}>
               <AnimatedSection delay={0.1}>
                 <div className="max-w-[70ch] mx-auto prose prose-lg prose-stone dark:prose-invert prose-headings:font-heading prose-headings:tracking-tight prose-headings:leading-snug prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-a:text-amber-700 dark:prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-stone-900 dark:prose-strong:text-stone-100 prose-blockquote:border-l-amber-400 prose-blockquote:text-stone-600 dark:prose-blockquote:text-stone-400 prose-lead:text-stone-600 dark:prose-lead:text-stone-400 prose-hr:border-stone-200 dark:prose-hr:border-stone-800">
-                  <MDXRemote source={content} components={getMDXComponents()} />
+                  <MDXRemote
+                    source={content}
+                    components={{ ...getMDXComponents(), MediaFigure, FAQAccordion }}
+                    options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+                  />
                 </div>
               </AnimatedSection>
 
