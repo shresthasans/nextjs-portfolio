@@ -12,6 +12,22 @@ export const metadata: Metadata = {
     description:
       'Senior Product Designer with 15+ years crafting enterprise SaaS, B2B, and government digital products.',
     url: 'https://sanjayshrestha.com',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Sanjay Shrestha | Senior Product Designer',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@shresthasans',
+    title: 'Sanjay Shrestha | Senior Product Designer',
+    description:
+      'Senior Product Designer with 15+ years crafting enterprise SaaS, B2B, and government digital products.',
+    images: ['/og-image.jpg'],
   },
 }
 
