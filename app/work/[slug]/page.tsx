@@ -26,6 +26,7 @@ import TableOfContents from '@/components/TableOfContents'
 
 interface Frontmatter {
   title: string
+  seoTitle?: string
   client: string
   role: string
   year: string
@@ -81,6 +82,7 @@ export async function generateMetadata({
   const study = await getCaseStudy(slug)
   if (!study) return { title: 'Case Study Not Found' }
   const { frontmatter } = study
+  const metaTitle = frontmatter.seoTitle ?? frontmatter.title
 
   const ogImagePath = path.join(process.cwd(), 'public', 'images', 'og', `${slug}.jpg`)
   const socialImage = fs.existsSync(ogImagePath)
@@ -93,14 +95,14 @@ export async function generateMetadata({
     : undefined
 
   return {
-    title: frontmatter.title,
+    title: metaTitle,
     description: frontmatter.description,
     alternates: {
       canonical: `https://sanjayshrestha.com/work/${slug}`,
     },
     ...(UNLISTED_SLUGS.has(slug) ? { robots: { index: false, follow: false } } : {}),
     openGraph: {
-      title: `${frontmatter.title} | Sanjay Shrestha`,
+      title: `${metaTitle} | Sanjay Shrestha`,
       description: frontmatter.description,
       url: `https://sanjayshrestha.com/work/${slug}`,
       siteName: 'Sanjay Shrestha',
@@ -109,7 +111,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${frontmatter.title} | Sanjay Shrestha`,
+      title: `${metaTitle} | Sanjay Shrestha`,
       description: frontmatter.description,
       ...(socialImage ? { images: [socialImage] } : {}),
     },
