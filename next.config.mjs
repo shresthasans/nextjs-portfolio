@@ -17,6 +17,14 @@ const nextConfig = {
       { source: '/work/webscale-stratus', destination: '/work/stratus-maas-saas-dashboard-redesign', permanent: true },
       { source: '/work/webscale-stratus-saas-dashboard-redesign', destination: '/work/stratus-maas-saas-dashboard-redesign', permanent: true },
       { source: '/blog/ai-ux-2024', destination: '/blog/ai-ux-design-patterns', permanent: true },
+      { source: '/blog/ai-generated-ui-to-production-ready-handoff', destination: '/blog/ai-native-workflow-transition', permanent: true },
+      { source: '/blog/ai-ux-design-patterns-that-work', destination: '/blog/ai-ux-design-patterns', permanent: true },
+      { source: '/blog/building-a-design-system-from-scratch', destination: '/blog/design-systems-at-scale', permanent: true },
+      { source: '/blog/icons-in-design-systems', destination: '/blog/icons-design-systems', permanent: true },
+      { source: '/blog/scaling-product-design-with-ai-and-technical-skills', destination: '/blog/scaling-product-design-with-ai', permanent: true },
+      { source: '/blog/senior-in-product-design', destination: '/blog/senior-designer-career', permanent: true },
+      { source: '/blog/user-research-methods-in-product-design', destination: '/blog/user-research-applied', permanent: true },
+      { source: '/blog/ux-fixes-that-boost-conversion', destination: '/blog/ux-fixes-boost-conversions', permanent: true },
     ]
   },
 }
