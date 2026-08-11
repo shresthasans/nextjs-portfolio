@@ -3,6 +3,9 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Resume',
   description: 'Sanjay Shrestha, Senior Product Designer resume PDF.',
+  alternates: {
+    canonical: 'https://sanjayshrestha.com/resume',
+  },
   openGraph: {
     title: 'Resume | Sanjay Shrestha',
     description: 'Sanjay Shrestha, Senior Product Designer resume PDF.',

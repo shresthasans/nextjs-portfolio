@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: 'About',
   description:
     'Senior Product Designer with 15+ years designing enterprise SaaS, B2B, and government digital products. CUA™ certified. Based in Kathmandu, Nepal.',
+  alternates: {
+    canonical: 'https://sanjayshrestha.com/about',
+  },
   openGraph: {
     title: 'About | Sanjay Shrestha',
     description:

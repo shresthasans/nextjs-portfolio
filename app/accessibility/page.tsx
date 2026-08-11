@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Accessibility Statement',
   description:
     "Sanjay Shrestha's accessibility statement: the standards this site aims to meet, known limitations, and how to report an issue.",
+  alternates: {
+    canonical: 'https://sanjayshrestha.com/accessibility',
+  },
   openGraph: {
     title: 'Accessibility Statement | Sanjay Shrestha',
     description:

@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'Blog',
   description:
     'Thoughts on UX strategy, design systems, AI-powered interfaces, and building a career in product design.',
+  alternates: {
+    canonical: 'https://sanjayshrestha.com/blog',
+  },
   openGraph: {
     title: 'Blog | Sanjay Shrestha',
     description: 'Thoughts on UX, design systems, AI, and career in product design.',
