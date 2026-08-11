@@ -10,8 +10,9 @@ import { clsx } from 'clsx'
 
 const links = [
   { href: '/work', label: 'Work' },
-  { href: '/about', label: 'About' },
   { href: '/blog', label: 'Blog' },
+  { href: '/about', label: 'About' },
+  { href: '/resume', label: 'Resume' },
   { href: '/contact', label: 'Contact' },
 ]
 
