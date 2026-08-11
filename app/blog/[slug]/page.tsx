@@ -205,11 +205,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               {fm.excerpt}
             </p>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-stone-100 dark:bg-stone-800 rounded-lg">
-              <Link
-                href="/about"
-                className="text-xs font-medium text-stone-700 dark:text-stone-200 hover:text-amber-700 dark:hover:text-amber-400"
-              >
-                Sanjay Shrestha
+              <Link href="/about" className="flex items-center gap-1.5 group">
+                <span className="relative w-5 h-5 rounded-full overflow-hidden shrink-0">
+                  <Image src="/images/profile/sanjay.webp" alt="" fill className="object-cover" />
+                </span>
+                <span className="text-xs font-medium text-stone-700 dark:text-stone-200 group-hover:text-amber-700 dark:group-hover:text-amber-400">
+                  Sanjay Shrestha
+                </span>
               </Link>
               <span className="text-stone-300 dark:text-stone-600" aria-hidden="true">·</span>
               <span className="flex items-center gap-1.5 text-xs font-medium text-stone-600 dark:text-stone-300">
