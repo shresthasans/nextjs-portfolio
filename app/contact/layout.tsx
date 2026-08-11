@@ -21,5 +21,32 @@ export const metadata: Metadata = {
 }
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact',
+    description:
+      'Get in touch with Sanjay Shrestha. Open to senior design roles, contracts, and consulting engagements globally.',
+    url: 'https://sanjayshrestha.com/contact',
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sanjayshrestha.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://sanjayshrestha.com/contact' },
+    ],
+  }
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      {children}
+    </>
+  )
 }

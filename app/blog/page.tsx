@@ -55,7 +55,40 @@ function getBlogPosts(): BlogPost[] {
 export default function BlogPage() {
   const posts = getBlogPosts()
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Writing',
+    description:
+      'Thoughts on UX strategy, design systems, AI-powered interfaces, and building a career in product design.',
+    url: 'https://sanjayshrestha.com/blog',
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: posts.map((post, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: post.title,
+        url: `https://sanjayshrestha.com/blog/${post.slug}`,
+      })),
+    },
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sanjayshrestha.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://sanjayshrestha.com/blog' },
+    ],
+  }
+
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
     <section className="pt-24 pb-20">
       <div className="container-portfolio">
         <AnimatedSection className="mb-12">
@@ -73,5 +106,6 @@ export default function BlogPage() {
         <BlogIndex posts={posts} />
       </div>
     </section>
+    </>
   )
 }

@@ -135,8 +135,36 @@ const timeline = [
 ]
 
 export default function AboutPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    mainEntity: {
+      '@type': 'Person',
+      name: 'Sanjay Shrestha',
+      jobTitle: 'Senior Product Designer',
+      url: 'https://sanjayshrestha.com/about',
+      image: 'https://sanjayshrestha.com/images/profile/sanjay.webp',
+      description:
+        'Senior Product Designer with 15+ years designing enterprise SaaS, B2B, and government digital products. CUA™ certified.',
+    },
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sanjayshrestha.com/' },
+      { '@type': 'ListItem', position: 2, name: 'About', item: 'https://sanjayshrestha.com/about' },
+    ],
+  }
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Hero */}
       <section className="pt-24 pb-20">
         <div className="container-portfolio">

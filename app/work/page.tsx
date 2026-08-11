@@ -27,7 +27,40 @@ export const metadata: Metadata = {
 }
 
 export default function WorkPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Selected Work',
+    description:
+      'Case studies in enterprise SaaS, government, and AI-powered product design by Sanjay Shrestha.',
+    url: 'https://sanjayshrestha.com/work',
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: allWork.map((study, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: study.title,
+        url: `https://sanjayshrestha.com/work/${study.slug}`,
+      })),
+    },
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sanjayshrestha.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Work', item: 'https://sanjayshrestha.com/work' },
+    ],
+  }
+
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
     <section className="pt-36 pb-24">
       <div className="container-portfolio">
         <AnimatedSection className="max-w-2xl">
@@ -73,5 +106,6 @@ export default function WorkPage() {
         </AnimatedSection>
       </div>
     </section>
+    </>
   )
 }
