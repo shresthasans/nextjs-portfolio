@@ -17,6 +17,11 @@ export const allWork: CaseStudy[] = [
     summary:
       "An overview of the product and my role, kept to what's publicly available — not a research-to-outcome case study, since this is an active, NDA-covered commercial project.",
     keyFocus: ['Mobile UX/UI', 'Microsoft Teams Integration', 'Product Management'],
+    relatedBlogSlugs: [
+      'ai-in-the-product-design-process',
+      'scaling-product-design-with-ai',
+      'ai-native-workflow-transition',
+    ],
   },
   {
     slug: 'pagevamp-onboarding-redesign',
@@ -34,6 +39,7 @@ export const allWork: CaseStudy[] = [
     summary:
       'Helping first-time users launch their websites faster by simplifying onboarding and reducing early friction.',
     keyFocus: ['User Onboarding', 'Information Architecture', 'Conversion Optimization'],
+    relatedBlogSlugs: ['ux-fixes-boost-conversions'],
     stats: [
       { value: '+30%', label: 'Signup Lift' },
       { value: '15%→5%', label: 'Privacy Drop-off' },

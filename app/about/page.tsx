@@ -83,6 +83,7 @@ const highlights: { title: string; description: string; href?: string }[] = [
     title: 'Enterprise SaaS',
     description:
       'Helped grow Decisions from fewer than 50 customers to over 5,000 enterprise organizations while leading product design initiatives.',
+    href: '/work/decisions-ai-mobile-meeting-app',
   },
 ]
 

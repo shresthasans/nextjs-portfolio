@@ -57,7 +57,14 @@ const expertise = [
 
 const heroPhrase = ['simple, scalable', 'intuitive, clear', 'elegant, focused', 'human-centered']
 
-export default function HomePageClient() {
+interface LatestPost {
+  slug: string
+  title: string
+  excerpt: string
+  tag: string
+}
+
+export default function HomePageClient({ latestPosts = [] }: { latestPosts?: LatestPost[] }) {
   const [phraseIdx, setPhraseIdx] = useState(0)
 
   useEffect(() => {
@@ -423,6 +430,51 @@ export default function HomePageClient() {
           </div>
         </div>
       </section>
+
+      {/* Latest from the blog */}
+      {latestPosts.length > 0 && (
+        <section className="py-28">
+          <div className="container-portfolio">
+            <AnimatedSection className="flex items-end justify-between mb-10">
+              <div>
+                <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-2">
+                  Writing
+                </p>
+                <h2 className="font-heading text-4xl font-bold text-stone-900 dark:text-stone-50 tracking-tight leading-tight">
+                  From the blog
+                </h2>
+              </div>
+              <Link
+                href="/blog"
+                className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-200 cursor-pointer shrink-0"
+              >
+                View all <ArrowRight size={14} aria-hidden="true" />
+              </Link>
+            </AnimatedSection>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {latestPosts.map((post, i) => (
+                <AnimatedSection key={post.slug} delay={i * 0.08}>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="block h-full p-6 rounded-2xl border border-stone-200 dark:border-stone-800 hover:border-amber-300 dark:hover:border-amber-700 transition-colors duration-200"
+                  >
+                    <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-3">
+                      {post.tag}
+                    </p>
+                    <h3 className="font-heading font-semibold text-stone-900 dark:text-stone-50 mb-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                  </Link>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA banner */}
       <section className="py-20">

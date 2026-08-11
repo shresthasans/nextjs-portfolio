@@ -1,4 +1,7 @@
 import type { Metadata } from 'next'
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
 import HomePageClient from '@/components/HomePageClient'
 
 export const metadata: Metadata = {
@@ -86,14 +89,36 @@ const faqJsonLd = {
   ],
 }
 
+function getLatestPosts(limit = 3) {
+  const dir = path.join(process.cwd(), 'content', 'blog')
+  if (!fs.existsSync(dir)) return []
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith('.mdx'))
+    .map((filename) => {
+      const { data } = matter(fs.readFileSync(path.join(dir, filename), 'utf-8'))
+      return {
+        slug: filename.replace('.mdx', ''),
+        title: data.title as string,
+        excerpt: data.excerpt as string,
+        tag: data.tag as string,
+        date: data.date as string,
+      }
+    })
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, limit)
+}
+
 export default function Home() {
+  const latestPosts = getLatestPosts()
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <HomePageClient />
+      <HomePageClient latestPosts={latestPosts} />
     </>
   )
 }

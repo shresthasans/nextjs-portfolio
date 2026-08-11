@@ -21,6 +21,7 @@ export interface CaseStudy {
   productName?: string
   caseStudyTitle?: string
   stats?: { value: string; label: string }[]
+  relatedBlogSlugs?: string[]
 }
 
 const typeColors: Record<CaseStudy['type'], string> = {
