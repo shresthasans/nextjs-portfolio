@@ -205,6 +205,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               {fm.excerpt}
             </p>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-stone-100 dark:bg-stone-800 rounded-lg">
+              <Link
+                href="/about"
+                className="text-xs font-medium text-stone-700 dark:text-stone-200 hover:text-amber-700 dark:hover:text-amber-400"
+              >
+                Sanjay Shrestha
+              </Link>
+              <span className="text-stone-300 dark:text-stone-600" aria-hidden="true">·</span>
               <span className="flex items-center gap-1.5 text-xs font-medium text-stone-600 dark:text-stone-300">
                 <Clock size={12} aria-hidden="true" />
                 {fm.readingTime}
@@ -254,11 +261,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <div className="rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900/60 overflow-hidden flex">
                   <div className={`w-1 shrink-0 ${tagAccentBg[fm.tag]}`} aria-hidden="true" />
                   <div className="flex items-start gap-5 p-6 flex-1">
-                    <div
-                      className="w-11 h-11 rounded-full bg-gradient-to-br from-stone-300 to-stone-400 dark:from-stone-600 dark:to-stone-700 shrink-0 flex items-center justify-center text-white font-heading font-semibold text-sm select-none"
-                      aria-hidden="true"
-                    >
-                      SS
+                    <div className="relative w-11 h-11 rounded-full overflow-hidden shrink-0">
+                      <Image
+                        src="/images/profile/sanjay.webp"
+                        alt="Sanjay Shrestha"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                     <div>
                       <p className="font-heading font-semibold text-stone-900 dark:text-stone-50 text-sm mb-0.5">
