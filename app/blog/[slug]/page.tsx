@@ -77,15 +77,16 @@ export async function generateMetadata({
       title: `${metaTitle} | Sanjay Shrestha`,
       description: fm.excerpt,
       url: `https://sanjayshrestha.com/blog/${slug}`,
+      siteName: 'Sanjay Shrestha',
       type: 'article',
       publishedTime: fm.date,
-      images: [fm.coverImage ?? tagCoverImage[fm.tag]],
+      images: [{ url: fm.coverImage ?? tagCoverImage[fm.tag], alt: metaTitle }],
     },
     twitter: {
       card: 'summary_large_image',
       title: `${metaTitle} | Sanjay Shrestha`,
       description: fm.excerpt,
-      images: [fm.coverImage ?? tagCoverImage[fm.tag]],
+      images: [{ url: fm.coverImage ?? tagCoverImage[fm.tag], alt: metaTitle }],
     },
   }
 }

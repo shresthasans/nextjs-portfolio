@@ -82,11 +82,14 @@ export async function generateMetadata({
   if (!study) return { title: 'Case Study Not Found' }
   const { frontmatter } = study
 
-  const imgDir = path.join(process.cwd(), 'public', 'images', 'work', slug)
-  const heroImage = fs.existsSync(imgDir)
-    ? ['hero.jpg', 'hero.jpeg', 'hero.png', 'hero.webp', 'hero.svg']
-        .find((f) => fs.existsSync(path.join(imgDir, f)))
-        ?.replace(/^/, `/images/work/${slug}/`)
+  const ogImagePath = path.join(process.cwd(), 'public', 'images', 'og', `${slug}.jpg`)
+  const socialImage = fs.existsSync(ogImagePath)
+    ? {
+        url: `https://sanjayshrestha.com/images/og/${slug}.jpg`,
+        width: 1200,
+        height: 630,
+        alt: frontmatter.title,
+      }
     : undefined
 
   return {
@@ -100,13 +103,15 @@ export async function generateMetadata({
       title: `${frontmatter.title} | Sanjay Shrestha`,
       description: frontmatter.description,
       url: `https://sanjayshrestha.com/work/${slug}`,
-      ...(heroImage ? { images: [heroImage] } : {}),
+      siteName: 'Sanjay Shrestha',
+      type: 'article',
+      ...(socialImage ? { images: [socialImage] } : {}),
     },
     twitter: {
       card: 'summary_large_image',
       title: `${frontmatter.title} | Sanjay Shrestha`,
       description: frontmatter.description,
-      ...(heroImage ? { images: [heroImage] } : {}),
+      ...(socialImage ? { images: [socialImage] } : {}),
     },
   }
 }
