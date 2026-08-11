@@ -13,14 +13,14 @@ export const metadata: Metadata = {
     description:
       'Senior Product Designer with 15+ years crafting enterprise software used by millions.',
     url: 'https://sanjayshrestha.com/about',
-    images: ['/images/profile/sanjay.png'],
+    images: ['/images/profile/sanjay.webp'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About | Sanjay Shrestha',
     description:
       'Senior Product Designer with 15+ years crafting enterprise software used by millions.',
-    images: ['/images/profile/sanjay.png'],
+    images: ['/images/profile/sanjay.webp'],
   },
 }
 
@@ -240,7 +240,7 @@ export default function AboutPage() {
               {/* Profile photo */}
               <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-8 border border-stone-200 dark:border-stone-800">
                 <Image
-                  src="/images/profile/sanjay.png"
+                  src="/images/profile/sanjay.webp"
                   alt="Sanjay Shrestha, Senior Product Designer"
                   fill
                   className="object-cover"
@@ -251,7 +251,7 @@ export default function AboutPage() {
               {/* CUA Callout */}
               <div className="rounded-2xl border border-amber-200 dark:border-amber-800/60 bg-amber-50/70 dark:bg-amber-950/20 p-7 mb-8 flex flex-col items-center text-center space-y-5">
                 <Image
-                  src="/images/cua-badge.png"
+                  src="/images/cua-badge.webp"
                   alt="CUA™ Certified Usability Analyst, Human Factors International"
                   width={100}
                   height={100}

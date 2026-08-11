@@ -25,7 +25,7 @@ const clients = [
   { name: 'Meet Magento NYC', logo: '/images/trusted-by/logo-meetmagento-nyc.svg', width: 126, height: 32, href: 'https://meetmagentonyc.com/' },
   { name: 'Pagevamp', logo: '/images/trusted-by/logo-pagevamp.svg', width: 130, height: 32, href: 'https://pagevamp.com/' },
   { name: 'The Flash Pack', logo: '/images/trusted-by/logo-theflashpack.svg', width: 140, height: 32, href: 'https://itstheflashpack.com/' },
-  { name: 'Aussie Webdev', logo: '/images/trusted-by/logo-aussie-webdev.png', width: 105, height: 32, href: 'https://aussiewebdev.com.au/' },
+  { name: 'Aussie Webdev', logo: '/images/trusted-by/logo-aussie-webdev.webp', width: 105, height: 32, href: 'https://aussiewebdev.com.au/' },
 ]
 
 const expertise = [
@@ -382,7 +382,7 @@ export default function HomePageClient() {
             <AnimatedSection direction="left" className='h-full'>
               <div className="relative w-full h-full rounded-2xl overflow-hidden border border-stone-200 dark:border-stone-700">
                 <Image
-                  src="/images/profile/sanjay.png"
+                  src="/images/profile/sanjay.webp"
                   alt="Sanjay Shrestha, Senior Product Designer"
                   fill
                   className="object-cover object-top"

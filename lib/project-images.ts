@@ -11,11 +11,11 @@ export interface ProjectImages {
 
 const projectImages: Record<string, ProjectImages> = {
   'decisions-ai-mobile-meeting-app': {
-    hero: '/images/work/decisions-platform/hero.jpg',
+    hero: '/images/work/decisions-platform/hero.webp',
     gallery: [],
   },
   'pagevamp-onboarding-redesign': {
-    hero: '/images/work/pagevamp/hero.jpg',
+    hero: '/images/work/pagevamp/hero.webp',
     gallery: [
       { src: 'https://placehold.co/1200x600/EFF6FF/1D4ED8?text=Onboarding+Flow&font=montserrat', alt: 'Pagevamp: Redesigned onboarding flow' },
       { src: 'https://placehold.co/1200x600/FFF7ED/C2410C?text=Drop-off+Analysis&font=montserrat', alt: 'Pagevamp: Funnel drop-off by segment' },
@@ -25,7 +25,7 @@ const projectImages: Record<string, ProjectImages> = {
     ],
   },
   'avira-antivirus-redesign': {
-    hero: '/images/work/avira/hero.jpg',
+    hero: '/images/work/avira/hero.webp',
     gallery: [
       { src: 'https://placehold.co/1200x600/FEF2F2/991B1B?text=Current+State%3A+Inconsistent+UI&font=montserrat', alt: 'Avira: Current-state inconsistencies across screens' },
       { src: 'https://placehold.co/1200x600/F0F9FF/0C4A6E?text=Affinity+Map%3A+Research+Synthesis&font=montserrat', alt: 'Avira: Affinity mapping of interview and usability findings' },
@@ -36,15 +36,15 @@ const projectImages: Record<string, ProjectImages> = {
     ],
   },
   'streamshare-streaming-app-design': {
-    hero: '/images/work/streamshare/hero.jpg',
+    hero: '/images/work/streamshare/hero.webp',
     gallery: [
-      { src: '/images/work/streamshare/user-flow.jpg', alt: 'Streamshare: Onboarding flow' },
-      { src: '/images/work/streamshare/wireframe-sketch.jpg', alt: 'Streamshare: Early wireframe sketches' },
-      { src: '/images/work/streamshare/wireframe.jpg', alt: 'Streamshare: Discovery screen wireframe' },
-      { src: '/images/work/streamshare/usability-testing.jpg', alt: 'Streamshare: Usability testing session' },
-      { src: '/images/work/streamshare/prototype.jpg', alt: 'Streamshare: Stream detail prototype' },
-      { src: '/images/work/streamshare/streamshare.jpg', alt: 'Streamshare: Final app screens' },
-      { src: '/images/work/streamshare/affinity-mapping.jpg', alt: 'Streamshare: Affinity mapping' },
+      { src: '/images/work/streamshare/user-flow.webp', alt: 'Streamshare: Onboarding flow' },
+      { src: '/images/work/streamshare/wireframe-sketch.webp', alt: 'Streamshare: Early wireframe sketches' },
+      { src: '/images/work/streamshare/wireframe.webp', alt: 'Streamshare: Discovery screen wireframe' },
+      { src: '/images/work/streamshare/usability-testing.webp', alt: 'Streamshare: Usability testing session' },
+      { src: '/images/work/streamshare/prototype.webp', alt: 'Streamshare: Stream detail prototype' },
+      { src: '/images/work/streamshare/streamshare.webp', alt: 'Streamshare: Final app screens' },
+      { src: '/images/work/streamshare/affinity-mapping.webp', alt: 'Streamshare: Affinity mapping' },
     ],
   },
   'nepal-pm-calendar': {
@@ -57,7 +57,7 @@ const projectImages: Record<string, ProjectImages> = {
     ],
   },
   'stratus-maas-saas-dashboard-redesign': {
-    hero: '/images/work/webscale-stratus/hero.jpg',
+    hero: '/images/work/webscale-stratus/hero.webp',
     gallery: [
       { src: '/images/work/webscale-stratus/01.svg', alt: 'Stratus: Platform dashboard' },
       { src: '/images/work/webscale-stratus/02.svg', alt: 'Stratus: Performance analytics' },
@@ -65,11 +65,11 @@ const projectImages: Record<string, ProjectImages> = {
     ],
   },
   'linkedin-feed-redesign': {
-    hero: '/images/work/linkedin/hero.jpg',
+    hero: '/images/work/linkedin/hero.webp',
     gallery: [],
     heroBeforeAfter: {
-      before: '/images/work/linkedin/linkedin-before.jpg',
-      after: '/images/work/linkedin/linkedin-after.jpg',
+      before: '/images/work/linkedin/linkedin-before.webp',
+      after: '/images/work/linkedin/linkedin-after.webp',
       beforeAlt: 'Original LinkedIn homepage feed before the redesign',
       afterAlt: 'Redesigned LinkedIn homepage feed after the redesign',
     },
