@@ -196,36 +196,39 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             ]}
           />
 
-          <AnimatedSection className="max-w-3xl">
+          <div className="max-w-3xl">
+            {/* Eyebrow + H1 render immediately, no entrance animation — H1 is the LCP element */}
             <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-3">
               {fm.tag}
             </p>
             <h1 className="font-heading text-4xl sm:text-5xl font-bold text-stone-900 dark:text-stone-50 tracking-tight leading-[1.1] mb-4 text-balance">
               {fm.title}
             </h1>
-            <p className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
-              {fm.excerpt}
-            </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-stone-100 dark:bg-stone-800 rounded-lg">
-              <Link href="/about" className="flex items-center gap-1.5 group">
-                <span className="relative w-5 h-5 rounded-full overflow-hidden shrink-0">
-                  <Image src="/images/profile/sanjay.webp" alt="" fill className="object-cover" />
+            <AnimatedSection>
+              <p className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+                {fm.excerpt}
+              </p>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-stone-100 dark:bg-stone-800 rounded-lg">
+                <Link href="/about" className="flex items-center gap-1.5 group">
+                  <span className="relative w-5 h-5 rounded-full overflow-hidden shrink-0">
+                    <Image src="/images/profile/sanjay-avatar.webp" alt="" fill className="object-cover" />
+                  </span>
+                  <span className="text-xs font-medium text-stone-700 dark:text-stone-200 group-hover:text-amber-700 dark:group-hover:text-amber-400">
+                    Sanjay Shrestha
+                  </span>
+                </Link>
+                <span className="text-stone-300 dark:text-stone-600" aria-hidden="true">·</span>
+                <span className="flex items-center gap-1.5 text-xs font-medium text-stone-600 dark:text-stone-300">
+                  <Clock size={12} aria-hidden="true" />
+                  {fm.readingTime}
                 </span>
-                <span className="text-xs font-medium text-stone-700 dark:text-stone-200 group-hover:text-amber-700 dark:group-hover:text-amber-400">
-                  Sanjay Shrestha
-                </span>
-              </Link>
-              <span className="text-stone-300 dark:text-stone-600" aria-hidden="true">·</span>
-              <span className="flex items-center gap-1.5 text-xs font-medium text-stone-600 dark:text-stone-300">
-                <Clock size={12} aria-hidden="true" />
-                {fm.readingTime}
-              </span>
-              <span className="text-stone-300 dark:text-stone-600" aria-hidden="true">·</span>
-              <time dateTime={fm.date} className="text-xs font-medium text-stone-600 dark:text-stone-300">
-                {formatDate(fm.date)}
-              </time>
-            </div>
-          </AnimatedSection>
+                <span className="text-stone-300 dark:text-stone-600" aria-hidden="true">·</span>
+                <time dateTime={fm.date} className="text-xs font-medium text-stone-600 dark:text-stone-300">
+                  {formatDate(fm.date)}
+                </time>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
@@ -267,7 +270,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   <div className="flex items-start gap-5 p-6 flex-1">
                     <div className="relative w-11 h-11 rounded-full overflow-hidden shrink-0">
                       <Image
-                        src="/images/profile/sanjay.webp"
+                        src="/images/profile/sanjay-avatar.webp"
                         alt="Sanjay Shrestha"
                         fill
                         className="object-cover"

@@ -63,20 +63,23 @@ export default function WorkPage() {
       />
     <section className="pt-36 pb-24">
       <div className="container-portfolio">
-        <AnimatedSection className="max-w-2xl">
+        <div className="max-w-2xl">
+          {/* Eyebrow + H1 render immediately, no entrance animation — H1 is the LCP element */}
           <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-4">
             Work
           </p>
           <h1 className="font-heading text-5xl sm:text-6xl font-bold text-stone-900 dark:text-stone-50 tracking-tight leading-[1.1] mb-6 text-balance">
             Selected Work
           </h1>
-          <p className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed">
-            A curated selection of client work, personal explorations and product design exercises
-            that showcase how I approach solving complex product challenges. Much of my recent
-            enterprise work remains confidential, but the principles behind it are reflected
-            throughout these projects.
-          </p>
-        </AnimatedSection>
+          <AnimatedSection>
+            <p className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed">
+              A curated selection of client work, personal explorations and product design exercises
+              that showcase how I approach solving complex product challenges. Much of my recent
+              enterprise work remains confidential, but the principles behind it are reflected
+              throughout these projects.
+            </p>
+          </AnimatedSection>
+        </div>
 
         {/* Enterprise statement */}
         <AnimatedSection className="max-w-[700px] mx-auto text-center border-t border-stone-200 dark:border-stone-800 mt-16 pt-12 pb-12 lg:mt-16 lg:pt-16 lg:pb-16">

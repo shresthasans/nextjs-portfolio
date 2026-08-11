@@ -185,13 +185,9 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                   Sanjay Shrestha
                 </motion.p>
 
-                {/* Headline with cycling highlight */}
-                <motion.h1
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.65, delay: 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
-                  className="font-heading text-5xl sm:text-6xl lg:text-7xl xl:text-[5.25rem] font-bold text-stone-900 dark:text-stone-50 leading-[1.06] tracking-tight mb-7"
-                >
+                {/* Headline with cycling highlight — no entrance animation: this is the LCP element,
+                    so it must paint at opacity:1 immediately instead of waiting on JS/motion */}
+                <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl xl:text-[5.25rem] font-bold text-stone-900 dark:text-stone-50 leading-[1.06] tracking-tight mb-7">
                   I turn complex{' '}challenges into{' '}
                   <span className="inline-block">
                     {mounted ? (
@@ -214,7 +210,7 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                     )}
                   </span>{' '}
                   user experiences.
-                </motion.h1>
+                </h1>
 
                 {/* Tagline */}
                 <motion.p

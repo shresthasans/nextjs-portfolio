@@ -94,17 +94,20 @@ export default function BlogPage() {
       />
     <section className="pt-24 pb-20">
       <div className="container-portfolio">
-        <AnimatedSection className="mb-12">
+        <div className="mb-12">
+          {/* Eyebrow + H1 render immediately, no entrance animation — H1 is the LCP element */}
           <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-4">
             Blog
           </p>
           <h1 className="font-heading text-5xl sm:text-6xl font-bold text-stone-900 dark:text-stone-50 tracking-tight leading-[1.1] mb-5 text-balance">
             Writing
           </h1>
-          <p className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed max-w-2xl">
-            Thoughts on UX strategy, design systems, the role of AI in design, and building a long career in this field.
-          </p>
-        </AnimatedSection>
+          <AnimatedSection>
+            <p className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed max-w-2xl">
+              Thoughts on UX strategy, design systems, the role of AI in design, and building a long career in this field.
+            </p>
+          </AnimatedSection>
+        </div>
 
         <BlogIndex posts={posts} />
       </div>
