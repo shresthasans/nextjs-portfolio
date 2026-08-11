@@ -526,12 +526,7 @@ export default async function CaseStudyPage({
     description: fm.description,
     url: `https://sanjayshrestha.com/work/${slug}`,
     ...(heroImage ? { image: `https://sanjayshrestha.com${heroImage}` } : {}),
-    creator: {
-      '@type': 'Person',
-      '@id': 'https://sanjayshrestha.com/#person',
-      name: 'Sanjay Shrestha',
-      url: 'https://sanjayshrestha.com/about',
-    },
+    creator: { '@id': 'https://sanjayshrestha.com/#person' },
     about: fm.client,
     keywords: fm.tools?.join(', '),
     dateCreated: fm.year,
