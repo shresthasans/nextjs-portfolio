@@ -23,6 +23,7 @@ interface BlogFrontmatter {
   title: string
   seoTitle?: string
   date: string
+  updatedDate?: string
   readingTime: string
   tag: BlogPost['tag']
   excerpt: string
@@ -80,6 +81,7 @@ export async function generateMetadata({
       siteName: 'Sanjay Shrestha',
       type: 'article',
       publishedTime: fm.date,
+      ...(fm.updatedDate ? { modifiedTime: fm.updatedDate } : {}),
       images: [{ url: fm.coverImage ?? tagCoverImage[fm.tag], alt: metaTitle }],
     },
     twitter: {
@@ -145,7 +147,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     description: fm.excerpt,
     image: `https://sanjayshrestha.com${fm.coverImage ?? tagCoverImage[fm.tag]}`,
     datePublished: fm.date,
-    dateModified: fm.date,
+    dateModified: fm.updatedDate ?? fm.date,
     url: `https://sanjayshrestha.com/blog/${slug}`,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -224,9 +226,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   {fm.readingTime}
                 </span>
                 <span className="text-stone-300 dark:text-stone-600" aria-hidden="true">·</span>
-                <time dateTime={fm.date} className="text-xs font-medium text-stone-600 dark:text-stone-300">
-                  {formatDate(fm.date)}
-                </time>
+                <span className="text-xs font-medium text-stone-600 dark:text-stone-300">
+                  Published{' '}
+                  <time dateTime={fm.date}>{formatDate(fm.date)}</time>
+                </span>
+                {fm.updatedDate && fm.updatedDate !== fm.date && (
+                  <>
+                    <span className="text-stone-300 dark:text-stone-600" aria-hidden="true">·</span>
+                    <span className="text-xs font-medium text-amber-700 dark:text-amber-400">
+                      Updated{' '}
+                      <time dateTime={fm.updatedDate}>{formatDate(fm.updatedDate)}</time>
+                    </span>
+                  </>
+                )}
               </div>
             </AnimatedSection>
           </div>
