@@ -148,8 +148,14 @@ export default function RootLayout({
           `}
         </Script>
         <ThemeProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-stone-900 focus:text-stone-50 dark:focus:bg-stone-50 dark:focus:text-stone-900 focus:text-sm focus:font-medium"
+          >
+            Skip to main content
+          </a>
           <Nav />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer />
         </ThemeProvider>
         <GoogleAnalytics gaId="G-6LG770RY6S" />
