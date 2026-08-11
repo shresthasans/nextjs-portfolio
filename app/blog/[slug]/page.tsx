@@ -142,7 +142,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     '@type': 'BlogPosting',
     headline: fm.title,
     description: fm.excerpt,
-    image: fm.coverImage ?? tagCoverImage[fm.tag],
+    image: `https://sanjayshrestha.com${fm.coverImage ?? tagCoverImage[fm.tag]}`,
     datePublished: fm.date,
     dateModified: fm.date,
     url: `https://sanjayshrestha.com/blog/${slug}`,
