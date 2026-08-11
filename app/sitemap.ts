@@ -6,6 +6,24 @@ import { allWork } from '@/lib/work-data'
 
 const BASE_URL = 'https://sanjayshrestha.com'
 
+// lastModified values below are hand-set to the date content actually last changed,
+// not derived from file mtime or Date.now() — a fresh CI checkout resets every file's
+// mtime to the same instant, which is what made every route's lastmod nearly identical
+// on every deploy. Bump a date here only when that page's real content changes, not on
+// every metadata/perf/SEO tweak.
+const PAGE_LAST_MODIFIED: Record<string, string> = {
+  '/': '2026-08-11', // added the "Latest from the blog" section
+  '/about': '2026-08-11', // wired case-study link into career highlights
+  '/work': '2026-07-09', // case-study card style unification
+  '/blog': '2026-08-10', // blog/case-study content revamp
+  '/contact': '2026-07-07', // unchanged since initial build
+  '/accessibility': '2026-08-11', // page added
+}
+
+// Case studies without their own lastModified frontmatter fall back to this — the last
+// content revamp that touched all of them together.
+const WORK_CONTENT_REVAMP_DATE = '2026-08-10'
+
 function getSlugsWithDates(dir: string): { slug: string; date?: string }[] {
   const fullDir = path.join(process.cwd(), 'content', dir)
   if (!fs.existsSync(fullDir)) return []
@@ -19,10 +37,13 @@ function getSlugsWithDates(dir: string): { slug: string; date?: string }[] {
     })
 }
 
-function fileLastModified(...segments: string[]): Date | undefined {
-  const filePath = path.join(process.cwd(), ...segments)
-  if (!fs.existsSync(filePath)) return undefined
-  return fs.statSync(filePath).mtime
+function getWorkLastModified(slug: string): Date {
+  const filePath = path.join(process.cwd(), 'content', 'work', `${slug}.mdx`)
+  if (fs.existsSync(filePath)) {
+    const { data } = matter(fs.readFileSync(filePath, 'utf-8'))
+    if (data.lastModified) return new Date(data.lastModified)
+  }
+  return new Date(WORK_CONTENT_REVAMP_DATE)
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -31,43 +52,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${BASE_URL}/`,
-      lastModified: fileLastModified('app', 'page.tsx'),
+      lastModified: new Date(PAGE_LAST_MODIFIED['/']),
       changeFrequency: 'monthly',
       priority: 1.0,
     },
     {
       url: `${BASE_URL}/about`,
-      lastModified: fileLastModified('app', 'about', 'page.tsx'),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/portfolio`,
-      lastModified: fileLastModified('app', 'portfolio', 'page.tsx'),
+      lastModified: new Date(PAGE_LAST_MODIFIED['/about']),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/work`,
-      lastModified: fileLastModified('app', 'work', 'page.tsx'),
+      lastModified: new Date(PAGE_LAST_MODIFIED['/work']),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/blog`,
-      lastModified: fileLastModified('app', 'blog', 'page.tsx'),
+      lastModified: new Date(PAGE_LAST_MODIFIED['/blog']),
       changeFrequency: 'weekly',
       priority: 0.7,
     },
     {
       url: `${BASE_URL}/contact`,
-      lastModified: fileLastModified('app', 'contact', 'page.tsx'),
+      lastModified: new Date(PAGE_LAST_MODIFIED['/contact']),
       changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
       url: `${BASE_URL}/accessibility`,
-      lastModified: fileLastModified('app', 'accessibility', 'page.tsx'),
+      lastModified: new Date(PAGE_LAST_MODIFIED['/accessibility']),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
@@ -75,7 +90,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const workRoutes: MetadataRoute.Sitemap = allWork.map((work) => ({
     url: `${BASE_URL}/work/${work.slug}`,
-    lastModified: fileLastModified('content', 'work', `${work.slug}.mdx`),
+    lastModified: getWorkLastModified(work.slug),
     changeFrequency: 'yearly',
     priority: 0.6,
   }))
