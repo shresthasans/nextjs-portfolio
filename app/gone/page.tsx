@@ -5,6 +5,7 @@ import { ArrowLeft } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Gone',
   robots: { index: false, follow: false },
+  alternates: {},
 }
 
 export default function Gone() {
