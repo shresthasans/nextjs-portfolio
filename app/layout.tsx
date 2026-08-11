@@ -39,14 +39,6 @@ export const metadata: Metadata = {
   },
   description:
     'Senior Product Designer with 15+ years crafting enterprise SaaS, B2B, and government digital products. CUA™ Certified. Open to global remote roles.',
-  keywords: [
-    'product designer',
-    'UX designer',
-    'design systems',
-    'enterprise SaaS',
-    'CUA certified',
-    'Nepal',
-  ],
   authors: [{ name: 'Sanjay Shrestha', url: 'https://sanjayshrestha.com' }],
   creator: 'Sanjay Shrestha',
   alternates: {
