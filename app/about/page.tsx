@@ -144,6 +144,7 @@ export default function AboutPage() {
     '@type': 'ProfilePage',
     mainEntity: {
       '@type': 'Person',
+      '@id': 'https://sanjayshrestha.com/#person',
       name: 'Sanjay Shrestha',
       jobTitle: 'Senior Product Designer',
       url: 'https://sanjayshrestha.com/about',

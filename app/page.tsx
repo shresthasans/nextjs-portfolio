@@ -75,7 +75,7 @@ const faqJsonLd = {
       name: 'How can I contact Sanjay Shrestha?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'You can contact Sanjay Shrestha via email at hello@sanjayshrestha.com, or connect with him on LinkedIn at linkedin.com/in/shresthasans. His portfolio is available at sanjayshrestha.com.',
+        text: 'You can contact Sanjay Shrestha via email at contact@sanjayshrestha.com, or connect with him on LinkedIn at linkedin.com/in/shresthasans. His portfolio is available at sanjayshrestha.com.',
       },
     },
     {

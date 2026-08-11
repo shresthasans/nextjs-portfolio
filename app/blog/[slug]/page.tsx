@@ -152,11 +152,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     },
     author: {
       '@type': 'Person',
+      '@id': 'https://sanjayshrestha.com/#person',
       name: 'Sanjay Shrestha',
       url: 'https://sanjayshrestha.com/about',
     },
     publisher: {
       '@type': 'Person',
+      '@id': 'https://sanjayshrestha.com/#person',
       name: 'Sanjay Shrestha',
     },
   }

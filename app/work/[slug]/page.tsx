@@ -521,6 +521,7 @@ export default async function CaseStudyPage({
     ...(heroImage ? { image: `https://sanjayshrestha.com${heroImage}` } : {}),
     creator: {
       '@type': 'Person',
+      '@id': 'https://sanjayshrestha.com/#person',
       name: 'Sanjay Shrestha',
       url: 'https://sanjayshrestha.com/about',
     },

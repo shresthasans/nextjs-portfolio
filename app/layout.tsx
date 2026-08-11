@@ -109,7 +109,7 @@ const jsonLd = {
         'Senior Product Designer with 15+ years designing digital products used by millions. Specialising in Design Systems, AI-Powered UX, and B2B SaaS.',
       url: 'https://sanjayshrestha.com/',
       image: 'https://sanjayshrestha.com/og-image.jpg',
-      email: 'hello@sanjayshrestha.com',
+      email: 'contact@sanjayshrestha.com',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Kathmandu',
