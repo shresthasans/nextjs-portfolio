@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import { Mail, Linkedin, ArrowUpRight } from 'lucide-react'
+import { trackEvent } from '@/lib/analytics'
 
 const navLinks = [
   { href: '/work', label: 'Work' },
@@ -58,6 +61,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:contact@sanjayshrestha.com"
+                  onClick={() => trackEvent('contact_click', { method: 'email' })}
                   className="inline-flex items-center gap-2 text-sm text-stone-600 dark:text-stone-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-200"
                 >
                   <Mail size={14} aria-hidden="true" />
@@ -69,6 +73,7 @@ export default function Footer() {
                   href="https://linkedin.com/in/shresthasans"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('contact_click', { method: 'linkedin' })}
                   className="inline-flex items-center gap-2 text-sm text-stone-600 dark:text-stone-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-200"
                 >
                   <Linkedin size={14} aria-hidden="true" />

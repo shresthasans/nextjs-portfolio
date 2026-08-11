@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Sun, Moon, Menu, X } from 'lucide-react'
 import { clsx } from 'clsx'
+import { trackEvent } from '@/lib/analytics'
 
 const links = [
   { href: '/work', label: 'Work' },
@@ -44,6 +45,7 @@ export default function Nav() {
             <li key={href}>
               <Link
                 href={href}
+                onClick={() => href === '/resume' && trackEvent('resume_click')}
                 className={clsx(
                   'px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors duration-200 cursor-pointer',
                   pathname === href || pathname.startsWith(href + '/')
@@ -100,7 +102,10 @@ export default function Nav() {
                 <li key={href}>
                   <Link
                     href={href}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={() => {
+                      setMobileOpen(false)
+                      if (href === '/resume') trackEvent('resume_click')
+                    }}
                     className={clsx(
                       'flex px-4 py-3 rounded-xl text-sm font-medium transition-colors duration-200 cursor-pointer',
                       pathname === href || pathname.startsWith(href + '/')

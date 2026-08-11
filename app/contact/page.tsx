@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Linkedin, ArrowUpRight, CheckCircle, AlertCircle } from 'lucide-react'
 import AnimatedSection from '@/components/AnimatedSection'
+import { trackEvent } from '@/lib/analytics'
 
 export default function ContactPage() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
@@ -37,6 +38,7 @@ export default function ContactPage() {
       })
       if (!res.ok) throw new Error('Send failed')
       setStatus('sent')
+      trackEvent('generate_lead', { form_id: 'contact' })
     } catch {
       setStatus('error')
     }
@@ -71,6 +73,7 @@ export default function ContactPage() {
               <div className="space-y-4">
                 <a
                   href="mailto:contact@sanjayshrestha.com"
+                  onClick={() => trackEvent('contact_click', { method: 'email' })}
                   className="flex items-center gap-3 group cursor-pointer"
                 >
                   <div className="w-10 h-10 rounded-xl bg-stone-100 dark:bg-stone-800 flex items-center justify-center group-hover:bg-amber-100 dark:group-hover:bg-amber-900/30 transition-colors duration-200">
@@ -88,6 +91,7 @@ export default function ContactPage() {
                   href="https://linkedin.com/in/shresthasans"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('contact_click', { method: 'linkedin' })}
                   className="flex items-center gap-3 group cursor-pointer"
                 >
                   <div className="w-10 h-10 rounded-xl bg-stone-100 dark:bg-stone-800 flex items-center justify-center group-hover:bg-amber-100 dark:group-hover:bg-amber-900/30 transition-colors duration-200">
@@ -125,7 +129,11 @@ export default function ContactPage() {
                   </h2>
                   <p className="text-stone-600 dark:text-stone-400 text-sm">
                     Message couldn&apos;t be sent. Email me directly at{' '}
-                    <a href="mailto:contact@sanjayshrestha.com" className="text-amber-700 dark:text-amber-400 hover:underline">
+                    <a
+                      href="mailto:contact@sanjayshrestha.com"
+                      onClick={() => trackEvent('contact_click', { method: 'email' })}
+                      className="text-amber-700 dark:text-amber-400 hover:underline"
+                    >
                       contact@sanjayshrestha.com
                     </a>
                   </p>
@@ -244,6 +252,7 @@ export default function ContactPage() {
                     Or email directly:{' '}
                     <a
                       href="mailto:contact@sanjayshrestha.com"
+                      onClick={() => trackEvent('contact_click', { method: 'email' })}
                       className="text-amber-700 dark:text-amber-400 hover:underline"
                     >
                       contact@sanjayshrestha.com
