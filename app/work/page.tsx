@@ -4,14 +4,14 @@ import { CaseStudyRow } from '@/components/CaseStudyCard'
 import { allWork } from '@/lib/work-data'
 
 export const metadata: Metadata = {
-  title: 'Work',
+  title: 'Product Design Case Studies',
   description:
     'Case studies in enterprise SaaS, government, and AI-powered product design by Sanjay Shrestha.',
   alternates: {
     canonical: 'https://sanjayshrestha.com/work',
   },
   openGraph: {
-    title: 'Work | Sanjay Shrestha',
+    title: 'Product Design Case Studies | Sanjay Shrestha',
     description:
       'Case studies in enterprise SaaS, government, and AI-powered product design.',
     url: 'https://sanjayshrestha.com/work',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Work | Sanjay Shrestha',
+    title: 'Product Design Case Studies | Sanjay Shrestha',
     description:
       'Case studies in enterprise SaaS, government, and AI-powered product design.',
     images: ['/og-image.jpg'],

@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Contact',
+  title: { absolute: 'Contact Sanjay Shrestha | Product Design Enquiries' },
   description:
     'Get in touch with Sanjay Shrestha. Open to senior design roles, contracts, and consulting engagements globally.',
   alternates: {
     canonical: 'https://sanjayshrestha.com/contact',
   },
   openGraph: {
-    title: 'Contact | Sanjay Shrestha',
+    title: 'Contact Sanjay Shrestha | Product Design Enquiries',
     description:
       'Open to senior design roles, contracts, and consulting engagements globally.',
     url: 'https://sanjayshrestha.com/contact',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact | Sanjay Shrestha',
+    title: 'Contact Sanjay Shrestha | Product Design Enquiries',
     description:
       'Open to senior design roles, contracts, and consulting engagements globally.',
     images: ['/og-image.jpg'],

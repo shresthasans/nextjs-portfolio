@@ -5,14 +5,14 @@ import { Award, MapPin, ArrowRight } from 'lucide-react'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/AnimatedSection'
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: { absolute: 'About Sanjay Shrestha | Senior Product Designer' },
   description:
     'Senior Product Designer with 15+ years designing enterprise SaaS, B2B, and government digital products. CUA™ certified. Based in Kathmandu, Nepal.',
   alternates: {
     canonical: 'https://sanjayshrestha.com/about',
   },
   openGraph: {
-    title: 'About | Sanjay Shrestha',
+    title: 'About Sanjay Shrestha | Senior Product Designer',
     description:
       'Senior Product Designer with 15+ years crafting enterprise software used by millions.',
     url: 'https://sanjayshrestha.com/about',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About | Sanjay Shrestha',
+    title: 'About Sanjay Shrestha | Senior Product Designer',
     description:
       'Senior Product Designer with 15+ years crafting enterprise software used by millions.',
     images: ['/images/profile/sanjay.webp'],
