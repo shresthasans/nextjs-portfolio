@@ -22,12 +22,16 @@ App runs at [http://localhost:3000](http://localhost:3000).
 
 ## Project structure
 
-- `app/` — routes and pages (App Router)
+- `app/` — routes and pages (App Router), including `about`, `work`, `blog`, `portfolio`, `contact`, `resume`, `accessibility`, plus `sitemap.ts`, `robots.ts`, and `manifest.ts` for SEO/PWA
 - `components/` — UI components
-- `content/` — MDX blog posts and other content
+- `content/` — MDX blog posts and case studies
 - `design-system/` — shared design tokens/primitives
 - `lib/` — utilities and shared logic
-- `public/` — static assets
+- `public/` — static assets, incl. `images/` (WebP-optimized) and `resume/` (hosted resume PDF)
+
+## Images
+
+All images under `public/images/` are pre-optimized to WebP (converted via `sharp`) since `next/image` optimization is disabled (`images.unoptimized: true`, required for the Cloudflare Pages runtime). When adding new images, convert to WebP before committing rather than relying on `next/image` to do it at request time.
 
 ## Scripts
 
