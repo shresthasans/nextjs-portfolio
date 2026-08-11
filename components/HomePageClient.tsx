@@ -379,13 +379,13 @@ export default function HomePageClient() {
       <section className="py-28">
         <div className="container-portfolio">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <AnimatedSection direction="left" className='h-full'>
-              <div className="relative w-full h-full rounded-2xl overflow-hidden border border-stone-200 dark:border-stone-700">
+            <AnimatedSection direction="left">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden border border-stone-200 dark:border-stone-700">
                 <Image
                   src="/images/profile/sanjay.webp"
                   alt="Sanjay Shrestha, Senior Product Designer"
                   fill
-                  className="object-cover object-top"
+                  className="object-cover"
                 />
                 <div className="absolute bottom-6 left-6 right-6 p-5 bg-white/90 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-700 backdrop-blur-sm">
                   <p className="font-heading font-semibold text-stone-900 dark:text-stone-50 text-sm mb-1">
