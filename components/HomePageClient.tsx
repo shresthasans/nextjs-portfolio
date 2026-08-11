@@ -66,8 +66,10 @@ interface LatestPost {
 
 export default function HomePageClient({ latestPosts = [] }: { latestPosts?: LatestPost[] }) {
   const [phraseIdx, setPhraseIdx] = useState(0)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     const t = setInterval(() => setPhraseIdx(i => (i + 1) % heroPhrase.length), 2800)
     return () => clearInterval(t)
   }, [])
@@ -192,18 +194,24 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                 >
                   I turn complex{' '}challenges into{' '}
                   <span className="inline-block">
-                    <AnimatePresence mode="wait">
-                      <motion.span
-                        key={heroPhrase[phraseIdx]}
-                        initial={{ opacity: 0, y: 14 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -14 }}
-                        transition={{ duration: 0.36, ease: [0.21, 0.47, 0.32, 0.98] }}
-                        className="inline-block text-amber-700 dark:text-amber-400"
-                      >
-                        {heroPhrase[phraseIdx]}
-                      </motion.span>
-                    </AnimatePresence>
+                    {mounted ? (
+                      <AnimatePresence mode="wait">
+                        <motion.span
+                          key={heroPhrase[phraseIdx]}
+                          initial={{ opacity: 0, y: 14 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -14 }}
+                          transition={{ duration: 0.36, ease: [0.21, 0.47, 0.32, 0.98] }}
+                          className="inline-block text-amber-700 dark:text-amber-400"
+                        >
+                          {heroPhrase[phraseIdx]}
+                        </motion.span>
+                      </AnimatePresence>
+                    ) : (
+                      <span className="inline-block text-amber-700 dark:text-amber-400">
+                        {heroPhrase[0]}
+                      </span>
+                    )}
                   </span>{' '}
                   user experiences.
                 </motion.h1>
