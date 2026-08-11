@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   outputFileTracingRoot: import.meta.dirname,
+  poweredByHeader: false,
   images: {
     unoptimized: true,
   },
@@ -8,6 +9,41 @@ const nextConfig = {
     mdxRs: true,
   },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  async headers() {
+    // Report-Only while rolling out: logs violations to the browser console without
+    // blocking anything. Check the console after deploy, then switch the key to
+    // 'Content-Security-Policy' (enforced) once a few days of traffic show it's clean.
+    const csp = [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://scripts.clarity.ms",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: https:",
+      "font-src 'self' data:",
+      "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://*.clarity.ms",
+      "frame-src 'self' https://www.figma.com",
+      "frame-ancestors 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+      "object-src 'none'",
+    ].join('; ')
+
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'DENY' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
+          },
+          { key: 'Content-Security-Policy-Report-Only', value: csp },
+        ],
+      },
+    ]
+  },
   async redirects() {
     return [
       { source: '/work/pagevamp', destination: '/work/pagevamp-onboarding-redesign', permanent: true },

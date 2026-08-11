@@ -21,7 +21,7 @@ const clients = [
   { name: 'Decisions', logo: '/images/trusted-by/logo-decisions.svg', width: 120, height: 32, href: 'https://meetingdecisions.com/' },
   { name: 'Neudesic IBM', logo: '/images/trusted-by/logo-neudesic-ibm.svg', width: 140, height: 32, href: 'https://www.neudesic.com/' },
   { name: 'Andmine', logo: '/images/trusted-by/logo-andmine.svg', width: 40, height: 40, href: 'https://andmine.com/' },
-  { name: 'Innova Consulting', logo: '/images/trusted-by/logo-innovaconsulting.svg', width: 130, height: 32, href: 'http://innovaconsulting.com/' },
+  { name: 'Innova Consulting', logo: '/images/trusted-by/logo-innovaconsulting.svg', width: 130, height: 32, href: 'https://innovaconsulting.com/' },
   { name: 'Meet Magento NYC', logo: '/images/trusted-by/logo-meetmagento-nyc.svg', width: 126, height: 32, href: 'https://meetmagentonyc.com/' },
   { name: 'Pagevamp', logo: '/images/trusted-by/logo-pagevamp.svg', width: 130, height: 32, href: 'https://pagevamp.com/' },
   { name: 'The Flash Pack', logo: '/images/trusted-by/logo-theflashpack.svg', width: 140, height: 32, href: 'https://itstheflashpack.com/' },
