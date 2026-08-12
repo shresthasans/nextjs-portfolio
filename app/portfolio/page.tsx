@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sanjayshrestha.com/portfolio',
   },
+  // Not linked from anywhere on the site — a direct-share link handed out individually,
+  // not a page meant to surface in search. Kept out of sitemap.xml for the same reason.
+  robots: { index: false, follow: false },
   openGraph: {
     title: 'Portfolio | Sanjay Shrestha',
     description: 'Sanjay Shrestha, Senior Product Designer portfolio PDF.',

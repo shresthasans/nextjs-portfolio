@@ -19,6 +19,7 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   '/blog': '2026-08-10', // blog/case-study content revamp
   '/contact': '2026-07-07', // unchanged since initial build
   '/accessibility': '2026-08-11', // page added
+  '/resume': '2026-08-13', // added to sitemap — linked in main nav, tracked as a conversion event
   topics: '2026-08-12', // blog topic-cluster hub pages added
 }
 
@@ -87,6 +88,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(PAGE_LAST_MODIFIED['/accessibility']),
       changeFrequency: 'yearly',
       priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/resume`,
+      lastModified: new Date(PAGE_LAST_MODIFIED['/resume']),
+      changeFrequency: 'monthly',
+      priority: 0.5,
     },
   ]
 
