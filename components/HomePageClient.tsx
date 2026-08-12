@@ -7,6 +7,7 @@ import { ArrowRight, MapPin, Award } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/AnimatedSection'
 import { CaseStudyRow } from '@/components/CaseStudyCard'
+import BlogCard, { BlogPost } from '@/components/BlogCard'
 import { allWork } from '@/lib/work-data'
 
 const FEATURED_SLUGS = ['decisions-ai-mobile-meeting-app', 'linkedin-feed-redesign', 'streamshare-streaming-app-design']
@@ -61,7 +62,10 @@ interface LatestPost {
   slug: string
   title: string
   excerpt: string
-  tag: string
+  tag: BlogPost['tag']
+  date: string
+  readingTime: string
+  coverImage?: string
 }
 
 export default function HomePageClient({ latestPosts = [] }: { latestPosts?: LatestPost[] }) {
@@ -377,6 +381,7 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                     alt={name}
                     width={width}
                     height={height}
+                    style={{ width: `${width}px`, height: `${height}px` }}
                     className="opacity-60 hover:opacity-100 transition-opacity duration-200 dark:brightness-0 dark:invert"
                   />
                 </a>
@@ -396,6 +401,7 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                   src="/images/profile/sanjay.webp"
                   alt="Sanjay Shrestha, Senior Product Designer"
                   fill
+                  priority
                   className="object-cover"
                 />
                 <div className="absolute bottom-6 left-6 right-6 p-5 bg-white/90 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-700 backdrop-blur-sm">
@@ -459,20 +465,7 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {latestPosts.map((post, i) => (
                 <AnimatedSection key={post.slug} delay={i * 0.08}>
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="block h-full p-6 rounded-2xl border border-stone-200 dark:border-stone-800 hover:border-amber-300 dark:hover:border-amber-700 transition-colors duration-200"
-                  >
-                    <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-3">
-                      {post.tag}
-                    </p>
-                    <h3 className="font-heading font-semibold text-stone-900 dark:text-stone-50 mb-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed line-clamp-3">
-                      {post.excerpt}
-                    </p>
-                  </Link>
+                  <BlogCard {...post} />
                 </AnimatedSection>
               ))}
             </div>

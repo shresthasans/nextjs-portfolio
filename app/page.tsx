@@ -101,8 +101,10 @@ function getLatestPosts(limit = 3) {
         slug: filename.replace('.mdx', ''),
         title: data.title as string,
         excerpt: data.excerpt as string,
-        tag: data.tag as string,
+        tag: data.tag as 'UX' | 'Design Systems' | 'AI' | 'Career',
         date: data.date as string,
+        readingTime: data.readingTime as string,
+        coverImage: data.coverImage as string | undefined,
       }
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
