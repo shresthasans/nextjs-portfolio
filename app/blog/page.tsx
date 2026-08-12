@@ -4,6 +4,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import AnimatedSection from '@/components/AnimatedSection'
 import BlogIndex from '@/components/BlogIndex'
+import ClusterNav from '@/components/ClusterNav'
 import { BlogPost } from '@/components/BlogCard'
 
 export const metadata: Metadata = {
@@ -50,6 +51,7 @@ function getBlogPosts(): BlogPost[] {
         seriesTotal: data.seriesTotal,
         seriesCoverImage: data.seriesCoverImage,
         seriesShortTitle: data.seriesShortTitle,
+        cluster: data.cluster,
       } as BlogPost
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
@@ -107,6 +109,13 @@ export default function BlogPage() {
               Thoughts on UX strategy, design systems, the role of AI in design, and building a long career in this field.
             </p>
           </AnimatedSection>
+        </div>
+
+        <div className="mb-12">
+          <p className="text-xs font-semibold text-stone-500 dark:text-stone-400 uppercase tracking-widest mb-4">
+            Browse by topic
+          </p>
+          <ClusterNav posts={posts} />
         </div>
 
         <BlogIndex posts={posts} />

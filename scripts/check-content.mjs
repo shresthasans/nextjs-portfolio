@@ -11,6 +11,9 @@ const ROOT = process.cwd()
 const BLOG_TAGS = new Set(['UX', 'Design Systems', 'AI', 'Career', 'Agent UX'])
 const WORK_TYPES = new Set(['Enterprise', 'Government', 'SaaS', 'eCommerce'])
 
+const clusterDataSrc = fs.readFileSync(path.join(ROOT, 'lib', 'cluster-data.ts'), 'utf-8')
+const CLUSTER_SLUGS = new Set([...clusterDataSrc.matchAll(/slug: '([^']+)'/g)].map((m) => m[1]))
+
 let errors = 0
 let warnings = 0
 
@@ -46,6 +49,9 @@ for (const filename of fs.readdirSync(blogDir).filter((f) => f.endsWith('.mdx'))
   }
   if (data.tag && !BLOG_TAGS.has(data.tag)) {
     fail(`${tag}: tag "${data.tag}" isn't one of ${[...BLOG_TAGS].join(', ')} — BlogCard/tagHeaderBg lookups will silently render unstyled`)
+  }
+  if (data.cluster && !CLUSTER_SLUGS.has(data.cluster)) {
+    fail(`${tag}: cluster "${data.cluster}" isn't one of ${[...CLUSTER_SLUGS].join(', ')} — won't show up on its hub page`)
   }
   if (data.excerpt) {
     const len = data.excerpt.length
@@ -115,6 +121,27 @@ for (const filename of fs.readdirSync(workDir).filter((f) => f.endsWith('.mdx'))
 for (const slug of registeredSlugs) {
   if (!fs.existsSync(path.join(workDir, `${slug}.mdx`))) {
     fail(`lib/work-data.ts: slug "${slug}" has no matching content/work/${slug}.mdx`)
+  }
+}
+
+// ---- Topic cluster hub pages ----
+
+for (const slug of CLUSTER_SLUGS) {
+  const tag = `lib/cluster-data.ts`
+  const contentPath = path.join(ROOT, 'content', 'clusters', `${slug}.mdx`)
+  if (!fs.existsSync(contentPath)) {
+    fail(`${tag}: cluster "${slug}" has no matching content/clusters/${slug}.mdx`)
+    continue
+  }
+  const { data } = matter(fs.readFileSync(contentPath, 'utf-8'))
+  for (const field of ['title', 'excerpt']) {
+    if (!data[field]) fail(`content/clusters/${slug}.mdx: missing required frontmatter field "${field}"`)
+  }
+  if (data.excerpt) {
+    const len = data.excerpt.length
+    if (len < 133 || len > 158) {
+      warn(`content/clusters/${slug}.mdx: excerpt is ${len} chars, established convention is 133-158`)
+    }
   }
 }
 

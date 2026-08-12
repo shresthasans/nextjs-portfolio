@@ -79,6 +79,14 @@ Learned the hard way — each of these caused a real, silent bug at some point:
 - **Do** keep blog `excerpt` to 133–158 characters and case-study `description` to
   roughly 70–160 — both feed the `<meta name="description">` tag directly; too long
   and Google truncates the search snippet mid-sentence.
+- **Do** set `cluster` frontmatter on new blog posts to one of the slugs in
+  `lib/cluster-data.ts`'s `CLUSTERS` (currently `ai-product-design`, `design-systems`,
+  `product-design-practice`) whenever the post fits one. It drives 3 things
+  automatically: showing up on that topic's hub page at `/blog/topics/<cluster>`,
+  the "Part of `<Cluster>` →" link on the post itself, and the live post count on
+  the `/blog` page's `ClusterNav`. `npm run check-content` errors if the value
+  doesn't match a real cluster slug. A post with no `cluster` is fine — it just
+  won't appear on any hub.
 - **Do** add a redirect in `next.config.mjs` → `redirects()` whenever a published
   URL is renamed or removed, rather than letting it 404. Genuinely dead content with
   no replacement goes in `middleware.ts`'s `GONE_EXACT`/`GONE_PREFIXES` (410, not a

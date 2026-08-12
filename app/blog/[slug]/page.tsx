@@ -18,6 +18,7 @@ import { getMDXComponents } from '@/components/mdx-components'
 import MediaFigure from '@/components/MediaFigure'
 import FAQAccordion from '@/components/FAQAccordion'
 import { extractHeadings } from '@/lib/toc'
+import { getCluster } from '@/lib/cluster-data'
 
 interface BlogFrontmatter {
   title: string
@@ -28,6 +29,7 @@ interface BlogFrontmatter {
   tag: BlogPost['tag']
   excerpt: string
   coverImage?: string
+  cluster?: string
 }
 
 function getPost(slug: string) {
@@ -142,6 +144,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const { frontmatter: fm, content } = post
   const morePosts = getMorePosts(slug, fm.tag)
   const headings = extractHeadings(content)
+  const cluster = fm.cluster ? getCluster(fm.cluster) : undefined
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -198,15 +201,29 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             items={[
               { label: 'Home', href: '/' },
               { label: 'Blog', href: '/blog' },
+              ...(cluster ? [{ label: cluster.name, href: `/blog/topics/${cluster.slug}` }] : []),
               { label: fm.title },
             ]}
           />
 
           <div className="max-w-3xl">
             {/* Eyebrow + H1 render immediately, no entrance animation — H1 is the LCP element */}
-            <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-3">
-              {fm.tag}
-            </p>
+            <div className="flex items-center gap-2 mb-3">
+              <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest">
+                {fm.tag}
+              </p>
+              {cluster && (
+                <>
+                  <span className="text-stone-300 dark:text-stone-700" aria-hidden="true">·</span>
+                  <Link
+                    href={`/blog/topics/${cluster.slug}`}
+                    className="text-xs font-medium text-stone-500 dark:text-stone-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-200"
+                  >
+                    Part of {cluster.name} →
+                  </Link>
+                </>
+              )}
+            </div>
             <h1 className="font-heading text-4xl sm:text-5xl font-bold text-stone-900 dark:text-stone-50 tracking-tight leading-[1.1] mb-4 text-balance">
               {fm.title}
             </h1>

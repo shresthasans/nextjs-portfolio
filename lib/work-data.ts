@@ -90,43 +90,4 @@ export const allWork: CaseStudy[] = [
       { value: '5', label: 'Peers Tested' },
     ],
   },
-  {
-    slug: 'avira-antivirus-redesign',
-    title: 'Avira Antivirus',
-    client: 'Avira (Self-directed)',
-    role: 'Lead Product Designer',
-    outcome:
-      "Full IA, design system, and high-fidelity UI for Avira's core flows: dashboard, scanning, quarantine, and free-to-paid upgrade path. Self-directed; no business metrics to report, and I won't imply otherwise.",
-    type: 'Enterprise',
-    year: '2020',
-    coverImage: '/images/work/avira/hero.webp',
-    metaLabel: 'Self-Initiated Project • Redesign',
-    productName: 'Avira Antivirus',
-    caseStudyTitle: 'Redesigning for Trust, Not Just for Looks',
-    summary:
-      "A self-initiated redesign of Avira Antivirus Free, diagnosing how visual inconsistency erodes trust in a security product and designing around that specific failure mode.",
-    keyFocus: ['User Research', 'Design Systems', 'Information Architecture'],
-  },
-  {
-    slug: 'stratus-maas-saas-dashboard-redesign',
-    title: 'Stratus MaaS',
-    client: 'MageMojo',
-    role: 'Product Designer',
-    outcome:
-      "~40% fewer configuration-confusion tickets, ~30% faster resolutions, and full adoption from the developers and support staff who lived in this interface every day, on the same screen MageMojo's own merchants occasionally used too.",
-    type: 'SaaS',
-    year: '2016–2019',
-    coverImage: '/images/work/webscale-stratus/hero.webp',
-    metaLabel: 'Client Project • SaaS Dashboard',
-    productName: 'Stratus MaaS',
-    caseStudyTitle: 'One Control Panel, Three Different Depths of Use',
-    summary:
-      "Redesigning MageMojo's Magento hosting control panel around how deep each person actually needed to go, not who they were.",
-    keyFocus: ['Information Architecture', 'Design Systems', 'Usability Testing'],
-    stats: [
-      { value: '-40%', label: 'Config Tickets' },
-      { value: '-30%', label: 'Resolution Time' },
-      { value: '100%', label: 'Team Adoption' },
-    ],
-  },
 ]

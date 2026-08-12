@@ -15,6 +15,9 @@ What it can't check — verify these by eye before publishing:
 - [ ] First heading in the MDX body is `##`, not `#` — the page's own `<h1>` is the title
 - [ ] Every image in the body has meaningful `alt` text (not filename, not empty)
 - [ ] At least one internal link to a related post or case study
+- [ ] `cluster` frontmatter set if the post fits one of `lib/cluster-data.ts`'s
+      `CLUSTERS` — otherwise it won't appear on that topic's hub page at
+      `/blog/topics/<cluster>` or get the "Part of ... →" link on the post itself
 - [ ] If it obsoletes/replaces an old post, add a redirect in `next.config.mjs` →
       `redirects()`, don't just leave the old URL 404ing
 

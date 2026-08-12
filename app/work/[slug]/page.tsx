@@ -71,7 +71,11 @@ function getRelatedPosts(slugs: string[] | undefined) {
 
 // Case studies published on disk but not yet finalized for public listing —
 // kept crawlable-by-URL for review, but hidden from search engines and the /work index.
-const UNLISTED_SLUGS = new Set(['nepal-pm-calendar'])
+const UNLISTED_SLUGS = new Set([
+  'nepal-pm-calendar',
+  'avira-antivirus-redesign',
+  'stratus-maas-saas-dashboard-redesign',
+])
 
 export async function generateMetadata({
   params,

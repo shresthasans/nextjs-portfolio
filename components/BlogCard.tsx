@@ -17,6 +17,7 @@ export interface BlogPost {
   seriesTotal?: number
   seriesCoverImage?: string
   seriesShortTitle?: string
+  cluster?: string
 }
 
 const tagPillColors: Record<BlogPost['tag'], string> = {
