@@ -62,10 +62,15 @@ Learned the hard way — each of these caused a real, silent bug at some point:
   index both read from `lib/work-data.ts`, not the filesystem — skip this step and
   the page is live but invisible to search engines and site navigation. Intentionally
   unlisted pages go in `UNLISTED_SLUGS` in `app/work/[slug]/page.tsx` instead.
-- **Do** keep blog `tag` frontmatter to exactly `UX | Design Systems | AI | Career`.
-  Frontmatter is untyped at read time (`gray-matter` returns `any`), so a typo like
-  `"AI in Design"` doesn't fail the build — it just silently drops out of
-  `tagPillColors`/`tagHeaderBg` lookups and renders unstyled.
+- **Do** keep blog `tag` frontmatter to exactly one of the values wired up in
+  `components/BlogCard.tsx`'s `BlogPost['tag']` union (currently `UX | Design
+  Systems | AI | Career | Agent UX`). Frontmatter is untyped at read time
+  (`gray-matter` returns `any`), so a typo like `"AI in Design"` doesn't fail the
+  build — it just silently drops out of `tagPillColors`/`tagHeaderBg` lookups and
+  renders unstyled. Adding a genuinely new tag means updating it in every place
+  that switches on it: `BlogCard.tsx`, `TagGraphic.tsx`, `BlogIndex.tsx`
+  (`TAG_FILTERS` + its own duplicate `tagPillColors`), `app/blog/[slug]/page.tsx`
+  (`tagHeaderBg`/`tagAccentBg`/`tagCoverImage`), and the cast in `app/page.tsx`.
 - **Do** keep the `type` field in `lib/work-data.ts` to exactly
   `Enterprise | Government | SaaS | eCommerce` — same silent-lookup-miss risk via
   `CaseStudyCard`'s `typeColors`. Note this is a *different* field from the freeform

@@ -37,7 +37,7 @@ function groupSeries(posts: BlogPost[]): FeedItem[] {
   return items
 }
 
-const TAG_FILTERS = ['All', 'UX', 'Design Systems', 'AI', 'Career'] as const
+const TAG_FILTERS = ['All', 'UX', 'Design Systems', 'AI', 'Career', 'Agent UX'] as const
 type FilterTag = (typeof TAG_FILTERS)[number]
 
 const tagPillColors: Record<string, string> = {
@@ -47,6 +47,8 @@ const tagPillColors: Record<string, string> = {
   AI: 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-800/50',
   Career:
     'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800/50',
+  'Agent UX':
+    'bg-cyan-50 text-cyan-700 border-cyan-200 dark:bg-cyan-950/40 dark:text-cyan-300 dark:border-cyan-800/50',
 }
 
 function formatDate(dateStr: string) {

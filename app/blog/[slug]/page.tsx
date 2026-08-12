@@ -115,6 +115,7 @@ const tagHeaderBg: Record<BlogPost['tag'], string> = {
   UX: 'from-blue-50/70 dark:from-blue-950/20',
   'Design Systems': 'from-purple-50/70 dark:from-purple-950/20',
   Career: 'from-emerald-50/70 dark:from-emerald-950/20',
+  'Agent UX': 'from-cyan-50/70 dark:from-cyan-950/20',
 }
 
 const tagAccentBg: Record<BlogPost['tag'], string> = {
@@ -122,6 +123,7 @@ const tagAccentBg: Record<BlogPost['tag'], string> = {
   UX: 'bg-blue-500 dark:bg-blue-500',
   'Design Systems': 'bg-purple-500 dark:bg-purple-500',
   Career: 'bg-emerald-500 dark:bg-emerald-500',
+  'Agent UX': 'bg-cyan-500 dark:bg-cyan-500',
 }
 
 const tagCoverImage: Record<BlogPost['tag'], string> = {
@@ -129,6 +131,7 @@ const tagCoverImage: Record<BlogPost['tag'], string> = {
   UX: 'https://placehold.co/1200x630/EFF6FF/1D4ED8?text=UX+Research&font=montserrat',
   'Design Systems': 'https://placehold.co/1200x630/F5F3FF/6D28D9?text=Design+Systems&font=montserrat',
   Career: 'https://placehold.co/1200x630/ECFDF5/065F46?text=Career+Growth&font=montserrat',
+  'Agent UX': 'https://placehold.co/1200x630/ECFEFF/0E7490?text=Agent+UX&font=montserrat',
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {

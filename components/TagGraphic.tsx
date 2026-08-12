@@ -9,6 +9,8 @@ export const tagBgClass: Record<Tag, string> = {
   AI: 'bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-950/70 dark:to-amber-900/50',
   Career:
     'bg-gradient-to-br from-emerald-100 to-emerald-200 dark:from-emerald-950/70 dark:to-emerald-900/50',
+  'Agent UX':
+    'bg-gradient-to-br from-cyan-100 to-cyan-200 dark:from-cyan-950/70 dark:to-cyan-900/50',
 }
 
 function UXPattern() {
@@ -167,11 +169,41 @@ function CareerPattern() {
   )
 }
 
+function AgentUXPattern() {
+  return (
+    <svg
+      viewBox="0 0 400 200"
+      className="absolute inset-0 w-full h-full"
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
+    >
+      {/* Agent core */}
+      <circle cx="130" cy="100" r="24" fill="white" fillOpacity="0.18" stroke="white" strokeOpacity="0.5" strokeWidth="1.5" />
+      <circle cx="130" cy="100" r="10" fill="white" fillOpacity="0.4" />
+      {/* Outgoing autonomous action paths */}
+      <path d="M154 88 Q230 50 290 55" stroke="white" strokeWidth="1.5" strokeOpacity="0.4" fill="none" strokeDasharray="4 5" />
+      <path d="M154 100 Q230 100 290 100" stroke="white" strokeWidth="1.5" strokeOpacity="0.4" fill="none" strokeDasharray="4 5" />
+      <path d="M154 112 Q230 150 290 145" stroke="white" strokeWidth="1.5" strokeOpacity="0.4" fill="none" strokeDasharray="4 5" />
+      {/* Action endpoints */}
+      <rect x="290" y="40" width="30" height="30" rx="6" fill="white" fillOpacity="0.15" stroke="white" strokeOpacity="0.4" strokeWidth="1.5" />
+      <path d="M298 55 L305 62 L314 48" stroke="white" strokeWidth="2" strokeOpacity="0.7" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="290" y="85" width="30" height="30" rx="6" fill="white" fillOpacity="0.15" stroke="white" strokeOpacity="0.4" strokeWidth="1.5" />
+      <path d="M298 100 L305 107 L314 93" stroke="white" strokeWidth="2" strokeOpacity="0.7" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="290" y="130" width="30" height="30" rx="6" fill="white" fillOpacity="0.15" stroke="white" strokeOpacity="0.4" strokeWidth="1.5" />
+      <path d="M298 145 L305 152 L314 138" stroke="white" strokeWidth="2" strokeOpacity="0.7" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Trust ripple around core */}
+      <circle cx="130" cy="100" r="38" fill="none" stroke="white" strokeOpacity="0.2" strokeWidth="1" />
+      <circle cx="130" cy="100" r="52" fill="none" stroke="white" strokeOpacity="0.1" strokeWidth="1" />
+    </svg>
+  )
+}
+
 const patterns: Record<Tag, () => JSX.Element> = {
   UX: UXPattern,
   'Design Systems': DesignSystemsPattern,
   AI: AIPattern,
   Career: CareerPattern,
+  'Agent UX': AgentUXPattern,
 }
 
 interface TagGraphicProps {

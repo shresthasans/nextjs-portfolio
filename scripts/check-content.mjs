@@ -8,7 +8,7 @@ import path from 'path'
 import matter from 'gray-matter'
 
 const ROOT = process.cwd()
-const BLOG_TAGS = new Set(['UX', 'Design Systems', 'AI', 'Career'])
+const BLOG_TAGS = new Set(['UX', 'Design Systems', 'AI', 'Career', 'Agent UX'])
 const WORK_TYPES = new Set(['Enterprise', 'Government', 'SaaS', 'eCommerce'])
 
 let errors = 0

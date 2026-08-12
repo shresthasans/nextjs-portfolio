@@ -101,7 +101,7 @@ function getLatestPosts(limit = 3) {
         slug: filename.replace('.mdx', ''),
         title: data.title as string,
         excerpt: data.excerpt as string,
-        tag: data.tag as 'UX' | 'Design Systems' | 'AI' | 'Career',
+        tag: data.tag as 'UX' | 'Design Systems' | 'AI' | 'Career' | 'Agent UX',
         date: data.date as string,
         readingTime: data.readingTime as string,
         coverImage: data.coverImage as string | undefined,
