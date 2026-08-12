@@ -27,6 +27,10 @@ const nextConfig = {
       "object-src 'none'",
     ].join('; ')
 
+    // The /resume and /portfolio pages iframe their own PDF from the same origin, so those
+    // PDF responses need SAMEORIGIN framing allowed — DENY/none blocks even that self-embed.
+    const selfFrameCsp = csp.replace("frame-ancestors 'none'", "frame-ancestors 'self'")
+
     return [
       {
         source: '/:path*',
@@ -40,6 +44,20 @@ const nextConfig = {
             value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
           },
           { key: 'Content-Security-Policy-Report-Only', value: csp },
+        ],
+      },
+      {
+        source: '/resume/:path*.pdf',
+        headers: [
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Content-Security-Policy-Report-Only', value: selfFrameCsp },
+        ],
+      },
+      {
+        source: '/portfolio/:path*.pdf',
+        headers: [
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Content-Security-Policy-Report-Only', value: selfFrameCsp },
         ],
       },
     ]
