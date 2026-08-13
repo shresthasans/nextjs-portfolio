@@ -174,7 +174,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="pt-24 pb-20">
         <div className="container-portfolio">
-          <div className="max-w-3xl">
+          <AnimatedSection className="max-w-3xl">
             {/* Eyebrow + H1 render immediately, no entrance animation — H1 is the LCP element */}
             <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-4">
               About
@@ -182,13 +182,12 @@ export default function AboutPage() {
             <h1 className="font-heading text-5xl sm:text-6xl font-bold text-stone-900 dark:text-stone-50 tracking-tight leading-[1.1] mb-8 text-balance">
               Designing products that millions depend on.
             </h1>
-            <AnimatedSection>
+            
               <div className="flex items-center gap-1.5 text-sm text-stone-600 dark:text-stone-400">
                 <MapPin size={13} aria-hidden="true" />
                 <span>Kathmandu, Nepal</span>
               </div>
             </AnimatedSection>
-          </div>
         </div>
       </section>
 
@@ -381,6 +380,15 @@ export default function AboutPage() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+          <AnimatedSection className="mt-8">
+            <Link
+              href="/product-designer-nepal"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-amber-700 dark:text-amber-400 hover:underline underline-offset-2"
+            >
+              See how this applies to product design work in Nepal
+              <ArrowRight size={14} aria-hidden="true" />
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
 

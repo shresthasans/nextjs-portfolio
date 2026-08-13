@@ -20,6 +20,9 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   '/contact': '2026-07-07', // unchanged since initial build
   '/accessibility': '2026-08-11', // page added
   '/resume': '2026-08-13', // added to sitemap — linked in main nav, tracked as a conversion event
+  '/product-designer-nepal': '2026-08-13', // standalone SEO landing page, not in main nav
+  '/ux-ui-designer-nepal': '2026-08-13', // standalone SEO landing page, not in main nav
+  '/ai-ux-design-nepal': '2026-08-13', // standalone SEO landing page, not in main nav
   topics: '2026-08-12', // blog topic-cluster hub pages added
 }
 
@@ -94,6 +97,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(PAGE_LAST_MODIFIED['/resume']),
       changeFrequency: 'monthly',
       priority: 0.5,
+    },
+    {
+      url: `${BASE_URL}/product-designer-nepal`,
+      lastModified: new Date(PAGE_LAST_MODIFIED['/product-designer-nepal']),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/ux-ui-designer-nepal`,
+      lastModified: new Date(PAGE_LAST_MODIFIED['/ux-ui-designer-nepal']),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/ai-ux-design-nepal`,
+      lastModified: new Date(PAGE_LAST_MODIFIED['/ai-ux-design-nepal']),
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
   ]
 

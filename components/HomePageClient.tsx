@@ -10,25 +10,13 @@ import { CaseStudyRow } from '@/components/CaseStudyCard'
 import BlogCard, { BlogPost } from '@/components/BlogCard'
 import { allWork } from '@/lib/work-data'
 import { CUA_VERIFY_URL } from '@/lib/constants'
+import { clients } from '@/lib/clients'
 
 const FEATURED_SLUGS = ['decisions-ai-mobile-meeting-app', 'linkedin-feed-redesign', 'streamshare-streaming-app-design']
 
 const featuredWork = FEATURED_SLUGS
   .map((slug) => allWork.find((w) => w.slug === slug))
   .filter(Boolean)
-
-const clients = [
-  { name: 'Microsoft', logo: '/images/trusted-by/logo-microsoft.webp', width: 120, height: 32, href: 'https://www.microsoft.com/en-in/msidc' },
-  { name: 'Webscale', logo: '/images/trusted-by/logo-webscale.svg', width: 120, height: 32, href: 'https://www.webscale.com/' },
-  { name: 'Decisions', logo: '/images/trusted-by/logo-decisions.svg', width: 120, height: 32, href: 'https://meetingdecisions.com/' },
-  { name: 'Neudesic IBM', logo: '/images/trusted-by/logo-neudesic-ibm.svg', width: 140, height: 32, href: 'https://www.neudesic.com/' },
-  { name: 'Andmine', logo: '/images/trusted-by/logo-andmine.svg', width: 40, height: 40, href: 'https://andmine.com/' },
-  { name: 'Innova Consulting', logo: '/images/trusted-by/logo-innovaconsulting.svg', width: 130, height: 32, href: 'https://innovaconsulting.com/' },
-  { name: 'Meet Magento NYC', logo: '/images/trusted-by/logo-meetmagento-nyc.svg', width: 126, height: 32, href: 'https://meetmagentonyc.com/' },
-  { name: 'Pagevamp', logo: '/images/trusted-by/logo-pagevamp.svg', width: 130, height: 32, href: 'https://pagevamp.com/' },
-  { name: 'The Flash Pack', logo: '/images/trusted-by/logo-theflashpack.svg', width: 140, height: 32, href: 'https://itstheflashpack.com/' },
-  { name: 'Aussie Webdev', logo: '/images/trusted-by/logo-aussie-webdev.webp', width: 105, height: 32, href: 'https://aussiewebdev.com.au/' },
-]
 
 const expertise = [
   {
@@ -195,6 +183,7 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                   Sanjay Shrestha
                 </motion.p>
 
+
                 {/* Headline with cycling highlight — no entrance animation: this is the LCP element,
                     so it must paint at opacity:1 immediately instead of waiting on JS/motion */}
                 <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl xl:text-[5.25rem] font-bold text-stone-900 dark:text-stone-50 leading-[1.06] tracking-tight mb-7">
@@ -227,23 +216,12 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.55, delay: 0.28, ease: 'easeOut' }}
-                  className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-3 max-w-[48ch]"
+                  className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-10 max-w-[48ch]"
                 >
-                  Senior Product Designer with 15+ years of experience designing enterprise SaaS,
-                  AI-powered products and government platforms. Currently leading product design at{' '}
-                  <span className="text-stone-700 dark:text-stone-300 font-medium">Decisions</span>.
+                  A CUA-certified senior product designer with 15+ years designing enterprise SaaS
+                  platforms, AI-powered products and accessible design systems for organizations
+                  worldwide. Based in Kathmandu, Nepal.
                 </motion.p>
-
-                {/* Location */}
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.34, ease: 'easeOut' }}
-                  className="inline-flex items-center gap-1.5 mb-10 text-sm text-stone-600 dark:text-stone-400"
-                >
-                  <MapPin size={13} aria-hidden="true" />
-                  <span>Kathmandu, Nepal · Available globally</span>
-                </motion.div>
 
                 {/* CTAs */}
                 <motion.div

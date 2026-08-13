@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     absolute: 'Sanjay Shrestha | Senior Product Designer',
   },
   description:
-    'Senior Product Designer with 15+ years crafting enterprise SaaS, B2B, and government digital products. CUA™ Certified.',
+    'Sanjay Shrestha is a senior product designer with 15+ years designing enterprise SaaS and AI products for Microsoft, Decisions and global teams, based in Kathmandu, Nepal.',
   openGraph: {
     title: 'Sanjay Shrestha | Senior Product Designer',
     description:
-      'Senior Product Designer with 15+ years crafting enterprise SaaS, B2B, and government digital products.',
+      'Sanjay Shrestha is a senior product designer with 15+ years designing enterprise SaaS and AI products for Microsoft, Decisions and global teams, based in Kathmandu, Nepal.',
     url: 'https://sanjayshrestha.com',
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     site: '@shresthasans',
     title: 'Sanjay Shrestha | Senior Product Designer',
     description:
-      'Senior Product Designer with 15+ years crafting enterprise SaaS, B2B, and government digital products.',
+      'Sanjay Shrestha is a senior product designer with 15+ years designing enterprise SaaS and AI products for Microsoft, Decisions and global teams, based in Kathmandu, Nepal.',
     images: ['/og-image.jpg'],
   },
 }

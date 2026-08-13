@@ -111,14 +111,15 @@ export default function BlogPage() {
           </AnimatedSection>
         </div>
 
-        <div className="mb-12">
+        <AnimatedSection className="mb-12">
           <p className="text-xs font-semibold text-stone-500 dark:text-stone-400 uppercase tracking-widest mb-4">
             Browse by topic
           </p>
           <ClusterNav posts={posts} />
-        </div>
-
+        </AnimatedSection>
+      <AnimatedSection>
         <BlogIndex posts={posts} />
+        </AnimatedSection>
       </div>
     </section>
     </>

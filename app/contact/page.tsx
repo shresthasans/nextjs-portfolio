@@ -109,7 +109,7 @@ export default function ContactPage() {
 
               <div className="pt-4 border-t border-stone-200 dark:border-stone-800">
                 <p className="text-sm text-stone-600 dark:text-stone-400">
-                  Based in Kathmandu, Nepal · Available globally for remote collaboration.
+                  Based in Kathmandu, Nepal.
                 </p>
               </div>
             </AnimatedSection>

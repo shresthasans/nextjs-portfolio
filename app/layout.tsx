@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: '%s | Sanjay Shrestha',
   },
   description:
-    'Senior Product Designer with 15+ years crafting enterprise SaaS, B2B, and government digital products. CUA™ Certified.',
+    'Sanjay Shrestha is a senior product designer with 15+ years designing enterprise SaaS and AI products for Microsoft, Decisions and global teams, based in Kathmandu, Nepal.',
   authors: [{ name: 'Sanjay Shrestha', url: 'https://sanjayshrestha.com' }],
   creator: 'Sanjay Shrestha',
   alternates: {
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     siteName: 'Sanjay Shrestha',
     title: 'Sanjay Shrestha | Senior Product Designer',
     description:
-      'Senior Product Designer with 15+ years crafting enterprise SaaS, B2B, and government digital products.',
+      'Sanjay Shrestha is a senior product designer with 15+ years designing enterprise SaaS and AI products for Microsoft, Decisions and global teams, based in Kathmandu, Nepal.',
     images: [
       {
         url: '/og-image.jpg',
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     site: '@shresthasans',
     title: 'Sanjay Shrestha | Senior Product Designer',
     description:
-      'Senior Product Designer with 15+ years crafting enterprise SaaS, B2B, and government digital products.',
+      'Sanjay Shrestha is a senior product designer with 15+ years designing enterprise SaaS and AI products for Microsoft, Decisions and global teams, based in Kathmandu, Nepal.',
     images: ['/og-image.jpg'],
   },
   robots: {
