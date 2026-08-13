@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: '%s | Sanjay Shrestha',
   },
   description:
-    'Senior Product Designer with 15+ years crafting enterprise SaaS, B2B, and government digital products. CUA™ Certified. Open to global remote roles.',
+    'Senior Product Designer with 15+ years crafting enterprise SaaS, B2B, and government digital products. CUA™ Certified.',
   authors: [{ name: 'Sanjay Shrestha', url: 'https://sanjayshrestha.com' }],
   creator: 'Sanjay Shrestha',
   alternates: {

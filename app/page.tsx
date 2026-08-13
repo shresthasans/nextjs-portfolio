@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     absolute: 'Sanjay Shrestha | Senior Product Designer',
   },
   description:
-    'Senior Product Designer with 15+ years crafting enterprise SaaS, B2B, and government digital products. CUA™ Certified. Open to global remote roles.',
+    'Senior Product Designer with 15+ years crafting enterprise SaaS, B2B, and government digital products. CUA™ Certified.',
   openGraph: {
     title: 'Sanjay Shrestha | Senior Product Designer',
     description:
@@ -48,10 +48,10 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
-      name: 'Is Sanjay Shrestha available for freelance or full-time work?',
+      name: 'Does Sanjay Shrestha work remotely?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes, Sanjay Shrestha is open to Senior Product Designer and Lead UX Designer opportunities — both freelance and full-time. He is based in Kathmandu, Nepal and is open to global remote roles or relocation.',
+        text: 'Yes, Sanjay Shrestha is based in Kathmandu, Nepal and has 15+ years of experience working remotely with distributed teams across enterprise SaaS, B2B, and government products.',
       },
     },
     {

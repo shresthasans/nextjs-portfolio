@@ -59,14 +59,14 @@ export default function ContactPage() {
                   Let&apos;s work together.
                 </h1>
                 <p className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed">
-                  I&apos;m open to senior design roles, contracts, and consulting engagements. If you have an interesting challenge, I&apos;d love to hear about it.
+                  If you have an interesting challenge or just want to talk design, I&apos;d love to hear about it.
                 </p>
               </div>
 
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 rounded-full">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
                 <span className="text-sm text-emerald-700 dark:text-emerald-400 font-medium">
-                  Open to new opportunities
+                  Based in Kathmandu, Nepal
                 </span>
               </div>
 

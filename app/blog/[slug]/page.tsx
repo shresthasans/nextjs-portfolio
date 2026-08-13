@@ -13,6 +13,7 @@ import AnimatedSection from '@/components/AnimatedSection'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import BlogCard, { BlogPost } from '@/components/BlogCard'
 import ReadingProgress from '@/components/ReadingProgress'
+import { CUA_VERIFY_URL } from '@/lib/constants'
 import TableOfContents from '@/components/TableOfContents'
 import { getMDXComponents } from '@/components/mdx-components'
 import MediaFigure from '@/components/MediaFigure'
@@ -314,7 +315,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         Sanjay Shrestha
                       </p>
                       <p className="text-xs text-stone-500 dark:text-stone-400 mb-2">
-                        Senior Product Designer · CUA™ Certified
+                        Senior Product Designer ·{' '}
+                        <a
+                          href={CUA_VERIFY_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline underline-offset-2 hover:text-stone-900 dark:hover:text-stone-50"
+                        >
+                          CUA™ Certified
+                        </a>
                       </p>
                       <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
                         15+ years designing enterprise SaaS, B2B, and government digital products. Currently at Decisions.

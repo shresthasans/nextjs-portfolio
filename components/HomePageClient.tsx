@@ -9,6 +9,7 @@ import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/Ani
 import { CaseStudyRow } from '@/components/CaseStudyCard'
 import BlogCard, { BlogPost } from '@/components/BlogCard'
 import { allWork } from '@/lib/work-data'
+import { CUA_VERIFY_URL } from '@/lib/constants'
 
 const FEATURED_SLUGS = ['decisions-ai-mobile-meeting-app', 'linkedin-feed-redesign', 'streamshare-streaming-app-design']
 
@@ -174,9 +175,14 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                   className="inline-flex items-center gap-2 mb-7 px-3 py-1.5 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 rounded-full"
                 >
                   <Award size={13} className="text-amber-700 dark:text-amber-400" aria-hidden="true" />
-                  <span className="text-xs font-medium text-amber-800 dark:text-amber-300">
+                  <a
+                    href={CUA_VERIFY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-medium text-amber-800 dark:text-amber-300 hover:underline underline-offset-2"
+                  >
                     CUA™ Certified · Human Factors International
-                  </span>
+                  </a>
                 </motion.div>
 
                 {/* Name */}
@@ -292,7 +298,7 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                 >
                   <div className="flex items-center gap-2.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-                    <span className="text-sm font-medium text-stone-100">Open to new opportunities</span>
+                    <span className="text-sm font-medium text-stone-100">Based in Kathmandu, Nepal</span>
                   </div>
                   <MapPin size={14} className="text-stone-500 shrink-0" aria-hidden="true" />
                 </motion.div>
@@ -409,7 +415,15 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                     Sanjay Shrestha
                   </p>
                   <p className="text-xs text-stone-600 dark:text-stone-400">
-                    Senior Product Designer · CUA™ Certified
+                    Senior Product Designer ·{' '}
+                    <a
+                      href={CUA_VERIFY_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-2 hover:text-stone-900 dark:hover:text-stone-50"
+                    >
+                      CUA™ Certified
+                    </a>
                   </p>
                 </div>
               </div>
@@ -480,7 +494,7 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
             <div className="rounded-3xl bg-stone-900 dark:bg-stone-800 p-12 sm:p-16 text-center space-y-6">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-stone-800 dark:bg-stone-700 rounded-full mb-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-xs text-stone-300 font-medium">Open to new opportunities</span>
+                <span className="text-xs text-stone-300 font-medium">Based in Kathmandu, Nepal</span>
               </div>
               <h2 className="font-heading text-4xl sm:text-5xl font-bold text-stone-50 tracking-tight max-w-xl mx-auto text-balance">
                 Let&apos;s build something meaningful together.

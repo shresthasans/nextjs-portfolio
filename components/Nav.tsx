@@ -73,7 +73,7 @@ export default function Nav() {
             href="/contact"
             className="hidden md:inline-flex items-center px-4 py-1.5 bg-stone-900 dark:bg-stone-50 text-stone-50 dark:text-stone-900 rounded-lg text-sm font-medium hover:bg-amber-700 dark:hover:bg-amber-400 transition-colors duration-200 cursor-pointer"
           >
-            Hire me
+            Get in touch
           </Link>
 
           {/* Mobile hamburger */}
@@ -123,7 +123,7 @@ export default function Nav() {
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-center px-4 py-2.5 bg-stone-900 dark:bg-stone-50 text-stone-50 dark:text-stone-900 rounded-xl text-sm font-medium hover:bg-amber-700 dark:hover:bg-amber-400 transition-colors duration-200 cursor-pointer"
                 >
-                  Hire me
+                  Get in touch
                 </Link>
               </li>
             </ul>

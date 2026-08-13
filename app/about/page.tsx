@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Award, MapPin, ArrowRight } from 'lucide-react'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/AnimatedSection'
+import { CUA_VERIFY_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: { absolute: 'About Sanjay Shrestha | Senior Product Designer' },
@@ -184,7 +185,7 @@ export default function AboutPage() {
             <AnimatedSection>
               <div className="flex items-center gap-1.5 text-sm text-stone-600 dark:text-stone-400">
                 <MapPin size={13} aria-hidden="true" />
-                <span>Kathmandu, Nepal · Open to remote opportunities and relocation</span>
+                <span>Kathmandu, Nepal</span>
               </div>
             </AnimatedSection>
           </div>
@@ -304,6 +305,14 @@ export default function AboutPage() {
                     training. The CUA™ credential requires demonstrated expertise in usability testing,
                     interaction design, and accessible design practices.
                   </p>
+                  <a
+                    href={CUA_VERIFY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs font-medium text-amber-800 dark:text-amber-300 underline underline-offset-2 hover:text-amber-900 dark:hover:text-amber-200"
+                  >
+                    Verify credential
+                  </a>
                 </div>
               </div>
 
@@ -313,11 +322,11 @@ export default function AboutPage() {
                   { label: 'Experience', value: '15+ years' },
                   { label: 'Specialisation', value: 'Enterprise SaaS · B2B · Gov' },
                   { label: 'Current role', value: 'Sr. Designer & PM · Decisions' },
-                  { label: 'Certification', value: 'CUA™ by Human Factors Intl.' },
+                  { label: 'Certification', value: 'CUA™ by Human Factors Intl.', href: CUA_VERIFY_URL },
                   { label: 'Based in', value: 'Kathmandu, Nepal' },
-                  { label: 'Open to', value: 'Global remote · Relocation' },
+                  { label: 'Work style', value: 'Works remotely' },
                   { label: 'Contact', value: 'contact@sanjayshrestha.com' },
-                ].map(({ label, value }) => (
+                ].map(({ label, value, href }) => (
                   <div
                     key={label}
                     className="flex justify-between items-center py-3.5 border-b border-stone-200 dark:border-stone-800 last:border-0"
@@ -326,7 +335,18 @@ export default function AboutPage() {
                       {label}
                     </span>
                     <span className="text-sm text-stone-700 dark:text-stone-300 text-right max-w-[55%]">
-                      {value}
+                      {href ? (
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline underline-offset-2 hover:text-stone-900 dark:hover:text-stone-50"
+                        >
+                          {value}
+                        </a>
+                      ) : (
+                        value
+                      )}
                     </span>
                   </div>
                 ))}
@@ -447,7 +467,7 @@ export default function AboutPage() {
             <div className="rounded-3xl bg-stone-900 dark:bg-stone-800 p-12 sm:p-16 text-center space-y-6">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-stone-800 dark:bg-stone-700 rounded-full mb-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-xs text-stone-300 font-medium">Open to new opportunities</span>
+                <span className="text-xs text-stone-300 font-medium">Based in Kathmandu, Nepal</span>
               </div>
               <h2 className="font-heading text-4xl sm:text-5xl font-bold text-stone-50 tracking-tight max-w-xl mx-auto text-balance">
                 Let&apos;s build something meaningful together.

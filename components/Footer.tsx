@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { Mail, Linkedin, ArrowUpRight } from 'lucide-react'
 import { trackEvent } from '@/lib/analytics'
+import { CUA_VERIFY_URL } from '@/lib/constants'
 
 const navLinks = [
   { href: '/work', label: 'Work' },
@@ -22,13 +23,22 @@ export default function Footer() {
               Sanjay Shrestha
             </h3>
             <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed max-w-[28ch]">
-              Senior Product Designer · CUA™ Certified<br />
-              Kathmandu, Nepal · Open to global remote
+              Senior Product Designer ·{' '}
+              <a
+                href={CUA_VERIFY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-stone-900 dark:hover:text-stone-50"
+              >
+                CUA™ Certified
+              </a>
+              <br />
+              Kathmandu, Nepal
             </p>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 rounded-full">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-xs text-emerald-700 dark:text-emerald-400 font-medium">
-                Open to new opportunities
+                Selectively taking on new work
               </span>
             </div>
           </div>
