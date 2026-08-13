@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Mail, Linkedin, ArrowUpRight } from 'lucide-react'
+import { Mail, Linkedin, ArrowUpRight, Heart } from 'lucide-react'
 import { trackEvent } from '@/lib/analytics'
 import { CUA_VERIFY_URL } from '@/lib/constants'
 
@@ -99,8 +99,14 @@ export default function Footer() {
           <p className="text-xs text-stone-600 dark:text-stone-400">
             &copy; {new Date().getFullYear()} Sanjay Shrestha. All rights reserved.
           </p>
-          <p className="text-xs text-stone-600 dark:text-stone-400">
-            Designed &amp; built with craft.
+          <p className="inline-flex items-center gap-1 text-xs text-stone-600 dark:text-stone-400">
+            Made with{' '}
+            <Heart
+              size={12}
+              className="text-red-600 dark:text-red-500 fill-current animate-pulse"
+              aria-hidden="true"
+            />
+            <span className="sr-only">love</span> in Kathmandu, Nepal.
           </p>
         </div>
       </div>

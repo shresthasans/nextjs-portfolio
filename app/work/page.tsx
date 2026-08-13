@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { ShieldCheck } from 'lucide-react'
 import AnimatedSection from '@/components/AnimatedSection'
 import { CaseStudyRow } from '@/components/CaseStudyCard'
 import { allWork } from '@/lib/work-data'
@@ -81,10 +82,19 @@ export default function WorkPage() {
 
         {/* Enterprise statement */}
         <AnimatedSection className="max-w-[700px] mx-auto text-center border-t border-stone-200 dark:border-stone-800 mt-16 pt-12 pb-12 lg:mt-16 lg:pt-16 lg:pb-16">
-          <p className="text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
-            Most of my recent enterprise work is protected by confidentiality agreements. While I
-            can&apos;t share those projects publicly, the case studies below reflect the same
-            product thinking, design decisions and execution I apply in production every day.
+          <div className="inline-flex items-center gap-2 mb-4 text-orange-600 dark:text-orange-500">
+            <ShieldCheck className="size-4" strokeWidth={2} />
+            <span className="text-xs font-semibold uppercase tracking-wide">
+              A note on confidentiality
+            </span>
+          </div>
+          <p className="text-base text-stone-700 dark:text-stone-300 leading-relaxed">
+            Most of my recent enterprise work is{' '}
+            <span className="font-semibold text-stone-900 dark:text-stone-50">
+              protected by confidentiality agreements
+            </span>
+            . While I can&apos;t share those projects publicly, the case studies below reflect the
+            same product thinking, design decisions and execution I apply in production every day.
           </p>
         </AnimatedSection>
 
