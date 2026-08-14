@@ -67,7 +67,7 @@ export default function CaseStudyCard({
         {coverImage ? (
           <Image
             src={coverImage}
-            alt={`${title} cover`}
+            alt={`${title} interface screenshot`}
             fill
             className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -136,7 +136,7 @@ function VisualBlock({ study }: { study: CaseStudy }) {
         <div className="relative w-full h-full">
           <Image
             src={study.coverImage}
-            alt={`${study.title} cover`}
+            alt={`${study.productName ?? study.title} interface screenshot`}
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 62vw"

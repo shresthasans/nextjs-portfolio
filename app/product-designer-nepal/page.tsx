@@ -11,14 +11,14 @@ import { clients } from '@/lib/clients'
 import { CUA_VERIFY_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Product Designer in Nepal | Sanjay Shrestha',
+  title: 'Product Designer in Nepal for SaaS & AI',
   description:
     'Senior product designer in Nepal with 15+ years designing enterprise SaaS, AI products and design systems for Microsoft, Decisions and global SaaS teams.',
   alternates: {
     canonical: 'https://sanjayshrestha.com/product-designer-nepal',
   },
   openGraph: {
-    title: 'Product Designer in Nepal | Sanjay Shrestha',
+    title: 'Product Designer in Nepal for SaaS & AI',
     description:
       'Senior product designer in Nepal with 15+ years designing enterprise SaaS, AI products and design systems for Microsoft, Decisions and global SaaS teams.',
     url: 'https://sanjayshrestha.com/product-designer-nepal',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Product Designer in Nepal | Sanjay Shrestha',
+    title: 'Product Designer in Nepal for SaaS & AI',
     description:
       'Senior product designer in Nepal with 15+ years designing enterprise SaaS, AI products and design systems for Microsoft, Decisions and global SaaS teams.',
     images: ['/og-image.jpg'],

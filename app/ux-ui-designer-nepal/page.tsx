@@ -7,24 +7,24 @@ import CaseStudyCard from '@/components/CaseStudyCard'
 import { allWork } from '@/lib/work-data'
 
 export const metadata: Metadata = {
-  title: 'UX/UI Designer in Nepal | Research, Strategy & Interface Design',
+  title: 'UX/UI Designer in Nepal',
   description:
-    'UX/UI designer in Nepal combining user research, information architecture and interface design — not just visuals. Case studies from Pagevamp, LinkedIn and Streamshare.',
+    'UX/UI designer in Nepal covering the full process — user research, strategy and information architecture through to interface design. Case studies from Pagevamp, LinkedIn and Streamshare.',
   alternates: {
     canonical: 'https://sanjayshrestha.com/ux-ui-designer-nepal',
   },
   openGraph: {
-    title: 'UX/UI Designer in Nepal | Research, Strategy & Interface Design',
+    title: 'UX/UI Designer in Nepal | Sanjay Shrestha',
     description:
-      'UX/UI designer in Nepal combining user research, information architecture and interface design — not just visuals. Case studies from Pagevamp, LinkedIn and Streamshare.',
+      'UX/UI designer in Nepal covering the full process — user research, strategy and information architecture through to interface design. Case studies from Pagevamp, LinkedIn and Streamshare.',
     url: 'https://sanjayshrestha.com/ux-ui-designer-nepal',
     images: ['/og-image.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'UX/UI Designer in Nepal | Research, Strategy & Interface Design',
+    title: 'UX/UI Designer in Nepal | Sanjay Shrestha',
     description:
-      'UX/UI designer in Nepal combining user research, information architecture and interface design — not just visuals. Case studies from Pagevamp, LinkedIn and Streamshare.',
+      'UX/UI designer in Nepal covering the full process — user research, strategy and information architecture through to interface design. Case studies from Pagevamp, LinkedIn and Streamshare.',
     images: ['/og-image.jpg'],
   },
 }

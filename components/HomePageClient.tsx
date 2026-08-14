@@ -4,13 +4,15 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, MapPin, Award } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, ReactNode } from 'react'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/AnimatedSection'
 import { CaseStudyRow } from '@/components/CaseStudyCard'
 import BlogCard, { BlogPost } from '@/components/BlogCard'
 import { allWork } from '@/lib/work-data'
 import { CUA_VERIFY_URL } from '@/lib/constants'
 import { clients } from '@/lib/clients'
+import { homeFaqs } from '@/lib/home-faqs'
+import FAQAccordion from '@/components/FAQAccordion'
 
 const FEATURED_SLUGS = ['decisions-ai-mobile-meeting-app', 'linkedin-feed-redesign', 'streamshare-streaming-app-design']
 
@@ -46,6 +48,61 @@ const expertise = [
 ]
 
 const heroPhrase = ['simple, scalable', 'intuitive, clear', 'elegant, focused', 'human-centered']
+
+const faqLinkClass =
+  'underline underline-offset-2 text-stone-900 dark:text-stone-50 hover:text-amber-700 dark:hover:text-amber-400'
+
+const homeFaqOverrides: Record<string, ReactNode> = {
+  'What types of companies do you work with?': (
+    <>
+      Mostly enterprise SaaS companies, AI product teams and organizations building government or
+      citizen-facing platforms. Clients have included Microsoft, Decisions and other B2B software
+      teams designing complex, data-heavy products — see{' '}
+      <Link href="/work" className={faqLinkClass}>
+        selected work
+      </Link>
+      .
+    </>
+  ),
+  'What does your product-design process include?': (
+    <>
+      End-to-end product design: user research and discovery, product strategy, information
+      architecture, interaction design and UI, plus accessibility review and close collaboration
+      with engineering through handoff.{' '}
+      <Link href="/about" className={faqLinkClass}>
+        Read more about my background
+      </Link>
+      .
+    </>
+  ),
+  'How can someone contact you?': (
+    <>
+      The fastest way is email at{' '}
+      <a href="mailto:contact@sanjayshrestha.com" className={faqLinkClass}>
+        contact@sanjayshrestha.com
+      </a>
+      , or connect on LinkedIn at{' '}
+      <a
+        href="https://linkedin.com/in/shresthasans"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={faqLinkClass}
+      >
+        linkedin.com/in/shresthasans
+      </a>
+      . You can also reach out directly through the{' '}
+      <Link href="/contact" className={faqLinkClass}>
+        contact page
+      </Link>
+      .
+    </>
+  ),
+}
+
+const homeFaqItems = homeFaqs.map((item) => ({
+  question: item.question,
+  answer: homeFaqOverrides[item.question] ?? item.answer,
+}))
 
 interface LatestPost {
   slug: string
@@ -173,17 +230,6 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                   </a>
                 </motion.div>
 
-                {/* Name */}
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.08, ease: 'easeOut' }}
-                  className="font-heading text-sm font-medium text-stone-600 dark:text-stone-400 tracking-widest uppercase mb-4"
-                >
-                  Sanjay Shrestha
-                </motion.p>
-
-
                 {/* Headline with cycling highlight — no entrance animation: this is the LCP element,
                     so it must paint at opacity:1 immediately instead of waiting on JS/motion */}
                 <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl xl:text-[5.25rem] font-bold text-stone-900 dark:text-stone-50 leading-[1.06] tracking-tight mb-7">
@@ -218,9 +264,9 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                   transition={{ duration: 0.55, delay: 0.28, ease: 'easeOut' }}
                   className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-10 max-w-[48ch]"
                 >
-                  A CUA-certified senior product designer with 15+ years designing enterprise SaaS
-                  platforms, AI-powered products and accessible design systems for organizations
-                  worldwide. Based in Kathmandu, Nepal.
+                  I&rsquo;m Sanjay Shrestha, a senior product designer specializing in enterprise SaaS,
+                  AI-powered products and accessible design systems. Based in Kathmandu and working
+                  with distributed teams worldwide.
                 </motion.p>
 
                 {/* CTAs */}
@@ -464,6 +510,24 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
           </div>
         </section>
       )}
+
+      {/* FAQ */}
+      <section className="py-28">
+        <div className="container-portfolio">
+          <AnimatedSection className="max-w-3xl mx-auto text-center mb-14">
+            <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-widest mb-2">
+              FAQ
+            </p>
+            <h2 className="font-heading text-4xl font-bold text-stone-900 dark:text-stone-50 tracking-tight leading-tight">
+              Frequently asked questions
+            </h2>
+          </AnimatedSection>
+
+          <AnimatedSection className="max-w-3xl mx-auto">
+            <FAQAccordion items={homeFaqItems} />
+          </AnimatedSection>
+        </div>
+      </section>
 
       {/* CTA banner */}
       <section className="py-20">

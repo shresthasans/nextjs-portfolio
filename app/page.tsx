@@ -3,17 +3,18 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import HomePageClient from '@/components/HomePageClient'
+import { homeFaqs } from '@/lib/home-faqs'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Sanjay Shrestha | Senior Product Designer',
+    absolute: 'Senior Product Designer for Enterprise SaaS & AI | Sanjay Shrestha',
   },
   description:
-    'Sanjay Shrestha is a senior product designer with 15+ years designing enterprise SaaS and AI products for Microsoft, Decisions and global teams, based in Kathmandu, Nepal.',
+    'Senior product designer with 15+ years designing enterprise SaaS, AI products and scalable design systems. Based in Kathmandu and working with teams worldwide.',
   openGraph: {
-    title: 'Sanjay Shrestha | Senior Product Designer',
+    title: 'Senior Product Designer for Enterprise SaaS & AI | Sanjay Shrestha',
     description:
-      'Sanjay Shrestha is a senior product designer with 15+ years designing enterprise SaaS and AI products for Microsoft, Decisions and global teams, based in Kathmandu, Nepal.',
+      'Senior product designer with 15+ years designing enterprise SaaS, AI products and scalable design systems. Based in Kathmandu and working with teams worldwide.',
     url: 'https://sanjayshrestha.com',
     images: [
       {
@@ -27,9 +28,9 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@shresthasans',
-    title: 'Sanjay Shrestha | Senior Product Designer',
+    title: 'Senior Product Designer for Enterprise SaaS & AI | Sanjay Shrestha',
     description:
-      'Sanjay Shrestha is a senior product designer with 15+ years designing enterprise SaaS and AI products for Microsoft, Decisions and global teams, based in Kathmandu, Nepal.',
+      'Senior product designer with 15+ years designing enterprise SaaS, AI products and scalable design systems. Based in Kathmandu and working with teams worldwide.',
     images: ['/og-image.jpg'],
   },
 }
@@ -37,56 +38,14 @@ export const metadata: Metadata = {
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What does Sanjay Shrestha specialise in?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Sanjay Shrestha is a Senior Product Designer specialising in Design Systems, AI-Powered UX, and B2B SaaS product design. With 15+ years of experience, he focuses on end-to-end product design including user research, interaction design, accessibility, and engineering handoff.',
-      },
+  mainEntity: homeFaqs.map(({ question, answer }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: answer,
     },
-    {
-      '@type': 'Question',
-      name: 'Does Sanjay Shrestha work remotely?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes, Sanjay Shrestha is based in Kathmandu, Nepal and has 15+ years of experience working remotely with distributed teams across enterprise SaaS, B2B, and government products.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: "What is Sanjay Shrestha's professional background?",
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Sanjay Shrestha has 15+ years of experience designing digital products used by millions. He has worked at Decisions, Microsoft, and Webscale Networks, designing products for enterprise B2B SaaS platforms, government citizen services, and global eCommerce brands. He is a CUA™ (Certified Usability Analyst) certified by Human Factors International.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What tools and technologies does Sanjay Shrestha use?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Sanjay Shrestha primarily uses Figma for product design and prototyping, along with Microsoft Teams, Google Workspace, and AI tools like Claude and ChatGPT. He also has front-end development skills in HTML and CSS, enabling close collaboration with engineering teams.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How can I contact Sanjay Shrestha?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'You can contact Sanjay Shrestha via email at contact@sanjayshrestha.com, or connect with him on LinkedIn at linkedin.com/in/shresthasans. His portfolio is available at sanjayshrestha.com.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What certifications does Sanjay Shrestha hold?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Sanjay Shrestha holds the CUA™ (Certified Usability Analyst) certification from Human Factors International (HFI), one of the most respected credentials in the UX field. He also has Verified International Academic Qualifications from World Education Services (WES).',
-      },
-    },
-  ],
+  })),
 }
 
 function getLatestPosts(limit = 3) {
