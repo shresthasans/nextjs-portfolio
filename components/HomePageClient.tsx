@@ -56,8 +56,9 @@ const homeFaqOverrides: Record<string, ReactNode> = {
   'What types of companies do you work with?': (
     <>
       Mostly enterprise SaaS companies, AI product teams and organizations building government or
-      citizen-facing platforms. Clients have included Microsoft, Decisions and other B2B software
-      teams designing complex, data-heavy products — see{' '}
+      citizen-facing platforms. I&rsquo;ve designed products at Microsoft, Decisions and Neudesic
+      (an IBM company), and taken on consulting engagements with other B2B software teams building
+      complex, data-heavy products — see{' '}
       <Link href="/work" className={faqLinkClass}>
         selected work
       </Link>
