@@ -1,0 +1,245 @@
+---
+title: "Redesigning Reddit's Home Feed: Giving Desktop Its Due, and Every Post a Sense of Stakes"
+client: "Personal Project (self-initiated, not affiliated with or commissioned by Reddit Inc.)"
+role: "Product Designer"
+year: "2026"
+timeline: "Self-directed, run across four phases (Discover, Define, Ideate, Deliver), not tracked to a fixed calendar"
+teamSize: "Solo"
+tools: ["Heuristic Evaluation", "WCAG Contrast Review", "Information Architecture", "Interaction Design", "Visual Design"]
+type: "Consumer / Social"
+outcome: "A four-phase, self-initiated redesign of Reddit's logged-in desktop Home feed, starting from a 15-point heuristic and visual audit and ending in five structural design decisions: a right rail that earns its space, a post-type signal layered onto the existing card without breaking its consistency, a corrected type scale and contrast pass, visible affordance for the feed's own controls, and a reordered left rail that puts the returning user's own context first."
+description: "A self-initiated audit and redesign of the single most-trafficked screen in the product, built to test whether an evidence-first process, heuristics before opinions, problem statements before mockups, produces a defensible direction without ever touching Reddit's internal data."
+duration: "Self-directed, run alongside other work, not tracked to a fixed timeline"
+roleSummary: "Ran every part of the audit and redesign, solo:"
+roleItems:
+  - "Heuristic & Visual Audit"
+  - "Problem Framing & Lightweight Personas"
+  - "Information Architecture"
+  - "Interaction & Visual Design"
+  - "Redesign Rationale (design direction only, no build or dev handoff)"
+team:
+  - "1 Product Designer (me)"
+impact: "Fifteen documented usability and visual findings, reframed into two root problems (wasted desktop real estate and undifferentiated content) and resolved through five design decisions with explicit tradeoffs. No production data or user testing behind these numbers: the deliverable is the audit trail and the reasoning, not a validated outcome."
+highlights:
+  - title: "Two root causes, not fifteen unrelated bugs."
+    text: "Almost every finding in the audit traced back to either wasted desktop space or a total lack of visual differentiation between what matters and what doesn't."
+  - title: "Consistency was a strength worth protecting."
+    text: "The post card's one shared shell was the audit's clearest win. Every option I explored for signaling post urgency had to survive without breaking that shell."
+  - title: "I didn't confuse 'no visible container' with 'no problem.'"
+    text: "The sort/view controls and the left rail's module ranking looked like nitpicks. Both directly worked against something Reddit's own product presumably wants: control discovery and returning-user retention."
+  - title: "Honest about what this is and isn't."
+    text: "No access to Reddit's users, data, or engineering constraints. What I can stand behind is the audit trail, the reasoning, and a validation plan for what I'd want to test next, not a shipped or measured result."
+---
+
+## Overview
+
+Reddit's Home feed is the page a logged-in user lands on more than any other single screen in the product. No brief, no team, no line into Reddit's internal data, just that page, a browser, and a question worth answering on its own: does an evidence-first process hold up without a client asking for it?
+
+Fifteen findings came out of the audit, spanning typography, spacing, affordance, content strategy, and information architecture. <mark>What surprised me was how few root causes were actually underneath them. Two, once I stopped logging each finding as its own isolated bug: the desktop layout doesn't use the screen it's given, and the feed has no way of telling a user what any given post actually is.</mark> The redesign targets those two things specifically, and leaves alone the parts of the page that were already doing their job.
+
+- **What this is:** A solo teardown of Reddit's desktop Home feed. No client, no internal metrics, no engineering context on why the current layout exists
+- **How I worked it:** [Heuristic evaluation](https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/), confirmed against a live session on reddit.com, then problem framing, [information architecture](https://www.nngroup.com/topic/information-architecture/), [interaction](https://www.interaction-design.org/literature/topics/interaction-design) and [visual design](/ux-ui-designer-nepal), and a written rationale for each call
+- **What came out of it:** 15 findings on a single desktop viewport, collapsing into 2 root causes
+- **What changed:** 5 structural decisions, each with the alternative I turned down and why
+- **What's still unproven:** No test has run against this direction yet. This phase is the reasoning, not the result
+- **How to read it:** An audit trail and a set of defensible calls, not a shipped feature
+
+## Context
+
+The Home feed is carrying more than one job at once: surfacing content, running navigation, managing communities, promoting features, prompting sign-ups, all at once. None of that is unusual for a feed product at this scale. The reason this particular screen was worth the time is that it's the one every returning user opens first, so anything wrong with it isn't a one-off cost. It's a cost that repeats every session, for every user, indefinitely.
+
+<mark>Reddit already does something most feed products don't bother with: it tells you why a post showed up.</mark> That's a real advantage over competitors who hide their ranking entirely, and going in, I wanted a redesign that kept that advantage rather than one that quietly designed over it.
+
+The page itself follows a layout familiar to anyone who's used Reddit's older desktop template: a top nav of primary destinations (Home, Popular, All, Random, Users, More), an active section marked with a thin underline, a left rail beneath it stacking secondary filters (Hot, New, Rising, Top, Gilded, Wiki, Favs) above a Top Contributors module and an Activity list, and a center feed of post cards, each with a vote-arrow score on one side and a Comments, Share, and Uplabs row underneath the title. That structure is the frame this whole audit sits inside.
+
+## The Problem
+
+Nothing here fails in a way that jumps out immediately. It fails fifteen separate, smaller ways, and once those fifteen stopped looking like a random list, two patterns underneath them became obvious.
+
+- **The desktop layout is wasting most of what it has.** At 1512px, the feed still sits in a narrow, fixed-width center column, and the space beyond it, where a right rail could reasonably live, stays empty on scroll. This is a mobile-width single column with padding bolted onto either side, not a desktop layout.
+- **No post looks more urgent than any other post.** The title, arguably the one thing on the card that should read first, barely outweighs the metadata sitting above it. A stolen-laptop safety alert and an entertainment carousel render in the exact same card, at the exact same weight. The sort and view controls give no visual sign they're clickable. The heart and overflow icons carry the same weight as everything else on the card. These read as separate bugs on first pass, but they're one failure recurring at the type level, the content level, and the control level.
+
+<mark>Nothing forces this to change on its own. Left as-is, desktop users keep getting handed a stretched mobile layout, and every post, safety alert or meme, keeps asking to be read at the same pace.</mark>
+
+## Initial Understanding
+
+My working theory going in was wrong in an instructive way. I assumed this was spacing, that the feed "felt tight" and needed room to breathe. What actually turned up was two unrelated problems sitting on top of each other: a real-estate problem caused by a layout that was never adapted for wider screens, and a content-differentiation problem that had nothing to do with spacing at all.
+
+I set the constraint deliberately: no internal Reddit data, no real users to pull in, no visibility into why the layout is narrow in the first place (could be ad load, could be infrastructure, could be a simplicity bet that made sense once). Given that, the only honest move was to run the audit against a named framework, Nielsen's heuristics plus a visual pass, rather than start from a hunch about what looked off.
+
+## Discovery & Learning
+
+The audit ran against a 1512px desktop viewport, dark theme, on an account with real join history and personalization behind it, as close to a returning user's actual landing experience as I could get without Reddit's own data. Two inputs fed it: a screenshot handed to me at the start, and a live pass on reddit.com to confirm the same issues held under real interaction, catch what the screenshot couldn't (scroll behavior, a second carousel further down, more posts below the fold), and check contrast and hit targets against the live page instead of a still image.
+
+**What's already working, and shouldn't get redesigned away:**
+
+- Every "Suggested" or "Because you've shown interest in a similar post" tag is [match between system and the real world](https://www.nngroup.com/articles/match-system-real-world/) done right. Most feeds hide the ranking logic entirely, and surfacing it gives the user something to build a mental model around.
+- The post card shell is the strongest piece of the existing design. Image, video, carousel, or plain text, every post gets the same wrapper: avatar and subreddit top-left, title, media, a Comments, Share, and Uplabs row, vote arrows and score to the side. <mark>That's the only reason an infinite feed stays skimmable, and it's [recognition over recall](https://www.nngroup.com/articles/recognition-and-recall/) working exactly as intended.</mark>
+- The top nav and left rail are stable, icon-plus-label where it counts, and stay put on scroll, the right call for a structure people return to constantly.
+
+**What's broken, by category:**
+
+- **Hierarchy and typography.** The title sits at nearly the same weight as the metadata above it, secondary text (timestamps, vote counts) reads close to a WCAG AA failure, and the gap between metadata and title is tighter than the gap between title and thumbnail, visually grouping the title with the wrong neighbor.
+- **Layout and density.** The feed column stays a narrow, fixed width regardless of viewport size, the space beside it goes unused on scroll, and thumbnail crops vary enough to make the feed's vertical rhythm uneven.
+- **Affordance and consistency.** The "Popular in [location]" sort control and the list/grid view toggle sit as plain text and unlabeled icons with no container. The heart and overflow icons carry the same visual weight as every other icon on the card. Uplabs has no explanation anywhere of what it does. Vote arrows use small hit targets and indicate a user's existing vote by color alone.
+- **Content strategy.** A safety alert renders identically to an entertainment carousel two posts later, and vote and comment counts use the same type treatment regardless of magnitude, so a 22-point post and a 16.4k-point post carry the same visual signal.
+- **Information architecture.** Top Contributors and Activity outrank the user's own list of joined communities in the left rail, the top nav's active state is a thin underline that's easy to miss, and Random and More carry the same visual weight as Home and Popular despite far lower use.
+
+| Finding | Category | Impact | Effort to fix (directional) |
+|---|---|---|---|
+| Title vs. metadata hierarchy too flat | Typography / hierarchy | High: slows scanning on the highest-traffic screen | Low |
+| Secondary text contrast (timestamps, counts) | Accessibility / contrast | Medium: likely fails WCAG AA for that text tier | Low |
+| Card spacing groups the title with the wrong neighbor | Typography / hierarchy | Medium: reinforces the flat hierarchy above | Low |
+| Feed column stays fixed-width regardless of viewport | Layout / density | High: wastes the majority of screen real estate on desktop | Medium |
+| Space beside the feed goes unused on scroll | Layout / density | High: compounds the fixed-width column problem | Medium |
+| Thumbnail crops are inconsistent across cards | Layout / density | Low: uneven vertical rhythm in the feed | Low |
+| Sort and view controls have no visible container | Affordance | Medium: a useful control is likely undiscovered by most users | Low |
+| Heart and overflow icons carry no visual priority | Affordance | Low–Medium: no signal for the action most users reach for first | Low |
+| Uplabs action has no explanation anywhere on the card | Affordance / learnability | Low–Medium | Low |
+| Vote-arrow hit targets are small, vote state is color-only | Affordance / accessibility | Medium: hard to hit, and invisible without color | Low |
+| No visual differentiation by post urgency or type | Content strategy | High: safety content and entertainment content read identically | High (needs taxonomy work) |
+| Vote and comment counts don't scale with magnitude | Content strategy | Low–Medium: no visual signal for what's actually resonating | Low |
+| Top Contributors and Activity outrank joined communities | Information architecture | Medium: deprioritizes the returning user's own context | Low |
+| Top nav active state is a thin, easy-to-miss underline | Information architecture | Low–Medium: weak orientation cue on the page's primary nav | Low |
+| Random and More match Home and Popular in visual weight | Information architecture | Low: overweights two low-frequency destinations | Low |
+
+<mark>Going in, I expected fifteen small, unrelated complaints. What I got instead was almost every high-impact one pointing at the same two gaps: the page isn't using its own space, and it isn't telling you what you're looking at.</mark>
+
+## Defining the Real Problem
+
+This is where the framing actually shifted. I opened this project thinking "the feed feels dense." The audit turned that into two problems that don't overlap and don't share a fix:
+
+<mark>One, the layout was built for a narrower screen and was never rebuilt for a wider one, so the highest-value real estate on the page goes unused. Two, the feed has no mechanism for signaling what a post is, urgency included, so a safety alert and a thirst-trap carousel end up competing for the same sliver of attention on equal footing.</mark>
+
+To keep the redesign grounded in someone other than myself, I sketched two rough usage patterns straight off the audit findings, not validated personas, since I have no interview access to actual Reddit users, just a lens for checking whether a fix favors one kind of user at another's expense.
+
+- **The returning power user**, several joined communities, opens Home out of habit more than once a day. The unused space beside the feed costs this person the most (their own communities deserve that space), and so does the left rail ranking Top Contributors and Activity above their communities.
+- **The casual browser**, lands from search or a shared link, thinner relationship to the platform. This person feels the missing content-type signal hardest (less context to judge what a post even is) and is least likely to already know the sort control exists.
+
+Wherever a fix helped one of these at the other's cost, that was the cue to keep looking rather than lock it in.
+
+## Exploring Solutions
+
+Each root problem got more than one option on the table, and not every option got equal consideration.
+
+**Unused space beside the feed** (information architecture, layout):
+
+- *Just widen the feed column.* Easiest possible fix. Turned down: it doesn't add utility, it just stretches a mobile-shaped experience wider, and Reddit's own text posts and comment threads likely get harder to read past a certain line length.
+- *Move to a masonry grid*, Pinterest-style. Turned down: Reddit's linear order carries the ranking signal the audit flagged as a strength, and a grid breaks that read order. Post heights also vary too much (a one-line text post next to embedded video) for a grid to stay visually calm.
+- *Build a right rail into something the user actually owns*: joined communities for quick access, trending content with a stated reason, sticky through scroll. **Chosen.** It leaves the single-column reading pattern untouched, which protects the ranking-transparency strength, and gives the power user something the current layout doesn't: their own context, always visible.
+
+**Content-type signal** (content strategy, visual design):
+
+- *Down-rank certain post types algorithmically.* Out of scope entirely. That's a ranking or moderation call, not a UI one, and nothing about this audit argues for suppressing content.
+- *Give each post type its own card layout.* Turned down: this undoes the one thing the audit called out as genuinely strong, a single shell that keeps the whole feed skimmable. A different shell per content type reintroduces exactly the relearning cost that shell exists to avoid.
+- *Keep the shell, add a signal to it*: a small color-coded tag with an icon (Safety/Alert, Advice, Discussion, Entertainment) sitting where the card already reserves space for its "why you're seeing this" line. **Chosen.** Solves the differentiation gap without touching the shell's strength, and costs far less than building a full taxonomy and a new card architecture around it.
+
+## Design Decisions
+
+Five calls carried most of the weight here.
+
+### 1. Turning the unused space beside the feed into a persistent, user-owned right rail
+
+*Discipline: Information Architecture, Layout*
+
+**The challenge:** At 1512px, the feed's fixed-width column leaves the rest of the viewport empty on scroll, the single biggest finding in the whole audit.
+
+**Alternatives considered:** Widen the feed instead, or move to a grid. Both ruled out during Ideate, neither adds real utility, and both risk the feed's existing ranking-transparency strength.
+
+**Why I chose this:** The power-user pattern already points at unused context: joined communities, and the same "why you're seeing this" reasoning the feed already surfaces elsewhere. A sticky rail built from that context uses the space for something the user already values instead of inventing a new feature to justify the space.
+
+> **Expected impact:** Recovers most of the unused desktop real estate and gives the highest-frequency user a persistent, low-effort route back to their own communities.
+
+### 2. Layering a post-type signal onto the existing card shell
+
+*Discipline: Content Strategy, Visual Design*
+
+**The challenge:** A stolen-laptop safety alert and an entertainment carousel share the identical card, at the identical weight, in the same unbroken scroll, the sharpest content-strategy gap in the audit.
+
+**Alternatives considered:** A distinct layout per post type, ruled out for breaking the single-shell consistency that's the card's biggest strength.
+
+**Why I chose this:** This doesn't call for a new component, only a new signal on the one that already exists. A small labeled, color-coded tag (Safety/Alert, Advice, Discussion, Entertainment) dropped into the same slot the card already uses for its ranking reason gives users a way to triage at a glance, without relearning anything.
+
+> **Expected impact:** A fast-scrolling user can tell "someone needs help" from "someone wants engagement" without reading the post. This is the fix that speaks directly to the casual browser's thinner context.
+
+### 3. Correcting the title/metadata type scale, card spacing, and secondary-text contrast in one pass
+
+*Discipline: Typography, Accessibility*
+
+**The challenge:** The title, the thing that decides whether someone clicks or skips, is barely bolder than the metadata sitting above it. The gap between metadata and title is tighter than the gap between title and thumbnail, so the eye groups the title with the wrong neighbor. The same dim gray used for timestamps and vote counts almost certainly fails WCAG AA against the near-black card background.
+
+**Alternatives considered:** None worth writing up. One lever (scale, spacing, and color together) closes three separate findings at once, and there was no case for fixing only part of it.
+
+**Why I chose this:** Hierarchy in a fast-scrolling feed needs to work in peripheral vision, not just on close inspection. Push the title larger and brighter, tighten the gap between title and media instead of title and metadata, and push metadata smaller, dimmer, but compliant. One change, three problems solved, because in this case the visual fix and the accessibility fix are literally the same fix.
+
+> **Expected impact:** Faster scanning across the board, plus a fix for what's likely an active accessibility failure on the metadata tier.
+
+### 4. Giving the feed's own controls visible affordance, and separating primary actions from secondary ones
+
+*Discipline: Interaction Design, Affordance*
+
+**The challenge:** The "Popular in [location]" sort dropdown and the list/grid view toggle sit with no border, no container, nothing but gray text and bare icons floating above the first card. Separately, the heart and overflow icons carry the same weight as everything else on the card, Uplabs has no explanation anywhere, and vote arrows use small hit targets with a color-only signal for a user's existing vote.
+
+**Alternatives considered:** Leave the controls as plain text and icons, raise the contrast. Turned down: contrast wasn't the actual problem, affordance was. High-contrast text with no border still doesn't read as clickable.
+
+**Why I chose this:** Wrapping sort and view in a visible pill matches a pattern the page already uses elsewhere (the vote and action row on each card), so it's not a new convention. Giving the heart icon more weight than the overflow menu makes the primary action findable at a glance. A one-line tooltip on Uplabs and a larger, shape-plus-color vote state fix the remaining two findings in the same pass.
+
+> **Expected impact:** Controls that were effectively invisible become obviously interactive, and the one action most users reach for first is no longer competing visually with a menu they rarely open.
+
+### 5. Reordering the left rail so the user's own communities outrank Top Contributors and Activity
+
+*Discipline: Information Architecture*
+
+**The challenge:** Top Contributors and Activity sit directly above the user's own list of joined communities, for an audience that, by definition, is already engaged and already returning.
+
+**Alternatives considered:** Keep the order, shrink Top Contributors and Activity instead. Rejected, a smaller version of putting a discovery module ahead of the user's own context is still that choice; the fix is order, not size.
+
+**Why I chose this:** For someone who's already joined and already returning, their own communities are almost certainly worth more real estate than a discovery module. This corrects a priority call the audit flagged directly, and it costs nothing structural to do.
+
+> **Expected impact:** Faster access to the returning user's actual context, with Top Contributors and Activity still present, just no longer first in line.
+
+## Iteration
+
+Two smaller corrections rode along on the same evidence without needing a full write-up of their own. The top nav's active state, currently a thin underline that's easy to miss on a quick glance, gets paired with a color and weight change on the active label itself, the same logic as Decision 3's hierarchy fix, applied to navigation instead of the card. Random and More, both far lower-frequency than Home or Popular, drop to a quieter visual treatment so the two highest-use destinations read first, without removing either option from the nav.
+
+## Outcome
+
+This wasn't built to ship, and it hasn't. What exists at the end of this phase is the reasoning trail, finding to root cause to decision, not a validated result.
+
+📍 **Visual Suggestion**
+
+*Purpose: Show the redesigned Home feed against the audited original.*
+
+*Suggested artifact: A before/after of the desktop Home feed with the right-rail module, post-type tag, corrected type scale, and left-rail reordering called out directly on the mockup, built in Figma from these decisions before this case study is considered complete.*
+
+<mark>What holds up here is the trail itself:</mark> fifteen findings, documented; two root causes they resolve into; five decisions, each with the alternative I turned down and the reason why. What doesn't hold up yet is impact. There's no production data behind any of this, and no test has run against the direction.
+
+**What I'd run next:** a moderated before/after test, even a small five-person peer sample in the same shape as tests I've run on other self-initiated audits, checking whether people notice the post-type tag without being told, whether they find the sort control unprompted, whether the right-rail module gets used or scrolled past. I'd also want a real automated contrast check on the corrected type scale rather than trusting my own eye from Decision 3.
+
+## Reflection
+
+The lesson that stuck from this pass: a "content problem" and a "layout problem" can be the same failure wearing two different outfits. Wasted desktop width and undifferentiated posts have nothing structurally in common, and yet both trace to the same missing thing: no rule anywhere on the page for what earns more space or more visual weight.
+
+Worth naming plainly: the highest-effort item in the audit, an actual taxonomy for post urgency and type, is also the one I'm least confident I've scoped right, since I can't see how Reddit's content is actually classified internally. The color-coded tag in Decision 2 is my best design answer to a data problem I don't have full visibility into.
+
+> Wasted space and undifferentiated content look like two different problems. They're the same absence, no rule for what earns more weight, showing up twice.
+
+## Key Takeaways
+
+- **Fifteen findings, two root causes.** Wasted desktop space and undifferentiated content sound unrelated until you notice both trace to the same missing hierarchy rule.
+- **Protecting what already worked shaped every option on the table.** The card's single shell was the audit's clearest win, and it ruled out the obvious fix, a distinct layout per content type, before I got attached to it.
+- **The right-rail fix reuses what the feed already has.** Joined communities and the "why you're seeing this" reasoning already exist; the fix is giving them the space the layout was wasting.
+- **One lever closed three findings.** Title/metadata hierarchy, card spacing, and secondary-text contrast all come down to type scale, spacing, and color, which is why they're one decision instead of three.
+- **What's unresolved stays flagged, not hidden.** No testing has run, and the taxonomy behind Decision 2 is a design answer to a data question I can't fully see.
+
+### Information to confirm
+
+- `[Information needed: measured contrast ratios]`: the WCAG AA failure on secondary text (timestamps, counts, reasoning tags) is a visual read from the audit, not a measured contrast ratio from a tool.
+- `[Information needed: taxonomy scope]`: the post-type tag system in Decision 2 assumes a workable, moderation-safe taxonomy (Safety/Alert, Advice, Discussion, Entertainment) exists or could exist; this hasn't been validated against how Reddit's content is actually structured.
+- `[Information needed: usage data on sort control]`: Decision 4 assumes the sort and view controls are under-discovered due to lack of affordance; no analytics or user data confirms actual usage rates.
+- `[Information needed: mobile scope]`: this entire audit and redesign is desktop-only (1512px viewport); mobile web and native app behavior weren't reviewed and may surface different findings.
+- `[Information needed: visual deliverable]`: the redesigned feed exists as a documented set of decisions, not yet as a built Figma mockup; the before/after comparison flagged above is the next artifact needed before this case study is publish-ready.
+
+---
+
+_Self-directed audit and redesign: heuristic evaluation, live-session validation, problem framing, information architecture, interaction and visual design, and a documented redesign rationale. No user testing or production build behind this phase yet._

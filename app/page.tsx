@@ -10,11 +10,11 @@ export const metadata: Metadata = {
     absolute: 'Senior Product Designer for Enterprise SaaS & AI | Sanjay Shrestha',
   },
   description:
-    'Senior product designer with 15+ years designing enterprise SaaS, AI products and scalable design systems. Based in Kathmandu and working with teams worldwide.',
+    'Senior product designer with 15+ years designing enterprise SaaS, AI products and scalable design systems for teams worldwide.',
   openGraph: {
     title: 'Senior Product Designer for Enterprise SaaS & AI | Sanjay Shrestha',
     description:
-      'Senior product designer with 15+ years designing enterprise SaaS, AI products and scalable design systems. Based in Kathmandu and working with teams worldwide.',
+      'Senior product designer with 15+ years designing enterprise SaaS, AI products and scalable design systems for teams worldwide.',
     url: 'https://sanjayshrestha.com',
     images: [
       {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     site: '@shresthasans',
     title: 'Senior Product Designer for Enterprise SaaS & AI | Sanjay Shrestha',
     description:
-      'Senior product designer with 15+ years designing enterprise SaaS, AI products and scalable design systems. Based in Kathmandu and working with teams worldwide.',
+      'Senior product designer with 15+ years designing enterprise SaaS, AI products and scalable design systems for teams worldwide.',
     images: ['/og-image.jpg'],
   },
 }

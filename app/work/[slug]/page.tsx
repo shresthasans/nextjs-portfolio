@@ -75,6 +75,7 @@ const UNLISTED_SLUGS = new Set([
   'nepal-pm-calendar',
   'avira-antivirus-redesign',
   'stratus-maas-saas-dashboard-redesign',
+  'reddit-home-feed-redesign',
 ])
 
 export async function generateMetadata({

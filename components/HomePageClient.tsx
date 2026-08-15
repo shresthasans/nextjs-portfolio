@@ -24,10 +24,12 @@ const expertise = [
   {
     title: 'Enterprise SaaS',
     description: 'Designing complex workflows and productivity platforms for enterprise teams.',
+    href: '/work/stratus-maas-saas-dashboard-redesign',
   },
   {
     title: 'AI Product Design',
     description: 'Designing AI-powered experiences that simplify complex workflows.',
+    href: '/ai-ux-design-nepal',
   },
   {
     title: 'Design Systems',
@@ -68,8 +70,11 @@ const homeFaqOverrides: Record<string, ReactNode> = {
   'What does your product-design process include?': (
     <>
       End-to-end product design: user research and discovery, product strategy, information
-      architecture, interaction design and UI, plus accessibility review and close collaboration
-      with engineering through handoff.{' '}
+      architecture and{' '}
+      <Link href="/ux-ui-designer-nepal" className={faqLinkClass}>
+        UX/UI design
+      </Link>
+      , plus accessibility review and close collaboration with engineering through handoff.{' '}
       <Link href="/about" className={faqLinkClass}>
         Read more about my background
       </Link>
@@ -265,9 +270,13 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                   transition={{ duration: 0.55, delay: 0.28, ease: 'easeOut' }}
                   className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-10 max-w-[48ch]"
                 >
-                  I&rsquo;m Sanjay Shrestha, a senior product designer specializing in enterprise SaaS,
-                  AI-powered products and accessible design systems. Based in Kathmandu and working
-                  with distributed teams worldwide.
+                  I&rsquo;m{' '}
+                  <span className="font-semibold text-stone-900 dark:text-stone-50">
+                    Sanjay Shrestha
+                  </span>
+                  , a senior product designer specializing in enterprise SaaS, AI-powered products
+                  and accessible design systems. Based in Kathmandu and working with distributed
+                  teams worldwide.
                 </motion.p>
 
                 {/* CTAs */}
@@ -351,11 +360,20 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
           </AnimatedSection>
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {expertise.map(({ title, description }) => (
+            {expertise.map(({ title, description, href }) => (
               <StaggerItem key={title}>
                 <div className="h-full p-6 bg-white/70 dark:bg-stone-900/60 backdrop-blur-xl border border-stone-200/60 dark:border-stone-700/40 rounded-2xl shadow-sm hover:shadow-md hover:bg-white/90 dark:hover:bg-stone-900/80 transition-all duration-300">
-                  <h3 className="font-heading text-lg font-semibold text-stone-900 dark:text-stone-50 mb-2">
-                    {title}
+                  <h3 className="font-heading text-lg font-semibold mb-2">
+                    {href ? (
+                      <Link
+                        href={href}
+                        className="text-stone-900 dark:text-stone-50 hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-200"
+                      >
+                        {title}
+                      </Link>
+                    ) : (
+                      <span className="text-stone-900 dark:text-stone-50">{title}</span>
+                    )}
                   </h3>
                   <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
                     {description}
@@ -535,10 +553,13 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
         <div className="container-portfolio">
           <AnimatedSection>
             <div className="rounded-3xl bg-stone-900 dark:bg-stone-800 p-12 sm:p-16 text-center space-y-6">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-stone-800 dark:bg-stone-700 rounded-full mb-2">
+              <Link
+                href="/product-designer-nepal"
+                className="inline-flex items-center gap-1.5 px-3 py-1 bg-stone-800 dark:bg-stone-700 rounded-full mb-2 hover:bg-stone-700 dark:hover:bg-stone-600 transition-colors duration-200"
+              >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-xs text-stone-300 font-medium">Based in Kathmandu, Nepal</span>
-              </div>
+              </Link>
               <h2 className="font-heading text-4xl sm:text-5xl font-bold text-stone-50 tracking-tight max-w-xl mx-auto text-balance">
                 Let&apos;s build something meaningful together.
               </h2>
