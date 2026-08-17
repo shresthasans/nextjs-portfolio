@@ -2,9 +2,6 @@
 const nextConfig = {
   outputFileTracingRoot: import.meta.dirname,
   poweredByHeader: false,
-  images: {
-    unoptimized: true,
-  },
   experimental: {
     mdxRs: true,
   },
