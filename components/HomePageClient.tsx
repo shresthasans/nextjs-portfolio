@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { ArrowRight, MapPin, Award } from 'lucide-react'
 import { useState, useEffect, ReactNode } from 'react'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/AnimatedSection'
@@ -15,7 +15,7 @@ import { homeFaqs } from '@/lib/home-faqs'
 import FAQAccordion from '@/components/FAQAccordion'
 import Testimonials from '@/components/Testimonials'
 
-const FEATURED_SLUGS = ['decisions-ai-mobile-meeting-app', 'linkedin-feed-redesign', 'streamshare-streaming-app-design']
+const FEATURED_SLUGS = ['pagevamp-onboarding-redesign', 'decisions-ai-mobile-meeting-app', 'linkedin-feed-redesign', 'streamshare-streaming-app-design']
 
 const featuredWork = FEATURED_SLUGS
   .map((slug) => allWork.find((w) => w.slug === slug))
@@ -124,12 +124,14 @@ interface LatestPost {
 export default function HomePageClient({ latestPosts = [] }: { latestPosts?: LatestPost[] }) {
   const [phraseIdx, setPhraseIdx] = useState(0)
   const [mounted, setMounted] = useState(false)
+  const prefersReducedMotion = useReducedMotion()
 
   useEffect(() => {
     setMounted(true)
+    if (prefersReducedMotion) return
     const t = setInterval(() => setPhraseIdx(i => (i + 1) % heroPhrase.length), 2800)
     return () => clearInterval(t)
-  }, [])
+  }, [prefersReducedMotion])
 
   return (
     <>
@@ -428,7 +430,7 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                 <a href={href} target="_blank" rel="noopener noreferrer" aria-label={name}>
                   <Image
                     src={logo}
-                    alt={name}
+                    alt=""
                     width={width}
                     height={height}
                     style={{ width: `${width}px`, height: `${height}px` }}

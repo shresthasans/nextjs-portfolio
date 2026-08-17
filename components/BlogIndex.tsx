@@ -96,7 +96,7 @@ function FeaturedCard({ post }: { post: BlogPost }) {
           {post.excerpt}
         </p>
 
-        <div className="flex items-center gap-3 text-xs text-stone-400 dark:text-stone-500 mt-auto pt-4 border-t border-stone-100 dark:border-stone-800">
+        <div className="flex items-center gap-3 text-xs text-stone-500 dark:text-stone-400 mt-auto pt-4 border-t border-stone-100 dark:border-stone-800">
           <time dateTime={post.date}>{formatDate(post.date)}</time>
           <span aria-hidden="true">·</span>
           <Clock size={11} aria-hidden="true" />
@@ -184,7 +184,7 @@ function FeaturedSeriesCard({
                 href={`/blog/${post.slug}`}
                 className="group flex items-center gap-2.5 py-1 text-sm text-stone-500 dark:text-stone-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-200"
               >
-                <span className="shrink-0 text-xs font-semibold tabular-nums text-stone-400 dark:text-stone-500 w-4">
+                <span className="shrink-0 text-xs font-semibold tabular-nums text-stone-500 dark:text-stone-400 w-4">
                   {post.seriesPart}
                 </span>
                 <span className="line-clamp-1 flex-1">
@@ -200,7 +200,7 @@ function FeaturedSeriesCard({
           ))}
         </ol>
 
-        <div className="flex items-center gap-3 text-xs text-stone-400 dark:text-stone-500 mt-auto pt-4 border-t border-stone-100 dark:border-stone-800">
+        <div className="flex items-center gap-3 text-xs text-stone-500 dark:text-stone-400 mt-auto pt-4 border-t border-stone-100 dark:border-stone-800">
           <time dateTime={first.date}>{formatDate(first.date)}</time>
           <span aria-hidden="true">·</span>
           <Clock size={11} aria-hidden="true" />
@@ -276,14 +276,14 @@ export default function BlogIndex({ posts }: { posts: BlogPost[] }) {
             </button>
           ))}
         </div>
-        <span className="ml-auto text-xs text-stone-400 dark:text-stone-500 tabular-nums">
+        <span className="ml-auto text-xs text-stone-500 dark:text-stone-400 tabular-nums">
           {filtered.length} {filtered.length === 1 ? 'post' : 'posts'}
         </span>
       </div>
 
       {/* Empty state */}
       {filtered.length === 0 && (
-        <div className="py-20 text-center text-sm text-stone-400 dark:text-stone-500">
+        <div className="py-20 text-center text-sm text-stone-500 dark:text-stone-400">
           No posts in this category yet.
         </div>
       )}

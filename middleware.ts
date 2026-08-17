@@ -82,20 +82,9 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    '/avira',
-    '/avira.html',
-    '/projects/:path*',
-    '/angular-js-and-javascript-mvc',
-    '/best-blogs-for-front-end-development',
-    '/ux-vs-cx-whats-the-different',
-    '/category/:path*',
-    '/author/:path*',
-    '/test/:path*',
-    '/liabilities/:path*',
-    '/beta',
-    '/psm',
-    '/feed',
-    '/contact/:path*',
-  ],
+  // Broad on purpose: the trailing-slash redirect below needs to run on every route, not
+  // just the ones in GONE_EXACT/GONE_PREFIXES — every path is equally exposed to the same
+  // /path vs /path/ duplicate-URL risk that was previously only patched for /contact.
+  // Excludes hashed static assets and API routes, which never have this problem.
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|api/).*)'],
 }

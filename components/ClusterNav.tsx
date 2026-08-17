@@ -34,7 +34,7 @@ export default function ClusterNav({ posts }: { posts: BlogPost[] }) {
             <p className="text-xs text-stone-500 dark:text-stone-400 leading-relaxed line-clamp-2">
               {cluster.description}
             </p>
-            <span className="text-[11px] font-medium text-stone-400 dark:text-stone-500 mt-auto pt-1">
+            <span className="text-[11px] font-medium text-stone-500 dark:text-stone-400 mt-auto pt-1">
               {count} {count === 1 ? 'article' : 'articles'}
             </span>
           </Link>

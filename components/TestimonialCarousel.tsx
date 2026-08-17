@@ -52,12 +52,17 @@ export default function TestimonialCarousel({ items }: TestimonialCarouselProps)
                   aria-selected={i === current}
                   aria-label={`Go to testimonial ${i + 1}`}
                   onClick={() => setCurrent(i)}
-                  className={`rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
-                    i === current
-                      ? 'w-5 h-1.5 bg-amber-500'
-                      : 'w-1.5 h-1.5 bg-stone-300 dark:bg-stone-600 hover:bg-stone-400 dark:hover:bg-stone-500'
-                  }`}
-                />
+                  className="group w-6 h-6 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-full"
+                >
+                  <span
+                    aria-hidden="true"
+                    className={`rounded-full transition-all duration-300 ${
+                      i === current
+                        ? 'w-5 h-1.5 bg-amber-500'
+                        : 'w-1.5 h-1.5 bg-stone-300 dark:bg-stone-600 group-hover:bg-stone-400 dark:group-hover:bg-stone-500'
+                    }`}
+                  />
+                </button>
               ))}
             </div>
 

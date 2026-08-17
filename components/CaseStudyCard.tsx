@@ -15,6 +15,7 @@ export interface CaseStudy {
   year: string
   featured?: boolean
   coverImage?: string
+  imageAlt?: string
   metaLabel?: string
   summary?: string
   keyFocus?: string[]
@@ -44,6 +45,7 @@ export default function CaseStudyCard({
   year,
   featured = false,
   coverImage,
+  imageAlt,
 }: CaseStudy) {
   return (
     <Link
@@ -67,7 +69,7 @@ export default function CaseStudyCard({
         {coverImage ? (
           <Image
             src={coverImage}
-            alt={`${title} interface screenshot`}
+            alt={imageAlt ?? `${title} interface screenshot`}
             fill
             className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -136,7 +138,7 @@ function VisualBlock({ study }: { study: CaseStudy }) {
         <div className="relative w-full h-full">
           <Image
             src={study.coverImage}
-            alt={`${study.productName ?? study.title} interface screenshot`}
+            alt={study.imageAlt ?? `${study.productName ?? study.title} interface screenshot`}
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 62vw"
@@ -209,7 +211,7 @@ export function CaseStudyRow({ study, index }: { study: CaseStudy; index: number
             imageRight && 'lg:col-start-1 lg:row-start-1'
           )}
         >
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-stone-400 dark:text-stone-500">
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400">
             {study.metaLabel ?? `${study.type} · ${study.year}`}
           </p>
 
@@ -231,7 +233,7 @@ export function CaseStudyRow({ study, index }: { study: CaseStudy; index: number
 
           {study.keyFocus && (
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-stone-400 dark:text-stone-500 mb-2.5">
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400 mb-2.5">
                 Key Focus
               </p>
               <div className="flex flex-wrap gap-2">
@@ -249,7 +251,7 @@ export function CaseStudyRow({ study, index }: { study: CaseStudy; index: number
 
           {study.stats && study.stats.length > 0 && (
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-stone-400 dark:text-stone-500 mb-2.5">
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400 mb-2.5">
                 By the Numbers
               </p>
               <div className="flex flex-wrap gap-x-6 gap-y-3">

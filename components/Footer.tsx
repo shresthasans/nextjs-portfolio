@@ -13,11 +13,17 @@ const navLinks = [
   { href: '/contact', label: 'Contact' },
 ]
 
+const nepalLinks = [
+  { href: '/product-designer-nepal', label: 'Product Designer in Nepal' },
+  { href: '/ux-ui-designer-nepal', label: 'UX/UI Designer in Nepal' },
+  { href: '/ai-ux-design-nepal', label: 'AI UX Designer in Nepal' },
+]
+
 export default function Footer() {
   return (
     <footer className="border-t border-stone-200 dark:border-stone-800 mt-32">
       <div className="container-portfolio py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-4">
             <h3 className="font-heading font-semibold text-stone-900 dark:text-stone-50 text-lg">
@@ -51,6 +57,25 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5" role="list">
               {navLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-sm text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50 transition-colors duration-200"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Nepal landing pages */}
+          <nav aria-label="Location-focused pages">
+            <h4 className="text-xs font-semibold text-stone-600 dark:text-stone-400 uppercase tracking-widest mb-4">
+              Based in Nepal
+            </h4>
+            <ul className="space-y-2.5" role="list">
+              {nepalLinks.map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href}

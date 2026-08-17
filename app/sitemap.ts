@@ -30,7 +30,7 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
 // content revamp that touched all of them together.
 const WORK_CONTENT_REVAMP_DATE = '2026-08-10'
 
-function getSlugsWithDates(dir: string): { slug: string; date?: string }[] {
+function getSlugsWithDates(dir: string): { slug: string; date?: string; updatedDate?: string }[] {
   const fullDir = path.join(process.cwd(), 'content', dir)
   if (!fs.existsSync(fullDir)) return []
   return fs
@@ -39,7 +39,7 @@ function getSlugsWithDates(dir: string): { slug: string; date?: string }[] {
     .map((filename) => {
       const raw = fs.readFileSync(path.join(fullDir, filename), 'utf-8')
       const { data } = matter(raw)
-      return { slug: filename.replace('.mdx', ''), date: data.date }
+      return { slug: filename.replace('.mdx', ''), date: data.date, updatedDate: data.updatedDate }
     })
 }
 
@@ -125,9 +125,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  const blogRoutes: MetadataRoute.Sitemap = blogPosts.map(({ slug, date }) => ({
+  const blogRoutes: MetadataRoute.Sitemap = blogPosts.map(({ slug, date, updatedDate }) => ({
     url: `${BASE_URL}/blog/${slug}`,
-    lastModified: date ? new Date(date) : undefined,
+    lastModified: updatedDate ? new Date(updatedDate) : date ? new Date(date) : undefined,
     changeFrequency: 'monthly',
     priority: 0.6,
   }))

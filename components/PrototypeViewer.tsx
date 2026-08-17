@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { X, Play } from 'lucide-react'
 
@@ -9,19 +9,54 @@ interface PrototypeViewerProps {
   label?: string
 }
 
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), textarea, input, select, iframe, [tabindex]:not([tabindex="-1"])'
+
 export default function PrototypeViewer({ url, label = 'View Interactive Prototype' }: PrototypeViewerProps) {
   const [open, setOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const dialogRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
+  // Focus the dialog on open, return focus to the trigger on close.
+  useEffect(() => {
+    if (open) {
+      dialogRef.current?.focus()
+    } else {
+      triggerRef.current?.focus()
+    }
+  }, [open])
+
   useEffect(() => {
     if (!open) return
 
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false)
+      if (e.key === 'Escape') {
+        setOpen(false)
+        return
+      }
+      if (e.key !== 'Tab') return
+
+      const dialog = dialogRef.current
+      if (!dialog) return
+      const focusable = Array.from(dialog.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR))
+      if (focusable.length === 0) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      const active = document.activeElement
+
+      if (e.shiftKey && (active === first || active === dialog)) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault()
+        first.focus()
+      }
     }
     document.addEventListener('keydown', onKeyDown)
     document.body.style.overflow = 'hidden'
@@ -37,6 +72,7 @@ export default function PrototypeViewer({ url, label = 'View Interactive Prototy
   return (
     <div className="not-prose my-10 flex justify-center">
       <button
+        ref={triggerRef}
         onClick={() => setOpen(true)}
         className="group inline-flex items-center gap-3 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/30 pl-5 pr-6 py-3 text-sm font-semibold text-amber-800 dark:text-amber-300 transition-colors hover:bg-amber-100 dark:hover:bg-amber-950/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
       >
@@ -50,10 +86,12 @@ export default function PrototypeViewer({ url, label = 'View Interactive Prototy
         open &&
         createPortal(
           <div
+            ref={dialogRef}
             role="dialog"
             aria-modal="true"
             aria-label={label}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-stone-950/90 backdrop-blur-sm p-4 sm:p-8"
+            tabIndex={-1}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-stone-950/90 backdrop-blur-sm p-4 sm:p-8 focus:outline-none"
             onClick={() => setOpen(false)}
           >
             <div

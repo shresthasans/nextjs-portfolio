@@ -93,7 +93,7 @@ export default function BlogCard({ slug, title, date, readingTime, tag, excerpt,
           {excerpt}
         </p>
 
-        <div className="flex items-center gap-2 text-[11px] text-stone-400 dark:text-stone-500 pt-2 mt-auto border-t border-stone-100 dark:border-stone-800">
+        <div className="flex items-center gap-2 text-[11px] text-stone-500 dark:text-stone-400 pt-2 mt-auto border-t border-stone-100 dark:border-stone-800">
           <time dateTime={date}>{formatDate(date)}</time>
           <span aria-hidden="true">·</span>
           <Clock size={10} aria-hidden="true" />

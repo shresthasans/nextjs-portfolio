@@ -11,6 +11,8 @@ export const allWork: CaseStudy[] = [
     type: 'Enterprise',
     year: '2019–Present',
     coverImage: '/images/work/decisions-platform/hero.webp',
+    imageAlt:
+      'Four Decisions AI mobile screens: weekly meeting list, itemized agenda, meeting files and notes, and a secure vote in progress with Yes/No/Abstain options',
     metaLabel: 'Active Client Project • Mobile App',
     productName: 'Decisions AI',
     caseStudyTitle: 'The Meeting Platform I Lead Mobile Design For',
@@ -33,6 +35,8 @@ export const allWork: CaseStudy[] = [
     type: 'SaaS',
     year: '2018',
     coverImage: '/images/work/pagevamp/hero.webp',
+    imageAlt:
+      'A restaurant’s old Facebook Page next to the modern, responsive website Pagevamp generated from it, shown on desktop and mobile',
     metaLabel: 'Client Project • SaaS',
     productName: 'Pagevamp',
     caseStudyTitle: 'Fixing the First Five Minutes',
@@ -56,6 +60,8 @@ export const allWork: CaseStudy[] = [
     type: 'SaaS',
     year: '2021',
     coverImage: '/images/work/streamshare/hero.webp',
+    imageAlt:
+      'Streamshare app concept showing a map of nearby live streams, an in-progress live broadcast, and a genre-based explore screen',
     metaLabel: 'Personal Project • Concept',
     productName: 'Streamshare',
     caseStudyTitle: 'Rethinking Live Content Discovery',
@@ -78,6 +84,7 @@ export const allWork: CaseStudy[] = [
     type: 'SaaS',
     year: '2026',
     coverImage: '/images/work/linkedin/hero.webp',
+    imageAlt: 'Side-by-side comparison of the original LinkedIn homepage feed and its redesigned version',
     metaLabel: 'Self-Initiated Project • Audit & Redesign',
     productName: 'LinkedIn Homepage Feed Redesign',
     caseStudyTitle: 'Giving Every Pixel a Job',

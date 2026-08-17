@@ -9,14 +9,14 @@ import { allWork } from '@/lib/work-data'
 export const metadata: Metadata = {
   title: 'UX/UI Designer in Nepal',
   description:
-    'UX/UI designer in Nepal covering the full process — user research, strategy and information architecture through to interface design. Case studies from Pagevamp, LinkedIn and Streamshare.',
+    'UX/UI designer in Nepal covering the full process — research, strategy and IA through to interface design. Case studies from Pagevamp, LinkedIn and Streamshare.',
   alternates: {
     canonical: 'https://sanjayshrestha.com/ux-ui-designer-nepal',
   },
   openGraph: {
     title: 'UX/UI Designer in Nepal | Sanjay Shrestha',
     description:
-      'UX/UI designer in Nepal covering the full process — user research, strategy and information architecture through to interface design. Case studies from Pagevamp, LinkedIn and Streamshare.',
+      'UX/UI designer in Nepal covering the full process — research, strategy and IA through to interface design. Case studies from Pagevamp, LinkedIn and Streamshare.',
     url: 'https://sanjayshrestha.com/ux-ui-designer-nepal',
     images: ['/og-image.jpg'],
   },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'UX/UI Designer in Nepal | Sanjay Shrestha',
     description:
-      'UX/UI designer in Nepal covering the full process — user research, strategy and information architecture through to interface design. Case studies from Pagevamp, LinkedIn and Streamshare.',
+      'UX/UI designer in Nepal covering the full process — research, strategy and IA through to interface design. Case studies from Pagevamp, LinkedIn and Streamshare.',
     images: ['/og-image.jpg'],
   },
 }
@@ -76,7 +76,7 @@ export default function UxUiDesignerNepalPage() {
       '@type': 'Person',
       '@id': 'https://sanjayshrestha.com/#person',
       name: 'Sanjay Shrestha',
-      jobTitle: 'UX/UI Designer',
+      jobTitle: 'Senior Product Designer',
       url: 'https://sanjayshrestha.com/ux-ui-designer-nepal',
       image: 'https://sanjayshrestha.com/images/profile/sanjay.webp',
       address: {

@@ -234,7 +234,7 @@ export default function ProductDesignerNepalPage() {
                 <a href={href} target="_blank" rel="noopener noreferrer" aria-label={name}>
                   <Image
                     src={logo}
-                    alt={name}
+                    alt=""
                     width={width}
                     height={height}
                     style={{ width: `${width}px`, height: `${height}px` }}

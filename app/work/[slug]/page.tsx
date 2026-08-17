@@ -173,7 +173,7 @@ function WireframePlaceholder() {
             <div className="h-4 w-2/3 rounded bg-stone-300 dark:bg-stone-700" />
           </div>
           <div className="px-2 pb-2">
-            <span className="text-[8px] font-medium text-stone-400 dark:text-stone-600 uppercase tracking-wider">
+            <span className="text-[8px] font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wider">
               {label}
             </span>
           </div>
@@ -209,7 +209,7 @@ function UserFlowPlaceholder() {
         {/* Divider with label */}
         <div className="flex items-center gap-3">
           <div className="flex-1 border-t border-dashed border-stone-200 dark:border-stone-700" />
-          <span className="text-[10px] text-stone-400 dark:text-stone-600 uppercase tracking-widest">
+          <span className="text-[10px] text-stone-500 dark:text-stone-400 uppercase tracking-widest">
             branches
           </span>
           <div className="flex-1 border-t border-dashed border-stone-200 dark:border-stone-700" />

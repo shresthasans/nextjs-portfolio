@@ -11,24 +11,24 @@ import CaseStudyCard from '@/components/CaseStudyCard'
 import { allWork } from '@/lib/work-data'
 
 export const metadata: Metadata = {
-  title: 'AI UX Designer in Nepal | Human-Centered AI Product Design',
+  title: 'AI UX Designer in Nepal for Human-Centered AI',
   description:
-    'AI UX designer in Nepal designing AI products people can understand and trust — confidence, editable output, explainability and fallback states, from real enterprise AI work.',
+    'AI UX designer in Nepal, designing AI products people trust — confidence, editable output, explainability, and fallback states from real enterprise work.',
   alternates: {
     canonical: 'https://sanjayshrestha.com/ai-ux-design-nepal',
   },
   openGraph: {
-    title: 'AI UX Designer in Nepal | Human-Centered AI Product Design',
+    title: 'AI UX Designer in Nepal for Human-Centered AI',
     description:
-      'AI UX designer in Nepal designing AI products people can understand and trust — confidence, editable output, explainability and fallback states, from real enterprise AI work.',
+      'AI UX designer in Nepal, designing AI products people trust — confidence, editable output, explainability, and fallback states from real enterprise work.',
     url: 'https://sanjayshrestha.com/ai-ux-design-nepal',
     images: ['/og-image.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI UX Designer in Nepal | Human-Centered AI Product Design',
+    title: 'AI UX Designer in Nepal for Human-Centered AI',
     description:
-      'AI UX designer in Nepal designing AI products people can understand and trust — confidence, editable output, explainability and fallback states, from real enterprise AI work.',
+      'AI UX designer in Nepal, designing AI products people trust — confidence, editable output, explainability, and fallback states from real enterprise work.',
     images: ['/og-image.jpg'],
   },
 }
@@ -102,7 +102,7 @@ export default function AiUxDesignNepalPage() {
       '@type': 'Person',
       '@id': 'https://sanjayshrestha.com/#person',
       name: 'Sanjay Shrestha',
-      jobTitle: 'AI UX Designer',
+      jobTitle: 'Senior Product Designer',
       url: 'https://sanjayshrestha.com/ai-ux-design-nepal',
       image: 'https://sanjayshrestha.com/images/profile/sanjay.webp',
       address: {
