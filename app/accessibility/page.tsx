@@ -44,11 +44,11 @@ export default function AccessibilityPage() {
           <p>
             This site targets conformance with{' '}
             <a
-              href="https://www.w3.org/WAI/WCAG21/quickref/"
+              href="https://www.w3.org/WAI/WCAG22/quickref/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              WCAG 2.1 Level AA
+              WCAG 2.2 Level AA
             </a>
             . That includes sufficient color contrast in both light and dark mode, full keyboard
             navigability, visible focus states, semantic heading structure, and alt text on meaningful

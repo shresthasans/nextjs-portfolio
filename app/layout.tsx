@@ -158,7 +158,7 @@ export default function RootLayout({
           <main id="main-content">{children}</main>
           <Footer />
         </ThemeProvider>
-        <GoogleAnalytics gaId="G-6LG770RY6S" />
+        <GoogleAnalytics gaId="G-2JWGG06GGX" />
       </body>
     </html>
   )

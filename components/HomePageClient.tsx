@@ -13,6 +13,7 @@ import { CUA_VERIFY_URL } from '@/lib/constants'
 import { clients } from '@/lib/clients'
 import { homeFaqs } from '@/lib/home-faqs'
 import FAQAccordion from '@/components/FAQAccordion'
+import Testimonials from '@/components/Testimonials'
 
 const FEATURED_SLUGS = ['decisions-ai-mobile-meeting-app', 'linkedin-feed-redesign', 'streamshare-streaming-app-design']
 
@@ -418,7 +419,7 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
         <div className="container-portfolio">
           <AnimatedSection>
             <p className="text-xs font-semibold text-stone-600 dark:text-stone-400 uppercase tracking-widest text-center mb-10">
-              Trusted by
+              Worked With
             </p>
           </AnimatedSection>
           <StaggerContainer className="flex flex-wrap items-center justify-center gap-10 sm:gap-14">
@@ -439,6 +440,8 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
           </StaggerContainer>
         </div>
       </section>
+
+      <Testimonials />
 
       {/* About teaser */}
       <section className="py-28">
