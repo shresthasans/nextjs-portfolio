@@ -80,6 +80,7 @@ const nextConfig = {
       // Legacy URLs from previous site versions (pre-Next.js rebuild), found via Wayback Machine
       // since Search Console history isn't available here. Genuinely gone content (no current
       // equivalent) is handled as 410 in middleware.ts instead of redirected — see comment there.
+      { source: '/index.html', destination: '/', permanent: true },
       { source: '/about.html', destination: '/about', permanent: true },
       { source: '/contact.html', destination: '/contact', permanent: true },
       { source: '/contact.php', destination: '/contact', permanent: true },
