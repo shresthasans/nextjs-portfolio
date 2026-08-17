@@ -15,7 +15,7 @@ import { homeFaqs } from '@/lib/home-faqs'
 import FAQAccordion from '@/components/FAQAccordion'
 import Testimonials from '@/components/Testimonials'
 
-const FEATURED_SLUGS = ['pagevamp-onboarding-redesign', 'decisions-ai-mobile-meeting-app', 'linkedin-feed-redesign', 'streamshare-streaming-app-design']
+const FEATURED_SLUGS = ['pagevamp-onboarding-redesign', 'decisions-ai-mobile-meeting-app', 'linkedin-feed-redesign']
 
 const featuredWork = FEATURED_SLUGS
   .map((slug) => allWork.find((w) => w.slug === slug))
