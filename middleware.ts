@@ -36,6 +36,10 @@ const GONE_EXACT = new Set([
   '/projects/portfolio/v2',
   '/beta',
   '/psm',
+  '/projects/streamshare.html',
+  '/projects/zm',
+  '/feed',
+  '/contact/about.html',
 ])
 
 const GONE_PREFIXES = [
@@ -64,6 +68,16 @@ export async function middleware(request: NextRequest) {
     })
   }
 
+  // Strip trailing slashes (e.g. /contact/ -> /contact) so Google doesn't treat the two
+  // as near-duplicate URLs. Runs after the GONE check above so retired URLs still 410
+  // instead of redirecting to a stripped path that would then itself need to 410.
+  const rawPathname = request.nextUrl.pathname
+  if (rawPathname.length > 1 && rawPathname.endsWith('/')) {
+    const url = request.nextUrl.clone()
+    url.pathname = rawPathname.slice(0, -1)
+    return NextResponse.redirect(url, 308)
+  }
+
   return NextResponse.next()
 }
 
@@ -81,5 +95,7 @@ export const config = {
     '/liabilities/:path*',
     '/beta',
     '/psm',
+    '/feed',
+    '/contact/:path*',
   ],
 }
