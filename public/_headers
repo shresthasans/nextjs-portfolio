@@ -1,4 +1,18 @@
 # https://developers.cloudflare.com/workers/static-assets/headers
 # https://opennext.js.org/cloudflare/caching#static-assets-caching
+# Cloudflare applies the most specific matching rule per request, so ordering
+# here doesn't matter — but each block below is scoped to its own path prefix.
+
+# Hashed build output: filenames change every build, so caching forever is safe.
 /_next/static/*
   Cache-Control: public,max-age=31536000,immutable
+
+# Images are stable but not content-hashed — cache long, but skip `immutable`
+# so a rare in-place file swap can still be picked up via revalidation.
+/images/*
+  Cache-Control: public,max-age=31536000
+
+# HTML routes: short-lived so a new deploy is visible right away instead of
+# sitting behind a long edge/browser cache.
+/*
+  Cache-Control: public,max-age=0,must-revalidate

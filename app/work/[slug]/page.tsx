@@ -865,6 +865,34 @@ export default async function CaseStudyPage({
           </div>
         </section>
       )}
+
+      {/* CTA */}
+      <section className="py-20">
+        <div className="container-portfolio">
+          <AnimatedSection>
+            <div className="rounded-3xl bg-stone-900 dark:bg-stone-800 p-12 sm:p-16 text-center space-y-6">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-stone-800 dark:bg-stone-700 rounded-full mb-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-xs text-stone-300 font-medium">Based in Kathmandu, Nepal</span>
+              </div>
+              <h2 className="font-heading text-4xl sm:text-5xl font-bold text-stone-50 tracking-tight max-w-xl mx-auto text-balance">
+                Let&apos;s build something meaningful together.
+              </h2>
+              <p className="text-stone-400 max-w-2xl mx-auto">
+                Whether you&apos;re building a new product, improving an existing experience, or
+                exploring AI-powered workflows, I&apos;d love to hear what you&apos;re working on.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium text-sm transition-colors duration-200 cursor-pointer"
+              >
+                Get in Touch
+                <ArrowRight size={15} aria-hidden="true" />
+              </Link>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
     </>
   )
 }

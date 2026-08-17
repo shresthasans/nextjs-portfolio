@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import type { BlogPost } from './BlogCard'
 
 type Tag = BlogPost['tag']
