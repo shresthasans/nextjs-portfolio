@@ -6,6 +6,7 @@ import Lightbox from 'yet-another-react-lightbox'
 import Captions from 'yet-another-react-lightbox/plugins/captions'
 import 'yet-another-react-lightbox/plugins/captions.css'
 import { ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react'
+import { getBlurDataURL } from '@/lib/blur-data'
 
 interface Slide {
   src: string
@@ -77,6 +78,8 @@ export default function MediaCarousel({ images }: MediaCarouselProps) {
                   sizes="(max-width: 1024px) 100vw, 800px"
                   style={{ objectFit: 'cover', objectPosition: 'top' }}
                   priority={i === 0}
+                  placeholder={getBlurDataURL(img.src) ? 'blur' : 'empty'}
+                  blurDataURL={getBlurDataURL(img.src)}
                 />
               </div>
             ))}

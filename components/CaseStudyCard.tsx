@@ -4,6 +4,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { clsx } from 'clsx'
 import AnimatedSection from '@/components/AnimatedSection'
 import MediaFrame from '@/components/MediaFrame'
+import { getBlurDataURL } from '@/lib/blur-data'
 
 export interface CaseStudy {
   slug: string
@@ -73,6 +74,8 @@ export default function CaseStudyCard({
             fill
             className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            placeholder={getBlurDataURL(coverImage) ? 'blur' : 'empty'}
+            blurDataURL={getBlurDataURL(coverImage)}
           />
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-stone-100 to-stone-200 dark:from-stone-800 dark:to-stone-900 flex items-center justify-center">
@@ -142,6 +145,8 @@ function VisualBlock({ study }: { study: CaseStudy }) {
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 62vw"
+            placeholder={getBlurDataURL(study.coverImage) ? 'blur' : 'empty'}
+            blurDataURL={getBlurDataURL(study.coverImage)}
           />
         </div>
       </MediaFrame>

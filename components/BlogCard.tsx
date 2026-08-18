@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { ArrowUpRight, Clock } from 'lucide-react'
 import { clsx } from 'clsx'
 import TagGraphic from './TagGraphic'
+import { getBlurDataURL } from '@/lib/blur-data'
 
 export interface BlogPost {
   slug: string
@@ -61,6 +62,8 @@ export default function BlogCard({ slug, title, date, readingTime, tag, excerpt,
             fill
             className="object-cover group-hover:scale-[1.03] transition-transform duration-300"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            placeholder={getBlurDataURL(coverImage) ? 'blur' : 'empty'}
+            blurDataURL={getBlurDataURL(coverImage)}
           />
         </div>
       ) : (

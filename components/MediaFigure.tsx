@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Lightbox from 'yet-another-react-lightbox'
 import { ZoomIn } from 'lucide-react'
+import { getBlurDataURL } from '@/lib/blur-data'
 
 interface MediaFigureProps {
   src: string
@@ -31,6 +32,8 @@ export default function MediaFigure({ src, alt, caption }: MediaFigureProps) {
             fill
             sizes="(max-width: 1024px) 100vw, 800px"
             style={{ objectFit: 'cover', objectPosition: 'top' }}
+            placeholder={getBlurDataURL(src) ? 'blur' : 'empty'}
+            blurDataURL={getBlurDataURL(src)}
           />
           <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/20 transition-colors duration-300 flex items-center justify-center">
             <ZoomIn

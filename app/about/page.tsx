@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Award, MapPin, ArrowRight } from 'lucide-react'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/AnimatedSection'
 import { CUA_VERIFY_URL } from '@/lib/constants'
+import { getBlurDataURL } from '@/lib/blur-data'
 
 export const metadata: Metadata = {
   title: { absolute: 'About Sanjay Shrestha | Senior Product Designer' },
@@ -281,6 +282,8 @@ export default function AboutPage() {
                   fill
                   className="object-cover"
                   priority
+                  placeholder="blur"
+                  blurDataURL={getBlurDataURL('/images/profile/sanjay.webp')}
                 />
               </div>
 

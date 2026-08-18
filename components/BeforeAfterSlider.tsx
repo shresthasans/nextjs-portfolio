@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState } from 'react'
 import Image from 'next/image'
+import { getBlurDataURL } from '@/lib/blur-data'
 
 interface BeforeAfterSliderProps {
   before: string
@@ -65,6 +66,8 @@ export default function BeforeAfterSlider({
           fill
           className="object-cover pointer-events-none"
           sizes="(max-width: 1024px) 100vw, 800px"
+          placeholder={getBlurDataURL(after) ? 'blur' : 'empty'}
+          blurDataURL={getBlurDataURL(after)}
         />
 
         <div
@@ -77,6 +80,8 @@ export default function BeforeAfterSlider({
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 800px"
+            placeholder={getBlurDataURL(before) ? 'blur' : 'empty'}
+            blurDataURL={getBlurDataURL(before)}
           />
         </div>
 

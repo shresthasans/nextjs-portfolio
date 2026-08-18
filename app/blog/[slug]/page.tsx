@@ -18,6 +18,7 @@ import TableOfContents from '@/components/TableOfContents'
 import { getMDXComponents } from '@/components/mdx-components'
 import MediaFigure from '@/components/MediaFigure'
 import FAQAccordion from '@/components/FAQAccordion'
+import { getBlurDataURL } from '@/lib/blur-data'
 import { extractHeadings } from '@/lib/toc'
 import { getCluster } from '@/lib/cluster-data'
 
@@ -276,6 +277,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               fill
               className="object-contain"
               priority
+              placeholder={getBlurDataURL(fm.coverImage ?? tagCoverImage[fm.tag]) ? 'blur' : 'empty'}
+              blurDataURL={getBlurDataURL(fm.coverImage ?? tagCoverImage[fm.tag])}
             />
           </div>
         </AnimatedSection>

@@ -13,6 +13,7 @@ import { CUA_VERIFY_URL } from '@/lib/constants'
 import { clients } from '@/lib/clients'
 import { homeFaqs } from '@/lib/home-faqs'
 import FAQAccordion from '@/components/FAQAccordion'
+import { getBlurDataURL } from '@/lib/blur-data'
 import Testimonials from '@/components/Testimonials'
 
 const FEATURED_SLUGS = ['pagevamp-onboarding-redesign', 'decisions-ai-mobile-meeting-app', 'linkedin-feed-redesign']
@@ -457,6 +458,8 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                   fill
                   priority
                   className="object-cover"
+                  placeholder="blur"
+                  blurDataURL={getBlurDataURL('/images/profile/sanjay.webp')}
                 />
                 <div className="absolute bottom-6 left-6 right-6 p-5 bg-white/90 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-700 backdrop-blur-sm">
                   <p className="font-heading font-semibold text-stone-900 dark:text-stone-50 text-sm mb-1">

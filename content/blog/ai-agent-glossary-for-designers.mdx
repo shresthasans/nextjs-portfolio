@@ -1,0 +1,184 @@
+---
+title: "The AI Agent Glossary Every Designer Needs in 2026"
+seoTitle: "15 AI Agent Terms Every Designer Should Know"
+date: "2026-08-18"
+readingTime: "8 min read"
+tag: "Agent UX"
+cluster: "ai-product-design"
+excerpt: "Agent, orchestration, grounding, guardrails — agentic AI vocabulary is spreading through product meetings. Here's what each term means for design work."
+slug: "ai-agent-glossary-for-designers"
+coverImage: "/images/blog/ai-agent-glossary-for-designers.webp"
+---
+
+Sit in on enough product meetings this year and you'll hear a new vocabulary creeping into the conversation — one that used to belong strictly to engineering. _Orchestration._ _Grounding._ _Human-in-the-loop._ Nobody stops to define them, and nodding along without knowing what they mean is a fast way to miss the actual design decision buried inside the jargon.
+
+**None of these fifteen terms require an engineering background to use well.** They require knowing what each one changes about the product you're designing. This is the glossary version: fifteen terms, grouped by what they actually govern, written for the person deciding how the thing behaves — not the person implementing it.
+
+## Group 1: how an agent actually gets things done
+
+These five describe the machinery underneath — what separates "an agent" from a chatbot that answers questions and stops.
+
+<MediaFigure
+  src="/images/blog/how-agents-get-things-done.webp"
+  alt="Diagram of an agent, agentic workflow, tool use, orchestration, and multi-agent system working together"
+  caption="The five building blocks that let an agent act, not just answer."
+/>
+
+### Agent
+
+_Software that pursues a goal on its own, rather than only responding when asked._
+
+An agent perceives its situation, decides what to do next, and acts — in a loop, without a person prompting each individual step. That's the line that separates it from a traditional feature: a search bar responds to a query, an agent pursues an outcome.
+
+### Agentic workflow
+
+_A goal broken into steps the agent runs on its own, checking its own progress until the job is done._
+
+Instead of one request and one response, the agent plans a sequence and works through it, adjusting as it goes. The design question shifts accordingly — you're no longer shaping a single output, you're shaping **what "finished" is allowed to mean** before the agent decides it's done.
+
+### Tool use (function calling)
+
+_The agent calling real tools and APIs — search, send, book — to affect the world beyond generating text._
+
+This is what makes an agent more than a very articulate chatbot. A model that can only talk gives advice. A model that can call a tool can actually send the email, book the appointment, or update the record — which is exactly why the guardrails around tool use matter more than the guardrails around a text reply.
+
+### Orchestration
+
+_Coordinating steps, tools, and agents so a single, coherent outcome comes out the other end._
+
+> Orchestration is the layer that decides sequencing — what happens first, what waits for what, and what happens if step three fails halfway through.
+
+For design, this is where a lot of invisible failure modes live: a well-behaved agent inside a poorly orchestrated sequence can still produce a broken experience, because the breakdown is between steps, not inside any one of them.
+
+### Multi-agent system
+
+_Several specialized agents working together — a planner, a worker, and a checker, for example._
+
+Instead of one generalist agent trying to do everything, a multi-agent system splits the job the way a team would: one plans, one executes, one verifies. **The design implication is the handoffs between them become a real UX surface** — what happens when the checker disagrees with the worker is a design decision, not just an engineering one.
+
+## Group 2: where its context actually comes from
+
+An agent's output is only as good as what it can see. These five terms describe _what it knows_ and _where that knowledge comes from_ — arguably the group most directly design-adjacent, because context gaps show up to users as confusion or wrong answers.
+
+<MediaFigure
+  src="/images/blog/where-agent-context-comes-from-hero.webp"
+  alt="Diagram of context window, memory, RAG, grounding, and MCP feeding an agent's knowledge"
+  caption="Where an agent's answers actually come from — context window, memory, RAG, grounding, and MCP."
+/>
+
+### Context window
+
+_Everything the model can process as context at a given time — and it's finite._
+
+As a conversation or task grows, older information may need to be summarized, retrieved again, or dropped entirely to make room. **Design implication:** a long-running agent interaction isn't infinite memory by default. Somewhere, older context is being managed, compressed, or forgotten — and the user experience of that forgetting is worth designing on purpose, not discovering by accident.
+
+### Memory
+
+_Information an agent stores and retrieves beyond the immediate context, enabling continuity across interactions._
+
+Memory is what lets an agent remember your preference from last week without you restating it. It's also where a genuinely difficult design problem lives: how does a user see what the agent remembers about them, and how do they correct it when it's wrong?
+
+### RAG (retrieval-augmented generation)
+
+_Pulling in relevant documents or data at answer time to ground a response in real facts._
+
+Instead of relying only on what a model learned during training, RAG fetches current, specific information — a policy document, a product spec, a customer's account history — and feeds it in before the model answers. This is one of the more effective tools against a model confidently making things up, because it gives the answer something real to point back to.
+
+### Grounding
+
+_Connecting an agent's responses to relevant external information — documents, databases, retrieved sources — to improve factual reliability._
+
+Grounding and RAG are closely related; RAG is one common way to _achieve_ grounding. The distinction worth holding onto for design purposes: **an ungrounded agent is answering from vibes, however articulate those vibes sound.** Any interface that lets a user see or check the source behind an answer is doing grounding work at the UX layer, not just the model layer.
+
+### MCP (Model Context Protocol)
+
+_A shared standard for connecting agents to outside tools and data sources._
+
+MCP is plumbing, not a design decision by itself — but it's the plumbing that determines what an agent is actually capable of reaching. [Anthropic introduced MCP](https://www.anthropic.com/news/model-context-protocol) as a common way for AI systems to connect to the tools and data they need, the same way a universal port replaces a drawer full of incompatible cables. Worth knowing the name if a teammate mentions it — it usually means "what can this agent actually plug into," which is a real constraint on what you can design around it.
+
+## Group 3: keeping it safe and keeping it human
+
+The last five aren't about capability. They're about trust — the terms that come up whenever the conversation turns to _how much should this thing be allowed to do on its own._
+
+<MediaFigure
+  src="/images/blog/keeping-agents-safe-and-human.webp"
+  alt="Diagram of autonomy levels, human-in-the-loop, guardrails, handoff, and hallucination as trust checkpoints"
+  caption="The five terms that govern how much an agent is trusted to do on its own."
+/>
+
+### Autonomy levels
+
+_The degree of independent action an agent is allowed to take, from assistance and recommendations up to actions requiring little or no human approval._
+
+This is rarely all-or-nothing in a well-designed system. **The honest design question isn't "should this agent be autonomous," it's "autonomous at which specific step, and supervised at which other one."** Most useful agent products are a mix, not a single dial.
+
+### Human-in-the-loop (HITL)
+
+_Checkpoints where a person reviews or approves before the agent is allowed to continue._
+
+<mark>
+  A checkpoint that exists on paper but gets rubber-stamped in practice isn't
+  oversight — it's a compliance box wearing the language of oversight.
+</mark>
+
+Designing a real HITL checkpoint means giving the reviewer enough context and enough time to actually catch a problem, not just a button between generation and shipping.
+
+### Guardrails
+
+_The rules and limits that keep behavior safe, in-policy, and on-scope._
+
+Guardrails are the boundary conditions decided in advance, so the agent isn't improvising the answer to "should I actually do this" in the middle of doing it. Where those boundaries sit — what's allowed, what needs a human, what's off-limits entirely — is a product decision as much as a safety one.
+
+### Handoff
+
+_Passing a task from agent to human, or agent to agent, with the context intact._
+
+The failure mode worth watching for isn't the handoff itself — it's a handoff that loses context on the way through, forcing the person (or agent) on the receiving end to reconstruct what already happened. **A handoff that makes someone ask "wait, what has it already tried?" is a broken handoff**, regardless of how good the underlying agent is.
+
+### Hallucination
+
+_Output that sounds confident but is simply wrong or invented._
+
+The most dangerous hallucination isn't the obviously wrong one — it's the plausible one that reads exactly like every correct answer around it. This is precisely why grounding, RAG, and human-in-the-loop review all exist: none of them make hallucination impossible, but each one gives a confidently wrong answer a chance to get caught before it ships.
+
+## Why the vocabulary is worth learning on purpose
+
+- **It changes what questions you ask in a planning meeting.** "What's the autonomy level here?" and "is this grounded or not?" are sharper, more answerable questions than "is the AI part good."
+- **It changes how you evaluate a vendor pitch.** A tool that claims to be "agentic" but can't describe its own guardrails or handoff behavior is describing a demo, not a product.
+- **It changes how you collaborate with engineering.** Shared vocabulary is the fastest way to stop a conversation from stalling on "wait, what do you mean by that."
+
+## Frequently asked questions
+
+<FAQAccordion
+  items={[
+    {
+      question:
+        "Do I need an engineering background to use these terms correctly?",
+      answer:
+        "No. Every term here describes a product or design decision, not an implementation detail. You need to know what each concept changes about user experience and trust, not how to build it.",
+    },
+    {
+      question: "What's the difference between grounding and RAG?",
+      answer:
+        "RAG is a specific technique — retrieving documents at answer time — and it's one common way to achieve grounding. Grounding is the broader goal: connecting a response to real, checkable sources. Not all grounding is done via RAG, but most RAG is done in service of grounding.",
+    },
+    {
+      question: "Is 'agentic workflow' just a rebrand of automation?",
+      answer:
+        'Related, but not identical. Traditional automation follows a fixed script. An agentic workflow plans its own steps toward a goal and adapts as it goes, which is why the design question shifts from "what should it do" to "what boundaries should it work inside."',
+    },
+    {
+      question:
+        "Which of these terms matters most for a designer just getting started with agentic AI?",
+      answer:
+        "Autonomy levels and human-in-the-loop first — they shape almost every other design decision on this list. Once those are settled, grounding and hallucination become the next most useful pair to understand, since they govern how much a user should trust what they're seeing.",
+    },
+  ]}
+/>
+
+## Before you sit in the next AI planning meeting
+
+- [ ] Pick the three terms from this list you'd have the hardest time explaining out loud
+- [ ] Ask your team which autonomy level the current agent project actually targets — not the one everyone assumes
+- [ ] Check whether your product's human-in-the-loop checkpoint is a real review or a rubber stamp
+- [ ] Bookmark this list — the vocabulary will keep showing up faster than most teams standardize on it

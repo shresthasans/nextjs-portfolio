@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react'
 import Image from 'next/image'
 import Lightbox from 'yet-another-react-lightbox'
 import { ZoomIn } from 'lucide-react'
+import { getBlurDataURL } from '@/lib/blur-data'
 
 interface GalleryProps {
   images: { src: string; alt: string }[]
@@ -53,6 +54,8 @@ export default function CaseStudyGallery({ images, title }: GalleryProps) {
               fill
               className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
               sizes="(max-width: 640px) 50vw, 33vw"
+              placeholder={getBlurDataURL(img.src) ? 'blur' : 'empty'}
+              blurDataURL={getBlurDataURL(img.src)}
             />
             <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/30 transition-colors duration-300 flex items-center justify-center">
               <ZoomIn

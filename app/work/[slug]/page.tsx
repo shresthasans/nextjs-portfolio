@@ -23,6 +23,7 @@ import { getProjectImages } from '@/lib/project-images'
 import { getMDXComponents } from '@/components/mdx-components'
 import { extractHeadings } from '@/lib/toc'
 import TableOfContents from '@/components/TableOfContents'
+import { getBlurDataURL } from '@/lib/blur-data'
 
 interface Frontmatter {
   title: string
@@ -614,6 +615,8 @@ export default async function CaseStudyPage({
                   priority
                   className="object-contain"
                   sizes="(max-width: 1280px) 100vw, 1280px"
+                  placeholder={getBlurDataURL(heroImage) ? 'blur' : 'empty'}
+                  blurDataURL={getBlurDataURL(heroImage)}
                 />
               ) : (
                 <>

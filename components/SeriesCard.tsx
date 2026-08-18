@@ -4,6 +4,7 @@ import { Layers, ArrowUpRight } from 'lucide-react'
 import { clsx } from 'clsx'
 import TagGraphic from './TagGraphic'
 import { BlogPost } from './BlogCard'
+import { getBlurDataURL } from '@/lib/blur-data'
 
 export default function SeriesCard({
   title,
@@ -39,6 +40,8 @@ export default function SeriesCard({
             fill
             className="object-cover group-hover:scale-[1.03] transition-transform duration-300"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            placeholder={getBlurDataURL(image) ? 'blur' : 'empty'}
+            blurDataURL={getBlurDataURL(image)}
           />
         </div>
       ) : (

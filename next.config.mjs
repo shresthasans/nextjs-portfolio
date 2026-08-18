@@ -2,6 +2,11 @@
 const nextConfig = {
   outputFileTracingRoot: import.meta.dirname,
   poweredByHeader: false,
+  images: {
+    // Cloudflare Images binding (wrangler.jsonc) handles real optimization/srcset
+    // in production — only the placehold.co gallery placeholders need allowlisting.
+    remotePatterns: [{ protocol: 'https', hostname: 'placehold.co' }],
+  },
   experimental: {
     mdxRs: true,
   },

@@ -8,6 +8,7 @@ import { clsx } from 'clsx'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/AnimatedSection'
 import BlogCard, { BlogPost } from '@/components/BlogCard'
 import SeriesCard from '@/components/SeriesCard'
+import { getBlurDataURL } from '@/lib/blur-data'
 import TagGraphic from '@/components/TagGraphic'
 
 type FeedItem =
@@ -118,6 +119,8 @@ function FeaturedCard({ post }: { post: BlogPost }) {
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 340px"
+            placeholder={getBlurDataURL(post.coverImage) ? 'blur' : 'empty'}
+            blurDataURL={getBlurDataURL(post.coverImage)}
           />
         </div>
       ) : (
@@ -224,6 +227,8 @@ function FeaturedSeriesCard({
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 340px"
+            placeholder={getBlurDataURL(image) ? 'blur' : 'empty'}
+            blurDataURL={getBlurDataURL(image)}
           />
         </div>
       ) : (
