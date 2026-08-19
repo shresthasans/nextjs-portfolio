@@ -459,7 +459,7 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                   src="/images/profile/sanjay.webp"
                   alt="Sanjay Shrestha, Senior Product Designer"
                   fill
-                  priority
+                  loading="lazy"
                   className="object-cover"
                   placeholder="blur"
                   blurDataURL={getBlurDataURL('/images/profile/sanjay.webp')}

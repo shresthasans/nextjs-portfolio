@@ -122,7 +122,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-stone-600 dark:text-stone-400">
+          <p className="text-xs text-stone-600 dark:text-stone-400" suppressHydrationWarning>
             &copy; {new Date().getFullYear()} Sanjay Shrestha. All rights reserved.
           </p>
           <p className="inline-flex items-center gap-1 text-xs text-stone-600 dark:text-stone-400">
