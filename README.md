@@ -107,6 +107,43 @@ Learned the hard way — each of these caused a real, silent bug at some point:
   including same-origin — those two routes needed a scoped header override to allow
   it. Copy that pattern for any new embed.
 
+## Analytics & event tracking
+
+Two tools run site-wide, both loaded in `app/layout.tsx`:
+
+- **Google Analytics 4** (`gtag`) — pageviews, traffic sources, funnels.
+- **Microsoft Clarity** (`clarity.ms`, project `xj9xba34in`) — session recordings + heatmaps.
+
+Custom click/interaction tracking goes through **one helper**: `trackEvent(name, params?)` in
+`lib/analytics.ts`. It fires the event to both GA4 and Clarity in a single call — never call
+`window.gtag` or `window.clarity` directly from a component.
+
+```tsx
+import { trackEvent } from '@/lib/analytics'
+
+<Link href="/contact" onClick={() => trackEvent('contact_click', { location: 'hero' })}>
+  Get in Touch
+</Link>
+```
+
+Existing tracked events: `contact_click` (`method`/`location` params), `view_work_click`,
+`generate_lead`, `resume_click` — see call sites in `app/contact/page.tsx`, `components/Nav.tsx`,
+`components/Footer.tsx`, `components/HomePageClient.tsx`.
+
+**Where to view the data:**
+
+- **GA4** → [analytics.google.com](https://analytics.google.com) → this property → **Reports →
+  Engagement → Events**. Click counts, filterable by date range.
+- **Clarity** → [clarity.microsoft.com](https://clarity.microsoft.com) → this project → **Filters
+  → Custom filters** → find the event under the events/smart-events list (not "Custom tags" — that's
+  a separate feature, `clarity("set", key, value")`, for labeling whole session recordings, not
+  counting clicks). Pair a Clarity event filter with recordings to *watch* the sessions where a
+  button was or wasn't clicked, not just count them.
+
+Typical loop: ship a new/changed CTA with `trackEvent`, let it collect data for 1-2 weeks, compare
+click-through rate in GA4/Clarity, redesign if underperforming, re-check with the same event name
+next period — no re-instrumentation needed since the name stays constant across redesigns.
+
 ## Environment variables
 
 Create a `.env.local` file (not committed) with any required secrets, e.g.:

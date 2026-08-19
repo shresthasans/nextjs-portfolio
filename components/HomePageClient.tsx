@@ -15,18 +15,7 @@ import { homeFaqs } from '@/lib/home-faqs'
 import FAQAccordion from '@/components/FAQAccordion'
 import { getBlurDataURL } from '@/lib/blur-data'
 import Testimonials from '@/components/Testimonials'
-
-declare global {
-  interface Window {
-    clarity?: (...args: unknown[]) => void
-  }
-}
-
-function trackClarityEvent(eventName: string) {
-  if (typeof window !== 'undefined' && typeof window.clarity === 'function') {
-    window.clarity('event', eventName)
-  }
-}
+import { trackEvent } from '@/lib/analytics'
 
 const FEATURED_SLUGS = ['pagevamp-onboarding-redesign', 'decisions-ai-mobile-meeting-app', 'linkedin-feed-redesign']
 
@@ -304,7 +293,7 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                 >
                   <Link
                     href="/work"
-                    onClick={() => trackClarityEvent('hero_view_work_click')}
+                    onClick={() => trackEvent('view_work_click', { location: 'hero' })}
                     className="inline-flex items-center gap-2 px-6 py-3.5 bg-stone-900 dark:bg-stone-50 text-stone-50 dark:text-stone-900 rounded-lg font-medium text-sm hover:bg-amber-700 dark:hover:bg-amber-400 transition-colors duration-200 cursor-pointer whitespace-nowrap"
                   >
                     View My Work
@@ -312,7 +301,7 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
                   </Link>
                   <Link
                     href="/contact"
-                    onClick={() => trackClarityEvent('hero_get_in_touch_click')}
+                    onClick={() => trackEvent('contact_click', { location: 'hero' })}
                     className="inline-flex items-center gap-2 px-6 py-3.5 bg-transparent border border-stone-200 dark:border-stone-700 text-stone-700 dark:text-stone-300 rounded-lg font-medium text-sm hover:bg-stone-100 dark:hover:bg-stone-800 hover:border-stone-300 dark:hover:border-stone-600 transition-colors duration-200 cursor-pointer whitespace-nowrap"
                   >
                     Get In Touch
@@ -591,7 +580,7 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
               </p>
               <Link
                 href="/contact"
-                onClick={() => trackClarityEvent('footer_get_in_touch_click')}
+                onClick={() => trackEvent('contact_click', { location: 'footer_cta' })}
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-medium text-sm transition-colors duration-200 cursor-pointer"
               >
                 Get in Touch
