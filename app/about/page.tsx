@@ -96,15 +96,24 @@ const timeline = [
     company: 'Decisions',
     location: 'Remote (Global)',
     description:
-      'Joined early and scaled the product from under 50 to 5,000+ enterprise customers, and helped drive $10M+ in ARR. Built the design system, design process, and UX function from scratch. Designed the Microsoft Teams and Office 365 meeting platform that now powers 50,000+ active meetings every week. Led generative AI design for Decisions AI, from concept through shipment.',
+      'Joined early and scaled the product from under 50 to **5,000+ enterprise customers**, helping drive **$10M+ in ARR**.',
+    highlights: [
+      'Built the design system, design process, and UX function from scratch.',
+      'Designed **Decisions**, an AI-powered meeting platform built for Microsoft Teams and Microsoft 365, now used across 50,000+ active meetings every week.',
+      'Led generative AI design for **Decisions AI**, from concept through shipment.',
+    ],
   },
   {
     year: '2016–2019',
     role: 'Product Designer',
     company: 'Webscale Networks (formerly MageMojo)',
     location: 'Remote (Santa Clara, US)',
-    description:
-      'Joined MageMojo as the first dedicated designer. Designed end-to-end UX for Mojo Stratus, a cloud SaaS platform for global eCommerce brands. Reduced support ticket volume by 40% through interface redesign. Post-acquisition at Webscale, worked within an Agile team and built a component library that cut developer handoff errors by 35%.',
+    description: 'Joined MageMojo as the first dedicated designer.',
+    highlights: [
+      'Designed end-to-end UX for **Stratus MaaS**, a cloud SaaS platform for global eCommerce brands.',
+      'Reduced support ticket volume by **40%** through interface redesign.',
+      'Post-acquisition at Webscale, worked within an Agile team and built a component library that cut developer handoff errors by **35%**.',
+    ],
   },
   {
     year: '2014–2016',
@@ -112,7 +121,12 @@ const timeline = [
     company: 'Microsoft',
     location: 'Hyderabad, India',
     description:
-      'Embedded in Microsoft\'s design team. Primary engagement was the Singapore CPF digital portal, a citizen-facing government platform serving 4M+ users. Delivered full WCAG 2.0 accessibility compliance. Also designed UX for Grant Thornton internal tools and Microsoft internal platforms. Received Certificate of Appreciation from Microsoft for contributions to the CPF project.',
+      "Embedded in Microsoft's design team, primarily on the **Singapore CPF digital portal**, a citizen-facing government platform serving **4M+ users**.",
+    highlights: [
+      'Delivered full WCAG 2.0 accessibility compliance.',
+      'Also designed UX for Grant Thornton internal tools and Microsoft internal platforms.',
+      'Received **Certificate of Appreciation** from Microsoft for contributions to the CPF project.',
+    ],
   },
   {
     year: '2013–2014',
@@ -128,7 +142,7 @@ const timeline = [
     company: 'Neudesic (an IBM Company)',
     location: 'Bangalore, India',
     description:
-      'Delivered UX for .NET enterprise solutions for US-based clients. Designed dashboards, forms, and data-heavy workflow interfaces. Reduced iteration time 30% by introducing rapid prototyping and design testing within Agile sprint cycles.',
+      'Delivered UX for .NET enterprise solutions for US-based clients. Designed dashboards, forms, and data-heavy workflow interfaces. Reduced iteration time **30%** by introducing rapid prototyping and design testing within Agile sprint cycles.',
   },
   {
     year: '2009–2012',
@@ -139,6 +153,18 @@ const timeline = [
       'Early career across two studios. Delivered client websites for international SMEs, built responsive WordPress themes, and designed eCommerce and content sites. Handled design through to front-end implementation end-to-end.',
   },
 ]
+
+function withBold(text: string) {
+  return text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
+    i % 2 === 1 ? (
+      <strong key={i} className="font-semibold text-stone-900 dark:text-stone-50">
+        {part}
+      </strong>
+    ) : (
+      part
+    )
+  )
+}
 
 export default function AboutPage() {
   const jsonLd = {
@@ -441,7 +467,7 @@ export default function AboutPage() {
               className="absolute left-[9px] top-2 bottom-2 w-px bg-stone-200 dark:bg-stone-800 hidden sm:block"
               aria-hidden="true"
             />
-            {timeline.map(({ year, role, company, location, description }) => (
+            {timeline.map(({ year, role, company, location, description, highlights }) => (
               <StaggerItem key={year}>
                 <div className="flex gap-8 sm:gap-12 pb-14">
                   <div className="sm:relative flex flex-col items-center">
@@ -461,8 +487,23 @@ export default function AboutPage() {
                       <strong className="font-semibold">{company}</strong> · {location}
                     </p>
                     <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed max-w-xl">
-                      {description}
+                      {withBold(description)}
                     </p>
+                    {highlights && (
+                      <ul className="mt-2.5 space-y-1.5 max-w-xl">
+                        {highlights.map((highlight) => (
+                          <li
+                            key={highlight}
+                            className="flex gap-2 text-sm text-stone-600 dark:text-stone-400 leading-relaxed"
+                          >
+                            <span className="text-amber-600 dark:text-amber-500 shrink-0" aria-hidden="true">
+                              &middot;
+                            </span>
+                            <span>{withBold(highlight)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 </div>
               </StaggerItem>
