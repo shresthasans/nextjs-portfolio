@@ -18,6 +18,7 @@ import TableOfContents from '@/components/TableOfContents'
 import { getMDXComponents } from '@/components/mdx-components'
 import MediaFigure from '@/components/MediaFigure'
 import FAQAccordion from '@/components/FAQAccordion'
+import SeriesNav from '@/components/SeriesNav'
 import { getBlurDataURL } from '@/lib/blur-data'
 import { extractHeadings } from '@/lib/toc'
 import { getCluster } from '@/lib/cluster-data'
@@ -294,11 +295,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <div className="max-w-[70ch] mx-auto prose prose-lg prose-stone dark:prose-invert prose-headings:font-heading prose-headings:tracking-tight prose-headings:leading-snug prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-a:text-amber-700 dark:prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-stone-900 dark:prose-strong:text-stone-100 prose-blockquote:border-l-amber-400 prose-blockquote:text-stone-600 dark:prose-blockquote:text-stone-400 prose-lead:text-stone-600 dark:prose-lead:text-stone-400 prose-hr:border-stone-200 dark:prose-hr:border-stone-800">
                   <MDXRemote
                     source={content}
-                    components={{ ...getMDXComponents(), MediaFigure, FAQAccordion }}
+                    components={{ ...getMDXComponents(), MediaFigure, FAQAccordion, SeriesNav }}
                     options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
                   />
                 </div>
               </AnimatedSection>
+
+              <p className="max-w-[70ch] mx-auto mt-8 pt-4 border-t border-stone-200 dark:border-stone-800 text-left text-xs italic text-stone-400 dark:text-stone-500">
+                This post was edited with AI assistance for clarity and formatting.
+              </p>
 
               {/* Author card */}
               <AnimatedSection delay={0.2} className="mt-16 max-w-[70ch] mx-auto">
