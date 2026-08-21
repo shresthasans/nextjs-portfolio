@@ -44,7 +44,7 @@ highlights:
 
 Stratus MaaS was MageMojo's control panel for Magento hosting infrastructure: DNS, SSL, caching, autoscaling, server configuration. MageMojo marketed it as built for "merchants and developers" alike, and most of what actually shipped was infrastructure-first. A developer or agency managing a merchant's store needed deep, precise access to services like cron jobs, caching, and autoscaling. A MageMojo support agent needed to answer the same questions fast, without years of infrastructure experience, and without escalating every ticket to engineering.
 
-<mark>A store owner's real contact with the panel was narrow but genuine:</mark> granting MageMojo access to their Google Analytics account, since Stratus priced plans off real session traffic, and checking or adding the domains pointed at their store. Past that one page — DNS, SSH, Cron, Redis, RabbitMQ — the interface was built for someone technical. That's the tension worth being precise about: MageMojo sold this as merchant-friendly, and for one specific page it genuinely was, while the rest of the tool stayed an infrastructure console.
+<mark>A store owner's real contact with the panel was narrow but genuine:</mark> granting MageMojo access to their Google Analytics account, since Stratus priced plans off real session traffic, and checking or adding the domains pointed at their store. Past that one page (DNS, SSH, Cron, Redis, RabbitMQ), the interface was built for someone technical. That's the tension worth being precise about: MageMojo sold this as merchant-friendly, and for one specific page it genuinely was, while the rest of the tool stayed an infrastructure console.
 
 Most hosting panels handle that split by picking a side: exhaustive and technical everywhere, or stripped down enough that support becomes a phone-based translation layer. That compromise was costing MageMojo about 80 support tickets a month and a slow bleed of technical accounts frustrated by a cluttered, inconsistent panel.
 
@@ -56,13 +56,13 @@ I led the research, information architecture, [visual system](/product-designer-
       src: "/images/work/webscale-stratus/before-after-1.webp",
       alt: "Original Stratus control panel exposing raw technical vocabulary and scattered status indicators",
       caption:
-        "Before — the original panel surfaced DNS, SSL, and server terminology upfront, with no shared entry point for less technical users.",
+        "Before: the original panel surfaced DNS, SSL, and server terminology upfront, with no shared entry point for less technical users.",
     },
     {
       src: "/images/work/webscale-stratus/before-after-2.webp",
       alt: "Redesigned Stratus control panel leading with status before configuration detail",
       caption:
-        "After — the finished Info screen, in dark mode. The Personalized Name field, replacing a raw account hash with something a support agent could actually recall, is one of the smaller decisions that mattered most day to day.",
+        "After: the finished Info screen, in dark mode. The Personalized Name field, replacing a raw account hash with something a support agent could actually recall, is one of the smaller decisions that mattered most day to day.",
     },
   ]}
 />
@@ -73,7 +73,7 @@ The panel wasn't broken for anyone who'd already learned it. The cost showed up 
 
 - **~80 support tickets a month** traced to configuration confusion (DNS, SSL, deployment settings)
 - **20+ minutes per ticket** spent re-explaining or re-diagnosing things the interface should have surfaced on its own
-- **Technical accounts** — agencies and in-house developers — frustrated enough by the panel's clutter and inconsistency to start evaluating other hosts
+- **Technical accounts** (agencies and in-house developers) frustrated enough by the panel's clutter and inconsistency to start evaluating other hosts
 
 > Left alone, MageMojo would keep losing exactly the higher-revenue technical accounts it most needed to retain, and its own support team would keep absorbing tickets a clearer screen could have prevented.
 
@@ -87,7 +87,7 @@ I didn't know whether developers would tolerate a calmer surface, whether suppor
 
 Five conversations shaped this project: two store owners (~$500K/year and $10M+/year), one CTO managing infrastructure for a merchant account, and two MageMojo support agents.
 
-The store owners' actual contact with the panel was thin but real: mostly the Urls list, granting GA access, checking a domain. Both said that was the one part of the "control panel" they ever touched themselves; everything past it belonged to their developer or an agency. Their conversations were less about that one screen and more about what it cost their business when a confusing DNS issue — something they'd never touch directly — left a storefront degraded for hours.
+The store owners' actual contact with the panel was thin but real: mostly the Urls list, granting GA access, checking a domain. Both said that was the one part of the "control panel" they ever touched themselves; everything past it belonged to their developer or an agency. Their conversations were less about that one screen and more about what it cost their business when a confusing DNS issue, something they'd never touch directly, left a storefront degraded for hours.
 
 The CTO and the support agents lived across the rest of the interface daily, and that's where most of the design insight came from.
 
@@ -110,13 +110,13 @@ The surprise wasn't that they wanted different things. <mark>It's that all three
 
 This was never simplicity versus power across three equal audiences. It was sequencing, for people using the same screen at very different depths. The CTO, the support agents, and the store owners on their one page all wanted the same first answer, and diverged only on how much came after it, and how fast.
 
-> That reframed the brief: build around the real order everyone needed information in — status, then action, then configuration detail — so a store owner checking on a domain, a support agent triaging a ticket, and a CTO configuring services deep in the stack could all work from the identical screen without any of them feeling like it was built for someone else.
+> That reframed the brief: build around the real order everyone needed information in (status, then action, then configuration detail), so a store owner checking on a domain, a support agent triaging a ticket, and a CTO configuring services deep in the stack could all work from the identical screen without any of them feeling like it was built for someone else.
 
 ## Exploring Solutions
 
 Three concepts, sketched and evaluated against how the CTO, support agents, and store owners each actually used the existing panel, before committing to one:
 
-**Guided wizard.** Simple to follow, but rigid. Any account with a non-standard setup — and a good share of merchant accounts had at least one — would need to deviate from the happy path, and a wizard has no good answer for deviation.
+**Guided wizard.** Simple to follow, but rigid. Any account with a non-standard setup (and a good share of merchant accounts had at least one) would need to deviate from the happy path, and a wizard has no good answer for deviation.
 
 **Everything visible at once.** Full transparency, close to what already existed. It's what the CTO said he wanted when asked directly, but it recreated the exact overwhelm that was slowing support down, and would have buried the one flag a store owner actually came to check under a screen of settings that weren't theirs to touch.
 
@@ -134,7 +134,7 @@ Three concepts, sketched and evaluated against how the CTO, support agents, and 
       src: "/images/work/webscale-stratus/wireframe-3.webp",
       alt: "Low-fidelity wireframe of a scoped add-record form",
       caption:
-        "A scoped, single-purpose add-record form — one of the interaction patterns that replaced a single general-purpose DNS editor.",
+        "A scoped, single-purpose add-record form, one of the interaction patterns that replaced a single general-purpose DNS editor.",
     },
     {
       src: "/images/work/webscale-stratus/wireframe-4.webp",
@@ -161,11 +161,11 @@ Four decisions carried the redesign.
 
 ### 2. Replace one monolithic DNS form with scoped, single-purpose actions
 
-**Problem:** DNS configuration bundles several genuinely different record types (CNAME, TXT, A, MX, nameservers), each needing different fields. Presenting it as one general-purpose form made it easy for a support agent — or even a developer moving fast — to fill in the wrong fields for the wrong record type.
+**Problem:** DNS configuration bundles several genuinely different record types (CNAME, TXT, A, MX, nameservers), each needing different fields. Presenting it as one general-purpose form made it easy for a support agent, or even a developer moving fast, to fill in the wrong fields for the wrong record type.
 
 **Alternatives:** Keep a single unified DNS editor exposing every field for every record type at once. More transparent on paper, but that transparency was exactly what kept generating the misconfiguration tickets.
 
-**Why this approach:** Split DNS management into distinct, scoped entry points — add a CNAME, add a root record, add an MX record, add other records — each showing only the fields that record type actually needs, sortable and filterable once a list grew long.
+**Why this approach:** Split DNS management into distinct, scoped entry points (add a CNAME, add a root record, add an MX record, add other records), each showing only the fields that record type actually needs, sortable and filterable once a list grew long.
 
 > **Impact:** Fewer configuration errors at the single most cited source of support tickets: DNS misconfiguration.
 
@@ -177,21 +177,21 @@ Four decisions carried the redesign.
 
 ### 3. A component system where color and type carry meaning, and status speaks only by exception
 
-**Problem:** Across 25+ screens, developers, support agents, and the occasional store owner all needed to tell health from trouble at a glance. The existing panel instead repeated the same status questions on every row regardless of outcome — the old Urls list asked "DNS pointed to Stratus?", "GA code on URL?", and "GA access granted?" for every entry, every time. That last question mattered more than it looked: Stratus priced plans off real session traffic pulled from a store's Google Analytics account, so a broken GA connection wasn't a technical footnote, it was a billing problem, and often the one thing on this entire screen a store owner, not a developer, was the right person to fix.
+**Problem:** Across 25+ screens, developers, support agents, and the occasional store owner all needed to tell health from trouble at a glance. The existing panel instead repeated the same status questions on every row regardless of outcome: the old Urls list asked "DNS pointed to Stratus?", "GA code on URL?", and "GA access granted?" for every entry, every time. That last question mattered more than it looked. Stratus priced plans off real session traffic pulled from a store's Google Analytics account, so a broken GA connection was a billing problem, and often the one thing on this entire screen a store owner, not a developer, was the right person to fix.
 
 **Alternatives:** Keep restating every check on every row. Thorough, but it makes a healthy account look exactly as busy as a broken one, and a busy screen is slow to scan for anyone, technical or not.
 
-**Why this approach:** A semantic color system — a colored status border per row, a monospace-adjacent treatment for technical values — paired with only surfacing a text explanation when something needed attention (a flag reading "GA Access restricted" instead of three always-on questions). 30+ components documented against this system.
+**Why this approach:** A semantic color system (a colored status border per row, a monospace-adjacent treatment for technical values) paired with only surfacing a text explanation when something needed attention (a flag reading "GA Access restricted" instead of three always-on questions). 30+ components documented against this system.
 
 > **Impact:** Developers described the shipped product as showing "everything without clutter." Support staff could scan a list of accounts and know immediately which ones needed a developer versus a quick nudge to the store owner to re-grant GA access.
 
 ### 4. Read-only by default, expandable to full technical depth
 
-**Problem:** Support agents and store owners both needed enough visibility to answer a question, or confirm their own account was fine, without risking a change to a live setting. Developers needed the same screen to go all the way down to deep service configuration when they wanted it — though never literal root server access, which Stratus never granted even to developers, to preserve PCI compliance.
+**Problem:** Support agents and store owners both needed enough visibility to answer a question, or confirm their own account was fine, without risking a change to a live setting. Developers needed the same screen to go all the way down to deep service configuration when they wanted it, though never literal root server access, which Stratus never granted even to developers, to preserve PCI compliance.
 
 **Alternatives:** A distinct developer mode, functionally a second product. Ruled out for fragmenting the interface and reintroducing the exact split the project was meant to remove.
 
-**Why this approach:** Settings loaded read-only first, expandable in place inside the same navigation, with an editable "Personalized Name" replacing the raw account hash as the one thing everyone — support included — needed to identify an account quickly.
+**Why this approach:** Settings loaded read-only first, expandable in place inside the same navigation, with an editable "Personalized Name" replacing the raw account hash as the one thing everyone, support included, needed to identify an account quickly.
 
 > **Impact:** Developers and support staff both reached full adoption on the same interface, with no separate mode required.
 
@@ -201,7 +201,7 @@ Four rounds of testing, each driving a structural change:
 
 - **Round 1** (3 users: the CTO and two support agents, wireframes): confirmed both groups lead with "is everything okay." Dashboard restructured around status.
 - **Round 2** (4 users, visual + copy): field labels like "Docroot" and "Instance Type" weren't self-explanatory even to support agents who used the panel daily. Contextual help added throughout.
-- **Rounds 3-4** (full review): advanced settings consolidated, change history added, ambiguous icons clarified. The Urls list — the one page store owners actually touched — was checked separately against what the two store owners said they needed to see there.
+- **Rounds 3-4** (full review): advanced settings consolidated, change history added, ambiguous icons clarified. The Urls list, the one page store owners actually touched, was checked separately against what the two store owners said they needed to see there.
 
 The clearest before-and-after is the URLs List page: three always-on checklist questions per row, replaced by a color-coded border and a plain-text flag that only appears when something needs attention.
 
@@ -229,7 +229,7 @@ Shipped in month six: desktop-optimized, responsive, WCAG 2.1 AA compliant, 25+ 
 
 ## Reflection
 
-The biggest lesson: <mark>a shared first question can hold together very different depths of use,</mark> from someone who lives in an interface every day to someone who opens it once a quarter for one task. I started out framing this as simplicity versus power across three equal audiences, then swung the other way while rebuilding this case study and nearly cut the store owner out of the story entirely once the screens made clear how technical most of the interface really was. The accurate answer sat in between: MageMojo's own marketing named merchants as intended users of this panel, and the surviving screens show exactly one page — granting Google Analytics access, checking a domain — that a store owner plausibly touched themselves. Getting that right took going back to the product's actual marketing, not just the screens, and I'd rather show that correction than paper over it.
+The biggest lesson: <mark>a shared first question can hold together very different depths of use,</mark> from someone who lives in an interface every day to someone who opens it once a quarter for one task. I started out framing this as simplicity versus power across three equal audiences, then swung the other way while rebuilding this case study and nearly cut the store owner out of the story entirely once the screens made clear how technical most of the interface really was. The accurate answer sat in between: MageMojo's own marketing named merchants as intended users of this panel, and the surviving screens show exactly one page, granting Google Analytics access and checking a domain, that a store owner plausibly touched themselves. Getting that right took going back to the product's actual marketing, not just the screens, and I'd rather show that correction than paper over it.
 
 The second lesson: don't restate a status, flag it. The single highest-leverage change in testing wasn't a new feature. It was refusing to show the same passing checks on every healthy row, and only speaking up when something needed a human's attention, whichever human that was.
 

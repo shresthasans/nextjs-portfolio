@@ -9,14 +9,14 @@ import { allWork } from '@/lib/work-data'
 export const metadata: Metadata = {
   title: 'UX/UI Designer in Nepal',
   description:
-    'UX/UI designer in Nepal covering the full process — research, strategy and IA through to interface design. Case studies from Pagevamp, LinkedIn and Streamshare.',
+    'UX/UI designer in Nepal covering the full process: research, strategy and IA through to interface design. Case studies from Pagevamp, LinkedIn and Streamshare.',
   alternates: {
     canonical: 'https://sanjayshrestha.com/ux-ui-designer-nepal',
   },
   openGraph: {
     title: 'UX/UI Designer in Nepal | Sanjay Shrestha',
     description:
-      'UX/UI designer in Nepal covering the full process — research, strategy and IA through to interface design. Case studies from Pagevamp, LinkedIn and Streamshare.',
+      'UX/UI designer in Nepal covering the full process: research, strategy and IA through to interface design. Case studies from Pagevamp, LinkedIn and Streamshare.',
     url: 'https://sanjayshrestha.com/ux-ui-designer-nepal',
     images: ['/og-image.jpg'],
   },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'UX/UI Designer in Nepal | Sanjay Shrestha',
     description:
-      'UX/UI designer in Nepal covering the full process — research, strategy and IA through to interface design. Case studies from Pagevamp, LinkedIn and Streamshare.',
+      'UX/UI designer in Nepal covering the full process: research, strategy and IA through to interface design. Case studies from Pagevamp, LinkedIn and Streamshare.',
     images: ['/og-image.jpg'],
   },
 }
@@ -52,19 +52,19 @@ const process = [
     step: '03',
     title: 'Interaction & Interface Design',
     description:
-      'Designing the flows, states and visual system together — hierarchy, spacing and typography aren’t decoration, they’re how a screen tells someone what matters and what to do next.',
+      'Designing the flows, states and visual system together: hierarchy, spacing and typography aren’t decoration. They’re how a screen tells someone what matters and what to do next.',
   },
   {
     step: '04',
     title: 'Accessibility',
     description:
-      'Checking contrast, focus order, semantics and screen-reader behavior as part of the design, not a QA pass bolted on afterward — built to WCAG standards by default.',
+      'Checking contrast, focus order, semantics and screen-reader behavior as part of the design, not a QA pass bolted on afterward. Built to WCAG standards by default.',
   },
   {
     step: '05',
     title: 'Prototyping',
     description:
-      'Building interactive prototypes real enough to test — validating a flow with actual users before it costs engineering time to build the wrong thing.',
+      'Building interactive prototypes real enough to test, validating a flow with actual users before it costs engineering time to build the wrong thing.',
   },
 ]
 
@@ -123,7 +123,7 @@ export default function UxUiDesignerNepalPage() {
               UX/UI Design for Complex Digital Products
             </h1>
             <p className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed">
-              I&apos;m a UX/UI designer based in Kathmandu, Nepal — whether a project is searching
+              I&apos;m a UX/UI designer based in Kathmandu, Nepal. Whether a project is searching
               for a UX designer to fix a broken flow or a UI designer to bring a system to a
               product, the work I do covers both, because on most real products the two aren&apos;t
               separable. Getting the structure and logic right (UX) is what makes the interface
@@ -152,12 +152,12 @@ export default function UxUiDesignerNepalPage() {
             </h2>
             <p className="text-stone-600 dark:text-stone-400 leading-relaxed">
               A lot of what gets labeled &ldquo;UI design&rdquo; is really just visual styling
-              applied to an existing structure — better colors and spacing on the same flow. That
+              applied to an existing structure: better colors and spacing on the same flow. That
               can make a screen look better without making it work better. My process starts one
               layer earlier: understanding why users get stuck, mapping the information structure
               that&apos;s causing the confusion, then designing the interface on top of a structure
               that&apos;s already been tested and validated. The LinkedIn feed audit below is a
-              direct example — fourteen findings, and none of them were about color.
+              direct example: fourteen findings, and none of them were about color.
             </p>
           </AnimatedSection>
         </div>

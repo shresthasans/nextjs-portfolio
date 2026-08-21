@@ -39,7 +39,7 @@ const expertise = [
   {
     title: 'Enterprise SaaS',
     description:
-      'Designing complex, data-heavy workflows for enterprise teams — from first-time onboarding to the dense, permission-aware screens power users live in every day.',
+      'Designing complex, data-heavy workflows for enterprise teams, from first-time onboarding to the dense, permission-aware screens power users live in every day.',
   },
   {
     title: 'Product Strategy',
@@ -64,7 +64,7 @@ const expertise = [
   {
     title: 'Accessibility',
     description:
-      'Designing to WCAG standards as a default, not an afterthought — informed by shipping a government platform used by millions.',
+      'Designing to WCAG standards as a default, not an afterthought, informed by shipping a government platform used by millions.',
   },
 ]
 
@@ -124,7 +124,7 @@ export default function ProductDesignerNepalPage() {
             </h1>
             <p className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed">
               I help enterprise SaaS and AI product teams turn ambiguous problems into shippable,
-              usable software — from the first research conversation through to the design system
+              usable software, from the first research conversation through to the design system
               that keeps the product consistent as it scales. Over 15 years I&apos;ve done this for
               a Microsoft Teams meeting platform used by 5,000+ organizations, a government citizen
               portal serving 4M+ people, and SaaS products across eCommerce and B2B. Based in
@@ -159,7 +159,7 @@ export default function ProductDesignerNepalPage() {
               Who I work with
             </h2>
             <p className="text-stone-600 dark:text-stone-400 leading-relaxed">
-              Most of my work is with enterprise SaaS companies past the earliest MVP stage — the
+              Most of my work is with enterprise SaaS companies past the earliest MVP stage: the
               product works, but the roadmap has outgrown the original design, onboarding is
               leaking users, or the interface has accumulated inconsistency across screens and
               teams. I also work with founders validating a new AI-powered product direction, and
@@ -302,8 +302,8 @@ export default function ProductDesignerNepalPage() {
               Working Globally, Based in Kathmandu
             </h2>
             <p className="text-stone-600 dark:text-stone-400 leading-relaxed">
-              I&apos;ve worked remotely for nearly a decade — with teams in Santa Clara, Hyderabad,
-              Bangalore and across Europe — long enough to know how to keep a distributed team
+              I&apos;ve worked remotely for nearly a decade, with teams in Santa Clara, Hyderabad,
+              Bangalore and across Europe, long enough to know how to keep a distributed team
               moving without losing design quality along the way. Kathmandu&apos;s timezone
               overlaps a workable window with both US and European hours, and with Asia-Pacific
               teams directly. Alongside full-time senior design work, I occasionally take on

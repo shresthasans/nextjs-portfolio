@@ -13,14 +13,14 @@ import { allWork } from '@/lib/work-data'
 export const metadata: Metadata = {
   title: 'AI UX Designer in Nepal for Human-Centered AI',
   description:
-    'AI UX designer in Nepal, designing AI products people trust — confidence, editable output, explainability, and fallback states from real enterprise work.',
+    'AI UX designer in Nepal, designing AI products people trust: confidence, editable output, explainability, and fallback states from real enterprise work.',
   alternates: {
     canonical: 'https://sanjayshrestha.com/ai-ux-design-nepal',
   },
   openGraph: {
     title: 'AI UX Designer in Nepal for Human-Centered AI',
     description:
-      'AI UX designer in Nepal, designing AI products people trust — confidence, editable output, explainability, and fallback states from real enterprise work.',
+      'AI UX designer in Nepal, designing AI products people trust: confidence, editable output, explainability, and fallback states from real enterprise work.',
     url: 'https://sanjayshrestha.com/ai-ux-design-nepal',
     images: ['/og-image.jpg'],
   },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'AI UX Designer in Nepal for Human-Centered AI',
     description:
-      'AI UX designer in Nepal, designing AI products people trust — confidence, editable output, explainability, and fallback states from real enterprise work.',
+      'AI UX designer in Nepal, designing AI products people trust: confidence, editable output, explainability, and fallback states from real enterprise work.',
     images: ['/og-image.jpg'],
   },
 }
@@ -57,7 +57,7 @@ const principles = [
   {
     title: 'Confidence & Uncertainty',
     description:
-      'Surfacing how sure the system is, not just its output. A confident-sounding wrong answer is more dangerous than one that visibly hedges — the interface should show its work.',
+      'Surfacing how sure the system is, not just its output. A confident-sounding wrong answer is more dangerous than one that visibly hedges: the interface should show its work.',
   },
   {
     title: 'Editable AI Output',
@@ -67,7 +67,7 @@ const principles = [
   {
     title: 'Human Review',
     description:
-      'For anything consequential — a decision, a vote, a commitment — a person confirms it. AI accelerates the path to that moment; it doesn&apos;t replace it.',
+      'For anything consequential (a decision, a vote, a commitment) a person confirms it. AI accelerates the path to that moment; it doesn&apos;t replace it.',
   },
   {
     title: 'Explainability',
@@ -77,17 +77,17 @@ const principles = [
   {
     title: 'Failure & Fallback States',
     description:
-      'AI features fail differently than normal software — confidently, silently, or in ways that look like success. Designing the failure states matters as much as the happy path.',
+      'AI features fail differently than normal software: confidently, silently, or in ways that look like success. Designing the failure states matters as much as the happy path.',
   },
   {
     title: 'Progressive Trust',
     description:
-      'Nobody hands full autonomy to a new feature on day one. Trust is earned in stages — starting with suggestions a human approves, expanding scope as the system proves reliable.',
+      'Nobody hands full autonomy to a new feature on day one. Trust is earned in stages, starting with suggestions a human approves and expanding scope as the system proves reliable.',
   },
   {
     title: 'Enterprise AI Constraints',
     description:
-      'Enterprise AI adds compliance, audit trails, and NDA-covered data most consumer AI patterns ignore — the design has to hold up under review, not just a demo.',
+      'Enterprise AI adds compliance, audit trails, and NDA-covered data most consumer AI patterns ignore. The design has to hold up under review, not just a demo.',
   },
 ]
 
@@ -111,7 +111,7 @@ export default function AiUxDesignNepalPage() {
         addressCountry: 'NP',
       },
       description:
-        'AI UX designer based in Kathmandu, Nepal, designing human-centered AI products for enterprise SaaS — confidence, explainability, editable output and fallback states.',
+        'AI UX designer based in Kathmandu, Nepal, designing human-centered AI products for enterprise SaaS: confidence, explainability, editable output and fallback states.',
     },
   }
 
@@ -151,7 +151,7 @@ export default function AiUxDesignNepalPage() {
             <p className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed">
               Most AI features fail the same way: they hide their reasoning, offer no way to
               correct a wrong output, and fail silently when they&apos;re unsure. I design AI
-              products the other way — output people can see through, edit, and trust
+              products the other way, with output people can see through, edit, and trust
               incrementally as it proves itself. I&apos;m an AI UX designer based in Kathmandu,
               Nepal, currently leading design for Decisions AI, an enterprise AI meeting assistant
               used inside Microsoft Teams by 5,000+ organizations.
@@ -201,7 +201,7 @@ export default function AiUxDesignNepalPage() {
               </h2>
               <p className="text-stone-600 dark:text-stone-400 leading-relaxed">
                 Decisions AI runs inside Microsoft Teams for organizations including Vestas, BDO,
-                NHS, and Manpower — where every AI-generated summary or suggested action needs a
+                NHS, and Manpower. Every AI-generated summary or suggested action needs a
                 clear confidence signal, an easy way to correct it, and a human still making the
                 actual decision. It&apos;s an active, NDA-covered engagement, so what&apos;s shared
                 here is limited to what&apos;s publicly verifiable and a direct account of the

@@ -48,16 +48,16 @@ I redesigned LinkedIn's homepage feed on my own, without a client brief, a team,
 
 The feed wasn't broken in one obvious way. It was broken in fourteen small, specific ways that all traced back to the same root cause: nothing on the page had a rule for what deserved visual weight, so a puzzle widget, an ad, and the content a user actually came for competed on equal footing. <mark>Auditing against real accessibility criteria showed that most of the hierarchy problems and accessibility problems I found were the same failure wearing different clothes.</mark> I rebuilt the page around one consistent rule for what gets attention and why.
 
-- **Scope:** Solo, self-initiated — no client brief, no LinkedIn internal data or engineering constraints, 5 peers for interviews and testing
+- **Scope:** Solo, self-initiated: no client brief, no LinkedIn internal data or engineering constraints, 5 peers for interviews and testing
 - **Process:** [Heuristic evaluation](https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/) → [contextual inquiry](https://www.nngroup.com/articles/contextual-inquiry/) → [WCAG](https://www.w3.org/TR/WCAG21/) accessibility audit → [information architecture](https://www.nngroup.com/topic/information-architecture/) → [interaction design](https://www.interaction-design.org/literature/topics/interaction-design) & visual design → [usability testing](https://www.nngroup.com/articles/usability-testing-101/)
 - **Finding:** 14 documented issues, all tracing back to one root cause
 - **Fix:** One consistent rule for what earns visual weight, applied module by module
-- **Validation:** Moderated before/after usability test with the same 5 peers — task success rate, time-on-task, and a post-task ease rating, not just my own judgment
+- **Validation:** Moderated before/after usability test with the same 5 peers: task success rate, time-on-task, and a post-task ease rating, not just my own judgment
 - **Framing:** An audit trail and defensible judgment, not a validated production outcome
 
 ## Context
 
-LinkedIn's homepage feed does a lot on one screen: composer, feed, navigation, network suggestions, trending topics, profile stats, entertainment widgets, and ads, all at once. That density isn't a mistake — most of these modules exist for a real business reason like engagement, retention, or ad revenue.
+LinkedIn's homepage feed does a lot on one screen: composer, feed, navigation, network suggestions, trending topics, profile stats, entertainment widgets, and ads, all at once. That density isn't a mistake: most of these modules exist for a real business reason like engagement, retention, or ad revenue.
 
 <mark>I picked this page because that tension is real and unavoidable.</mark>
 Deleting everything that isn't the feed isn't judgment, it's scissors. I wanted
@@ -66,7 +66,7 @@ pressures behind the clutter don't exist.
 
 ## The Problem
 
-Nothing on the existing feed was catastrophically broken. It was death by a thousand small ambiguities. The full audit documented fourteen findings, several of which repeat the same underlying pattern — the complete inventory is below the graphic.
+Nothing on the existing feed was catastrophically broken. It was death by a thousand small ambiguities. The full audit documented fourteen findings, several of which repeat the same underlying pattern; the complete inventory is below the graphic.
 
 - **Competing visual weight.** Composer, feed, profile card, sidebar widgets, ad units, and a nav row whose active destination relied on only subtle gray-on-gray differentiation all carried roughly the same [visual hierarchy](https://www.nngroup.com/articles/visual-hierarchy-ux-definition/) weight, so nothing told the eye where to start.
 - **Redundant profile summary.** The profile card repeated identity information already available through the global profile control, truncated the professional headline, and used banner text that wasn't exposed as readable page content. A separate Premium promotion and profile-metrics card sat immediately beneath it; some participants interpreted the nearby Premium promotion as account-related information.
@@ -111,7 +111,7 @@ Nothing on the existing feed was catastrophically broken. It was death by a thou
 
 ## Initial Understanding
 
-Going in, my assumption was that this was a visual polish problem — the page "felt busy" and needed calmer styling. What I didn't know yet was how much of that busyness was one page doing two structurally different jobs at once (platform navigation and page navigation, crammed into a single row), and how much was accessibility debt that had nothing to do with color.
+Going in, my assumption was that this was a visual polish problem: the page "felt busy" and needed calmer styling. What I didn't know yet was how much of that busyness was one page doing two structurally different jobs at once (platform navigation and page navigation, crammed into a single row), and how much was accessibility debt that had nothing to do with color.
 
 My constraint was self-imposed: no internal data, no LinkedIn user base to test against, only 5 peers willing to give me their time. So I held myself to an honest heuristic and accessibility audit, backed by a small peer test, rather than claiming validation at a scale I don't have.
 
@@ -139,14 +139,14 @@ With that steer, I ran a [heuristic evaluation](https://www.nngroup.com/articles
 
 I expected a list of unrelated small bugs. Instead, <mark>most of the accessibility failures I found stood in the exact same spot as a hierarchy failure:</mark>
 
-- Manual heuristic review surfaced the inconsistent icon treatments; axe and WAVE confirmed the missing accessible names on the engagement controls — and those same controls were also the least scannable part of the page for sighted users
+- Manual heuristic review surfaced the inconsistent icon treatments; axe and WAVE confirmed the missing accessible names on the engagement controls, and those same controls were also the least scannable part of the page for sighted users
 - The profile card's baked-in cover text was invisible to a screen reader _and_ a visual redundancy for sighted users, since the real name already appeared as a heading below it
 
-That pattern held across all fourteen findings I catalogued, from smaller interaction issues — such as weak feed-sort prominence, unexplained network suggestions, inconsistent icon treatments, and ambiguous engagement totals — to structural issues such as the fragmented three-column layout, redundant profile summary, overloaded navigation row, and disappearing secondary content. They were not fourteen unrelated defects; they were recurring examples of the page lacking a consistent rule for what deserved attention.
+That pattern held across all fourteen findings I catalogued, from smaller interaction issues (weak feed-sort prominence, unexplained network suggestions, inconsistent icon treatments, ambiguous engagement totals) to structural issues such as the fragmented three-column layout, redundant profile summary, overloaded navigation row, and disappearing secondary content. They were not fourteen unrelated defects; they were recurring examples of the page lacking a consistent rule for what deserved attention.
 
 ## Defining the Real Problem
 
-That was the turning point. I'd started this framed as "clean up the visual noise." After the audit, I reframed it as <mark>"give the page one consistent rule for what earns visual weight, using accessibility criteria as the mechanism for deciding that, not a checklist applied after the layout is done."</mark>
+That reframed the project. I'd started this framed as "clean up the visual noise." After the audit, I reframed it as <mark>"give the page one consistent rule for what earns visual weight, using accessibility criteria as the mechanism for deciding that, not a checklist applied after the layout is done."</mark>
 
 In practice, contrast ratios, touch target sizes, and landmark structure weren't things I checked once the redesign was finished. They were the tool I used to decide, module by module, what deserved to be louder and what needed to get out of the way.
 
@@ -160,7 +160,7 @@ A few directions came out of that reframe, and I didn't treat every option as eq
   caption="Lighter-touch alternatives considered and ruled out for the navigation row, profile card, and reaction controls, before committing to the four structural decisions below."
 />
 
-**The overloaded nav row** (an [**information architecture**](/ux-ui-designer-nepal) problem) crammed platform utilities (search, notifications, profile) and page destinations (Home, Jobs, Messaging) into one line at equal weight. The lighter fix — raising icon contrast in place — wouldn't have fixed the real problem: two different questions competing for one visual treatment.
+**The overloaded nav row** (an [**information architecture**](/ux-ui-designer-nepal) problem) crammed platform utilities (search, notifications, profile) and page destinations (Home, Jobs, Messaging) into one line at equal weight. The lighter fix, raising icon contrast in place, wouldn't have fixed the real problem: two different questions competing for one visual treatment.
 
 **The profile card** (an IA and content-strategy problem) repeated identity info already available through the global profile control, truncated the professional headline, and sat close enough to a separate "Redeem Premium" promotion that peers misread it as their own account data. A stronger divider between the two components would clarify the boundary but still leaves a redundant summary and a truncated headline in place, and doesn't touch the accessibility issue baked into the cover image.
 
@@ -176,11 +176,11 @@ These four decisions carried the most weight in the redesign.
 
 _Discipline: Information Architecture, Interaction Design_
 
-**The challenge:** Eight-plus items doing two different jobs — platform-level utilities and page-level destinations — sat in a single row at equal weight, and the active destination relied on only subtle gray-on-gray differentiation: a slightly darker gray icon and text plus a gray bottom border, staying visually close to the inactive items around it.
+**The challenge:** Eight-plus items doing two different jobs (platform-level utilities and page-level destinations) sat in a single row at equal weight, and the active destination relied on only subtle gray-on-gray differentiation: a slightly darker gray icon and text plus a gray bottom border, staying visually close to the inactive items around it.
 
 **Alternatives considered:** Keep one row and raise contrast on the active state alone, which fixes legibility but not the real problem: two different questions competing for one visual space.
 
-**Why I chose this:** Platform-level utilities ("what can I do anywhere") and page-level destinations ("where am I") are genuinely different jobs. Utilities like notifications and business tools moved into the upper header; page destinations moved into a second row, icons and labels arranged side by side. That split also made a clearer active state possible — Home now gets blue iconography, blue text, and a blue bottom border, instead of the previous subtle gray-on-gray treatment.
+**Why I chose this:** Platform-level utilities ("what can I do anywhere") and page-level destinations ("where am I") are genuinely different jobs. Utilities like notifications and business tools moved into the upper header; page destinations moved into a second row, icons and labels arranged side by side. That split also made a clearer active state possible: Home now gets blue iconography, blue text, and a blue bottom border, instead of the previous subtle gray-on-gray treatment.
 
 > **Expected impact:** Faster orientation, since users no longer parse eight equally-weighted icons to find their place.
 
@@ -194,7 +194,7 @@ _Discipline: Information Architecture, Interaction Design_
 
 _Discipline: Information Architecture, Accessibility (WCAG)_
 
-**The challenge:** Name, title, and a truncated headline duplicated information already available through the global profile control, stacked with low-frequency stats like profile views. The cover photo had the user's own name burned into it — redundant for sighted users and invisible to a screen reader. The nearby "Redeem Premium" promotion was already a separate component, but sitting a hairline away from it, peers read it as part of their own account data.
+**The challenge:** Name, title, and a truncated headline duplicated information already available through the global profile control, stacked with low-frequency stats like profile views. The cover photo had the user's own name burned into it, redundant for sighted users and invisible to a screen reader. The nearby "Redeem Premium" promotion was already a separate component, but sitting a hairline away from it, peers read it as part of their own account data.
 
 **Alternatives considered:** Keep the card, add a stronger divider between the profile summary and the Premium promotion. That clarifies the boundary between the two but leaves the redundant summary, the truncated headline, and the cover-image accessibility issue untouched.
 
@@ -234,7 +234,7 @@ _Discipline: Interaction Design, Accessibility (WCAG)_
 
 **Alternatives considered:** Keep icon-only, raise color contrast. That satisfies a contrast checker but gives a screen reader nothing to announce.
 
-**Why I chose this:** The clearest case in the audit where the accessibility fix and the usability fix were the same fix. Adding the word next to the icon — "Like," "Comment," "Share," "Save" — and spelling counts out ("42 reactions · 12 comments") solves both at once.
+**Why I chose this:** The clearest case in the audit where the accessibility fix and the usability fix were the same fix. Adding the word next to the icon ("Like," "Comment," "Share," "Save") and spelling counts out ("42 reactions · 12 comments") solves both at once.
 
 > **Expected impact:** Every action and count is legible to a screen reader and a fast human scan at the same time.
 

@@ -45,7 +45,7 @@ StreamShare started with a night I didn't plan for. Bored during a COVID-19 lock
 Client work rarely gives me room to run a full research-to-prototype cycle
 without a deadline compressing it. StreamShare is what my process looks like
 with nothing else constraining it. It's a complete live streaming app design
-case study — competitive analysis, user interviews, affinity mapping,
+case study: competitive analysis, user interviews, affinity mapping,
 [information architecture](/ux-ui-designer-nepal), and UI design and prototyping, run start to finish
 on my own.
 
@@ -54,7 +54,7 @@ By the time I started this, live streaming apps were everywhere. Instagram, Face
 <MediaFigure
   src="/images/work/streamshare/overview.webp"
   alt="StreamShare splash screen, sign-in screen, and interest-picker onboarding screen shown side by side"
-  caption="Splash screen, sign-in, and the interest picker that kicks off onboarding — the first three screens a new user sees."
+  caption="Splash screen, sign-in, and the interest picker that kicks off onboarding (the first three screens a new user sees)."
 />
 
 ## The Problem
@@ -63,7 +63,7 @@ After that first night, I went looking for streaming apps that could give me mor
 
 - Real trouble navigating the apps and finding anything relevant to what I actually wanted to watch
 - No categories that matched my interests
-- No personalization, and as a result, weak content discovery — whatever was trending is what I got
+- No personalization, and as a result, weak content discovery: whatever was trending is what I got
 - Dated interfaces: inconsistent labels, cluttered layout, general lack of polish
 - Too much competing information on screen at once, making the experience feel like work
 
@@ -72,7 +72,7 @@ After that first night, I went looking for streaming apps that could give me mor
 <MediaFigure
   src="/images/work/streamshare/streamshare-the-problem-mobile.webp"
   alt="Annotated competitor screens showing five discovery problems: hard to navigate, no relevant categories, generic trending feed, inconsistent UI, and too much competing information"
-  caption="Five recurring frustrations across competitor apps — none of them about the content itself, all of them about the discovery layer around it."
+  caption="Five recurring frustrations across competitor apps: none of them about the content itself, all of them about the discovery layer around it."
 />
 
 ## Initial Understanding
@@ -113,14 +113,14 @@ Three different motivations, but all three kept landing on the same missing piec
 <MediaFigure
   src="/images/work/streamshare/streamshare-affinity-mapping.webp"
   alt="Affinity mapping board splitting interview notes into two clusters: finding content, and hosting and connection"
-  caption="Interview notes clustered into two equally dense groups — finding content, and hosting and connection — reframing a single discovery problem into two."
+  caption="Interview notes clustered into two equally dense groups (finding content, and hosting and connection), reframing a single discovery problem into two."
 />
 
 **Competitive analysis explained why the gap existed, not just that it did.** I looked at five apps: Instagram, Facebook, and YouTube, where live video is one feature bolted onto a feed built for something else, and Twitch and TikTok, both live at the time and closer to a real streaming-first comparison for 2021.
 
-The pattern across the mainstream three: live never gets its own onboarding or discovery logic, it just inherits whatever the platform's existing feed algorithm already does. Twitch came closest to breaking that — real categories, a public schedule — but nothing personalized to the individual viewer and no location layer, understandably, since it's built for broadcasting at any scale, not a smaller catch-up between friends. TikTok, despite the growth it was seeing that year, reinforced the same pattern rather than break it.
+The pattern across the mainstream three: live never gets its own onboarding or discovery logic, it just inherits whatever the platform's existing feed algorithm already does. Twitch came closest to breaking that (real categories, a public schedule), but nothing personalized to the individual viewer and no location layer, understandably, since it's built for broadcasting at any scale, not a smaller catch-up between friends. TikTok, despite the growth it was seeing that year, reinforced the same pattern rather than break it.
 
-> One earlier app is worth a footnote: Periscope had tried a map view of live broadcasts around the world, close in spirit to what I was designing toward. Twitter shut it down in March 2021, the same year I started this — a reminder that a good idea without a bigger platform behind it can still fail for reasons that have nothing to do with the idea itself.
+> One earlier app is worth a footnote: Periscope had tried a map view of live broadcasts around the world, close in spirit to what I was designing toward. Twitter shut it down in March 2021, the same year I started this: a reminder that a good idea without a bigger platform behind it can still fail for reasons that have nothing to do with the idea itself.
 
 | Feature                             | Instagram | Facebook | YouTube | Twitch | TikTok | StreamShare |
 | ------------------------------------ | --------- | -------- | ------- | ------ | ------ | ----------- |
@@ -146,11 +146,11 @@ That reframing is the reason the onboarding narrative in the finished design wal
 
 **Where should location live?** The research said people wanted to know what's nearby, not just what's trending. A dedicated map tab felt like the literal answer, but it costs a nav slot and asks for an extra decision right when the feature should feel immediate. Folding "streams near you" into the top of the home feed answers the same need without the detour.
 
-**How much control should a host have before going live?** A single "Go Live" button, the common pattern, with privacy handled once in account settings, was the simpler option. I gave each broadcast its own choices instead — public or private, tagging, comments, location — since affinity mapping had already flagged privacy as a real, recurring want a global setting doesn't resolve.
+**How much control should a host have before going live?** A single "Go Live" button, the common pattern, with privacy handled once in account settings, was the simpler option. I gave each broadcast its own choices instead (public or private, tagging, comments, location), since affinity mapping had already flagged privacy as a real, recurring want a global setting doesn't resolve.
 
 **How should viewers support a host beyond liking and following?** This didn't come from the 2021 interviews, and I want to be upfront about that: it came from noticing how other creator-facing products had moved past social-only signals. I added a way to support a host directly, without turning the experience into a paywall.
 
-**What happens the moment a stream ends?** Most apps just return you to a feed. I wanted the end of a stream to give a host something to look at — an assumption about what hosts would want to know, not something a participant asked for by name.
+**What happens the moment a stream ends?** Most apps just return you to a feed. I wanted the end of a stream to give a host something to look at: an assumption about what hosts would want to know, not something a participant asked for by name.
 
 <MediaFigure
   src="/images/work/streamshare/wireframe-sketch.webp"
@@ -164,7 +164,7 @@ These four decisions did the most work in shaping the final design.
 
 ### 1. Give hosts real controls before they go live, not just a record button
 
-**The challenge:** The original research already flagged privacy and control as recurring wants — sharing privately, creating a private group — but none of it had been resolved into an interface, and location sharing was assumed to be always-on.
+**The challenge:** The original research already flagged privacy and control as recurring wants (sharing privately, creating a private group), but none of it had been resolved into an interface, and location sharing was assumed to be always-on.
 
 **Alternatives considered:** One global "Go Live" button with privacy handled once in account settings, the pattern every competitor uses.
 
@@ -180,7 +180,7 @@ These four decisions did the most work in shaping the final design.
 
 ### 2. Put a host's schedule where their followers already look
 
-**The challenge:** The original research had already flagged scheduling as a real want — being able to plan a stream ahead of time — but a schedule only helps if people actually see it before the stream starts.
+**The challenge:** The original research had already flagged scheduling as a real want (being able to plan a stream ahead of time), but a schedule only helps if people actually see it before the stream starts.
 
 **Alternatives considered:** A separate, dedicated streams calendar, the same place YouTube and Twitch put scheduling, which means checking a screen most people never think to open.
 
@@ -211,7 +211,7 @@ These four decisions did the most work in shaping the final design.
 
 **Alternatives considered:** Stick to social-only signals, simpler and closer to what the original research actually asked about.
 
-**Why I chose this approach:** Not from the 2021 interviews directly — I want to be upfront about that — but from noticing how creator-facing products elsewhere had moved past social signals. It follows from persona motivations already there: Vijay wanting to learn from professionals, Prajina wanting to grow her network, both describing a relationship with a host, not just interest in content. The flow stays low-friction: preset tiers ($1, $5, $10, $25), a custom amount if none of those fit, and a short message to the creator, then a confirmation the viewer can choose to share.
+**Why I chose this approach:** Not from the 2021 interviews directly (I want to be upfront about that), but from noticing how creator-facing products elsewhere had moved past social signals. It follows from persona motivations already there: Vijay wanting to learn from professionals, Prajina wanting to grow her network, both describing a relationship with a host, not just interest in content. The flow stays low-friction: preset tiers ($1, $5, $10, $25), a custom amount if none of those fit, and a short message to the creator, then a confirmation the viewer can choose to share.
 
 > **Impact:** A possible reason to keep streaming beyond a follower count, and a concrete way to turn "this is amazing" in the chat into something a host can actually use. The decision I'd most want to test with real creators first.
 
@@ -227,24 +227,24 @@ These four decisions did the most work in shaping the final design.
 
 **Alternatives considered:** No dedicated end-state, the majority pattern.
 
-**Why I chose this approach:** A summary — duration, peak viewers, likes, comments, new followers, the moment that landed best — turns an abrupt cutoff into a debrief.
+**Why I chose this approach:** A summary (duration, peak viewers, likes, comments, new followers, the moment that landed best) turns an abrupt cutoff into a debrief.
 
 > **Impact:** Something concrete for a host to improve from stream to stream. Like the support feature, a hypothesis, not something validated by a real creator.
 
 <MediaFigure
   src="/images/work/streamshare/post-stream.webp"
   alt="Post-stream summary screen with duration, peak viewers, and engagement stats, alongside a followers growth screen and a creator profile with live and upcoming streams"
-  caption="The post-stream debrief — duration, peak viewers, likes, comments, and top moment — next to the follower-growth and creator-profile screens."
+  caption="The post-stream debrief (duration, peak viewers, likes, comments, and top moment) next to the follower-growth and creator-profile screens."
 />
 
 ## Iteration
 
-This design didn't go through a new, separate round of usability testing. The research foundation stayed the same as the original 2021 work — interviews, personas, affinity mapping, competitive analysis. What changed was how far I took the reasoning built on top of it, plus a deliberate look at how live-streaming and creator products had evolved since.
+This design didn't go through a new, separate round of usability testing. The research foundation stayed the same as the original 2021 work: interviews, personas, affinity mapping, competitive analysis. What changed was how far I took the reasoning built on top of it, plus a deliberate look at how live-streaming and creator products had evolved since.
 
 <mark>
   Per-broadcast controls and moving location into the feed trace back to that
-  original research. Direct creator support and the post-stream summary don't —
-  they're informed judgment, and they're exactly where I'd want to talk to real
+  original research. Direct creator support and the post-stream summary don't.
+  They're informed judgment, and they're exactly where I'd want to talk to real
   hosts before building further.
 </mark>
 
@@ -257,10 +257,10 @@ What exists is a complete, high-fidelity design covering onboarding, an interest
 <MediaFigure
   src="/images/work/streamshare/streamshare-outcome.webp"
   alt="Eight-screen flow of the finished app: personalization, home with nearby streams, explore, go-live privacy setup, live chat, stream summary, support streamer, and schedule summary"
-  caption="The finished flow end to end — personalization through home, explore, go live, live chat, stream summary, support, and scheduling — each screen tied back to a research finding or an explainable decision."
+  caption="The finished flow end to end (personalization through home, explore, go live, live chat, stream summary, support, and scheduling), each screen tied back to a research finding or an explainable decision."
 />
 
-I haven't run usability testing on this version, so I can't point to validated engagement numbers. What I can say is that every screen traces back either to a real research finding, or to a design decision I can explain and defend — which is the standard I try to hold myself to even without a client asking for a business case.
+I haven't run usability testing on this version, so I can't point to validated engagement numbers. What I can say is that every screen traces back either to a real research finding, or to a design decision I can explain and defend, which is the standard I try to hold myself to even without a client asking for a business case.
 
 ## Reflection
 

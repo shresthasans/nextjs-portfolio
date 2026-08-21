@@ -96,7 +96,7 @@ const timeline = [
     company: 'Decisions',
     location: 'Remote (Global)',
     description:
-      'Joined early and scaled the product from under 50 to 5,000+ enterprise customers, helping drive $10M+ in ARR. Built the design system, design process, and UX function from scratch. Designing the Microsoft Teams and Office 365 meeting platform that now powers 50,000+ active meetings every week. Led generative AI design for Decisions AI, from concept through shipment.',
+      'Joined early and scaled the product from under 50 to 5,000+ enterprise customers, and helped drive $10M+ in ARR. Built the design system, design process, and UX function from scratch. Designed the Microsoft Teams and Office 365 meeting platform that now powers 50,000+ active meetings every week. Led generative AI design for Decisions AI, from concept through shipment.',
   },
   {
     year: '2016–2019',
@@ -200,12 +200,12 @@ export default function AboutPage() {
               <p>
                 I&apos;m a Senior Product Designer with 15+ years designing enterprise SaaS,
                 government and AI-powered products. I solve complex problems through
-                user-centred design, working across products used by millions of people as well
-                as enterprise platforms used by thousands of organizations.
+                user-centred design, across products used by millions of people and platforms
+                used by thousands of organizations.
               </p>
 
               <p>
-                My focus is simplicity, scalability and measurable product outcomes — building
+                My focus is simplicity, scalability and measurable product outcomes: building
                 systems that hold up as products grow, not just interfaces that look good on
                 day one.
               </p>
@@ -223,9 +223,9 @@ export default function AboutPage() {
                     />
                     <span>
                       <strong className="text-stone-900 dark:text-stone-100 font-semibold">
-                        {title}
+                        {title}:
                       </strong>{' '}
-                      — {description}
+                      {description}
                       {href && (
                         <>
                           {' '}

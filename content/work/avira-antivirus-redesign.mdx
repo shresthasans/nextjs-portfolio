@@ -63,7 +63,7 @@ I want to be upfront about the constraints. I had no access to Avira's internal 
 On the surface, Avira's UI had been modernized. Underneath, the experience still had real problems that a fresh coat of paint hadn't solved:
 
 - **Free users didn't understand what they'd get by upgrading.** Paid protection layers existed, but their value wasn't communicated anywhere a free user would naturally see it.
-- **Large parts of the app** -- especially scans and configuration -- were still running on the old design language, so the app didn't feel like one coherent product.
+- **Large parts of the app** (especially scans and configuration) were still running on the old design language, so the app didn't feel like one coherent product.
 - **No visible feedback channel.** What channels existed were slow.
 - **No design system.** Small inconsistencies in icons, spacing, color usage, and button states had accumulated across screens.
 
@@ -81,7 +81,7 @@ An antivirus app's entire job is to be trusted while running invisibly in the ba
 
 Going in, my assumptions were mostly about visual and structural debt: inconsistent UI, an unclear upgrade path, an app that hadn't fully absorbed its own redesign.
 
-What I didn't know was how people actually used the app day to day. I didn't know which features mattered enough to protect during a redesign, which ones people ignored, or how people felt about the constant stream of security notifications. I also didn't know whether the usability problems I could see as a designer -- contrast issues, inconsistent error states, unclear feedback -- were things real users had actually noticed, or just things that bothered me as a trained eye.
+What I didn't know was how people actually used the app day to day. I didn't know which features mattered enough to protect during a redesign, which ones people ignored, or how people felt about the constant stream of security notifications. I also didn't know whether the usability problems I could see as a designer (contrast issues, inconsistent error states, unclear feedback) were things real users had actually noticed, or just things that bothered me as a trained eye.
 
 <mark>The biggest constraint was data.</mark> I had no access to Avira's usage analytics, support ticket volume, or churn data, so any research I did would have to come from a small number of interviews and my own hands-on testing. That meant I had to be honest with myself about how far I could generalize, and make decisions that held up even with a limited evidence base.
 
@@ -95,9 +95,9 @@ A few things changed my thinking.
 
 **Engagement was more passive than I'd assumed.** People didn't open the app because they wanted to check on their computer. They opened it because a notification told them to. That reframed the notification system from "a feature to poll periodically" to the actual front door of the product.
 
-**Customization and consistency were both non-negotiable.** People wanted the app to feel personalized, but they also wanted a small, fixed set of information (virus detections, quarantine status, updates) always visible no matter what they'd customized. I couldn't treat these as a tradeoff -- I had to design for both at once.
+**Customization and consistency were both non-negotiable.** People wanted the app to feel personalized, but they also wanted a small, fixed set of information (virus detections, quarantine status, updates) always visible no matter what they'd customized. I couldn't treat these as a tradeoff: I had to design for both at once.
 
-**Quick Scan was the feature people actually trusted.** Usability testing with the original five participants plus two brand-new users revealed that Quick Scan was what people reached for -- Full Scan and Scheduled Scan were peripheral. <mark>That was a concrete, testable signal I could design around, not just an assumption.</mark>
+**Quick Scan was the feature people actually trusted.** Usability testing with the original five participants plus two brand-new users revealed that Quick Scan was what people reached for. Full Scan and Scheduled Scan were peripheral. <mark>That was a concrete, testable signal I could design around, not just an assumption.</mark>
 
 <MediaFigure
   src="https://placehold.co/1200x600/F0F9FF/0C4A6E?text=Affinity+Map%3A+Pain+Points+%26+Insights&font=montserrat"
@@ -109,7 +109,7 @@ A few things changed my thinking.
 
 Going in, I'd framed this as a visual consistency problem: fix the leftover old-style screens, unify the icons and colors, and the app would feel whole again.
 
-The research reframed it. <mark>The real problem wasn't visual inconsistency on its own -- it was that inconsistency was eroding a security product's most important asset: the user's confidence that the app knows what it's doing.</mark>
+The research reframed it. <mark>The real problem wasn't visual inconsistency on its own. It was that inconsistency was eroding a security product's most important asset: the user's confidence that the app knows what it's doing.</mark>
 
 Every mismatched icon, every unclear warning, every screen that looked like it belonged to a different app was a tiny signal to the user that maybe this software wasn't as buttoned-up as it claimed to be. For most apps, that's an annoyance. For an antivirus app, whose entire value proposition rests on "trust us to protect you while you're not looking," it's closer to a core failure.
 
@@ -127,8 +127,8 @@ With that framing, I built a content taxonomy and sitemap, then mapped user flow
 
 I considered two structural alternatives for the dashboard:
 
-- A **tab-based model** treating all scan types equally -- rejected because it contradicted the Quick Scan finding by giving equal visual weight to a feature almost nobody used.
-- A **notification-center-style layout** -- rejected because it solved for engagement but worked against the "always show me the same core status" need from research.
+- A **tab-based model** treating all scan types equally, rejected because it contradicted the Quick Scan finding by giving equal visual weight to a feature almost nobody used.
+- A **notification-center-style layout**, rejected because it solved for engagement but worked against the "always show me the same core status" need from research.
 
 <MediaFigure
   src="https://placehold.co/1200x600/FAFAF9/44403C?text=IA+%26+User+Flows%3A+Scan+%7C+Upgrade+%7C+Quarantine&font=montserrat"
@@ -148,7 +148,7 @@ Four decisions did the most work in the redesign.
 
 **Tradeoff:** Equal treatment felt "fair" and simpler to build, but it asked users to make a choice most of them had already implicitly made.
 
-**Why this approach:** Both the interviews and usability testing pointed to the same thing independently. Quick Scan was the feature people trusted and reached for. Making it the default, one-tap action on the dashboard -- with Full Scan and Scheduled Scan available but secondary -- aligned the interface with actual behavior.
+**Why this approach:** Both the interviews and usability testing pointed to the same thing independently. Quick Scan was the feature people trusted and reached for. Making it the default, one-tap action on the dashboard, with Full Scan and Scheduled Scan available but secondary, aligned the interface with actual behavior.
 
 > **Expected impact:** Fewer taps between "I got a notification" and "I know my computer is safe," which was the single most common moment of engagement observed.
 
@@ -160,7 +160,7 @@ Four decisions did the most work in the redesign.
 
 **Tradeoff:** Screen-by-screen design would have been faster to start. But it risked recreating the exact problem I was trying to solve: a product that looks like it was assembled by different people at different times.
 
-**Why this approach:** <mark>Since the reframed problem was about trust through consistency, I couldn't treat the design system as a nice-to-have.</mark> I locked the information architecture and user flows first, then built out a style guide -- color usage tied to meaning, a single icon language, defined button and warning/error states -- before designing a single high-fidelity screen. Slower up front, but every screen after that point was reusing decisions instead of making new ones.
+**Why this approach:** <mark>Since the reframed problem was about trust through consistency, I couldn't treat the design system as a nice-to-have.</mark> I locked the information architecture and user flows first, then built out a style guide (color usage tied to meaning, a single icon language, defined button and warning/error states) before designing a single high-fidelity screen. Slower up front, but every screen after that point was reusing decisions instead of making new ones.
 
 > **Expected impact:** A UI where warnings, errors, and confirmations are visually distinct and predictable, directly addressing the WCAG contrast and error-differentiation issues flagged during analysis.
 
@@ -168,13 +168,13 @@ Four decisions did the most work in the redesign.
 
 **The challenge:** Free users didn't understand what Avira Prime actually offered. The existing approach leaned on ad-style placements, which erode trust rather than build it, especially in a security product.
 
-**Alternatives considered:** More aggressive upsell moments -- modals and banners triggered by scan results -- similar to what some competitors use.
+**Alternatives considered:** More aggressive upsell moments (modals and banners triggered by scan results), similar to what some competitors use.
 
 **Tradeoff:** Aggressive upsell prompts likely convert better in the short term, but they work against the thing this product depends on: users believing the app is on their side. Research showed users already found excessive notifications annoying. Adding another category of interruption was a real risk.
 
 **Why this approach:** <mark>I designed a plan comparison view that lives where a curious user would naturally look, rather than interrupting their flow,</mark> and used it to make Prime's protection layers concrete rather than vague. A more conservative bet commercially, but consistent with what free users said they needed: to understand the product, not be sold to.
 
-> **Expected impact:** Clearer understanding of what's behind the paywall -- a prerequisite for conversion even if this approach doesn't optimise for it as directly as an interruption-based one would.
+> **Expected impact:** Clearer understanding of what's behind the paywall: a prerequisite for conversion even if this approach doesn't optimise for it as directly as an interruption-based one would.
 
 ### 4. Give Warnings, Errors, and Confirmations Distinct Visual Treatment
 
@@ -182,7 +182,7 @@ Four decisions did the most work in the redesign.
 
 **Alternatives considered:** A single, unified alert style relying on copy alone to communicate severity.
 
-**Tradeoff:** A single visual style is simpler to design and maintain, but it puts the entire burden of communicating urgency on the words alone -- which fails for anyone skimming, which per interviews is most people most of the time.
+**Tradeoff:** A single visual style is simpler to design and maintain, but it puts the entire burden of communicating urgency on the words alone, which fails for anyone skimming, which per interviews is most people most of the time.
 
 **Why this approach:** I defined distinct color, iconography, and placement rules for warnings, errors, and confirmations as part of the design system, so severity is legible at a glance without requiring someone to read the message first.
 
@@ -191,7 +191,7 @@ Four decisions did the most work in the redesign.
 <MediaFigure
   src="https://placehold.co/1200x600/1E1B4B/C7D2FE?text=Design+System%3A+Warning+%7C+Error+%7C+Confirm&font=montserrat"
   alt="Style guide showing the warning, error, and confirmation visual system and dashboard wireframe vs final UI"
-  caption="Warning, error, and confirmation states with distinct color, icon, and placement rules -- severity legible without reading the copy."
+  caption="Warning, error, and confirmation states with distinct color, icon, and placement rules, so severity is legible without reading the copy."
 />
 
 ## Iteration
@@ -200,7 +200,7 @@ Because this was a self-directed project without a live user base, my iteration 
 
 **Dashboard density.** I initially assumed a more feature-rich dashboard surfacing more of Avira's tools would read as "value" to free users. Early feedback suggested the opposite: more visible options made the core status information harder to find at a glance, working directly against the trust-through-clarity goal. I simplified the dashboard and moved secondary tools into a clearly labeled secondary area.
 
-**Plan comparison layout.** I originally treated the plan comparison screen as a single dense table, similar to the format I'd used in my own competitive analysis. That was useful for me as a researcher but not for someone deciding whether to upgrade. I restructured it around the protection layers people said they cared about during interviews -- ransomware, real-time protection, VPN -- rather than a flat feature list.
+**Plan comparison layout.** I originally treated the plan comparison screen as a single dense table, similar to the format I'd used in my own competitive analysis. That was useful for me as a researcher but not for someone deciding whether to upgrade. I restructured it around the protection layers people said they cared about during interviews (ransomware, real-time protection, VPN) rather than a flat feature list.
 
 <MediaFigure
   src="https://placehold.co/1200x600/F5F3FF/6D28D9?text=Wireframe+%E2%86%92+Final+UI%3A+Dashboard+%26+Plan+Comparison&font=montserrat"
@@ -210,7 +210,7 @@ Because this was a self-directed project without a live user base, my iteration 
 
 ## Outcome
 
-This project didn't ship. It was a self-directed case study, not a commissioned engagement with Avira, so there's no real user base, no analytics, and no business metrics -- and I want to be direct about that rather than imply otherwise.
+This project didn't ship. It was a self-directed case study, not a commissioned engagement with Avira, so there's no real user base, no analytics, and no business metrics, and I want to be direct about that rather than imply otherwise.
 
 What did come out of it:
 
@@ -229,13 +229,13 @@ What did come out of it:
 
 ## Reflection
 
-The biggest thing I took away: <mark>a redesign built around "make it consistent" is really a redesign built around "make it trustworthy," and those aren't the same brief even though they can look similar in early sketches.</mark> Once I named the real problem that way, decisions that had felt like style choices -- how a warning looks, where an upgrade prompt lives -- became a lot easier to defend or reject.
+The biggest thing I took away: <mark>a redesign built around "make it consistent" is really a redesign built around "make it trustworthy," and those aren't the same brief even though they can look similar in early sketches.</mark> Once I named the real problem that way, decisions that had felt like style choices (how a warning looks, where an upgrade prompt lives) became a lot easier to defend or reject.
 
 If I did this again today, I'd push harder on getting real usage or support-ticket data before finalising the problem framing, rather than relying mostly on five interviews and my own product analysis. Five interviews were enough to find a real signal (Quick Scan's dominance, the notification tension) but not enough to be confident I hadn't missed something. I'd also be more disciplined about stating that limitation earlier in the process rather than only in the write-up.
 
 This project also sharpened how I think about freemium products specifically: the instinct to "communicate the value of upgrading" can easily slide into "sell harder," and in a trust-dependent category like security software, that's a real risk, not just a stylistic concern.
 
-> The interface's job wasn't to look modern. It was to make an invisible, hard-to-verify service -- are you actually protected right now -- feel legible enough that people would trust it without having to think about it.
+> The interface's job wasn't to look modern. It was to make an invisible, hard-to-verify service (are you actually protected right now) feel legible enough that people would trust it without having to think about it.
 
 ## Key Takeaways
 
@@ -243,7 +243,7 @@ This project also sharpened how I think about freemium products specifically: th
 - **Research produced a testable signal.** Quick Scan's dominance in both interviews and usability testing directly shaped the dashboard's primary interaction, instead of relying on assumption.
 - **Conservative upgrade path, on purpose.** An information-first approach over a higher-converting interruption model, because it matched what users said they needed and preserved the thing freemium security software can't afford to lose.
 - **Design system before high-fidelity.** Slower up front, but the only way to actually solve the consistency problem rather than relocate it.
-- **Honest about limits.** Without commissioned access to real usage data, post-hoc impact estimates are hypotheses -- and I treated them that way throughout.
+- **Honest about limits.** Without commissioned access to real usage data, post-hoc impact estimates are hypotheses, and I treated them that way throughout.
 
 
 _Self-directed. User research, user interviews, usability testing, competitive analysis, information architecture, user flows, wireframes, design system, prototyping, and visual design._
