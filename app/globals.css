@@ -76,6 +76,19 @@
     max-width: none;
   }
 
+  /* Sticky first column in MDX tables only gets a right border once the table has actually scrolled */
+  .sticky-col:first-child {
+    border-right: 1px solid transparent;
+  }
+
+  [data-scrolled='true'] .sticky-col:first-child {
+    border-right-color: rgba(0, 0, 0, 0.15);
+  }
+
+  .dark [data-scrolled='true'] .sticky-col:first-child {
+    border-right-color: rgba(255, 255, 255, 0.15);
+  }
+
   .container-portfolio {
     @apply max-w-6xl mx-auto px-6 sm:px-8 lg:px-12;
   }

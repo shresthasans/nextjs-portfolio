@@ -1,6 +1,7 @@
 import type { MDXComponents } from 'mdx/types'
 import type { ReactNode } from 'react'
 import { slugify } from '@/lib/toc'
+import { ScrollableTable } from '@/components/scrollable-table'
 
 function textContent(node: ReactNode): string {
   if (typeof node === 'string' || typeof node === 'number') return String(node)
@@ -67,19 +68,21 @@ export function getMDXComponents(): MDXComponents {
     ),
 
     table: ({ children }) => (
-      <div className="overflow-x-auto my-8">
-        <table className="w-full text-sm border-collapse">{children}</table>
-      </div>
+      <ScrollableTable>
+        <table className="w-full min-w-[560px] text-sm [border-collapse:separate] [border-spacing:0] [table-layout:fixed]">
+          {children}
+        </table>
+      </ScrollableTable>
     ),
 
     th: ({ children }) => (
-      <th className="text-left px-4 py-3 bg-stone-100 dark:bg-stone-800 font-semibold text-stone-900 dark:text-stone-100 border-b border-stone-200 dark:border-stone-700 first:rounded-tl-lg last:rounded-tr-lg">
+      <th className="sticky-col text-left px-4 py-3 bg-stone-100 dark:bg-stone-800 font-semibold text-stone-900 dark:text-stone-100 border-b border-stone-200 dark:border-stone-700 first:w-28 first:sm:w-36 first:sticky first:left-0 first:z-10 first:rounded-tl-lg last:rounded-tr-lg first:transition-colors first:duration-200">
         {children}
       </th>
     ),
 
     td: ({ children }) => (
-      <td className="px-4 py-3 border-b border-stone-100 dark:border-stone-800 text-stone-700 dark:text-stone-300 align-top">
+      <td className="sticky-col px-4 py-3 border-b border-stone-100 dark:border-stone-800 text-stone-700 dark:text-stone-300 align-top break-words first:sticky first:left-0 first:z-10 first:bg-stone-50 dark:first:bg-stone-950 first:transition-colors first:duration-200">
         {children}
       </td>
     ),

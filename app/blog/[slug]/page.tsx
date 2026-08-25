@@ -234,8 +234,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <p className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
                 {fm.excerpt}
               </p>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-stone-100 dark:bg-stone-800 rounded-lg">
-                <Link href="/about" className="flex items-center gap-1.5 group">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 px-3 py-1.5 bg-stone-100 dark:bg-stone-800 rounded-lg">
+                <Link href="/about" className="flex items-center gap-1.5 group whitespace-nowrap">
                   <span className="relative w-5 h-5 rounded-full overflow-hidden shrink-0">
                     <Image src="/images/profile/sanjay-avatar.webp" alt="" fill className="object-cover" />
                   </span>
@@ -244,19 +244,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   </span>
                 </Link>
                 <span className="text-stone-300 dark:text-stone-600" aria-hidden="true">·</span>
-                <span className="flex items-center gap-1.5 text-xs font-medium text-stone-600 dark:text-stone-300">
+                <span className="flex items-center gap-1.5 text-xs font-medium text-stone-600 dark:text-stone-300 whitespace-nowrap">
                   <Clock size={12} aria-hidden="true" />
                   {fm.readingTime}
                 </span>
                 <span className="text-stone-300 dark:text-stone-600" aria-hidden="true">·</span>
-                <span className="text-xs font-medium text-stone-600 dark:text-stone-300">
+                <span className="text-xs font-medium text-stone-600 dark:text-stone-300 whitespace-nowrap">
                   Published{' '}
                   <time dateTime={fm.date}>{formatDate(fm.date)}</time>
                 </span>
                 {fm.updatedDate && fm.updatedDate !== fm.date && (
                   <>
                     <span className="text-stone-300 dark:text-stone-600" aria-hidden="true">·</span>
-                    <span className="text-xs font-medium text-amber-700 dark:text-amber-400">
+                    <span className="text-xs font-medium text-amber-700 dark:text-amber-400 whitespace-nowrap">
                       Updated{' '}
                       <time dateTime={fm.updatedDate}>{formatDate(fm.updatedDate)}</time>
                     </span>
