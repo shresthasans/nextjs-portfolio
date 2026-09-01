@@ -43,6 +43,7 @@ interface Frontmatter {
   team?: string[]
   impact?: string | string[]
   highlights?: { title: string; text: string }[]
+  faqs?: { question: string; answer: string }[]
 }
 
 async function getCaseStudy(slug: string) {
@@ -538,6 +539,21 @@ export default async function CaseStudyPage({
     dateCreated: fm.year,
   }
 
+  const faqJsonLd = fm.faqs
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: fm.faqs.map(({ question, answer }) => ({
+          '@type': 'Question',
+          name: question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: answer,
+          },
+        })),
+      }
+    : null
+
   return (
     <>
       <script
@@ -548,6 +564,12 @@ export default async function CaseStudyPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudyJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       {/* Back + Header */}
       <section className={`relative bg-gradient-to-b ${theme.headerFrom} to-transparent dark:to-transparent pt-28 pb-16`}>
         <div className="container-portfolio">
@@ -774,6 +796,16 @@ export default async function CaseStudyPage({
                       </span>
                     ))}
                   </div>
+                </div>
+              )}
+
+              {/* FAQ */}
+              {fm.faqs && fm.faqs.length > 0 && (
+                <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-800">
+                  <h2 className="font-heading text-2xl font-bold text-stone-900 dark:text-stone-50 tracking-tight mb-4">
+                    Frequently Asked Questions
+                  </h2>
+                  <FAQAccordion items={fm.faqs} />
                 </div>
               )}
 
