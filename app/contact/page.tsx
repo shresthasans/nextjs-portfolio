@@ -3,6 +3,7 @@
 import type { Metadata } from 'next'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { Mail, Linkedin, ArrowUpRight, CheckCircle, AlertCircle } from 'lucide-react'
 import AnimatedSection from '@/components/AnimatedSection'
 import { trackEvent } from '@/lib/analytics'
@@ -257,6 +258,14 @@ export default function ContactPage() {
                     >
                       contact@sanjayshrestha.com
                     </a>
+                  </p>
+
+                  <p className="text-xs text-stone-500 dark:text-stone-500 text-center">
+                    By submitting, you agree to this site&apos;s{' '}
+                    <Link href="/privacy" className="text-amber-700 dark:text-amber-400 hover:underline">
+                      Privacy Policy
+                    </Link>
+                    .
                   </p>
                 </form>
               )}

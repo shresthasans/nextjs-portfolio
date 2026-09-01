@@ -122,8 +122,14 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-stone-600 dark:text-stone-400" suppressHydrationWarning>
-            &copy; {new Date().getFullYear()} Sanjay Shrestha. All rights reserved.
+          <p className="text-xs text-stone-600 dark:text-stone-400 flex items-center gap-3" suppressHydrationWarning>
+            <span>&copy; {new Date().getFullYear()} Sanjay Shrestha. All rights reserved.</span>
+            <Link href="/privacy" className="hover:text-stone-900 dark:hover:text-stone-50 transition-colors duration-200">
+              Privacy
+            </Link>
+            <Link href="/accessibility" className="hover:text-stone-900 dark:hover:text-stone-50 transition-colors duration-200">
+              Accessibility
+            </Link>
           </p>
           <p className="inline-flex items-center gap-1 text-xs text-stone-600 dark:text-stone-400">
             Made with{' '}
