@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowUpRight, Clock, Layers } from 'lucide-react'
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+import { ArrowUpRight, Clock, Layers, Search, X } from 'lucide-react'
 import { clsx } from 'clsx'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/AnimatedSection'
 import BlogCard, { BlogPost } from '@/components/BlogCard'
@@ -168,16 +169,38 @@ function FeaturedSeriesCard({
   )
 }
 
+function matchesQuery(post: BlogPost, query: string) {
+  const q = query.toLowerCase()
+  return post.title.toLowerCase().includes(q) || post.excerpt.toLowerCase().includes(q)
+}
+
 export default function BlogIndex({ posts }: { posts: BlogPost[] }) {
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
   const [activeTag, setActiveTag] = useState<FilterTag>('All')
+  const [query, setQuery] = useState(searchParams.get('q') ?? '')
+
+  function updateQuery(value: string) {
+    setQuery(value)
+    const params = new URLSearchParams(searchParams.toString())
+    if (value) params.set('q', value)
+    else params.delete('q')
+    router.replace(params.toString() ? `${pathname}?${params.toString()}` : pathname, { scroll: false })
+  }
 
   const allItems = groupSeries(posts)
-  const feedItems =
+  const tagFiltered =
     activeTag === 'All'
       ? allItems
       : allItems.filter((item) =>
           item.kind === 'post' ? item.post.tag === activeTag : item.posts.some((p) => p.tag === activeTag)
         )
+  const feedItems = query
+    ? tagFiltered.filter((item) =>
+        item.kind === 'post' ? matchesQuery(item.post, query) : item.posts.some((p) => matchesQuery(p, query))
+      )
+    : tagFiltered
   const filtered = feedItems.flatMap((item) => (item.kind === 'post' ? [item.post] : item.posts))
 
   const PINNED_SERIES = 'Product Design Concepts Explained'
@@ -193,6 +216,32 @@ export default function BlogIndex({ posts }: { posts: BlogPost[] }) {
 
   return (
     <div className="space-y-10">
+
+      {/* Search */}
+      <div className="relative max-w-sm">
+        <Search
+          size={15}
+          className="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 dark:text-stone-500"
+          aria-hidden="true"
+        />
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => updateQuery(e.target.value)}
+          placeholder="Search posts…"
+          aria-label="Search blog posts"
+          className="w-full pl-9 pr-9 py-2 rounded-lg text-sm border border-stone-200 dark:border-stone-700 bg-transparent text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-600 dark:focus:ring-amber-400"
+        />
+        {query && (
+          <button
+            onClick={() => updateQuery('')}
+            aria-label="Clear search"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 dark:text-stone-500 hover:text-stone-700 dark:hover:text-stone-300 cursor-pointer"
+          >
+            <X size={14} aria-hidden="true" />
+          </button>
+        )}
+      </div>
 
       {/* Filter bar */}
       <div className="flex flex-wrap items-center gap-3">
@@ -220,7 +269,7 @@ export default function BlogIndex({ posts }: { posts: BlogPost[] }) {
       {/* Empty state */}
       {filtered.length === 0 && (
         <div className="py-20 text-center text-sm text-stone-500 dark:text-stone-400">
-          No posts in this category yet.
+          {query ? `No posts match "${query}".` : 'No posts in this category yet.'}
         </div>
       )}
 

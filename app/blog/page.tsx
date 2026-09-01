@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
@@ -118,7 +119,9 @@ export default function BlogPage() {
           <ClusterNav posts={posts} />
         </AnimatedSection>
       <AnimatedSection>
-        <BlogIndex posts={posts} />
+        <Suspense fallback={null}>
+          <BlogIndex posts={posts} />
+        </Suspense>
         </AnimatedSection>
       </div>
     </section>

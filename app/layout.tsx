@@ -102,6 +102,14 @@ const jsonLd = {
       url: 'https://sanjayshrestha.com/',
       description: 'Portfolio of Sanjay Shrestha — Senior Product Designer',
       author: { '@id': 'https://sanjayshrestha.com/#person' },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: 'https://sanjayshrestha.com/blog?q={search_term_string}',
+        },
+        'query-input': 'required name=search_term_string',
+      },
     },
   ],
 }
