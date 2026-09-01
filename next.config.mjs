@@ -12,9 +12,13 @@ const nextConfig = {
   },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   async headers() {
+    // Next dev mode (HMR, source maps) needs 'unsafe-eval' to run at all — without it the
+    // browser blocks hydration entirely and every client component renders blank. Production
+    // builds don't eval, so they stay on the stricter policy.
+    const isDev = process.env.NODE_ENV !== 'production'
     const csp = [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://scripts.clarity.ms",
+      `script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval' " : ''}https://www.googletagmanager.com https://www.clarity.ms https://scripts.clarity.ms`,
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: https:",
       "font-src 'self' data:",
