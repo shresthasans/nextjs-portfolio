@@ -8,6 +8,7 @@ import CaseStudyCard from '@/components/CaseStudyCard'
 import TestimonialCarousel from '@/components/TestimonialCarousel'
 import { allWork } from '@/lib/work-data'
 import { clients } from '@/lib/clients'
+import { getPersonSchema } from '@/lib/person-schema'
 import { CUA_VERIFY_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -72,21 +73,12 @@ export default function ProductDesignerNepalPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ProfilePage',
-    mainEntity: {
-      '@type': 'Person',
-      '@id': 'https://sanjayshrestha.com/#person',
-      name: 'Sanjay Shrestha',
-      jobTitle: 'Senior Product Designer',
+    mainEntity: getPersonSchema({
       url: 'https://sanjayshrestha.com/product-designer-nepal',
       image: 'https://sanjayshrestha.com/images/profile/sanjay.webp',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Kathmandu',
-        addressCountry: 'NP',
-      },
       description:
         'Senior product designer based in Kathmandu, Nepal, with 15+ years designing enterprise SaaS, AI products and design systems for Microsoft, Decisions and global SaaS teams.',
-    },
+    }),
   }
 
   const breadcrumbJsonLd = {

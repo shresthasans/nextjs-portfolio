@@ -7,6 +7,7 @@ import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { getPersonSchema } from '@/lib/person-schema'
 
 const archivo = Archivo({
   subsets: ['latin'],
@@ -93,46 +94,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
-    {
-      '@type': 'Person',
-      '@id': 'https://sanjayshrestha.com/#person',
-      name: 'Sanjay Shrestha',
-      jobTitle: 'Senior Product Designer',
-      description:
-        'Senior Product Designer with 15+ years designing digital products used by millions. Specialising in Design Systems, AI-Powered UX, and B2B SaaS.',
-      url: 'https://sanjayshrestha.com/',
-      image: 'https://sanjayshrestha.com/og-image.jpg',
-      email: 'contact@sanjayshrestha.com',
-      worksFor: {
-        '@type': 'Organization',
-        name: 'Decisions',
-        url: 'https://www.meetingdecisions.com',
-      },
-      knowsAbout: [
-        'Product Design',
-        'UX Design',
-        'Design Systems',
-        'AI UX',
-        'Agent UX',
-        'Enterprise SaaS Design',
-        'User Research',
-        'Accessibility (WCAG)',
-        'Interaction Design',
-        'Information Architecture',
-      ],
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Kathmandu',
-        addressCountry: 'NP',
-      },
-      sameAs: [
-        'https://www.linkedin.com/in/shresthasans',
-        'https://www.behance.net/shresthasans',
-        'https://dribbble.com/shresthasans',
-        'https://twitter.com/shresthasans',
-        'https://github.com/shresthasans',
-      ],
-    },
+    getPersonSchema(),
     {
       '@type': 'WebSite',
       '@id': 'https://sanjayshrestha.com/#website',

@@ -9,6 +9,7 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import BlogCard, { BlogPost } from '@/components/BlogCard'
 import CaseStudyCard from '@/components/CaseStudyCard'
 import { allWork } from '@/lib/work-data'
+import { getPersonSchema } from '@/lib/person-schema'
 
 export const metadata: Metadata = {
   title: 'AI UX Designer in Nepal for Human-Centered AI',
@@ -98,21 +99,12 @@ export default function AiUxDesignNepalPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ProfilePage',
-    mainEntity: {
-      '@type': 'Person',
-      '@id': 'https://sanjayshrestha.com/#person',
-      name: 'Sanjay Shrestha',
-      jobTitle: 'Senior Product Designer',
+    mainEntity: getPersonSchema({
       url: 'https://sanjayshrestha.com/ai-ux-design-nepal',
       image: 'https://sanjayshrestha.com/images/profile/sanjay.webp',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Kathmandu',
-        addressCountry: 'NP',
-      },
       description:
         'AI UX designer based in Kathmandu, Nepal, designing human-centered AI products for enterprise SaaS: confidence, explainability, editable output and fallback states.',
-    },
+    }),
   }
 
   const breadcrumbJsonLd = {

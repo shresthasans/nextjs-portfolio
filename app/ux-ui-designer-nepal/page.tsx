@@ -5,6 +5,7 @@ import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/Ani
 import Breadcrumbs from '@/components/Breadcrumbs'
 import CaseStudyCard from '@/components/CaseStudyCard'
 import { allWork } from '@/lib/work-data'
+import { getPersonSchema } from '@/lib/person-schema'
 
 export const metadata: Metadata = {
   title: 'UX/UI Designer in Nepal',
@@ -72,21 +73,12 @@ export default function UxUiDesignerNepalPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ProfilePage',
-    mainEntity: {
-      '@type': 'Person',
-      '@id': 'https://sanjayshrestha.com/#person',
-      name: 'Sanjay Shrestha',
-      jobTitle: 'Senior Product Designer',
+    mainEntity: getPersonSchema({
       url: 'https://sanjayshrestha.com/ux-ui-designer-nepal',
       image: 'https://sanjayshrestha.com/images/profile/sanjay.webp',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Kathmandu',
-        addressCountry: 'NP',
-      },
       description:
         'UX/UI designer based in Kathmandu, Nepal, combining user research, information architecture and interface design for enterprise SaaS and consumer products.',
-    },
+    }),
   }
 
   const breadcrumbJsonLd = {

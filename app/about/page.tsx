@@ -5,6 +5,7 @@ import { Award, MapPin, ArrowRight } from 'lucide-react'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/AnimatedSection'
 import { CUA_VERIFY_URL } from '@/lib/constants'
 import { getBlurDataURL } from '@/lib/blur-data'
+import { getPersonSchema } from '@/lib/person-schema'
 
 export const metadata: Metadata = {
   title: { absolute: 'About Sanjay Shrestha | Senior Product Designer' },
@@ -170,16 +171,12 @@ export default function AboutPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ProfilePage',
-    mainEntity: {
-      '@type': 'Person',
-      '@id': 'https://sanjayshrestha.com/#person',
-      name: 'Sanjay Shrestha',
-      jobTitle: 'Senior Product Designer',
+    mainEntity: getPersonSchema({
       url: 'https://sanjayshrestha.com/about',
       image: 'https://sanjayshrestha.com/images/profile/sanjay.webp',
       description:
         'Senior Product Designer with 15+ years designing enterprise SaaS, B2B, and government digital products. CUA™ certified.',
-    },
+    }),
   }
 
   const breadcrumbJsonLd = {
