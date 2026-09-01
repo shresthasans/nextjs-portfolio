@@ -24,6 +24,7 @@ import { getMDXComponents } from '@/components/mdx-components'
 import { extractHeadings } from '@/lib/toc'
 import TableOfContents from '@/components/TableOfContents'
 import { getBlurDataURL } from '@/lib/blur-data'
+import { getLastCommitISODate } from '@/lib/content-dates'
 
 interface Frontmatter {
   title: string
@@ -533,6 +534,10 @@ export default async function CaseStudyPage({
     ],
   }
 
+  // Real git history for this file, not build time — a fresh CI checkout resets every
+  // file's mtime, so file-system dates can't tell us when the content actually changed.
+  const workLastModified = getLastCommitISODate(`content/work/${slug}.mdx`)
+
   const caseStudyJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
@@ -544,6 +549,7 @@ export default async function CaseStudyPage({
     about: fm.client,
     keywords: fm.tools?.join(', '),
     dateCreated: fm.year,
+    ...(workLastModified ? { dateModified: workLastModified } : {}),
   }
 
   // Scoped to the third-party product being reviewed, never to Sanjay's own Person/CreativeWork

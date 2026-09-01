@@ -4,6 +4,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import { allWork } from '@/lib/work-data'
 import { CLUSTERS } from '@/lib/cluster-data'
+import { getLastCommitISODate } from '@/lib/content-dates'
 
 const BASE_URL = 'https://sanjayshrestha.com'
 
@@ -27,8 +28,8 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   topics: '2026-08-12', // blog topic-cluster hub pages added
 }
 
-// Case studies without their own lastModified frontmatter fall back to this — the last
-// content revamp that touched all of them together.
+// Last-resort fallback only — used when a case study has neither a lastModified override
+// nor any git history for its file (e.g. a shallow CI clone with no history for that path).
 const WORK_CONTENT_REVAMP_DATE = '2026-08-10'
 
 function getSlugsWithDates(dir: string): { slug: string; date?: string; updatedDate?: string }[] {
@@ -44,13 +45,17 @@ function getSlugsWithDates(dir: string): { slug: string; date?: string; updatedD
     })
 }
 
+// lastModified frontmatter (manual override) wins if set, then real git history for the
+// file, then the shared fallback date. Never file mtime or Date.now() — see note above.
 function getWorkLastModified(slug: string): Date {
-  const filePath = path.join(process.cwd(), 'content', 'work', `${slug}.mdx`)
+  const relativePath = path.join('content', 'work', `${slug}.mdx`)
+  const filePath = path.join(process.cwd(), relativePath)
   if (fs.existsSync(filePath)) {
     const { data } = matter(fs.readFileSync(filePath, 'utf-8'))
     if (data.lastModified) return new Date(data.lastModified)
   }
-  return new Date(WORK_CONTENT_REVAMP_DATE)
+  const gitDate = getLastCommitISODate(relativePath)
+  return new Date(gitDate ?? WORK_CONTENT_REVAMP_DATE)
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -134,7 +139,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map(({ slug, date, updatedDate }) => ({
     url: `${BASE_URL}/blog/${slug}`,
-    lastModified: updatedDate ? new Date(updatedDate) : date ? new Date(date) : undefined,
+    lastModified: (() => {
+      if (updatedDate) return new Date(updatedDate)
+      const gitDate = getLastCommitISODate(path.join('content', 'blog', `${slug}.mdx`))
+      if (gitDate) return new Date(gitDate)
+      return date ? new Date(date) : undefined
+    })(),
     changeFrequency: 'monthly',
     priority: 0.6,
   }))

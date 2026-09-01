@@ -22,6 +22,7 @@ import SeriesNav from '@/components/SeriesNav'
 import { getBlurDataURL } from '@/lib/blur-data'
 import { extractHeadings } from '@/lib/toc'
 import { getCluster } from '@/lib/cluster-data'
+import { getLastCommitISODate } from '@/lib/content-dates'
 
 interface BlogFrontmatter {
   title: string
@@ -158,7 +159,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     description: fm.excerpt,
     image: `https://sanjayshrestha.com${fm.coverImage ?? tagCoverImage[fm.tag]}`,
     datePublished: fm.date,
-    dateModified: fm.updatedDate ?? fm.date,
+    // updatedDate is an editorial signal (a substantive revision worth telling readers about,
+    // not every typo fix) — it wins when set. Otherwise fall back to real git history for this
+    // file, then to the publish date if neither is available.
+    dateModified: fm.updatedDate ?? getLastCommitISODate(`content/blog/${slug}.mdx`) ?? fm.date,
     url: `https://sanjayshrestha.com/blog/${slug}`,
     mainEntityOfPage: {
       '@type': 'WebPage',
