@@ -243,7 +243,7 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
 
                 {/* Headline with cycling highlight — no entrance animation: this is the LCP element,
                     so it must paint at opacity:1 immediately instead of waiting on JS/motion */}
-                <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl xl:text-[5.25rem] font-bold text-stone-900 dark:text-stone-50 leading-[1.06] tracking-tight mb-7">
+                <h1 id="speakable-headline" className="font-heading text-5xl sm:text-6xl lg:text-7xl xl:text-[5.25rem] font-bold text-stone-900 dark:text-stone-50 leading-[1.06] tracking-tight mb-7">
                   I turn complex{' '}challenges into{' '}
                   <span className="inline-block">
                     {mounted ? (
@@ -270,6 +270,7 @@ export default function HomePageClient({ latestPosts = [] }: { latestPosts?: Lat
 
                 {/* Tagline */}
                 <motion.p
+                  id="speakable-summary"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.55, delay: 0.28, ease: 'easeOut' }}

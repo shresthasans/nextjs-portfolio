@@ -35,6 +35,20 @@ export const metadata: Metadata = {
   },
 }
 
+const webPageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': 'https://sanjayshrestha.com/',
+  url: 'https://sanjayshrestha.com/',
+  name: 'Senior Product Designer for Enterprise SaaS & AI | Sanjay Shrestha',
+  isPartOf: { '@id': 'https://sanjayshrestha.com/#website' },
+  about: { '@id': 'https://sanjayshrestha.com/#person' },
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['#speakable-headline', '#speakable-summary'],
+  },
+}
+
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -75,6 +89,10 @@ export default function Home() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

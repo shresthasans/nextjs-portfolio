@@ -164,6 +164,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     // file, then to the publish date if neither is available.
     dateModified: fm.updatedDate ?? getLastCommitISODate(`content/blog/${slug}.mdx`) ?? fm.date,
     url: `https://sanjayshrestha.com/blog/${slug}`,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['#speakable-headline', '#speakable-summary'],
+    },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `https://sanjayshrestha.com/blog/${slug}`,
@@ -257,11 +261,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </>
               )}
             </div>
-            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-stone-900 dark:text-stone-50 tracking-tight leading-[1.1] mb-4 text-balance">
+            <h1 id="speakable-headline" className="font-heading text-4xl sm:text-5xl font-bold text-stone-900 dark:text-stone-50 tracking-tight leading-[1.1] mb-4 text-balance">
               {fm.title}
             </h1>
             <AnimatedSection>
-              <p className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+              <p id="speakable-summary" className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
                 {fm.excerpt}
               </p>
               <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 px-3 py-1.5 bg-stone-100 dark:bg-stone-800 rounded-lg">
