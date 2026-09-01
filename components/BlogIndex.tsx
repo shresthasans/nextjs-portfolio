@@ -60,76 +60,6 @@ function formatDate(dateStr: string) {
   })
 }
 
-function FeaturedCard({ post }: { post: BlogPost }) {
-  return (
-    <Link
-      href={`/blog/${post.slug}`}
-      className={clsx(
-        'group grid md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_340px] rounded-xl overflow-hidden border transition-all duration-200 cursor-pointer',
-        'border-stone-200 dark:border-stone-800',
-        'hover:border-stone-300 dark:hover:border-stone-700',
-        'hover:shadow-lg dark:hover:shadow-stone-950/50',
-        'bg-white dark:bg-stone-900/60'
-      )}
-      aria-label={`Read: ${post.title}`}
-    >
-      {/* Text panel */}
-      <div className="flex flex-col gap-4 p-8 lg:p-10">
-        <div className="flex items-center gap-3">
-          <span
-            className={clsx(
-              'inline-flex px-2.5 py-0.5 rounded-lg text-xs font-medium border',
-              tagPillColors[post.tag]
-            )}
-          >
-            {post.tag}
-          </span>
-          <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-[0.12em]">
-            Latest
-          </span>
-        </div>
-
-        <h2 className="font-heading font-bold text-stone-900 dark:text-stone-50 text-2xl sm:text-[1.75rem] leading-snug group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors duration-200">
-          {post.title}
-        </h2>
-
-        <p className="text-sm text-stone-500 dark:text-stone-400 leading-relaxed line-clamp-3">
-          {post.excerpt}
-        </p>
-
-        <div className="flex items-center gap-3 text-xs text-stone-500 dark:text-stone-400 mt-auto pt-4 border-t border-stone-100 dark:border-stone-800">
-          <time dateTime={post.date}>{formatDate(post.date)}</time>
-          <span aria-hidden="true">·</span>
-          <Clock size={11} aria-hidden="true" />
-          <span>{post.readingTime}</span>
-          <ArrowUpRight
-            size={15}
-            className="ml-auto shrink-0 text-stone-300 dark:text-stone-600 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-200"
-            aria-hidden="true"
-          />
-        </div>
-      </div>
-
-      {/* Graphic panel */}
-      {post.coverImage ? (
-        <div className="relative h-52 md:h-auto w-full overflow-hidden">
-          <Image
-            src={post.coverImage}
-            alt=""
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 340px"
-            placeholder={getBlurDataURL(post.coverImage) ? 'blur' : 'empty'}
-            blurDataURL={getBlurDataURL(post.coverImage)}
-          />
-        </div>
-      ) : (
-        <TagGraphic tag={post.tag} className="h-52 md:h-auto w-full" />
-      )}
-    </Link>
-  )
-}
-
 function FeaturedSeriesCard({
   title,
   posts,
@@ -254,11 +184,12 @@ export default function BlogIndex({ posts }: { posts: BlogPost[] }) {
   const pinnedIndex = feedItems.findIndex(
     (item) => item.kind === 'series' && item.title === PINNED_SERIES
   )
-  const featured = pinnedIndex !== -1 ? feedItems[pinnedIndex] : feedItems[0]
+  const firstSeriesIndex = pinnedIndex !== -1 ? pinnedIndex : feedItems.findIndex((item) => item.kind === 'series')
+  const featured = firstSeriesIndex !== -1 ? feedItems[firstSeriesIndex] : undefined
   const rest =
-    pinnedIndex !== -1
-      ? [...feedItems.slice(0, pinnedIndex), ...feedItems.slice(pinnedIndex + 1)]
-      : feedItems.slice(1)
+    firstSeriesIndex !== -1
+      ? [...feedItems.slice(0, firstSeriesIndex), ...feedItems.slice(firstSeriesIndex + 1)]
+      : feedItems
 
   return (
     <div className="space-y-10">
@@ -293,14 +224,10 @@ export default function BlogIndex({ posts }: { posts: BlogPost[] }) {
         </div>
       )}
 
-      {/* Featured */}
-      {featured && (
+      {/* Featured series */}
+      {featured && featured.kind === 'series' && (
         <AnimatedSection>
-          {featured.kind === 'post' ? (
-            <FeaturedCard post={featured.post} />
-          ) : (
-            <FeaturedSeriesCard title={featured.title} posts={featured.posts} coverImage={featured.coverImage} />
-          )}
+          <FeaturedSeriesCard title={featured.title} posts={featured.posts} coverImage={featured.coverImage} />
         </AnimatedSection>
       )}
 
