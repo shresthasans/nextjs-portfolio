@@ -1,0 +1,22 @@
+# Sanjay Shrestha
+
+> Product designer. Portfolio, case studies, resume, and writing on product design, UX, and AI-native workflows.
+
+## Main
+
+- [About](https://sanjayshrestha.com/about): Background, experience, and approach.
+- [Work](https://sanjayshrestha.com/work): Case study index.
+- [Resume](https://sanjayshrestha.com/resume): Resume.
+- [Contact](https://sanjayshrestha.com/contact): Contact info.
+- [Blog](https://sanjayshrestha.com/blog): Writing index.
+
+## Case Studies
+
+- [LinkedIn Feed Redesign](https://sanjayshrestha.com/work/linkedin-feed-redesign)
+- [Avira Antivirus Redesign](https://sanjayshrestha.com/work/avira-antivirus-redesign)
+- [Stratus MaaS SaaS Dashboard Redesign](https://sanjayshrestha.com/work/stratus-maas-saas-dashboard-redesign)
+- [Decisions AI Mobile Meeting App](https://sanjayshrestha.com/work/decisions-ai-mobile-meeting-app)
+- [Pagevamp Onboarding Redesign](https://sanjayshrestha.com/work/pagevamp-onboarding-redesign)
+- [Reddit Home Feed Redesign](https://sanjayshrestha.com/work/reddit-home-feed-redesign)
+- [Nepal PM Calendar](https://sanjayshrestha.com/work/nepal-pm-calendar)
+- [StreamShare Streaming App Design](https://sanjayshrestha.com/work/streamshare-streaming-app-design)
