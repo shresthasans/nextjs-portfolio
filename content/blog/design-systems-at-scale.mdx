@@ -2,12 +2,12 @@
 title: "What I Learned Building a Design System From Scratch"
 seoTitle: "5 Lessons From Building a Design System"
 date: "2024-03-15"
-readingTime: "9 min read"
+updatedDate: "2026-09-01"
+readingTime: "10 min read"
 tag: "Design Systems"
 cluster: "design-systems"
 excerpt: "Lessons from building three design systems from scratch — healthcare, eCommerce, SaaS: start with tokens, ship incomplete, decide governance early."
 coverImage: "/images/blog/designing-design-system-from-scratch.webp"
-evergreen: true
 ---
 
 Every design system starts the same way: a Figma file, a Notion doc, and a kickoff meeting where everyone agrees that this time it will be different.
@@ -108,6 +108,14 @@ Someone specific, not a rotating committee. A small, named team, typically one o
 
 **How long does it take to build a design system from scratch?**
 This depends enough on team size, existing product debt, and organizational buy-in that giving you a fixed number would be a guess dressed up as an answer. What I can say is that the first usable version — tokens plus a core component set plus basic documentation — took less time in every case than the governance and adoption work that followed it.
+
+## Update (September 2026): AI didn't remove the governance problem
+
+Since I first wrote this, AI codegen tools became good enough to generate a plausible-looking button, card, or form in seconds, no design system required. That changed the shape of the risk, not the lesson.
+
+Before, an ungoverned system produced drift slowly: a designer eyeballs a spacing value, an engineer hardcodes a colour, and it takes months to notice. Now a team can generate a dozen visually convincing but token-blind components before lunch, each one plausible in isolation and inconsistent in aggregate. <mark>AI makes an ungoverned system worse faster, not obsolete.</mark> It hasn't changed what governance is for; it's raised the cost of not having it.
+
+The fix is the same one this article already argues for: tokens and governance decided early, so AI-generated work has something real to conform to. What's different in 2026 is that "ship it fast with AI" is no longer a reason to skip that step. It's the reason the step matters more.
 
 ## Where to start today
 
