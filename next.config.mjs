@@ -12,9 +12,6 @@ const nextConfig = {
   },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   async headers() {
-    // Report-Only while rolling out: logs violations to the browser console without
-    // blocking anything. Check the console after deploy, then switch the key to
-    // 'Content-Security-Policy' (enforced) once a few days of traffic show it's clean.
     const csp = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://scripts.clarity.ms",
@@ -45,21 +42,21 @@ const nextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
           },
-          { key: 'Content-Security-Policy-Report-Only', value: csp },
+          { key: 'Content-Security-Policy', value: csp },
         ],
       },
       {
         source: '/resume/:path*.pdf',
         headers: [
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
-          { key: 'Content-Security-Policy-Report-Only', value: selfFrameCsp },
+          { key: 'Content-Security-Policy', value: selfFrameCsp },
         ],
       },
       {
         source: '/portfolio/:path*.pdf',
         headers: [
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
-          { key: 'Content-Security-Policy-Report-Only', value: selfFrameCsp },
+          { key: 'Content-Security-Policy', value: selfFrameCsp },
         ],
       },
     ]
