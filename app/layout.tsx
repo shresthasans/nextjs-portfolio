@@ -103,6 +103,23 @@ const jsonLd = {
       url: 'https://sanjayshrestha.com/',
       image: 'https://sanjayshrestha.com/og-image.jpg',
       email: 'contact@sanjayshrestha.com',
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Decisions',
+        url: 'https://www.meetingdecisions.com',
+      },
+      knowsAbout: [
+        'Product Design',
+        'UX Design',
+        'Design Systems',
+        'AI UX',
+        'Agent UX',
+        'Enterprise SaaS Design',
+        'User Research',
+        'Accessibility (WCAG)',
+        'Interaction Design',
+        'Information Architecture',
+      ],
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Kathmandu',
