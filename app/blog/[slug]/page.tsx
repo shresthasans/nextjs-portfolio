@@ -23,6 +23,7 @@ import { getBlurDataURL } from '@/lib/blur-data'
 import { extractHeadings } from '@/lib/toc'
 import { getCluster } from '@/lib/cluster-data'
 import { getLastCommitISODate } from '@/lib/content-dates'
+import { getPublisherSchema } from '@/lib/person-schema'
 
 interface BlogFrontmatter {
   title: string
@@ -178,14 +179,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       name: 'Sanjay Shrestha',
       url: 'https://sanjayshrestha.com/about',
     },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Sanjay Shrestha',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://sanjayshrestha.com/icon-512.png',
-      },
-    },
+    publisher: getPublisherSchema(),
   }
 
   const faqJsonLd = fm.faqs

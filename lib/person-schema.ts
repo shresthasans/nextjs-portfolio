@@ -49,3 +49,21 @@ export function getPersonSchema(overrides?: {
     ],
   }
 }
+
+// A distinct entity from the Person above, even though it's the same one-person practice —
+// "Sanjay Shrestha" as an Organization.name identical to the Person.name made the two
+// indistinguishable to schema consumers. Named after how the site already describes itself
+// (see WebSite.description in layout.tsx) rather than inventing a business name unused
+// anywhere else on the site.
+export function getPublisherSchema() {
+  return {
+    '@type': 'Organization',
+    '@id': 'https://sanjayshrestha.com/#organization',
+    name: 'Sanjay Shrestha Portfolio',
+    url: 'https://sanjayshrestha.com/',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://sanjayshrestha.com/icon-512.png',
+    },
+  }
+}
