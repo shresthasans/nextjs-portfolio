@@ -50,7 +50,13 @@ interface Frontmatter {
     productUrl?: string
     applicationCategory?: string
     ratings: { source: string; value: number; count: number }[]
-    reviews?: { author: string; text: string; source: string }[]
+    reviews?: {
+      author: string
+      authorType?: 'Person' | 'Organization'
+      text?: string
+      source?: string
+      rating?: number
+    }[]
   }
 }
 
@@ -577,9 +583,14 @@ export default async function CaseStudyPage({
             ? {
                 review: reviews.map((r) => ({
                   '@type': 'Review',
-                  author: { '@type': 'Person', name: r.author },
-                  reviewBody: r.text,
-                  publisher: { '@type': 'Organization', name: r.source },
+                  author: { '@type': r.authorType ?? 'Person', name: r.author },
+                  ...(r.text ? { reviewBody: r.text } : {}),
+                  ...(r.rating
+                    ? { reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5 } }
+                    : {}),
+                  ...(r.source && r.authorType !== 'Organization'
+                    ? { publisher: { '@type': 'Organization', name: r.source } }
+                    : {}),
                 })),
               }
             : {}),

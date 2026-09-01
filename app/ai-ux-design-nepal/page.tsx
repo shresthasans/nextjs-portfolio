@@ -192,8 +192,8 @@ export default function AiUxDesignNepalPage() {
                 Enterprise AI, Not a Demo
               </h2>
               <p className="text-stone-600 dark:text-stone-400 leading-relaxed">
-                Decisions AI runs inside Microsoft Teams for organizations including Vestas, BDO,
-                NHS, and Manpower. Every AI-generated summary or suggested action needs a
+                Decisions AI runs inside Microsoft Teams for 5,000+ organizations, spanning
+                enterprise, healthcare, and government bodies. Every AI-generated summary or suggested action needs a
                 clear confidence signal, an easy way to correct it, and a human still making the
                 actual decision. It&apos;s an active, NDA-covered engagement, so what&apos;s shared
                 here is limited to what&apos;s publicly verifiable and a direct account of the

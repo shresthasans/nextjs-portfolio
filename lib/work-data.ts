@@ -7,7 +7,7 @@ export const allWork: CaseStudy[] = [
     client: 'Decisions (active client project, NDA-covered)',
     role: 'Lead Product Designer',
     outcome:
-      "Lead Product Designer for Decisions AI, the mobile companion to an AI-powered Microsoft Teams meeting platform used by 5,000+ organizations including Vestas, BDO, NHS, and Manpower. Active NDA-covered project — no internal research, usage data, or design rationale shared here, only what's publicly verifiable plus a direct account of the role.",
+      "Lead Product Designer for Decisions AI, the mobile companion to an AI-powered Microsoft Teams meeting platform used by 5,000+ organizations spanning enterprise, healthcare, and government. Active NDA-covered project — no internal research, usage data, or design rationale shared here, only what's publicly verifiable plus a direct account of the role.",
     type: 'Enterprise',
     year: '2019–Present',
     coverImage: '/images/work/decisions-platform/hero.webp',
