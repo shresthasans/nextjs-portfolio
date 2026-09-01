@@ -33,6 +33,8 @@ interface BlogFrontmatter {
   excerpt: string
   coverImage?: string
   cluster?: string
+  faqs?: { question: string; answer: string }[]
+  evergreen?: boolean
 }
 
 function getPost(slug: string) {
@@ -169,11 +171,29 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       url: 'https://sanjayshrestha.com/about',
     },
     publisher: {
-      '@type': 'Person',
-      '@id': 'https://sanjayshrestha.com/#person',
+      '@type': 'Organization',
       name: 'Sanjay Shrestha',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://sanjayshrestha.com/icon-512.png',
+      },
     },
   }
+
+  const faqJsonLd = fm.faqs
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: fm.faqs.map(({ question, answer }) => ({
+          '@type': 'Question',
+          name: question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: answer,
+          },
+        })),
+      }
+    : null
 
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
@@ -195,6 +215,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <ReadingProgress />
 
       {/* Header */}
@@ -259,6 +285,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     <span className="text-xs font-medium text-amber-700 dark:text-amber-400 whitespace-nowrap">
                       Updated{' '}
                       <time dateTime={fm.updatedDate}>{formatDate(fm.updatedDate)}</time>
+                    </span>
+                  </>
+                )}
+                {fm.evergreen && (
+                  <>
+                    <span className="text-stone-300 dark:text-stone-600" aria-hidden="true">·</span>
+                    <span className="text-xs font-medium text-emerald-700 dark:text-emerald-400 whitespace-nowrap">
+                      Evergreen — still accurate today
                     </span>
                   </>
                 )}
