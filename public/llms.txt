@@ -2,6 +2,8 @@
 
 > Product designer. Portfolio, case studies, resume, and writing on product design, UX, and AI-native workflows.
 
+Full text of every case study and blog post: https://sanjayshrestha.com/llms-full.txt
+
 ## Main
 
 - [About](https://sanjayshrestha.com/about): Background, experience, and approach.
@@ -13,10 +15,28 @@
 ## Case Studies
 
 - [LinkedIn Feed Redesign](https://sanjayshrestha.com/work/linkedin-feed-redesign)
-- [Avira Antivirus Redesign](https://sanjayshrestha.com/work/avira-antivirus-redesign)
-- [Stratus MaaS SaaS Dashboard Redesign](https://sanjayshrestha.com/work/stratus-maas-saas-dashboard-redesign)
 - [Decisions AI Mobile Meeting App](https://sanjayshrestha.com/work/decisions-ai-mobile-meeting-app)
 - [Pagevamp Onboarding Redesign](https://sanjayshrestha.com/work/pagevamp-onboarding-redesign)
-- [Reddit Home Feed Redesign](https://sanjayshrestha.com/work/reddit-home-feed-redesign)
-- [Nepal PM Calendar](https://sanjayshrestha.com/work/nepal-pm-calendar)
 - [StreamShare Streaming App Design](https://sanjayshrestha.com/work/streamshare-streaming-app-design)
+
+## Blog
+
+- [Modern Product Design Is a System, Not Just Screens](https://sanjayshrestha.com/blog/modern-product-design-explained): Product design in 2026 isn't one skill, it's five disciplines working as a system: AI and agentic UX, research, interaction design, design systems, and growth.
+- [From Traditional to AI-Native Product Design](https://sanjayshrestha.com/blog/ai-native-product-design): The real change AI brought wasn't faster screens. It was a persistent AI context that carries the product, design system, and past decisions.
+- [The Designer Career Paths Winning (and Losing) the 2026 Job Market](https://sanjayshrestha.com/blog/designer-career-paths-2026): Junior portfolios get hundreds of applicants. AI ate the production work. Here's why some designers are thriving anyway.
+- [The AI Agent Glossary Every Designer Needs in 2026](https://sanjayshrestha.com/blog/ai-agent-glossary-for-designers): Agent, orchestration, grounding, guardrails — what each term means for design work.
+- [What Is Agent UX?](https://sanjayshrestha.com/blog/what-is-agent-ux): A working model for the third layer UX is growing alongside AI, and why it catches most teams unprepared.
+- [Scaling Product Design With AI and Just Enough Technical Skills](https://sanjayshrestha.com/blog/scaling-product-design-with-ai): The five-part system — AI tools plus just enough technical skill — for closing the gap between what needs building and available dev bandwidth.
+- [Beyond the Chatbot: The AI UX Design Patterns That Actually Work](https://sanjayshrestha.com/blog/ai-ux-design-patterns): The patterns that change behavior — pre-fill, visible confidence, graceful failure — versus the sparkle icon nobody uses.
+- [Where AI Actually Fits in the Product Design Process](https://sanjayshrestha.com/blog/ai-in-the-product-design-process): A phase-by-phase look at where AI speeds up design inside the Double Diamond, and where human judgment still has to lead.
+- [The New Handoff: From AI-Generated UI to Production-Ready UI](https://sanjayshrestha.com/blog/ai-native-workflow-transition): The design-to-dev handoff didn't disappear when AI shortened idea-to-interface — it moved downstream, into code review.
+- [9 Simple UX Fixes That Boost Conversion](https://sanjayshrestha.com/blog/ux-fixes-boost-conversions): Nine small UX changes — permission timing, inline errors, shorter signup — that quietly cost signups until fixed.
+- [Forget AI Tools. Master These 7 AI Concepts Instead](https://sanjayshrestha.com/blog/ai-concepts-not-tools): The mental models that separate designers who work well with AI from those who just use it.
+- [User Research Methods That Actually Change Product Decisions](https://sanjayshrestha.com/blog/user-research-applied): Generative research, evaluative testing, JTBD, and affinity mapping, explained through the real decisions they changed.
+- [Product Thinking: 5 Concepts Every Product Designer Should Master](https://sanjayshrestha.com/blog/product-thinking-applied): Defining the right problems, measuring success, and prioritizing outcomes that matter.
+- [Icons Are the Most Underestimated Part of Your Design System](https://sanjayshrestha.com/blog/icons-design-systems): Choosing an icon style is a commitment to a visual language that has to hold up at 20 icons or 2,000.
+- [Design Systems: What Real Design System Experience Actually Looks Like](https://sanjayshrestha.com/blog/design-systems-applied): Tokens, debt, documentation, and handoff — not just component libraries.
+- [Design Process: 5 Habits That Separate Real Process From Theater](https://sanjayshrestha.com/blog/design-process-applied): How flows, IA, prioritization, and critique work together to guide real decisions.
+- [Collaboration and Influence: 5 Skills That Get Design Decisions Shipped](https://sanjayshrestha.com/blog/collaboration-influence-applied): The skills that turn design thinking into shipped decisions — stakeholder management, validation, impact.
+- [What 'Senior' Actually Means in Product Design](https://sanjayshrestha.com/blog/senior-designer-career): What actually changes in output, judgment, and mentoring after fifteen years, regardless of what the title says.
+- [What I Learned Building a Design System From Scratch](https://sanjayshrestha.com/blog/design-systems-at-scale): Lessons from building three design systems from scratch — healthcare, eCommerce, SaaS: start with tokens, ship incomplete, decide governance early.
