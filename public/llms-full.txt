@@ -3131,6 +3131,14 @@ Often, yes, especially on smaller teams. The shift described here is about what 
 **What if I have the title but don't feel like I've made the shift yet?**
 That's more common than it looks from the outside, and it's not a personal failing. Titles get awarded for reasons that include tenure, market conditions, and internal leveling politics, not only readiness. Treat the sections above as a working checklist rather than a diagnosis, and look for a mentor or manager who can give you the kind of direct feedback this article describes rather than trying to self-assess in a vacuum.
 
+## Update (September 2026): AI raised the floor on artefacts, not the ceiling on judgment
+
+When I first wrote this, "junior output" mostly meant wireframes, specs, and prototypes built by hand. Now a junior designer, or a PM, or an AI tool on its own, can generate a plausible-looking flow in minutes. The artefact-versus-clarity gap this article describes didn't close because of that. It got wider.
+
+An AI-generated screen can look finished without anyone having decided what problem it solves, what tradeoff it's making, or why this approach beats the three alternatives nobody looked at. That's exactly the judgment layer this article calls the senior shift, and it's now the part that's hardest to fake and easiest to skip. <mark>Faster artefacts didn't reduce the need for someone who can explain why the artefact is right. It made that person more load-bearing, not less.</mark>
+
+If you're early in your career and everything you produce can now be generated in a prompt, the differentiator was never going to be the artefact. It was always going to be whether you can articulate why it's the right one.
+
 ## Start with the shift, not the title
 
 The title "senior" tells you almost nothing on its own. What tells you something is whether your output has shifted toward clarity, whether you can translate design judgment into language the business already trusts, whether you know which battles deserve your credibility, and whether teaching has started sharpening your own thinking rather than just passing it along.
@@ -3242,6 +3250,14 @@ Someone specific, not a rotating committee. A small, named team, typically one o
 
 **How long does it take to build a design system from scratch?**
 This depends enough on team size, existing product debt, and organizational buy-in that giving you a fixed number would be a guess dressed up as an answer. What I can say is that the first usable version — tokens plus a core component set plus basic documentation — took less time in every case than the governance and adoption work that followed it.
+
+## Update (September 2026): AI didn't remove the governance problem
+
+Since I first wrote this, AI codegen tools became good enough to generate a plausible-looking button, card, or form in seconds, no design system required. That changed the shape of the risk, not the lesson.
+
+Before, an ungoverned system produced drift slowly: a designer eyeballs a spacing value, an engineer hardcodes a colour, and it takes months to notice. Now a team can generate a dozen visually convincing but token-blind components before lunch, each one plausible in isolation and inconsistent in aggregate. <mark>AI makes an ungoverned system worse faster, not obsolete.</mark> It hasn't changed what governance is for; it's raised the cost of not having it.
+
+The fix is the same one this article already argues for: tokens and governance decided early, so AI-generated work has something real to conform to. What's different in 2026 is that "ship it fast with AI" is no longer a reason to skip that step. It's the reason the step matters more.
 
 ## Where to start today
 
