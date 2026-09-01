@@ -260,14 +260,8 @@ export function CaseStudyRow({ study, index }: { study: CaseStudy; index: number
                 By the Numbers
               </p>
               <div className="flex flex-wrap gap-x-6 gap-y-3">
-                {study.stats.map((stat, i) => (
-                  <div
-                    key={stat.label}
-                    className={clsx(
-                      'flex flex-col pl-6 first:pl-0',
-                      i !== 0 && 'border-l border-stone-200 dark:border-stone-800'
-                    )}
-                  >
+                {study.stats.map((stat) => (
+                  <div key={stat.label} className="flex flex-col">
                     <span className="font-heading font-bold text-2xl leading-none text-stone-900 dark:text-stone-50">
                       {stat.value}
                     </span>
