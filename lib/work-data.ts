@@ -24,6 +24,12 @@ export const allWork: CaseStudy[] = [
       'scaling-product-design-with-ai',
       'ai-native-workflow-transition',
     ],
+    stats: [
+      { value: '4.4/5', label: 'G2 (401 reviews)' },
+      { value: '4.5/5', label: 'Capterra (81 reviews)' },
+      { value: '5.0/5', label: 'App Store (6 ratings)' },
+      { value: '4.4/5', label: 'Google Play (90+ reviews)' },
+    ],
   },
   {
     slug: 'pagevamp-onboarding-redesign',
