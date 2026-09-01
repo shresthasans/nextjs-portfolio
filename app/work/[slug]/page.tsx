@@ -44,6 +44,13 @@ interface Frontmatter {
   impact?: string | string[]
   highlights?: { title: string; text: string }[]
   faqs?: { question: string; answer: string }[]
+  productReview?: {
+    productName: string
+    productUrl?: string
+    applicationCategory?: string
+    ratings: { source: string; value: number; count: number }[]
+    reviews?: { author: string; text: string; source: string }[]
+  }
 }
 
 async function getCaseStudy(slug: string) {
@@ -539,6 +546,41 @@ export default async function CaseStudyPage({
     dateCreated: fm.year,
   }
 
+  // Scoped to the third-party product being reviewed, never to Sanjay's own Person/CreativeWork
+  // entities above — those are his case study and role, not a product he sells or reviews of him.
+  const productReviewJsonLd = fm.productReview
+    ? (() => {
+        const { productName, productUrl, applicationCategory, ratings, reviews } = fm.productReview
+        const totalCount = ratings.reduce((sum, r) => sum + r.count, 0)
+        const weightedSum = ratings.reduce((sum, r) => sum + r.value * r.count, 0)
+        const ratingValue = (weightedSum / totalCount).toFixed(2)
+        return {
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          name: productName,
+          ...(productUrl ? { url: productUrl } : {}),
+          ...(applicationCategory ? { applicationCategory } : {}),
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue,
+            ratingCount: totalCount,
+            bestRating: 5,
+            worstRating: 1,
+          },
+          ...(reviews?.length
+            ? {
+                review: reviews.map((r) => ({
+                  '@type': 'Review',
+                  author: { '@type': 'Person', name: r.author },
+                  reviewBody: r.text,
+                  publisher: { '@type': 'Organization', name: r.source },
+                })),
+              }
+            : {}),
+        }
+      })()
+    : null
+
   const faqJsonLd = fm.faqs
     ? {
         '@context': 'https://schema.org',
@@ -568,6 +610,12 @@ export default async function CaseStudyPage({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
+      {productReviewJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productReviewJsonLd) }}
         />
       )}
       {/* Back + Header */}
