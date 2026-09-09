@@ -879,7 +879,7 @@ export default async function CaseStudyPage({
             {/* Sidebar */}
             {headings.length > 0 && (
               <AnimatedSection className="lg:col-span-4" delay={0.2}>
-                <div className="sticky top-28">
+                <div className="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto">
                   <TableOfContents headings={headings} />
                 </div>
               </AnimatedSection>

@@ -1,2 +1,2 @@
 export const CUA_VERIFY_URL =
-  'https://humanfactors.com/hfi-training/certification/cua_directorylist_byname.asp?listview=lastname&alphabet=S#:~:text=Shrestha%2C%20Sanjay'
+  'https://hfiinstitute.com/verify/?credential=572193c6-d191-4741-b4b3-0f88a609abd1'

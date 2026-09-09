@@ -1,11 +1,16 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { clsx } from 'clsx'
 import type { TocHeading } from '@/lib/toc'
 
 export default function TableOfContents({ headings }: { headings: TocHeading[] }) {
   const [activeId, setActiveId] = useState<string>(headings[0]?.id ?? '')
+  const activeLinkRef = useRef<HTMLAnchorElement>(null)
+
+  useEffect(() => {
+    activeLinkRef.current?.scrollIntoView({ block: 'nearest' })
+  }, [activeId])
 
   useEffect(() => {
     const elements = headings
@@ -43,6 +48,7 @@ export default function TableOfContents({ headings }: { headings: TocHeading[] }
             <li key={heading.id}>
               <a
                 href={`#${heading.id}`}
+                ref={active ? activeLinkRef : undefined}
                 className={clsx(
                   'border-l-2 -ml-px py-1.5 text-sm transition-colors duration-150',
                   numbered ? 'flex' : 'block',
