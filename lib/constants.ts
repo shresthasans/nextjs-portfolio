@@ -1,2 +1,2 @@
 export const CUA_VERIFY_URL =
-  'https://hfiinstitute.com/verify/?credential=572193c6-d191-4741-b4b3-0f88a609abd1'
+  'https://hfiinstitute.com/verify/?credential=733b8cb5-a31d-49e7-9140-5a809fca656e'
