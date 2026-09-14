@@ -265,7 +265,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 px-3 py-1.5 bg-stone-100 dark:bg-stone-800 rounded-lg">
                 <Link href="/about" className="flex items-center gap-1.5 group whitespace-nowrap">
                   <span className="relative w-5 h-5 rounded-full overflow-hidden shrink-0">
-                    <Image src="/images/profile/sanjay-avatar.webp" alt="" fill className="object-cover" />
+                    <Image src="/images/profile/sanjay-avatar.webp" alt="" fill sizes="20px" className="object-cover" />
                   </span>
                   <span className="text-xs font-medium text-stone-700 dark:text-stone-200 group-hover:text-amber-700 dark:group-hover:text-amber-400">
                     Sanjay Shrestha
@@ -312,6 +312,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               src={fm.coverImage ?? tagCoverImage[fm.tag]}
               alt={`Cover image for ${fm.title}`}
               fill
+              sizes="(max-width: 1440px) 100vw, 1440px"
               className="object-contain"
               priority
               placeholder={getBlurDataURL(fm.coverImage ?? tagCoverImage[fm.tag]) ? 'blur' : 'empty'}
@@ -351,6 +352,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         src="/images/profile/sanjay-avatar.webp"
                         alt="Sanjay Shrestha"
                         fill
+                        sizes="44px"
                         className="object-cover"
                       />
                     </div>

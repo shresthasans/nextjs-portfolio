@@ -88,9 +88,9 @@ Why the hierarchy matters: when you rebrand or introduce dark mode, you change t
 
 Design debt tends to come from three sources:
 
-- **Speed debt** — shortcuts taken under deadline pressure, with every intention of returning to fix them.
-- **Growth debt** — patterns that worked at 10 screens but break at 100.
-- **<mark>Knowledge debt</mark>** — decisions made by people who've since left, with no documentation of why.
+- **Speed debt**: shortcuts taken under deadline pressure, with every intention of returning to fix them.
+- **Growth debt**: patterns that worked at 10 screens but break at 100.
+- **<mark>Knowledge debt</mark>**: decisions made by people who've since left, with no documentation of why.
 
 The hardest part of managing debt isn't identifying it, it's prioritizing *which* debt to pay down. Not all inconsistencies carry equal weight. A color mismatch in a footer is cosmetic. An inconsistent interaction pattern across a core workflow is functional debt that actively costs users time and trust.
 
@@ -108,10 +108,10 @@ The hardest part of managing debt isn't identifying it, it's prioritizing *which
 
 Documentation that scales answers four questions:
 
-1. **When to use this component** — the specific problem it solves.
-2. **When *not* to use it** — the adjacent use case it wasn't designed for.
-3. **What to do when it doesn't fit** — an escalation path, not just "don't improvise."
-4. **The decision behind the decision** — why this variant, and not another.
+1. **When to use this component**: the specific problem it solves.
+2. **When *not* to use it**: the adjacent use case it wasn't designed for.
+3. **What to do when it doesn't fit**: an escalation path, not just "don't improvise."
+4. **The decision behind the decision**: why this variant, and not another.
 
 The format matters less than the habit. Storybook, Notion, Figma annotations, a README: the tool that gets maintained is the right tool. The one that requires a separate workflow from the design process is the one that goes stale.
 
@@ -129,10 +129,10 @@ The format matters less than the habit. Storybook, Notion, Figma annotations, a 
 
 Good handoff actually involves four things:
 
-- **Specs that anticipate questions** — padding, spacing, responsive behavior, and state transitions documented *before* engineering has to ask.
-- **Annotations for intent, not just appearance** — "this button disables until all required fields are complete" is more useful than the button's hex code.
-- **Edge-case coverage** — empty states, error states, loading states, long-content behavior.
-- **<mark>A conversation, not a delivery</mark>** — walking engineers through the design; the questions they ask reveal the gaps.
+- **Specs that anticipate questions**: padding, spacing, responsive behavior, and state transitions documented *before* engineering has to ask.
+- **Annotations for intent, not just appearance**: "this button disables until all required fields are complete" is more useful than the button's hex code.
+- **Edge-case coverage**: empty states, error states, loading states, long-content behavior.
+- **<mark>A conversation, not a delivery</mark>**: walking engineers through the design; the questions they ask reveal the gaps.
 
 The most expensive handoff failure is ambiguity about interactive behavior. Static screens don't show animation timing, transition direction, or state-change logic. Left undocumented, those decisions get made by engineers under time pressure, and the result is a product that behaves differently from what was designed.
 

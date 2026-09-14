@@ -52,6 +52,7 @@ function getBlogPosts(): BlogPost[] {
         seriesTotal: data.seriesTotal,
         seriesCoverImage: data.seriesCoverImage,
         seriesShortTitle: data.seriesShortTitle,
+        seriesDescription: data.seriesDescription,
         cluster: data.cluster,
       } as BlogPost
     })

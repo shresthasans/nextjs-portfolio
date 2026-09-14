@@ -4,12 +4,39 @@ import { useEffect, useRef, useState } from 'react'
 import { clsx } from 'clsx'
 import type { TocHeading } from '@/lib/toc'
 
+// Finds the nearest scrollable ancestor so the active-link scroll below only ever
+// moves the TOC's own sidebar, never the window — scrollIntoView() doesn't stop at
+// the "nearest" scrollable ancestor for a sticky element, it can drag window scroll
+// along with it, which fights the IntersectionObserver below in a feedback loop.
+function getScrollParent(el: HTMLElement): HTMLElement | null {
+  let node = el.parentElement
+  while (node) {
+    const style = getComputedStyle(node)
+    if (/(auto|scroll)/.test(style.overflowY) && node.scrollHeight > node.clientHeight) {
+      return node
+    }
+    node = node.parentElement
+  }
+  return null
+}
+
 export default function TableOfContents({ headings }: { headings: TocHeading[] }) {
   const [activeId, setActiveId] = useState<string>(headings[0]?.id ?? '')
   const activeLinkRef = useRef<HTMLAnchorElement>(null)
 
   useEffect(() => {
-    activeLinkRef.current?.scrollIntoView({ block: 'nearest' })
+    const link = activeLinkRef.current
+    if (!link) return
+    const container = getScrollParent(link)
+    if (!container) return
+
+    const containerRect = container.getBoundingClientRect()
+    const linkRect = link.getBoundingClientRect()
+    if (linkRect.top < containerRect.top) {
+      container.scrollTop -= containerRect.top - linkRect.top
+    } else if (linkRect.bottom > containerRect.bottom) {
+      container.scrollTop += linkRect.bottom - containerRect.bottom
+    }
   }, [activeId])
 
   useEffect(() => {

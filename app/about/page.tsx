@@ -303,6 +303,7 @@ export default function AboutPage() {
                   src="/images/profile/sanjay.webp"
                   alt="Sanjay Shrestha, Senior Product Designer"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 42vw"
                   className="object-cover"
                   priority
                   placeholder="blur"

@@ -16,9 +16,9 @@ If you've felt like "UX" now covers three different jobs depending on who's talk
 
 The useful way to think about this isn't "old UX vs. new UX." It's three layers that stack:
 
-1. **Traditional UX** — the research, structure, and craft that every digital product still needs, AI or not.
-2. **AI in UX** — the new judgment calls that show up once AI is embedded somewhere in a product's logic.
-3. **Agent UX** — the narrower, newer specialty of designing an AI agent that acts with some autonomy, not just responds to input.
+1. **Traditional UX**: the research, structure, and craft that every digital product still needs, AI or not.
+2. **AI in UX**: the new judgment calls that show up once AI is embedded somewhere in a product's logic.
+3. **Agent UX**: the narrower, newer specialty of designing an AI agent that acts with some autonomy, not just responds to input.
 
 None of these layers retires the one below it. A product can need all three at once, or just the first. The rest of this article walks through what each layer actually covers, where the boundaries get fuzzy, and how to tell whether your team genuinely needs the third layer or is just relabeling the second one.
 
@@ -67,12 +67,12 @@ This is the layer the infographic that prompted this article puts at the center,
 
 The rest of this layer breaks down into a few practical design problems:
 
-- **Conversational design and conversational intelligence** — not just what the agent says, but whether it tracks what's already been said, avoids repeating itself, and recovers gracefully when it misunderstands something.
-- **Intent clarity** — whether the agent correctly identifies what the user is actually trying to accomplish before acting, and what happens when that's ambiguous. This is a bigger deal in agent design than in a standard form, because a misread intent doesn't just show the wrong search result, it can trigger the wrong action.
-- **Feedback and tone of voice** — how the agent communicates progress, uncertainty, or failure, not as decoration but as the primary channel a user has for understanding what's happening.
-- **Cognitive load** — how much the user has to hold in their head to supervise the agent effectively. An agent that requires constant monitoring to use safely has a UX problem, not just a trust problem.
-- **Agentic dependencies** — what the agent actually needs to act (data access, connected tools, permissions) and what the user sees when one of those dependencies is missing. This is the agent-design equivalent of an error state, and it's easy to leave unspecified until it fails in production.
-- **Trust and transparency** — whether the user can tell, at any given moment, what the agent has done, is doing, or is about to do, and whether they can intervene before it's too late to matter.
+- **Conversational design and conversational intelligence**: not just what the agent says, but whether it tracks what's already been said, avoids repeating itself, and recovers gracefully when it misunderstands something.
+- **Intent clarity**: whether the agent correctly identifies what the user is actually trying to accomplish before acting, and what happens when that's ambiguous. This is a bigger deal in agent design than in a standard form, because a misread intent doesn't just show the wrong search result, it can trigger the wrong action.
+- **Feedback and tone of voice**: how the agent communicates progress, uncertainty, or failure, not as decoration but as the primary channel a user has for understanding what's happening.
+- **Cognitive load**: how much the user has to hold in their head to supervise the agent effectively. An agent that requires constant monitoring to use safely has a UX problem, not just a trust problem.
+- **Agentic dependencies**: what the agent actually needs to act (data access, connected tools, permissions) and what the user sees when one of those dependencies is missing. This is the agent-design equivalent of an error state, and it's easy to leave unspecified until it fails in production.
+- **Trust and transparency**: whether the user can tell, at any given moment, what the agent has done, is doing, or is about to do, and whether they can intervene before it's too late to matter.
 
 Microsoft's own framework for agent design lands on a similar core principle from a different angle: **"embrace uncertainty but establish trust"** by making the agent's certainty levels and reasoning visible, so users don't drift into either blind reliance or constant second-guessing. The same framework is explicit that this layer isn't a default: "not all customer problems need AI," and by extension, not every AI feature needs to be an agent with a persona and independent action. That's a useful check before a team invests in layer three at all.
 

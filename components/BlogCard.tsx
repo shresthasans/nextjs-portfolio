@@ -18,6 +18,7 @@ export interface BlogPost {
   seriesTotal?: number
   seriesCoverImage?: string
   seriesShortTitle?: string
+  seriesDescription?: string
   cluster?: string
 }
 

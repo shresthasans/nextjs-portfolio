@@ -9,16 +9,16 @@ import Footer from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { getPersonSchema } from '@/lib/person-schema'
 
+// Omitting `weight` loads the single variable-font file (covers the whole axis)
+// instead of a separate static file per weight, cutting font payload substantially.
 const archivo = Archivo({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-archivo',
   display: 'swap',
 })
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-space-grotesk',
   display: 'swap',
 })

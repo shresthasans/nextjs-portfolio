@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, Check, Layers } from 'lucide-react'
+import { slugify } from '@/lib/toc'
 
 interface SeriesNavLink {
   title: string
@@ -31,15 +32,23 @@ export default function SeriesNav({
 }: SeriesNavProps) {
   return (
     <div className="not-prose my-12 rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900/60 p-6">
-      <div className="flex items-center gap-2 mb-5">
-        <Layers size={14} className="text-amber-600 dark:text-amber-400" aria-hidden="true" />
-        <p className="text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">
-          Part {currentPart} of {totalParts} · {seriesTitle}
-        </p>
+      <div className="flex items-center justify-between gap-3 mb-5">
+        <div className="flex items-center gap-2">
+          <Layers size={14} className="text-amber-600 dark:text-amber-400" aria-hidden="true" />
+          <p className="text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">
+            Part {currentPart} of {totalParts} · {seriesTitle}
+          </p>
+        </div>
+        <Link
+          href={`/blog/series/${slugify(seriesTitle)}`}
+          className="shrink-0 text-xs font-semibold text-amber-700 dark:text-amber-400 hover:underline"
+        >
+          View all parts
+        </Link>
       </div>
 
       {allParts ? (
-        <ul className="space-y-1">
+        <ul className="space-y-1 max-h-72 overflow-y-auto pr-1">
           {allParts.map((item) =>
             item.href ? (
               <li key={item.part}>

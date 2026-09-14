@@ -15,7 +15,7 @@ I've spent the past few months refining an [AI-native workflow](/ai-ux-design-ne
 
 ## How the handoff used to work
 
-Before AI-assisted tools, designers worked in Figma and developers worked in the codebase — two separate mediums that had to be kept in sync by hand. The hardest part of the process was never *creating* the interface. It was making sure the Figma file and the shipped product stayed aligned as the work moved between them.
+Before AI-assisted tools, designers worked in Figma and developers worked in the codebase, two separate mediums that had to be kept in sync by hand. The hardest part of the process was never *creating* the interface. It was making sure the Figma file and the shipped product stayed aligned as the work moved between them.
 
 Every screen had to survive a translation from one medium into another. Spacing got approximated. Interaction details got dropped. **Something almost always got lost in the handoff.**
 
@@ -23,10 +23,10 @@ Every screen had to survive a translation from one medium into another. Spacing 
 
 AI dramatically shortens the path from an idea to a working interface, and that's a real, measurable change in how design work gets validated. As designers, we can now check things earlier, in a running interface instead of a static file:
 
-- **Visual fidelity** — does it actually look like the design?
-- **Interaction** — does it feel right to use, not just look right on a canvas?
-- **Responsive behavior** — does it hold up across breakpoints, not just the one frame you designed?
-- **Real user experience** — a working interface, not a mockup standing in for one
+- **Visual fidelity**: does it actually look like the design?
+- **Interaction**: does it feel right to use, not just look right on a canvas?
+- **Responsive behavior**: does it hold up across breakpoints, not just the one frame you designed?
+- **Real user experience**: a working interface, not a mockup standing in for one
 
 That alone has changed how I work day to day. <mark>The gap between "here's the design" and "here's something you can actually click through" has nearly closed.</mark>
 
@@ -45,12 +45,12 @@ Those aren't the same question, and no amount of generation speed collapses the 
 | What it's tested against | A demo, a happy path            | Real data, edge cases, existing code         |
 | Who signs off          | Whoever's looking at the screen | Reviewers, through a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) |
 
-That's where collaboration still matters — just later in the process than it used to be:
+That's where collaboration still matters, just later in the process than it used to be:
 
-- **Pull requests** — a running record of what's actually changing in the codebase
-- **Feedback** — from designers and developers, on the same generated output
-- **Code review** — checked against [what actually improves code health](https://google.github.io/eng-practices/review/reviewer/standard.html), not just whether it works
-- **Iteration** — because the first AI-generated pass is rarely the last one
+- **Pull requests**: a running record of what's actually changing in the codebase
+- **Feedback**: from designers and developers, on the same generated output
+- **Code review**: checked against [what actually improves code health](https://google.github.io/eng-practices/review/reviewer/standard.html), not just whether it works
+- **Iteration**: because the first AI-generated pass is rarely the last one
 
 The work doesn't go away. It shows up later, closer to production, where the stakes are higher and there's less room for guessing.
 
@@ -58,12 +58,12 @@ The work doesn't go away. It shows up later, closer to production, where the sta
 
 AI isn't replacing collaboration between designers and developers. **It's changing where that collaboration happens.** If you're still treating the handoff as a Figma-to-code problem, you're solving for the gap AI already closed, while missing the one that opened up behind it.
 
-**Key takeaway:** the fastest way to waste the speed AI gives you is to spend it all upfront, on generation, and none of it downstream, on review. The teams getting the most out of AI-generated UI aren't the ones prototyping fastest — they're the ones who moved their review discipline to match.
+**Key takeaway:** the fastest way to waste the speed AI gives you is to spend it all upfront, on generation, and none of it downstream, on review. The teams getting the most out of AI-generated UI aren't the ones prototyping fastest. They're the ones who moved their review discipline to match.
 
 ## A couple of questions I keep getting
 
 **Does this mean design and development need to collaborate less?**
-No — the opposite. It means the collaboration is concentrated later in the process, at the point where a generated interface becomes a real, shippable change. Skipping that step because the AI output "looked done" is exactly how quality issues make it to production.
+No, the opposite. It means the collaboration is concentrated later in the process, at the point where a generated interface becomes a real, shippable change. Skipping that step because the AI output "looked done" is exactly how quality issues make it to production.
 
 **What should change in how a team works, practically?**
 Treat AI-generated screens the way you'd treat a first draft, not a final one. Route them through the same review and feedback loop you'd use for any other code change, and expect it to matter more than the Figma-to-code process it's replacing, not less.

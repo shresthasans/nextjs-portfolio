@@ -18,10 +18,10 @@ This article uses the **Double Diamond**, one of the most widely referenced prod
 
 The Double Diamond comes from the [Design Council](https://www.designcouncil.org.uk/resources/the-double-diamond/), which introduced it in 2004 and revised it in 2019 to emphasize that real design work loops and overlaps rather than marching cleanly left to right. The four phases:
 
-- **Discover** — research broadly before you commit to a problem.
-- **Define** — converge that research into a specific brief, question, or strategy.
-- **Develop** — diverge again into ideas, hypotheses, and prototypes.
-- **Deliver** — converge on what actually ships.
+- **Discover:** research broadly before you commit to a problem.
+- **Define:** converge that research into a specific brief, question, or strategy.
+- **Develop:** diverge again into ideas, hypotheses, and prototypes.
+- **Deliver:** converge on what actually ships.
 
 Each diamond has a diverging half (explore more than you need) and a converging half (cut it down to what matters). That rhythm, open wide, then narrow, is the part worth keeping in mind as AI tools get layered in, because most of the AI techniques worth adopting right now cluster in the second diamond: **Develop** and **Deliver**. That's not a universal law about AI and design; it's simply where the current generation of design-focused AI tooling, coding agents in particular, has matured enough to be useful without babysitting. Discover and Define still run mostly on the same primary research, synthesis, and judgment they always have.
 
@@ -49,9 +49,9 @@ In the diverging half of Develop, the job is to generate more raw material than 
 
 Once you've converged on a direction, the prototyping stage inside Develop looks different when the product itself has AI in it, or when you're building the prototype with AI-assisted tooling.
 
-**If you're designing an [AI-powered feature](/ai-ux-design-nepal), prototype it with a model actually running.** A static mockup of a chat interface can't show you what happens when the model is slow, wrong, or produces an oddly-worded response. Those failure states are part of the design, not an engineering afterthought, so the prototype needs to surface them early rather than after launch — it's a constant on [Decisions AI](/work/decisions-ai-mobile-meeting-app), the AI meeting platform I lead mobile design for.
+**If you're designing an [AI-powered feature](/ai-ux-design-nepal), prototype it with a model actually running.** A static mockup of a chat interface can't show you what happens when the model is slow, wrong, or produces an oddly-worded response. Those failure states are part of the design, not an engineering afterthought, so the prototype needs to surface them early rather than after launch. It's a constant on [Decisions AI](/work/decisions-ai-mobile-meeting-app), the AI meeting platform I lead mobile design for.
 
-**If you're using a coding agent to build the prototype, connect it to your actual design tokens.** Figma's [Dev Mode MCP server](https://www.figma.com/blog/introducing-figma-mcp-server/) exposes a file's structure, styles, and variables to a connected coding agent, so a generated component can pull from your real token set instead of guessing at spacing and color values from a screenshot. This is the same "start with tokens, not components" principle that shows up in design system work broadly — see [What I Learned Building a Design System From Scratch](/blog/design-systems-at-scale) — the tokens are the thing worth getting right first, whether a human or an agent is building on top of them.
+**If you're using a coding agent to build the prototype, connect it to your actual design tokens.** Figma's [Dev Mode MCP server](https://www.figma.com/blog/introducing-figma-mcp-server/) exposes a file's structure, styles, and variables to a connected coding agent, so a generated component can pull from your real token set instead of guessing at spacing and color values from a screenshot. This is the same "start with tokens, not components" principle that shows up in design system work broadly (see [What I Learned Building a Design System From Scratch](/blog/design-systems-at-scale)): the tokens are the thing worth getting right first, whether a human or an agent is building on top of them.
 
 **Refine interaction and motion details in a running build**, not inside a prototyping tool disconnected from real code. This is where purpose-built feedback tools come in: [Agentation](https://www.producthunt.com/products/agentation), for instance, works as a visual annotation layer that turns comments made directly on a running interface into structured context an AI coding agent can act on, closer to marking up a live page than writing a prompt from memory. Whether you reach for a tool like that, something narrower, or a small internal script, the point is the same: the feedback loop closes faster when you're pointing at the real thing instead of describing it.
 
