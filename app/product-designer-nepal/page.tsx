@@ -245,7 +245,7 @@ export default function ProductDesignerNepalPage() {
                 rel="noopener noreferrer"
                 className="underline underline-offset-2 hover:text-stone-900 dark:hover:text-stone-50"
               >
-                CUA™ Certified Usability Analyst
+                CUA™ Certified Usability Architect
               </a>{' '}
               through Human Factors International, and I hold a Certificate of Appreciation from
               Microsoft for my work on Singapore&apos;s CPF citizen portal.

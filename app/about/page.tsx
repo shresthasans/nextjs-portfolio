@@ -315,7 +315,7 @@ export default function AboutPage() {
               <div className="rounded-2xl border border-amber-200 dark:border-amber-800/60 bg-amber-50/70 dark:bg-amber-950/20 p-7 mb-8 flex flex-col items-center text-center space-y-5">
                 <Image
                   src="/images/cua-badge.webp"
-                  alt="CUA™ Certified Usability Analyst, Human Factors International"
+                  alt="CUA™ Certified Usability Architect, Human Factors International"
                   width={100}
                   height={100}
                 />
@@ -323,7 +323,7 @@ export default function AboutPage() {
                   <div className="flex items-center justify-center gap-2">
                     <Award size={16} className="text-amber-700 dark:text-amber-400" aria-hidden="true" />
                     <p className="font-heading font-semibold text-amber-900 dark:text-amber-300 text-sm">
-                      CUA™ Certified Usability Analyst
+                      CUA™ Certified Usability Architect
                     </p>
                   </div>
                   <p className="text-sm text-amber-800/80 dark:text-amber-400/80 leading-relaxed">
