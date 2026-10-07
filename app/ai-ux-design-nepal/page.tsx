@@ -35,8 +35,11 @@ export const metadata: Metadata = {
 }
 
 const ARTICLE_SLUGS = [
+  'from-ux-to-ax',
   'ai-ux-design-patterns',
   'what-is-agent-ux',
+  'designing-trust-into-ai-features',
+  'ai-agent-glossary-for-designers',
   'ai-in-the-product-design-process',
   'ai-concepts-not-tools',
   'scaling-product-design-with-ai',

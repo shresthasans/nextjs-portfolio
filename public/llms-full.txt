@@ -681,6 +681,1324 @@ _Self-directed audit and redesign: heuristic evaluation, peer interviews, WCAG a
 ## Blog Posts
 
 
+### From UX to AX: How Experience Design Is Evolving From Users to AI Agents
+URL: https://sanjayshrestha.com/blog/from-ux-to-ax
+Date: 2026-10-07
+
+"AX" is showing up in job posts, conference talks, and product roadmaps, and it rarely means the same thing twice.
+
+- Some people use it for **AI Experience**: designing how people work with AI.
+- Others mean **Agent Experience**: designing products so AI agents can use them.
+
+Both are real, and both grew out of traditional UX.
+
+**The short answer: the move from UX to AX expands two things: who does the work, and who counts as a user. Nothing gets replaced.**
+
+- **Traditional UX** designed interfaces that people operate step by step.
+- **AI Experience** designs outcomes that people describe and an AI produces.
+- **Agent Experience** designs products that AI agents can discover, understand, and act on, on a person's behalf.
+
+Each stage adds a question to the designer's job without removing the one before it:
+
+1. **UX:** _Can people use it?_
+2. **AI Experience:** _Can people trust it, steer it, and correct it?_
+3. **Agent Experience:** _Can an agent use it for someone, and can that someone stay in control?_
+
+This guide walks through how we got here, what the work looks like today, where it's likely heading, and what to learn next depending on where you are in your career.
+
+I've written it from more than 15 years of product design practice, including my current work on an AI-powered product. I've marked clearly where I'm reporting facts, where I'm interpreting, and where I'm predicting.
+
+## How to read this guide at your level
+
+The guide covers basic definitions and some unsettled design questions, so you don't need to read it front to back.
+
+- **Starting your career?** Read the vocabulary table, the section on traditional UX foundations, and the career section. The foundations are still the job.
+- **Working designer with a few years in?** Focus on the AI Experience section and the pattern shift table. That's where most current product work sits.
+- **Senior designer, lead, or PM?** Skip to Agent Experience, the forecast, and the common mistakes. That's where the strategic decisions and the open questions live.
+
+## Five terms that keep getting mixed up
+
+Most confusion about "UX vs. AX" comes from five overlapping labels. Here's how they relate.
+
+| Term                             | Who or what is the "user"           | Core question                                                    | Origin                                                |
+| -------------------------------- | ----------------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------- |
+| **UX** (User Experience)         | A person                            | Can people accomplish their goal, and how does it feel?          | Popularized by Don Norman at Apple in the early 1990s |
+| **DX** (Developer Experience)    | A developer using APIs, SDKs, tools | Can developers integrate and build with it efficiently?          | Credited to Jeremiah Lee (2011)                       |
+| **AI Experience** (also "AI UX") | A person working with an AI feature | Can people trust, steer, and correct the AI's output?            | Practice-driven; no single coiner                     |
+| **Agent UX**                     | A person delegating to an AI agent  | How should the agent behave when it acts for someone?            | Emerging practice label                               |
+| **AX** (Agent Experience)        | The AI agent itself                 | Can an agent discover, understand, and reliably use the product? | Coined by Mathias Biilmann, Netlify CEO, January 2025 |
+
+Two clarifications matter more than the rest:
+
+- **Agent UX and Agent Experience face in opposite directions.** Agent UX designs the agent for the human. Agent Experience designs your product for the agent. I've covered the first in depth in [What Is Agent UX?](/blog/what-is-agent-ux). This guide covers both, because real products increasingly need both at once.
+- **"AX" as AI Experience is common, but informal.** When someone says AX, ask which one they mean. The design work is different.
+
+Biilmann's [original essay introducing AX](https://biilmann.blog/articles/introducing-ax/) frames it as the next step in that lineage. He defines it as _"the holistic experience AI agents will have as the user of a product or platform."_
+
+The essay places AX deliberately alongside UX and DX, which is the right way to read it:
+
+> AX adds a new kind of user to the list. UX and DX stay where they are.
+
+## How it was: traditional UX designed for the person at the controls
+
+For about three decades, the mental model behind almost all digital product design was the same: **a person operates an interface, one action at a time, and the system responds predictably.**
+
+Jakob Nielsen describes this as the command-based paradigm, where users and computers take turns, one command at a time.
+
+In his essay [AI Is the First New UI Paradigm in 60 Years](https://www.uxtigers.com/post/ai-new-ui-paradigm), he dates it to roughly 1964. It covered everything from command lines to the graphical interfaces most of us learned to design.
+
+That paradigm shaped what UX work looked like:
+
+- **The screen was the product.** If something mattered, it had a place in the interface.
+- **Behavior was deterministic.** The same input produced the same output, so you could specify every state.
+- **The designer specified the path.** Flows, wireframes, and specs described each step the user would take.
+- **Usability meant reducing effort along a known path.** Fewer clicks, clearer labels, better feedback.
+
+The definition Nielsen and Norman published at NN/g captured the ambition well: [user experience](https://www.nngroup.com/articles/definition-user-experience/) _"encompasses all aspects of the end-user's interaction with the company, its services, and its products."_
+
+The scope covers the whole interaction, not only the screen. **That broader definition is why UX skills carry over to what came next.**
+
+### What traditional UX got right, and still gets right
+
+Early in my career, most of my deliverables fit this model:
+
+- Requirements gathered from stakeholders
+- Flows mapped by hand
+- Wireframes for each state
+- Specs handed to engineering
+- Usability tests to confirm the path worked
+
+One project from my MageMojo years (the company later became Webscale) shows how literal that model was. On the Stratus hosting control panel, DNS setup lived in one general-purpose form covering every record type: CNAME, TXT, A, MX, and nameservers. It was the most cited source of support tickets.
+
+The fix was to split it into scoped actions, such as add a CNAME, add a root record, or add an MX record. Each one showed only the fields that record type needed, and I specified every one of those screens in advance.
+
+**Nothing on those screens was generated. If I didn't design a state, it didn't exist.**
+
+The tools changed constantly. The core practices didn't, and they still form the foundation:
+
+- **User research:** understanding goals, context, and pain points from real people
+- **Information architecture:** organizing content and actions so people can find them
+- **Interaction design:** defining how the system responds to each action
+- **Usability heuristics:** a shared vocabulary for spotting problems, such as Nielsen's [10 usability heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/)
+- **Accessibility:** making products work for people with different abilities
+- **Usability testing:** watching real people use the thing, then fixing what breaks
+
+> If you're early in your career, this list isn't "old UX." Every later stage depends on it.
+
+### Where the old model started to strain
+
+The cracks appeared before generative AI did.
+
+Recommendation systems, search ranking, and personalization already produced output the designer couldn't fully specify in advance. But those systems mostly sat behind a familiar interface.
+
+The person was still operating the controls; the algorithm just changed what appeared.
+
+**Generative AI broke that arrangement.**
+
+## The turning point: from operating software to stating intent
+
+Nielsen's essay names the shift. In the third paradigm, which he calls **intent-based outcome specification**, _"the user tells the computer the desired result but does not specify how this outcome should be accomplished."_
+
+He adds that this _"completely reverses the locus of control."_
+
+If you keep one idea from this guide, keep this one:
+
+> In traditional UX, the person controls the steps. In AI Experience, the person controls the goal, and the system controls the steps.
+
+Everything else follows from that:
+
+| Traditional UX assumption           | What changes with AI                                     | New design responsibility                                   |
+| ----------------------------------- | -------------------------------------------------------- | ----------------------------------------------------------- |
+| Output is predictable               | Output is probabilistic and can be wrong in new ways     | Design for verification and correction, not just success    |
+| The designer specifies every state  | The model generates states nobody designed               | Design boundaries, defaults, and recovery, not every screen |
+| The user knows what they asked for  | The user may not know what's possible or how to ask      | Design for discoverability of capability and prompting help |
+| Errors come from user mistakes      | Errors also come from the system being confidently wrong | Design honest uncertainty and visible sourcing              |
+| Trust is earned through consistency | Trust must be calibrated, neither blind nor absent       | Design for appropriate reliance, not maximum reliance       |
+| Usability means fewer steps         | Fewer steps can mean less oversight                      | Design where friction belongs on purpose                    |
+
+The last row deserves emphasis because it runs against years of UX instinct.
+
+**In AI products, removing a step can also remove the moment where a person would have caught a mistake.** Good AI Experience design puts friction back, deliberately, at the points where an error would be costly.
+
+## How it is now, part 1: AI Experience, designing for people working with AI
+
+Most product teams today are working in this stage, whether they label it or not. An AI feature generates, summarizes, recommends, or drafts, and a person reviews the result.
+
+These principles are well documented. Microsoft Research's [Guidelines for Human-AI Interaction](https://www.microsoft.com/en-us/research/project/guidelines-for-human-ai-interaction/) and Google's [People + AI Guidebook](https://pair.withgoogle.com/guidebook/) both treat these as **product design responsibilities, not model-tuning problems.**
+
+Across those sources and my own practice, four principles do most of the work.
+
+### 1. Make capability and limits clear before the first interaction
+
+People can't steer something they don't understand. Tell them:
+
+- what the AI can do,
+- what it can't,
+- and how reliable it tends to be,
+
+at the moment they need to know it.
+
+**Weak version:** A sparkle icon and the label "Ask AI."
+
+**Improved version:** "Draft an agenda from this meeting's invite and attached files. You'll review it before anyone sees it."
+
+The improved version tells the person the input, the output, and the safety net in one line.
+
+### 2. Calibrate trust, don't maximize it
+
+People's trust should match how reliable the AI actually is in that context. More trust than that is a problem too.
+
+NN/g's research on [prioritizing smarts over sentience](https://www.nngroup.com/articles/smarts-emotion-trust-ai/) found that people's willingness to act on AI advice tracked perceived competence, not perceived warmth.
+
+**Visible sourcing, clear reasoning, and honest uncertainty do more for trust than a friendlier tone.** For more on this, see [Designing Trust Into AI Features](/blog/designing-trust-into-ai-features).
+
+### 3. Make correction cheaper than starting over
+
+If editing an AI output takes more effort than writing it yourself, people stop using the feature.
+
+These are core interaction patterns now, not polish:
+
+- Inline editing
+- Regenerate-with-guidance
+- Partial acceptance
+- Undo
+
+### 4. Keep a human checkpoint where consequences are real
+
+Decide explicitly which outputs can take effect automatically and which require review.
+
+Then make that boundary visible in the interface, so nobody has to guess whether something was already sent.
+
+<mark>
+  The AI Experience shift in one sentence: you're no longer designing a path
+  through the product. You're designing the relationship between a person and a
+  system that sometimes gets things wrong.
+</mark>
+
+For a deeper catalog of patterns, see [Beyond the Chatbot: The AI UX Design Patterns That Actually Work](/blog/ai-ux-design-patterns).
+
+## How it is now, part 2: agents, and the second meaning of AX
+
+The next step changed the arrangement again.
+
+**An agent takes multi-step actions toward a goal, often across several tools, with limited supervision between the request and the result. A person may not see each output before it has an effect.**
+
+That creates two separate design problems, and this is where the two meanings of AX finally meet.
+
+### Designing the agent for the person (Agent UX)
+
+When an agent acts on someone's behalf, the design questions move from _"is this output good?"_ to _"should this action happen, and does the person know it's happening?"_
+
+The core concerns:
+
+- **Delegation scope:** what the agent may do on its own, what needs permission, and what it should never do
+- **Visibility of progress:** what the agent has done, is doing, and plans to do next
+- **Interruptibility:** the person can pause, redirect, or stop the agent before an action lands
+- **Reversibility:** actions are undoable where possible, and clearly flagged where they're not
+- **Graceful failure:** when the agent lacks access, data, or certainty, it says so instead of guessing
+
+Microsoft's design team describes the principle in [UX design for agents](https://microsoft.design/articles/ux-design-for-agents/): **"embrace uncertainty but establish trust,"** by making the agent's certainty and reasoning visible.
+
+### Designing the product for the agent (Agent Experience)
+
+The second problem is newer and, in my experience, the one most product teams haven't started on.
+
+**AI agents are becoming users of your product, and they experience it very differently from people.**
+
+An agent doesn't see your visual hierarchy or your onboarding animation. It reads:
+
+- structure,
+- documentation,
+- APIs,
+- error messages,
+- and permission models.
+
+If those are unclear, the agent fails. And from the person's point of view, _your product_ failed.
+
+Biilmann's essay gives real examples, including Netlify enabling ChatGPT to deploy sites directly, and companies like Clerk and Neon redesigning authentication and database access with agents in mind.
+
+Two pieces of infrastructure have made this practical:
+
+- **[Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol):** introduced by Anthropic in November 2024 as _"an open standard for connecting AI assistants to the systems where data lives."_ In practice, MCP lets a product expose its capabilities to AI assistants in a consistent way.
+- **[llms.txt](https://llmstxt.org/):** proposed by Jeremy Howard in 2024, a markdown file at a site's root that gives AI systems a concise, readable guide to the site's content.
+
+What good Agent Experience looks like, translated into familiar UX terms:
+
+| UX concept              | Agent Experience equivalent                                               |
+| ----------------------- | ------------------------------------------------------------------------- |
+| Clear navigation and IA | Clear, well-structured APIs and capability descriptions                   |
+| Onboarding              | Machine-readable documentation, such as llms.txt or MCP tool descriptions |
+| Helpful error messages  | Specific, actionable error responses an agent can recover from            |
+| Account permissions     | Scoped, revocable access that a person grants and can see                 |
+| Consistent UI patterns  | Predictable naming, inputs, and behavior across endpoints                 |
+| Accessibility           | Semantic structure that both assistive technology and agents can parse    |
+
+That last row is an interpretation, not an established standard, but it's a useful one.
+
+**Teams that already invested in semantic structure and accessibility tend to have a head start on Agent Experience,** because both depend on meaning being expressed in structure rather than only in visuals.
+
+### A real product with all three layers
+
+I work at Decisions, a meeting management platform built for Microsoft 365 and Teams.
+
+Most of our work is under NDA, so I'll stick to what's on our [public product page](https://www.meetingdecisions.com/product). It happens to show all three layers in one product:
+
+- **Traditional UX:** the agenda runs from _"a side panel inside the meeting window, no switching apps."_ That's a classic context-of-use decision: meet people where they already work.
+- **AI Experience:** the AI Agenda is described as _"an optional AI draft from your meeting context, to review and refine before publishing."_ Optional, a draft, reviewed before publishing: that's human-in-the-loop design stated in product copy.
+- **Agent Experience:** the product page lists support for Microsoft Copilot and MCP connectors for Claude and ChatGPT. That's the product being made usable by agents a person already works with, not only by the person directly.
+
+**A single feature roadmap can now contain all three kinds of design work at once.** Teams that treat them as one undifferentiated "AI" bucket tend to under-design at least one of them.
+
+## What doesn't change, no matter what the acronym is
+
+It's easy to read all of this as "UX is obsolete." The evidence points the other way.
+
+Each new stage made some traditional skills **more** important, not less:
+
+- **Research gets harder, not easier.** You now study what people want to delegate, how much they trust the result, and where they want to stay in the loop. Those answers vary by person, task, and stakes.
+- **Information architecture becomes infrastructure.** Agents depend on well-organized content and capabilities even more than people do, because they can't guess from visual context.
+- **Accessibility and AX reinforce each other.** Structure that works for a screen reader tends to work for an agent too.
+- **Usability testing still needs real people.** An agent completing a task in a demo says nothing about whether a person trusted it, understood what it did, or would let it do that again.
+- **Ethics moves from edge case to core requirement.** When software acts on someone's behalf, consent, transparency, and accountability stop being nice-to-haves.
+
+> The craft is still understanding people, structuring the system, and testing with real users. What changed is how many actors the system has to work for.
+
+## Where it's going: a forecast with honest confidence levels
+
+Predictions about AI date quickly. So I've labeled each one by how confident I am, and separated sourced forecasts from my own interpretation.
+
+### The sourced forecasts
+
+In an [August 2025 press release](https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025), Gartner predicted:
+
+- **40% of enterprise applications** would feature task-specific AI agents by 2026, up from less than 5% in 2025.
+- By 2028, about **one-third of user experiences** would shift from native applications to agentic front ends.
+
+Gartner has been equally clear about the risk. In [June 2025](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027), it predicted:
+
+- **Over 40% of agentic AI projects** would be canceled by the end of 2027, citing _"escalating costs, unclear business value or inadequate risk controls."_
+- Widespread **"agent washing":** rebranding chatbots, RPA, and assistants as agents without real agentic capability.
+
+Both are forecasts, not outcomes. Read together, they suggest **the direction is real and the execution will be uneven.**
+
+### What I expect that means for design
+
+| Trend                                                 | What it means for designers                                                              | Confidence  |
+| ----------------------------------------------------- | ---------------------------------------------------------------------------------------- | ----------- |
+| **Products serve two personas: people and agents**    | Specs will need to describe how both experience a feature                                | High        |
+| **Oversight becomes a core UX surface**               | Activity logs, approval queues, and audit trails become primary screens, not admin pages | High        |
+| **Permission and consent design grows**               | Scoped, time-limited, visible delegation becomes a standard pattern set                  | High        |
+| **Evaluation becomes design work**                    | Designers help define what "good output" means and how it's measured                     | Medium      |
+| **Interfaces become partly generated**                | Designers specify systems, constraints, and components more than fixed screens           | Medium      |
+| **Fewer screens for routine tasks**                   | Some flows move into conversations or agents; complex and high-stakes work keeps rich UI | Medium      |
+| **Multi-agent coordination becomes visible to users** | People will need to see which agent did what, and why                                    | Speculative |
+
+One prediction I'd push back on: **"the interface will disappear."**
+
+- For routine, low-stakes tasks, it may shrink.
+- For anything involving judgment, comparison, money, or other people, people still need to see, compare, and confirm.
+
+My expectation is that the interface becomes less about _doing_ the work and more about **reviewing, steering, and approving the work.** That's still interface design, arguably harder interface design.
+
+## What to learn next, by career stage
+
+### If you're starting out
+
+- **Learn the fundamentals thoroughly.** Research, IA, interaction design, accessibility, and usability testing are the base layer for everything above.
+- **Use AI tools daily, critically.** Notice where they confuse you, where you over-trust them, and where you'd want an undo. That's free user research on AI Experience.
+- **Learn the vocabulary:** human-in-the-loop, confidence, explainability, delegation, MCP. You'll be in conversations where these terms are used loosely; knowing them precisely is an advantage. The [AI agent glossary for designers](/blog/ai-agent-glossary-for-designers) is a good starting point.
+- **Write clearly.** Prompts, capability descriptions, and error messages are all writing. Clear writers have a structural edge in AI products.
+
+### If you're mid-level
+
+- **Design for failure first.** For every AI feature, spec the wrong-output, low-confidence, and missing-access states before the happy path.
+- **Own the friction decisions.** Be the person who can explain where review is required and why.
+- **Read your product's API and docs as a user.** If an agent tried to use your product today, where would it get stuck?
+- **Learn enough technical context** to talk with engineers about context, tools, and permissions. My earlier piece on [scaling product design with AI and technical skills](/blog/scaling-product-design-with-ai) covers what's worth learning.
+
+### If you're senior or leading
+
+- **Put agents on the persona list.** Biilmann's point applies here: if agents are a real audience for your product, they deserve the same explicit design attention as any other user type.
+- **Define autonomy levels as product policy.** Which actions can agents take alone, which need approval, and who decides? That's a design and product decision, not only an engineering one.
+- **Guard against agent washing internally.** Ask whether a proposed "agent" actually acts with independence, or is an assistant with a new label. The design work differs.
+- **Build the oversight surfaces early.** Logs, approvals, and reversibility are hard to retrofit after customers have already lost trust.
+
+### The same skills, at three levels
+
+| Skill              | Beginner                     | Mid-level                                  | Senior                                          |
+| ------------------ | ---------------------------- | ------------------------------------------ | ----------------------------------------------- |
+| Research           | Interview and observe        | Study trust and delegation behavior        | Set research strategy for human and agent users |
+| Interaction design | Flows and states             | Failure, confidence, and correction states | Autonomy levels and oversight systems           |
+| IA and content     | Navigation and labels        | Capability descriptions and docs           | Product-wide structure for agents and people    |
+| Collaboration      | Work with PM and engineering | Co-define evaluation criteria              | Shape AI policy and governance                  |
+
+## Common mistakes in the move from UX to AX
+
+I see these most often, in my own work and in products I study.
+
+- **✕ Treating "add AI" as a reason to skip research.** Less predictable output needs more testing, not less.
+- **✕ Removing friction everywhere.** Some friction is a safety feature. Keep it where mistakes are expensive.
+- **✕ Giving an agent autonomy without reversibility.** If an action can't be undone, the agent should ask first, every time.
+- **✕ Designing for agents at the expense of people.** Agent-friendly APIs don't excuse a confusing human interface. Both personas count.
+- **✕ Over-designing personality.** A name and a warm tone raise expectations without raising competence. Add persona only where it helps people direct the agent.
+- **✕ Calling an assistant an agent.** Mislabeling sets expectations the product can't meet, and users notice fast.
+
+## Frequently asked questions
+
+**Is UX dead now that AI agents exist?**
+No. The research, structure, and testing skills behind UX are what every AI and agent product depends on. What's changed is the scope: designers now also design how people steer AI and how agents use products.
+
+**What's the difference between AI Experience and Agent Experience?**
+AI Experience designs how people work with AI output they review. Agent Experience, as Biilmann defined it, designs how AI agents themselves experience a product as users: its APIs, documentation, permissions, and errors.
+
+**What's the difference between Agent UX and Agent Experience (AX)?**
+They face opposite directions. Agent UX designs an agent's behavior for the person delegating to it. Agent Experience designs your product so agents can use it well. Many products will need both.
+
+**Do I need to code to design for AX?**
+Not to start. You need to understand how agents interact with products: through APIs, tool descriptions, and documentation. Reading those as a user would is a design skill. Deeper technical comfort helps when you start specifying them.
+
+**Will AX replace UX job titles?**
+Titles tend to lag practice. Expect "AI designer," "conversation designer," and "agent experience" roles to grow, while most of this work continues to be done by product designers with expanded scope.
+
+**Where should a team start?**
+Pick one AI feature and identify which layer it's in: people operating it, people reviewing AI output, or agents acting on it. Then check whether the matching design questions have been answered.
+
+## Start with one feature and one question
+
+The shift from UX to AX is less dramatic than the acronyms suggest, and more demanding.
+
+**The craft didn't change. The number of actors the experience has to work for did:**
+
+- the person at the controls,
+- the person delegating to AI,
+- and the agent acting on that person's behalf.
+
+You don't need to master all three at once. Take one feature you're working on this week and ask the question that matches its layer:
+
+- _Can people use it?_
+- _Can people trust and correct it?_
+- _Can an agent use it for someone, while that someone stays in control?_
+
+If you can answer the question that applies, you're already doing AX work.
+
+## Before you apply this to your product
+
+- [ ] Locate one current feature on the three layers: UX, AI Experience, or Agent Experience
+- [ ] For AI features, spec the wrong-output and low-confidence states before the happy path
+- [ ] Decide where human review is required, and make that boundary visible in the UI
+- [ ] Read your product's API, docs, and error messages as if you were an agent
+- [ ] Add "AI agent" as an explicit user type in your next spec, if agents are a real audience
+- [ ] Test with real people, especially on what they're willing to delegate
+
+---
+
+
+### Presenting to Non-Designers: A Framework for Defending a Design Decision
+URL: https://sanjayshrestha.com/blog/presenting-design-decisions-to-non-designers
+Date: 2026-09-19
+
+_This is Part 5 of The Product Designer's Playbook, a series working through the day-to-day craft of product design one topic at a time: UX laws, accessibility, stakeholder management, communication, career, components, and more. Part 4 covered [designing trust into AI features](/blog/designing-trust-into-ai-features), and why explainability beats accuracy. This piece is a full reference on presenting and defending a design decision to people who don't speak design, written to work whether it's your first design review or your five-hundredth._
+
+---
+
+A room of non-designers isn't disagreeing with your taste. They're reacting to a decision without having seen the reasoning behind it. If you walk in showing only the final screen, the only thing they can evaluate is how it looks to them personally. **The fix isn't a better screen. It's a better sequence:** goal, story, decision, alternatives, then an explicit invitation to disagree on specifics.
+
+The framework draws on two sources:
+
+- **Tom Greever's [_Articulating Design Decisions_](https://www.oreilly.com/library/view/articulating-design-decisions/9781492079217/)** (O'Reilly) argues that the problem in these meetings is defensiveness, not disagreement. Once you're defending yourself instead of the goal, you've lost track of the thing the room cares about.
+- **Nielsen Norman Group's guidance on [presenting UX design ideas](https://www.nngroup.com/videos/present-design-ideas/)**, from NN/g's Sarah Gibbons, makes a related point about structure: first give the background needed to understand the design, then walk through visuals that tell the whole story. Don't open with the finished interface and hope it speaks for itself.
+
+## Why "just show the design" doesn't work on this audience
+
+A designer reviewing your work already has the context: the constraints, the process, the rejected directions. A non-designer stakeholder starts with none of that. If the first thing they see is the finished screen, they react to it the way anyone reacts to an image: _do I like it, does it match what I pictured, does it look "designed enough."_ None of those questions touch whether the decision solves the problem.
+
+Being more articulate about typography won't fix that, because it isn't a knowledge gap. It's a sequencing problem:
+
+- **Show the reasoning before the result**, and the room evaluates the reasoning.
+- **Show the result before the reasoning**, and the room compares their taste to yours. Design can't win that debate, because the debate was never about the work.
+
+There's also an old name for why visuals attract so much of the room's attention. C. Northcote Parkinson's **law of triviality** (usually called _bikeshedding_) describes how a committee will spend minutes on a nuclear reactor it doesn't understand and an hour on the bike shed, because everyone feels qualified to judge the bike shed. Color, spacing, and copy are design's bike shed. Everyone has an opinion on them, so an unframed screen pulls the conversation straight to them.
+
+> The screen is the most discussable part of a design decision and usually the least important. Frame the decision first, or the room will talk about the bike shed.
+
+## Before the room: preparation that decides the meeting
+
+Most design reviews are won or lost before anyone opens the file. By the time you present, the work below should already be done.
+
+### Know who decides
+
+Not everyone in the room has the same role, and treating them as if they do is how you end up designing by committee. Before the meeting, sort attendees into three groups:
+
+- **The decider.** The one person (sometimes two) whose "yes" makes this ship. If you can't name them, find out before the meeting, not during it.
+- **Advisors.** People whose input shapes the decision: engineering on feasibility, sales on revenue impact, legal on risk. Their concerns deserve real answers, but they don't hold the pen.
+- **Informed.** People who need to know the outcome but aren't there to weigh in. They can sit out the debate.
+
+### Map what each person is listening for
+
+Every stakeholder hears your presentation through their own goal. Prepare for that ahead of time:
+
+| Stakeholder            | What they're listening for                      | What to have ready                                          |
+| ---------------------- | ----------------------------------------------- | ----------------------------------------------------------- |
+| **Executive**          | Does this move the metric we committed to?      | The goal, the expected impact, and the risk if it's wrong   |
+| **Product manager**    | Does this fit scope, timeline, and the roadmap? | What's in this release versus later, and why                |
+| **Engineering**        | Can we build it, and what does it cost?         | Known edge cases, component reuse, and what's truly new     |
+| **Sales / CS**         | Will this break a workflow customers rely on?   | How existing users are affected and how the change is shown |
+| **Marketing**          | Is this on-brand, and can we talk about it?     | The user-facing benefit in one sentence                     |
+| **Legal / compliance** | Does this create exposure?                      | Consent, data, and accessibility implications               |
+
+You won't need every row in every meeting, but **most "surprise" objections were predictable**, and the stakeholder who raises one is usually telling you their job, not attacking yours.
+
+### Pre-wire the most likely objection
+
+If you know who is most likely to push back, show them the decision one-on-one before the meeting. Hearing a concern in private gives you time to answer it properly. Hearing it for the first time in front of the decider leaves you improvising. It also gives that stakeholder a chance to shape the work, which often turns an opponent into someone who helped build it.
+
+**In practice:** a fifteen-minute preview with the engineering lead or the sales director is usually the best-value prep you can do. If their concern changes the design, better now than after the review.
+
+### Decide what's open for discussion, and what isn't
+
+Walk in knowing which parts of the design are **settled** (validated in testing, required by a constraint) and which are **open** (reasonable either way, happy to take input). Say so out loud. A room that knows the button hierarchy is settled but the [empty-state](/blog/designing-empty-states) copy is open will spend its energy on the open part.
+
+## Translate design language into the room's language
+
+Design vocabulary is precise, but to most stakeholders it sounds like opinion wearing a lab coat. Translate the principle into the outcome it produces:
+
+| Designer says             | What the room often hears | Say instead                                                                                                                    |
+| ------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| "It's cleaner"            | "I like it more"          | "Removing the secondary links cut the number of choices on this step from nine to four"                                        |
+| "Better visual hierarchy" | Jargon                    | "People see the primary action first, which is the action we're measured on"                                                   |
+| "It's a UX best practice" | "Trust me"                | "Most tools your users already know work this way, so there's less to learn"                                                   |
+| "Users will be confused"  | A guess                   | "In five of eight test sessions, people clicked the wrong option here"                                                         |
+| "It's more accessible"    | A nice-to-have            | "The current version fails [WCAG contrast requirements](/blog/color-contrast-wcag-1-4-3), which is a legal and usability risk" |
+| "We need more whitespace" | Wasted space              | "Grouping related fields reduces errors on long forms"                                                                         |
+
+Each of these **ties the design choice to a result the stakeholder already cares about.** If you can't make that connection, it's worth asking whether the decision is as solid as you thought.
+
+## A five-part structure for defending one decision
+
+This is built for one specific decision under discussion, not a full portfolio walkthrough. Use it whenever you need a room to engage with a choice instead of reacting to it.
+
+1. **Restate the goal everyone already agreed to.** Before showing anything, name the outcome the project is supposed to produce, in the stakeholders' own words. It can feel like throat-clearing, but it sets the standard the rest of the conversation gets measured against. If the room disagrees about the goal, stop there, because that's the conversation you need to have first.
+2. **Walk through the story that led here**, briefly. What you learned, what constraint showed up, what an earlier version got wrong. This is the "set the stage" step from NN/g's guidance. The room needs enough background to see the decision as the answer to something, not an arbitrary preference.
+3. **Show the decision, and say explicitly what it does for the goal from step one.** Not "I made it blue." Instead: _"I made the primary action visually dominant because task completion is the metric we agreed to move, and in testing, people missed the action when it wasn't."_
+4. **Show what you rejected, and why.** This one step heads off most "did you consider X" pushback, because the honest answer is usually _"yes, and here's what it cost."_ One or two credible alternatives are enough. Ten looks like indecision.
+5. **Ask for specific disagreement, not general reaction.** Instead of "what do you think," ask _"does this achieve the goal, and if not, what specifically is it missing?"_ People can answer that. "What do you think" invites a round of individual aesthetic opinions that don't lead anywhere.
+
+### Answer first, screen later
+
+Executives are often coached to expect the answer first, and that fits with this structure. Say the recommendation in one sentence at the start ("we're recommending removing the company-size field from signup"), then run the five steps before the screen goes up. The headline tells the room where you're going. Holding back the visual keeps them evaluating the reasoning instead of the pixels.
+
+### How long each part should take
+
+| Part                     | Rough time in a 30-minute review | Common mistake                               |
+| ------------------------ | -------------------------------- | -------------------------------------------- |
+| 1. Goal                  | Under 1 minute                   | Skipping it because "everyone knows"         |
+| 2. Story                 | 1 to 2 minutes                   | Turning it into a full process retrospective |
+| 3. Decision              | 3 to 5 minutes                   | Explaining every pixel instead of the choice |
+| 4. Rejected alternatives | 2 to 3 minutes                   | Not preparing any                            |
+| 5. Specific question     | The rest                         | Asking "thoughts?" and waiting               |
+
+**In practice:** steps one and two take less time than most people budget, usually under two minutes combined, and they're what make step five possible. Skip straight to step three and step five has nothing to connect to.
+
+## Read the objection before you answer it
+
+Pushback comes in different kinds, and each kind needs a different response. Answering a business concern with a design principle, or a taste comment with a data dump, is how reviews turn into standoffs.
+
+| Type of objection        | What it sounds like                            | What it needs                                                                           |
+| ------------------------ | ---------------------------------------------- | --------------------------------------------------------------------------------------- |
+| **Taste**                | "I just don't love the color"                  | A clarifying question that ties it back to the goal. Rarely a concession                |
+| **Business concern**     | "Sales needs that field for lead routing"      | A real answer, and possibly a changed decision. This is new information                 |
+| **Risk / fear**          | "What if existing users can't find it?"        | Evidence you already have, or a concrete plan to test and monitor it                    |
+| **Cost / scope**         | "That's three sprints of work"                 | A trade-off conversation: what you'd cut, phase, or reuse to get the core outcome       |
+| **Missing context**      | "Why don't we just do what [competitor] does?" | Go back to the story. Often the answer is a constraint they didn't know about           |
+| **Authority / politics** | "The CEO won't like this"                      | Not solvable in the room. Take it offline and bring the reasoning to the actual decider |
+
+Before answering, **say back what you heard.** _"So the concern is that removing the field breaks lead routing for sales. Is that right?"_ Often the stakeholder corrects you, and the objection turns out to be narrower and easier to solve than it first sounded.
+
+## Handling pushback without getting defensive
+
+Greever's central point is that **the goal of this conversation is not to win it.** The goal is to defend the project's goal and the reasoning behind the decision, which is different from defending yourself. Once the conversation becomes about whether you're right, it stops being useful to anyone, including you.
+
+| Weak response                                     | Improved response                                                                                               |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| "I disagree, I think this is the better approach" | "Help me understand what's driving that. Is it a concern about the goal, or a preference for a different look?" |
+| Explaining the same rationale louder              | Asking what specific evidence would change their mind, or yours                                                 |
+| Agreeing on the spot to avoid conflict            | "Let me take that back to the team and come back with an answer, rather than deciding it in this room"          |
+| Treating every objection as something to overcome | Treating a specific, well-reasoned objection as new information that might change the decision                  |
+| "Users will hate that"                            | "Here's what we saw in testing when we tried something close to that"                                           |
+| Going silent and moving on                        | "I want to make sure I understand. Can you say more about what worries you there?"                              |
+
+**A specific objection tied to the goal deserves a real answer, and possibly a changed decision.** A vague one ("I just don't love it") deserves a clarifying question, not a concession. If you give in to vague pushback just to end the discomfort, stakeholders learn that vague pushback works, and they'll keep using it.
+
+### Notice when it's become personal
+
+You'll know you've drifted from defending the decision to defending yourself when you catch yourself:
+
+- saying "I" more than "the goal" or "users"
+- re-explaining something they already heard, only louder
+- mentally rehearsing your comeback instead of listening to the rest of their sentence
+- feeling the objection as a verdict on your skill
+
+When that happens, **go back to step one out loud:** _"Let's check this against what we're trying to achieve."_ That resets the room, and it resets you too.
+
+## When to change your mind, and when to disagree and commit
+
+The framework isn't a way to always get your design through. Sometimes the right result is a different decision.
+
+**Change the decision when:**
+
+- the objection introduces a constraint or goal you didn't know about (the lead-routing case below)
+- the stakeholder has evidence you don't, such as customer conversations, contract terms, or support data
+- your rejected alternative turns out to meet the goal better than you thought once their concern is included
+
+**Hold the decision when:**
+
+- the objection is about taste and nobody can connect it to the goal
+- the pushback contradicts evidence you've already shown, and no new evidence has come up
+- the concern is real but can be solved without undoing the core decision
+
+When the decider hears everything and still goes the other way, Amazon's term applies: **"disagree and commit,"** which Jeff Bezos described in his [2016 shareholder letter](https://www.aboutamazon.com/news/company-news/2016-letter-to-shareholders). You state your disagreement clearly, then commit fully to making the chosen direction succeed. Designers should add one step: **write your disagreement down** (see _closing the loop_ below), so that if the outcome doesn't land, the team can revisit the decision on evidence instead of memory.
+
+> Losing a design argument is fine. Losing it without a written record of the reasoning is a missed chance to be right later.
+
+## A worked example: cutting a form field
+
+_The following is a simplified, hypothetical example meant to illustrate the structure, not a documented case study._
+
+A designer wants to remove a company-size dropdown from a signup form. An executive stakeholder wants to keep it, because sales uses it for lead routing.
+
+**Weak version:** the designer shows the shortened form and says "this converts better, fewer fields is a UX best practice." The executive hears their own concern (lead routing) go unaddressed and pushes back on the whole change.
+
+**Improved version, following the five-part structure:**
+
+1. _Goal:_ "We agreed the priority this quarter is increasing signup completion."
+2. _Story:_ "In the drop-off data, company size was the field most people abandoned on, right before completing signup."
+3. _Decision and impact:_ "Removing it from the signup step should reduce that specific drop-off point, based on the funnel data."
+4. _Rejected alternative:_ "We considered making it optional instead, but optional fields on this form still showed a smaller, similar drop-off in an earlier version, so we don't expect that alone to solve it."
+5. _Invite specific disagreement:_ "Does this still meet the lead-routing need, or is there a way to capture company size after signup instead of during it?"
+
+**Why it matters:** the improved version doesn't win by being more persuasive. It wins because the executive's concern, lead routing, gets a direct answer (move the field to after signup) instead of being left to fight the whole decision because it felt ignored.
+
+**What the pre-wire would have added:** a ten-minute conversation with the sales lead the day before would have surfaced lead routing ahead of time. The designer could then have walked in with the post-signup capture step already sketched, and step five would have become a confirmation instead of a negotiation.
+
+## Presenting remotely or asynchronously
+
+A lot of design decisions now get made in a video call with cameras off, or in a document comment thread with no meeting at all. The structure still works there, but the delivery has to change.
+
+- **Send a short pre-read.** A written version of the five parts, sent a day ahead, lets people think before they react. Amazon's practice of opening meetings with silent reading of a narrative memo exists for the same reason: prose forces the reasoning to be explicit, in a way slides let you skip.
+- **Put the goal in writing at the top.** In async review, people skim. If the goal isn't in the first two lines, most readers will judge the screenshot without it.
+- **Ask the step-five question in writing, and specifically.** "Comments welcome" gets you taste. _"By Thursday: does this meet the signup-completion goal, and does it break anything for your team?"_ gets you answers you can use.
+- **On video calls, share the screen late.** Talk through the goal and story with your face on camera, then share. Once the screen is up, attention goes to it and stays there.
+- **Record a short walkthrough** for stakeholders who can't attend, following the same order. A two-minute recording that opens with the goal is better than a Figma link with no context.
+
+NN/g's [strategies for presenting UX remotely](https://www.nngroup.com/articles/presenting-remotely/) cover the practical side of remote delivery, from audio setup to keeping slides to one idea each.
+
+## After the meeting: close the loop
+
+The review isn't finished when the call ends. Within a day, send a short written record of what was decided. It takes five minutes, and it protects the decision better than anything you said in the meeting.
+
+- **What was decided**, in one sentence
+- **Why**, tied back to the goal
+- **What was rejected**, and the reason
+- **Open questions and owners**, such as "sales to confirm post-signup capture works for routing, by Friday"
+- **What would reopen it:** the metric or signal that would make the team revisit this decision
+
+The last item is the most useful one. It turns "we decided" into "we decided, and here's how we'll know if we were wrong," which makes future disagreements about evidence instead of about who remembers the meeting correctly.
+
+## Common mistakes that turn a presentation into a standoff
+
+- **Opening with the finished screen** instead of the goal and the story behind it, which invites reaction instead of evaluation.
+- **Treating every pushback as an attack on craft**, when it's often a specific business concern (like lead routing above) that hasn't been addressed yet.
+- **Giving in to vague objections to end the discomfort**, which teaches stakeholders that vague pushback is the fastest way to get what they want.
+- **Not preparing the rejected alternatives.** If you can't say what you considered and ruled out, "did you think about X" becomes a real question you can't answer instead of one you've already handled.
+- **Asking "what do you think"** instead of a specific, answerable question, which turns a decision review into an open floor for individual taste.
+- **Speaking in design jargon** ("hierarchy," "affordance," "cleaner") without translating it into an outcome the room cares about.
+- **Not knowing who the decider is**, and trying to get everyone in the room to agree when only one person's yes matters.
+- **Letting the meeting be the only record.** Decisions nobody wrote down get reopened by whoever remembers them differently.
+
+## Frequently asked questions
+
+**What if the stakeholder outranks me and just overrules the decision anyway?**
+Rank can end a discussion, but the structure still matters. A decision overruled after a clear goal, story, decision, alternatives sequence is a very different outcome from one overruled after a vague "I don't like it." The first gives you a specific, documented reason to revisit later if the outcome doesn't land. The second gives you nothing to build on next time.
+
+**How do I present a decision I'm genuinely not confident about?**
+Say so, specifically. "We believe this is right based on X, but we haven't validated Y" is more credible than false confidence, and it invites the room to help close the actual gap instead of debating certainty you don't have.
+
+**Does this framework work for group presentations with mixed stakeholders?**
+The structure holds, but step five gets harder with a mixed room, because "does this meet the goal" can get different answers from people with different goals in mind. Name whose goal is being evaluated at step one, explicitly, before you open the floor.
+
+**Isn't "did you consider X" a reasonable question stakeholders should be allowed to ask?**
+Completely reasonable, and step four exists so you already have an answer ready rather than treating the question as an ambush. The problem isn't the question. It's being caught without a response to it.
+
+**Doesn't this contradict the advice to give executives the answer first?**
+No. Say the recommendation in one sentence up front, then give the reasoning, then show the screen. Answer-first is about the headline. Holding back the visual is about what the room evaluates. You can do both.
+
+**What if I don't have research data to back the decision?**
+Use the strongest evidence you do have (a constraint, a pattern users already know, a support-ticket trend, a small hallway test) and name it for what it is. Then say what would prove you wrong and how you'd find out after launch. A clear test plan is often more persuasive than a thin data point stretched to look stronger than it is.
+
+## Before your next design review
+
+**Before the room**
+
+- [ ] Name the decider, and know who's advising versus who's just being informed
+- [ ] Anticipate what each stakeholder is listening for, and have an answer ready
+- [ ] Pre-wire the decision with whoever is most likely to push back
+- [ ] Prepare one or two rejected alternatives and the reason each didn't make the cut
+- [ ] Decide which parts are settled and which are open for input
+
+**In the room**
+
+- [ ] State the goal in the stakeholders' own language before showing anything
+- [ ] Give the recommendation in one sentence, then the story, then the screen
+- [ ] Connect the decision explicitly to the goal, not just to a design principle
+- [ ] Replace "what do you think" with a specific, answerable question
+- [ ] Repeat each objection back before answering it
+- [ ] Notice when you're defending yourself instead of the decision, and go back to the goal
+
+**After the room**
+
+- [ ] Send a written record: decided, why, rejected, open questions, what would reopen it
+- [ ] Follow up on every "let me take that back" within the time you promised
+
+None of this makes disagreement disappear, and it shouldn't. A specific, well-reasoned objection is useful information, not an obstacle. **The goal is a room that argues about the decision instead of about you.**
+
+[Collaboration and Influence: 5 Skills That Get Design Decisions Shipped](/blog/collaboration-influence-applied) covers the broader stakeholder work this framework assumes is already in place: working out who has decision authority, and what evidence would settle a disagreement before you're ever in the room. [Jakob's Law](/blog/jakobs-law-familiar-patterns) is a useful companion read too. Familiar patterns are one of the few design arguments a non-designer can evaluate without any framework at all.
+
+_What's the last design decision you had to defend that you wish you'd opened with the goal instead of the screen?_
+
+---
+
+---
+
+
+### Designing Trust Into AI Features: Why Explainability Beats Accuracy
+URL: https://sanjayshrestha.com/blog/designing-trust-into-ai-features
+Date: 2026-09-18
+
+_This is Part 4 of The Product Designer's Playbook, a series working through the day-to-day craft of product design one topic at a time: UX laws, accessibility, stakeholder management, communication, career, components, and more. Part 3 covered [color contrast](/blog/color-contrast-wcag-1-4-3), the 30-second check most screens skip. This piece is a full reference on designing trust into AI features, written so it works whether you're shipping your first AI feature or your tenth._
+
+---
+
+Accuracy and trust are not the same design problem, and treating them as one is why so many AI features underperform their own model quality. A feature can be right 95% of the time and still get ignored, overridden, or abandoned, because **trust isn't a property of how often the AI is correct. It's a property of whether the user can tell when to rely on it and when not to.**
+
+That distinction has a name in the human-automation research this field draws on: **calibrated trust**, trust that tracks the system's actual reliability rather than over- or under-shooting it. A user who blindly trusts an accurate system is one bad output away from a bad outcome. A user who reflexively distrusts an accurate system just stopped using a feature that was working. Both are failures of the same design problem, and neither is fixed by making the model more accurate. Both are fixed by making the system's reasoning visible enough to calibrate against.
+
+## Why accuracy alone doesn't produce trust
+
+An AI feature that gives no visibility into its own reasoning puts the user in an impossible position: accept the output on faith, or reject it on suspicion. Neither is a judgment call, because there's nothing to judge. Nielsen Norman Group's research on explainable AI puts the mechanism plainly: showing how a system reached an output helps people form accurate mental models of what it can and can't do, and helps them decide, case by case, whether to trust a specific result. Withhold that, and confident-sounding output doesn't make users more skeptical. It tends to make them less skeptical than the situation warrants, which is the opposite of what a probabilistic system deserves.
+
+This is also why "just make the model better" doesn't close the trust gap on its own. A more accurate model with an opaque interface still leaves the user with a coin flip: trust this one or don't. Explainability is what turns that coin flip into an actual decision.
+
+## The three things trust is actually made of
+
+Google's People + AI Research (PAIR) guidebook breaks trust in an AI product into three distinct components, and treating them as one blurs where a feature is actually failing.
+
+| Dimension       | What it asks                                                   | Where it typically breaks                                                                                            |
+| --------------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **Ability**     | Does this actually address what I need?                        | The feature is well-designed but solves the wrong problem, or solves it for the wrong workflow                       |
+| **Reliability** | Does it keep delivering what it promised, consistently?        | Performance is inconsistent across cases the user can't predict or explain                                           |
+| **Benevolence** | Is this built to help me, or to serve someone else's interest? | The feature optimizes for engagement, upsell, or the vendor's metrics in ways the user can sense but not always name |
+
+**Ability and reliability are the ones most teams design for.** Benevolence is the one most teams forget to design for at all, and it's often the actual reason a technically excellent AI feature still feels untrustworthy: users can tell, even without articulating it, when a suggestion seems to serve the product's goals more than their own.
+
+## Not every explanation needs to be the same depth
+
+Explaining an AI decision doesn't mean surfacing a debug log. PAIR's framework distinguishes a few practical explanation types, and matching the type to the moment matters more than maximizing detail.
+
+- **Partial explanations.** Surface the two or three factors that actually drove the output, and leave out what's genuinely too complex or unknowable to state simply. A partial, honest explanation beats a complete, unreadable one.
+- **General system explanations.** A brief, standing description of what the feature does and doesn't do, set early, so the user has a baseline before they see their first output.
+- **Specific output explanations.** Why _this_ suggestion, right now. This is the one users actually ask for in the moment ("why did it flag this as urgent?") and the one most interfaces skip.
+- **Confidence displays.** A categorical label, a percentage, or a set of alternatives, shown at the moment of output, not buried in settings.
+
+**In practice:** match the depth to the stakes, not to what's easiest to build. A routine, low-consequence suggestion needs a partial explanation at most. A suggestion that changes what a team decides or commits to needs a specific-output explanation, every time.
+
+## Trust gets built in stages, not shipped in one release
+
+Trust in an AI feature isn't a fixed property of the release. It's built across three distinct moments, and skipping one usually shows up as a support ticket later, not a launch-day bug.
+
+1. **Onboarding.** Set realistic expectations about what the feature can and can't do before the user sees their first real output. A feature introduced as "it'll handle this for you" sets a different bar than one introduced as "it'll draft a starting point for you to check."
+2. **Early usage.** Give users a low-commitment way to see the system work and correct it when it's wrong. This is also where the system should be learning from the user, not just the reverse: preferences and corrections should visibly shape what it does next.
+3. **Ongoing use.** Automation can reasonably increase as trust is demonstrated, not assumed. Permissions and what the AI is allowed to do on its own should stay visible and adjustable, and when something does go wrong, there needs to already be a recovery path, not one improvised after the fact.
+
+> Calibrated trust isn't something you design once at launch. It's something the product has to keep earning, in stages, every time the AI is visibly right or wrong.
+
+## A worked example: the same suggestion, two levels of visibility
+
+_The following is a simplified, hypothetical example meant to illustrate the difference, not a documented case study._
+
+Picture a feature that flags a line from a meeting transcript as a likely action item.
+
+**Weak version:** the item appears in a list with a small "AI-generated" badge. No indication of why this line, out of the whole transcript, was the one flagged. The user either accepts the badge's authority or ignores the whole list.
+
+**Improved version:** the flagged item shows the source line it was pulled from, a short reason ("assigned to a named person with a due date mentioned"), and a confidence indicator distinguishing it from a lower-confidence guess elsewhere in the same list. The user can check the reasoning against the transcript in about the same time it takes to read the badge, and can now tell the difference between "this one's solid" and "this one needs a second look."
+
+**Why it matters:** nothing about the underlying model changed between the two versions. The only difference is what the interface is willing to show about its own reasoning, and that's the entire gap between a feature people learn to trust appropriately and one they either rubber-stamp or route around.
+
+**When the lighter version is closer to fine:** a low-stakes, easily reversible suggestion (a suggested tag, a formatting fix) doesn't need the same explanation depth as a suggestion that changes what gets decided or who's accountable for it.
+
+## Common mistakes that undermine trust before the model even matters
+
+- **Treating explainability as a compliance checkbox** added after the design is finished, rather than a requirement designed in from the start.
+- **Showing confidence without showing reasoning.** A percentage next to an unexplained output tells the user a system is confident, not why, which isn't enough to calibrate against.
+- **Automating before trust is earned**, based on a launch date rather than observed evidence that users are extending trust the system has actually demonstrated.
+- **Ignoring the benevolence dimension entirely.** A feature can be accurate and reliable and still lose trust if users sense it's optimizing for something other than their own goal.
+- **Explaining everything at maximum depth, everywhere.** A specific-output explanation on every trivial suggestion trains users to stop reading explanations at all, the same way an overused confidence badge does.
+
+## Frequently asked questions
+
+**Isn't showing AI reasoning just going to slow the interface down?**
+Only if every explanation is treated the same way. A partial explanation or a confidence label adds almost no friction and can be genuinely fast to scan. Reserve the deeper, specific-output explanation for moments where the stakes actually justify the extra half-second of reading.
+
+**What's the difference between explainability and transparency?**
+They're related but not identical. Transparency is disclosing that AI is involved and roughly what it does, usually established once during onboarding. Explainability is answering "why this specific output," on a case-by-case basis, at the moment the user is deciding whether to act on it.
+
+**Does more automation always mean less trust is needed?**
+The reverse: automation should follow demonstrated trust, not replace the need for it. A system earns the right to act with less human review by being visibly right often enough, in a reviewable state, first. Automating before that point removes the evidence users would have used to decide whether the automation was warranted.
+
+**Can an AI feature be too transparent?**
+Yes, in the sense that maximum detail everywhere creates the same problem as none: information the user has to wade through rather than use. The goal is calibrated visibility, matched to the stakes of the specific output, not exhaustive disclosure by default.
+
+## Before you ship the next AI feature
+
+- [ ] Identify which of the three trust dimensions, ability, reliability, or benevolence, this feature is actually weak on before assuming "more accuracy" fixes it
+- [ ] Match explanation depth to the stakes of the output, not to what's easiest to build
+- [ ] Confirm the onboarding sets realistic expectations before the first real output appears
+- [ ] Give users a low-commitment way to correct the system early, and make sure those corrections visibly change future behavior
+- [ ] Base any increase in automation on observed trust, not a rollout date
+
+Explainability is what turns an AI feature's accuracy into something a user can actually act on with judgment, instead of faith. [Beyond the chatbot: the AI UX design patterns that actually work](/blog/ai-ux-design-patterns) covers the broader set of patterns this one connects to, including how progressive trust and visible confidence show up across an entire AI feature, not just its explanations. And if familiar interaction patterns are the first thing users check before they even get to reasoning about AI, [Jakob's Law](/blog/jakobs-law-familiar-patterns) is the more basic version of the same underlying idea.
+
+_Where in your product would a user currently have to just take the AI's word for it?_
+
+---
+
+---
+
+
+### Color Contrast (1.4.3): The 30-Second Check Most Screens Skip Before They Ship
+URL: https://sanjayshrestha.com/blog/color-contrast-wcag-1-4-3
+Date: 2026-09-17
+
+_This is Part 3 of The Product Designer's Playbook, a series working through the day-to-day craft of product design one topic at a time: UX laws, accessibility, stakeholder management, communication, career, components, and more. Part 2 covered [empty states](/blog/designing-empty-states), the first screen of a feature. This piece is a full reference on WCAG 1.4.3, written so it works whether you're new to accessibility or you've been shipping products for years._
+
+---
+
+Body text needs a contrast ratio of at least **4.5:1** against its background, and large text needs at least **3:1**. That's WCAG Success Criterion 1.4.3, Contrast (Minimum), a Level AA requirement, the bar most organizations commit to meeting.
+
+It's also the single most commonly failed accessibility check on the web. The 2026 WebAIM Million report, an annual scan of the top one million home pages, found low contrast text on **83.9% of home pages**, up from 79.1% the year before. It has been the most common WCAG failure of any kind for eight straight years of that report. Missing image alt text, the next most common failure, showed up on 53.1% of pages, well behind it.
+
+That gap is worth sitting with. Contrast isn't an edge case or a niche accessibility concern. It's the most ordinary design decision on every screen, and most teams are still getting it wrong at ship time.
+
+## What the ratio requires
+
+A contrast ratio compares the relative luminance (perceived brightness) of two colors, not their hue. The formula is (L1 + 0.05) / (L2 + 0.05), where L1 and L2 are the lighter and darker luminance values. You don't need to run that math by hand, a checker tool does it, but it's worth knowing the result is unforgiving: **the spec doesn't round.** A ratio of 4.499:1 fails a 4.5:1 requirement.
+
+The requirement splits by text size:
+
+- **Normal text: 4.5:1 minimum.** This covers standard body copy, labels, and most UI text.
+- **Large text: 3:1 minimum.** WCAG defines "large" as 18 point (roughly 24px) or larger, or 14 point bold (roughly 19px bold) or larger. Big, bold headings get a lower bar because larger strokes stay legible at lower contrast.
+
+Three categories are explicitly exempt from 1.4.3:
+
+- **Logos and brand marks.** A wordmark doesn't have to pass a contrast check.
+- **Incidental text.** Purely decorative text, text that's part of an inactive component, or text baked into a photo with other significant visual content.
+- **Disabled controls.** A genuinely inactive button or field is allowed to look muted, since its reduced contrast is itself the signal that it can't be used right now.
+
+## What this isn't: non-text contrast is a separate rule
+
+It's easy to fold every contrast question into 1.4.3, but icons, borders, form field outlines, and other non-text UI elements fall under a different criterion, **1.4.11 Non-Text Contrast**, which sets its own 3:1 minimum for anything a user needs to perceive to operate the interface. A gray outline on an input field or a disabled-looking icon button can pass 1.4.3 (there's no text involved) and still fail 1.4.11. If you're auditing a screen, check both. They're related but not interchangeable.
+
+## The 30-second check
+
+You don't need a full audit to catch most contrast problems before you ship. The [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) is free, has no login, and takes less time to run than this paragraph takes to read.
+
+1. **Grab the two hex values.** Use the tool's built-in eyedropper (or your browser's DevTools color picker) to pull the exact foreground text color and the background color behind it.
+2. **Paste both into the checker.** It returns a ratio instantly, along with pass or fail for AA and AAA, at both normal and large text sizes.
+3. **Check the row that matches your text size.** A heading set in 24px bold only needs to clear 3:1. Body copy at 16px needs the full 4.5:1.
+4. **Repeat for every distinct text-and-background pairing on the screen**, not just the darkest and lightest. Placeholder text, helper text, and secondary labels are usually styled lighter than body copy on purpose, and that's exactly where failures hide.
+
+Run this on your muted or secondary text style first. It's the color most design systems set once, early, without a contrast check, and then reuse everywhere.
+
+## Where contrast fails in real interfaces
+
+| Pattern | Why it fails | What to check |
+|---|---|---|
+| Secondary or "muted" body text | Chosen to look calm and low-emphasis, often a light gray that reads fine on a bright monitor but fails the math | Test the exact gray against its exact background, not just against pure white |
+| Placeholder text in form fields | Frequently styled even lighter than secondary text, on the assumption it's "just a hint" | Placeholder text still has to meet 4.5:1 if it conveys instructional content |
+| Text over photography or gradients | Contrast varies across the image; a check at one point can pass while another point fails | Test against the lightest and darkest regions the text can sit over, or add a scrim |
+| Links inside body copy | Designed to stand out from surrounding text by color alone, at the same small size as the text around them | Links need to meet 4.5:1 against the background and be distinguishable from adjacent text by more than color alone |
+| Disabled-looking text that's actually interactive | Styled to match the visual language of a disabled control, but the element still responds to clicks | If it's operable, it isn't exempt. Style truly disabled and merely secondary states differently |
+
+## A worked example: one gray, two outcomes
+
+_The following ratios were calculated directly from the WCAG relative luminance formula, applied to two representative hex values. It's a simplified illustration, not a documented case study._
+
+Secondary text set in `#999999` on a white (`#FFFFFF`) background measures **2.85:1**, well under the 4.5:1 requirement for normal text. It looks calm and unobtrusive in a design file, and it fails for a meaningful share of users before anyone's opened it on a dim phone screen outdoors.
+
+Darken that same secondary text to `#595959` on the same white background and it measures **7.00:1**, clearing not just AA (4.5:1) but AAA (7:1) with room to spare.
+
+Nothing else about the design changed: no new component, no layout shift. The only difference is a few points of darkness in one hex value, and it's the difference between a screen that works for people with low vision, older eyes, or a phone in direct sunlight, and one that doesn't.
+
+A lighter gray isn't automatically wrong, though. If that same `#999999` were set at 24px or larger, or made bold at 19px or larger, it would only need to clear 3:1. But `#999999` on white measures roughly 2.85:1, which still falls short even at the lower large-text bar. The color itself, not just the size, has to move.
+
+> A contrast check takes less time than deciding what to name the component. Most teams skip it anyway, because it feels like a legal checkbox rather than a design decision.
+
+## Frequently asked questions
+
+**Does WCAG color contrast apply to dark mode too?**
+Yes. The same 4.5:1 and 3:1 thresholds apply regardless of whether the background is light or dark. A dark UI is not automatically more accessible: light gray text on a near-black background fails the same way light gray text on white does. Check both themes independently rather than assuming one inherits the other's pass.
+
+**What about text on hover or focus states?**
+1.4.3 applies to text as it's rendered, including hover, focus, and active states, if the color shifts in those states. A button that passes at rest but shifts to a lower-contrast color on hover still needs to be checked in that state.
+
+**Is 4.5:1 enough, or should I aim for AAA's 7:1?**
+4.5:1 (AA) is the widely adopted baseline most organizations target for conformance. 7:1 (AAA) is a stricter, optional target that's harder to hit across a full color system without limiting your palette significantly. Treat AAA as a bonus where it's easy to reach, not a requirement, unless your product specifically commits to that level.
+
+**Can I just run one automated scan and trust the result?**
+Automated tools catch most contrast failures reliably, since it's a measurable ratio rather than a judgment call, but they can't check text baked into an image or contrast against a background that shifts dynamically. Treat a scan as the fast first pass, not the only pass.
+
+## Before you ship the next screen
+
+- [ ] Test every distinct text-and-background color pairing, not only the ones that look risky
+- [ ] Check secondary, muted, and placeholder text specifically, they're where failures concentrate
+- [ ] Confirm which ratio applies: 4.5:1 for normal text, 3:1 for text at or above 18pt (24px) or 14pt bold (19px bold)
+- [ ] Check hover, focus, and active states, not just the resting state
+- [ ] Remember 1.4.11 separately for icons, borders, and non-text UI elements
+
+A contrast check takes less time than writing this checklist did. [Jakob's Law](/blog/jakobs-law-familiar-patterns) is about the interaction patterns users already expect; this is about the more basic requirement that they can actually read what's on the screen. If you're auditing a component for accessibility, the non-text contrast tradeoff covered in [icons in design systems](/blog/icons-design-systems) is a natural next check.
+
+_When did you last actually run a contrast checker on your own product, instead of assuming the design system already handled it?_
+
+---
+
+---
+
+
+### The Empty State Is Not Empty: Designing What Happens Next
+URL: https://sanjayshrestha.com/blog/designing-empty-states
+Date: 2026-09-16
+
+_This is Part 2 of The Product Designer's Playbook, a series working through the day-to-day craft of product design one topic at a time: UX laws, accessibility, stakeholder management, communication, career, components, and more. Part 1 covered [Jakob's Law](/blog/jakobs-law-familiar-patterns), the expectations users already bring with them. Empty states are where that expectation gets tested earliest, often before a user has clicked anything at all._
+
+---
+
+If a screen has nothing on it, here's the direct answer: **that's not the absence of a design, it's a design decision you already made, just not on purpose.** An empty state is the first thing a new user sees the moment they open a feature, and the only thing a returning user sees the moment there's nothing left to show. Treat it like a blank slate and it reads like one: confusing, unfinished, or broken. Treat it like the first screen of the feature, because that's what it actually is, and it starts doing real work.
+
+## What counts as an "empty state"
+
+Most teams treat "empty state" as one category: the screen you show when there's no data. In practice, at least four different situations get lumped under that name, and they don't call for the same design.
+
+- **First-use.** The feature exists, but this account, team, or user hasn't created anything in it yet. Nobody has done anything wrong. There's simply nothing here yet.
+- **Cleared.** Every item has been resolved: inbox zero, all tasks complete, every notification read. This is a state worth celebrating, not apologizing for.
+- **No results.** A search or filter returned nothing. The content exists elsewhere in the product; it's just not matching the current criteria.
+- **Blocked.** A permission is missing, a connection failed, or a sync hasn't run. There's a reason the data isn't there, and it isn't "there is no data."
+
+Design all four the same way (a centered illustration and a single generic sentence) and you've solved none of them. A first-time user and a user who just hit an empty search result need almost opposite messages.
+
+## The three things every empty state has to do
+
+Nielsen Norman Group's research on empty states in complex applications lands on three guidelines that hold up across all four situations above: communicate system status, provide learning cues, and offer a direct path to the next task ([Kaplan, NN/g](https://www.nngroup.com/articles/empty-state-interface-design/)). In practice, that breaks down into three questions a good empty state has to answer, in order.
+
+1. **What's actually going on here?** Is this loading, broken, filtered, or genuinely new? Say which one it is. "No records match your filter" and "Nothing has synced yet" are different problems, and a user should never have to guess which one they're looking at.
+2. **What was I expecting to see here?** Name the object, not the abstraction. "No decisions logged yet" tells a user something. "No data available" tells them nothing, and reads as though the product might be broken rather than simply new.
+3. **What do I do about it, right now, from this screen?** A specific action beats a vague one. "Log your first decision" with a button beats "Get started" with a link to a help article three clicks away.
+
+**Skip the third question and you've built a wall, not a doorway.** An empty state that explains the absence but offers no way out of it is still a dead end, just a politely worded one.
+
+> An empty state that only tells a user what's missing has done half its job. The other half is telling them what to do about it.
+
+## Matching the response to the situation
+
+| Situation  | What the user needs to hear                            | What belongs on screen                                                                            |
+| ---------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| First-use  | This is new, here's what it's for, here's how to start | A short explanation, one primary action, optionally a preview or sample of what "full" looks like |
+| Cleared    | You're caught up, and that's the point                 | A positive, brief acknowledgment; avoid burying it under unnecessary detail                       |
+| No results | Nothing matched, here's why, here's how to broaden it  | The active filter or query restated, a clear way to reset or adjust it                            |
+| Blocked    | Something specific is missing or wrong                 | The exact cause if known, and the fix: reconnect, grant permission, retry                         |
+
+Google's [Material Design guidance](https://m3.material.io/) makes a related point for the first-use case specifically: rather than a fully blank screen, consider starter content (sample material a new user can explore immediately) or a brief educational card, since a completely empty screen with no context reads as confusing regardless of how well-designed the illustration is.
+
+## A worked example: "no decisions yet" versus "no data available"
+
+_The following is a simplified, hypothetical example meant to illustrate the difference, not a documented case study._
+
+Picture a workspace feature that logs decisions made in meetings. A brand-new team opens it for the first time, and there's nothing in it yet.
+
+**Weak version:** A gray icon, centered, with the text "No data available." No button. No explanation of what the feature does or how a decision gets logged.
+
+**Improved version:** "No decisions logged yet. Decisions get added automatically when your team marks one in a meeting, or you can log one manually below." A single button: "Log a decision." Optionally, one muted example row showing what a logged decision looks like once there is one.
+
+**Why it matters:** the improved version answers all three questions at once. It names what's missing (decisions, not "data"), explains why it's empty (nothing's been logged yet, this isn't a bug), and gives one obvious next step. A first-time user who lands here has enough information to either act immediately or understand exactly what has to happen before this screen changes.
+
+**When the weak version is closer to fine:** a no-results state after a narrow filter search doesn't need the full onboarding treatment. It needs the filter restated and a way to clear it, nothing more elaborate.
+
+## Common mistakes worth checking for
+
+- **Writing one empty state and shipping it everywhere.** The same screen gets reused for first-use, no-results, and error states, even though each needs a different message and a different action.
+- **Naming the abstraction instead of the object.** "No data available," "Nothing here," and "Empty" describe the screen's own condition, not what the user was looking for. Name the thing that's missing.
+- **Explaining without offering a path.** A well-written sentence that ends with no button, no link, and no next step still leaves the user exactly where they started.
+- **Treating illustration as the whole solution.** <mark>A beautiful illustration paired with vague copy is still a dead end, just a nicely decorated one.</mark> The image can support the message; it can't replace it.
+- **Forgetting empty states in QA.** They get designed once, early, and then never revisited as filters, permissions, and edge cases get added later in the build.
+
+## Does every empty state need an illustration?
+
+No. An illustration earns its place when it clarifies what the feature does or adds warmth to a first-use moment. It doesn't earn its place just because the screen looks bare without one. Illustrated, storytelling-style icon sets are a reasonable fit for onboarding and first-use empty states specifically, but the same heavy, detailed style that reads well here usually can't double as your everyday functional icon set. [Icons are the most underestimated part of your design system](/blog/icons-design-systems) covers that tradeoff in more detail, if you're choosing a style that has to do both jobs.
+
+## Before you ship the next one
+
+- [ ] Identify which of the four situations this empty state is handling (first-use, cleared, no results, blocked)
+- [ ] Name the specific object that's missing, not the word "data"
+- [ ] State why it's empty, in one sentence a first-time user would understand
+- [ ] Give one clear, specific next action, not a link to documentation
+- [ ] Check whether this screen gets reused for a situation it wasn't written for
+
+Most empty states fail for the same reason a form with a vague error message fails: they describe a condition without helping anyone do anything about it. If you're auditing the rest of your interface for exactly that pattern, [9 Simple UX Fixes That Boost Conversion](/blog/ux-fixes-boost-conversions) covers several more places it shows up.
+
+_What's the empty state in your product that nobody's revisited since the day it shipped?_
+
+---
+
+---
+
+
+### Jakob's Law: Why Your Users Already Expect Your Product to Work Like Every Other One
+URL: https://sanjayshrestha.com/blog/jakobs-law-familiar-patterns
+Date: 2026-09-15
+
+_This is Part 1 of The Product Designer's Playbook, a series working through the day-to-day craft of product design one topic at a time: UX laws, accessibility, stakeholder management, communication, career, components, and more. For a broader map of UX principles, see [19 UX Principles That Quietly Decide Whether People Trust Your Product](/blog/ux-principles-explained). This piece is a full reference on one of them: Jakob's Law, written so it works whether you're new to UX or you've been shipping products for years._
+
+---
+
+## The law in one sentence
+
+> **Jakob's Law:** Users spend most of their time on products other than yours, so they prefer yours to work the way those other products already work.
+
+Named after usability pioneer Jakob Nielsen, it's less a clever insight and more a statement of the obvious, stated plainly enough that it's easy to forget in practice. Users arrive at your product carrying every habit that email, chat apps, social feeds, and whatever they used thirty seconds ago already taught them. Every place your product breaks from that is a small tax on their attention.
+
+## What it means, plainly
+
+Jakob's Law is **not** an argument for making your product look like every other product. It's an argument about **interaction patterns and mental models**: the small, structural expectations users bring with them about how a control behaves once they touch it.
+
+It applies to things like:
+
+- Where search lives (near the top, usually top-right or as a persistent bar)
+- What a trash or delete icon does (removes something, doesn't silently archive it)
+- What clicking a logo does (returns you home)
+- The difference between a toggle (binary, reversible) and a button (commits to an action)
+- What blue, underlined text means (a link, regardless of your brand's accent color)
+
+It does **not** apply to your visual identity, brand, or the parts of your product that are genuinely novel. A product can look and feel completely distinctive while still putting navigation where people expect it, because the law operates one layer below aesthetics: at the level of "what does this control do when I interact with it," not "what does this screen look like."
+
+## When to apply it
+
+Reach for Jakob's Law any time you're deciding how a common interaction should work and there's already a convention for it elsewhere. That covers most day-to-day design decisions: navigation, forms, search, settings, notifications, destructive actions, sorting and filtering.
+
+It matters most in two situations:
+
+1. **The interaction is common, not novel.** If ten other products already solve this exact interaction the same way, that's a strong signal, not a coincidence to ignore.
+2. **The user is task-focused, not exploring.** Someone trying to finish an expense report or find a setting is running on muscle memory. Someone browsing a portfolio site for inspiration has more tolerance for the unexpected.
+
+## Do
+
+- Default to the pattern your users already know from the products they use daily, not just from your direct competitors.
+- Ask what platform your users are coming from. A tool embedded in Microsoft 365 or Slack inherits very specific, very current expectations from that host platform.
+- Treat a "confusing" first session as a signal that a mental model was violated, not that the feature needs more explaining.
+- Test novel patterns against the familiar alternative, not in isolation. "Do people prefer this?" is a different question from "do people finish the task faster with this?"
+
+## Don't
+
+- Don't invent a new pattern for an interaction that already has a well-established convention, just because it feels more "designed" or more on-brand.
+- Don't defend a novel pattern in a design review with "it's more interesting" or "nobody else does this." Neither is evidence it works better for the user.
+- Don't assume familiarity is free. A pattern can be familiar and still wrong for your product if it was built to optimize for something you don't want (see the exceptions below).
+- Don't apply the law to visual style. Matching a competitor's layout pixel-for-pixel is not what this law is asking for.
+
+## Where this shows up hardest: enterprise software
+
+Consumer apps get most of the write-ups on this law, but it's arguably sharper in enterprise software, because enterprise users don't just compare your product to your competitors. They compare it to whatever they were using thirty seconds ago: Outlook, Teams, Slack, their calendar. A meeting-management tool that lives inside Microsoft 365 and Teams inherits an unusually specific version of this problem, since users arrive with strong, very current expectations about how a panel behaves, how a modal closes, and how a list of items sorts, formed in the exact platform the product is embedded in.
+
+Ignore that context and the cost isn't abstract. It shows up as support tickets asking how to do something the product already does, as a training deck that shouldn't need to exist, and as a first session where someone decides the tool is confusing before they've actually used the feature that would have solved their problem. None of that is a failure of the feature. It's a failure to borrow a mental model that was sitting right there, free, in the platform the product already lives inside.
+
+> The cost of violating Jakob's Law rarely shows up as a complaint. It shows up as a slightly higher bounce rate, a slightly longer time-to-value, and a slightly lower adoption number that nobody traces back to the one screen that didn't behave the way every other screen in the user's day already does.
+
+## Examples
+
+| Situation          | Follows Jakob's Law                      | Violates it                                                       |
+| ------------------ | ---------------------------------------- | ----------------------------------------------------------------- |
+| Deleting an item   | Trash icon removes it, with undo         | Trash icon silently archives it elsewhere                         |
+| Site navigation    | Logo click returns to home               | Logo click opens a settings panel                                 |
+| Enabling a feature | Toggle switch, reversible                | Toggle switch that actually commits irreversibly                  |
+| Link styling       | Blue, underlined text reads as clickable | A brand color with no underline, indistinguishable from body text |
+| Search placement   | Top of screen, persistent                | Buried three menus deep                                           |
+
+## The three exceptions
+
+Treating Jakob's Law as universal is its own mistake. It stops applying in three specific situations:
+
+1. **The task itself is genuinely new.** If no existing product does the thing you're building, there's no convention to borrow, and inventing one is the actual job. Early file-sharing links, the first pull-to-refresh gesture, the first AI chat interface: each had no precedent to be consistent with. The law applies to _established_ patterns; it has nothing to say about problems that haven't been solved before.
+2. **The familiar pattern was optimized for a different goal than yours.** Infinite scroll is familiar because consumer feeds are built to maximize time-on-app. Importing it into a workflow tool where the actual goal is helping someone finish and leave borrows a pattern built for the opposite outcome. Familiarity isn't a neutral good; it's worth asking what the familiar pattern was built to optimize for before reusing it.
+3. **The deviation is the product.** If your product's entire value proposition is a fundamentally different way of doing something, a new input method, a new way of structuring information, then the unfamiliar pattern isn't a UX cost to minimize. It's the reason the product exists. The law is a reason to default to convention, not a reason to never break from it when breaking from it is the point.
+
+## The practical test
+
+Before defending a novel interaction pattern in a design review, ask one question honestly: **is this different because it's better for the task, or because it's different?** "More on-brand," "more interesting," and "nobody else does this" are not the same claim as "this helps the user finish faster or with less confusion than the pattern they already know." Only the second one earns an exception to Jakob's Law. The first two are usually just novelty wearing the costume of a design decision.
+
+## Things to remember
+
+- Jakob's Law is about behavior, not visual style. Your brand identity is untouched by it.
+- The comparison set is every product your user has ever used, not just your direct competitors.
+- Familiarity is a starting default, not a rule with no exceptions. Break it when the task is new, when the familiar pattern optimizes for the wrong outcome, or when the deviation is the actual product.
+- If you can't say _why_ a novel pattern helps the user finish faster or with less confusion, it's probably not an exception. It's just novelty.
+
+---
+
+---
+
+
+### 19 UX Principles That Quietly Decide Whether People Trust Your Product
+URL: https://sanjayshrestha.com/blog/ux-principles-explained
+Date: 2026-09-08
+
+Most lists of "good UX rules" read like a poster: familiar patterns, fewer choices, clear hierarchy, each one true and each one abstract enough to be useless the moment you sit down to actually design something. <mark>The principles behind good UX aren't a style preference. Most of them describe a specific limit in how people think, decide, remember, and perceive, and each one was measured before it was ever turned into a guideline.</mark>
+
+This article covers nineteen of them, grouped by the point in someone's journey through a product where each principle actually does its work:
+
+- Before they act
+- While their attention is being directed
+- While they're carrying information in their head
+- When something could go wrong or needs undoing
+- Whether the product works for people who don't share the designer's abilities, devices, or context (a category most "rules of UX" lists skip entirely)
+
+Knowing which stage a principle governs is what makes it usable instead of decorative.
+
+## What "good UX" is actually built on
+
+Most of what gets called a "UX rule" traces back to one of three sources:
+
+- [Jakob Nielsen's ten usability heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/), first published in 1994 and still the standard framework for heuristic evaluation, a rule of thumb meant to help catch usability problems in an interface design
+- A set of findings from cognitive and behavioral psychology that designer Jon Yablonski later compiled into the "Laws of UX"
+- The [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/), the standard most accessibility requirements are actually measured against
+
+None of these three sources were invented for design in the abstract. Each describes a limit, in attention, memory, perception, or physical ability, that shows up whether or not a designer accounts for it.
+
+That distinction matters for how you use these principles: they aren't taste, and they aren't universal law either. Each one has a domain it applies to and a point where it stops applying, which is why every principle below includes both.
+
+## The nineteen principles at a glance
+
+| Principle                                         | Governs              | Named research             |
+| ------------------------------------------------- | -------------------- | -------------------------- |
+| Match existing mental models                      | Before someone acts  | Jakob's Law                |
+| Limit the choices in view                         | Before someone acts  | Hick's Law                 |
+| Chunk information into small groups               | Before someone acts  | Miller's Law               |
+| Keep patterns consistent within your own product  | Before someone acts  | Consistency and standards  |
+| Design hierarchy for scanning                     | Guiding attention    | F-shaped reading pattern   |
+| Use contrast to mark what matters                 | Guiding attention    | Visual hierarchy           |
+| Defer complexity until it's needed                | Guiding attention    | Progressive disclosure     |
+| Make targets easy to hit                          | Guiding attention    | Fitts's Law                |
+| Show options instead of demanding recall          | Memory and effort    | Recognition over recall    |
+| Make progress visible                             | Memory and effort    | Goal-gradient effect       |
+| Choose defaults deliberately                      | Memory and effort    | Default effect             |
+| Put the important items first or last, not buried | Memory and effort    | Serial Position Effect     |
+| Prevent errors before they happen                 | Control and recovery | Error prevention           |
+| Confirm before anything destructive               | Control and recovery | Error prevention           |
+| Always leave a way back                           | Control and recovery | User control and freedom   |
+| Keep the system responsive, or explain the wait   | Control and recovery | Doherty Threshold          |
+| End on an unmistakable, clear state               | Control and recovery | Peak-End Rule              |
+| Design for people who aren't like you             | Inclusion            | WCAG                       |
+| Don't mistake beautiful for usable                | Inclusion / caution  | Aesthetic-Usability Effect |
+
+---
+
+## Reduce how much someone has to think before they act
+
+The first four principles all target the same moment: before a person has done anything, while they're still orienting to the screen.
+
+### 1. Match what people already know
+
+People don't approach your product as a blank slate. They arrive with expectations built from every other app they've used, and a mismatch between what they expect and what they find creates friction, the kind that comes from having to unlearn one mental model to build another. This is Jakob's Law: design against the model people already carry, not the one that would be most original.
+
+In practice, that means putting primary navigation where people expect it, using a shopping cart icon for a cart, keeping destructive actions in red. None of that is unimaginative. It's the reason a first-time visitor can use your product without a tutorial.
+
+Where it doesn't apply: if your product does something genuinely new that no existing pattern covers, forcing it into a familiar shape can be more confusing than inventing a new one, as long as the new pattern is introduced clearly and stays consistent from that point forward.
+
+### 2. Limit the choices in view
+
+Research from the 1950s on the relationship between the number of choices and reaction time established what's now called Hick's Law: the more options in front of someone, and the more those options differ from each other, the longer it takes to decide.
+
+A settings screen with 40 toggles in one long list is the weak version. Group the same 40 settings into five labeled sections, with the three most-used settings surfaced at the top, and it gets a lot easier to use.
+
+Where it doesn't apply: Hick's Law describes fast, low-stakes decisions well. It says little about decisions that genuinely require research or deliberation, like choosing a health insurance plan; reducing the visible options there can just as easily hide the information someone needs.
+
+### 3. Chunk information into small groups
+
+In 1956, psychologist George Miller proposed that a person's immediate memory and judgment are both limited to roughly seven pieces of information at a time. That's Miller's Law. The practical takeaway isn't the number seven specifically; it's that working memory has a hard ceiling, and grouping related items ("chunking") raises how much a person can effectively hold.
+
+Break a 16-digit card number into four groups of four. Break a long form into three labeled sections instead of one continuous scroll.
+
+### 4. Keep patterns consistent within your own product
+
+This is easy to confuse with Jakob's Law, but it's a different problem. Jakob's Law is about matching _other_ products people already know. Internal consistency is about matching _your own_ product to itself: the same button style meaning the same thing everywhere, the same spacing rules, the same terminology for the same concept across every screen.
+
+A "delete" action that's a red button on one screen and a gray text link on another is a common mistake. Both work in isolation. Together, they force people to relearn what "delete" looks like every time they land somewhere new, which is exactly the cost Jakob's Law warns about, just self-inflicted rather than imported from a competitor.
+
+## Guide attention and make the right action easy to take
+
+Once someone is oriented, the next job is directing where they look, and making sure the action they land on is easy to actually perform.
+
+### 5. Design hierarchy for scanning, not reading
+
+People don't read interfaces top to bottom the way they read a paragraph. They scan for the piece that answers their immediate question, then read more closely only if that piece isn't obvious.
+
+Concretely, that means:
+
+- Put the answer or primary action first, not at the end of an explanation
+- Use heading text that states the point of a section, not a generic label like "Overview"
+- Break long blocks into shorter ones with visual separation between them
+
+### 6. Use contrast to mark what matters
+
+If every button on a screen is styled the same way, none of them communicate priority, and people either freeze or click the first one they see. The primary action on any screen should be visually unmistakable: larger, higher contrast, positioned where the eye naturally lands, while secondary and tertiary actions recede.
+
+> A screen with five buttons that all look equally important is a screen with no primary action at all.
+
+### 7. Defer complexity until it's needed
+
+Progressive disclosure means showing users only a handful of the most important options at first, and offering a larger set of specialized options only on request. The macOS print dialog is the standard example: a simple set of choices by default, with a "Show Details" toggle that reveals everything else for people who need it.
+
+A common mistake is treating "Advanced settings" as a dumping ground for anything the team didn't want to think through, rather than a deliberate second layer for features most people genuinely don't need on their first pass.
+
+### 8. Make targets easy to hit
+
+Fitts's Law describes something almost mechanical: the time it takes to move to and select a target depends on the target's size and its distance from the starting point. Small buttons far from where someone's attention naturally sits take measurably longer to hit accurately, and cause more mis-taps, especially on touchscreens.
+
+In practice, primary mobile actions belong within easy thumb reach, not tucked in a far corner. A "confirm" button should be large enough to hit reliably, not styled small because it looks tidier.
+
+Fitts's Law is about physical distance and size, so it has little to say about decisions that are hard for _cognitive_ reasons rather than motor ones. A tiny checkbox that's easy to reach but confusing to interpret isn't a Fitts's Law problem, it's a clarity problem.
+
+## Lighten the memory and decision load
+
+These four principles reduce how much someone has to remember or decide unaided while actually doing the task.
+
+### 9. Show options instead of demanding recall
+
+Recognizing something in a list is faster and less effortful than recalling it from memory. A dropdown of previous addresses beats a blank field asking someone to retype an address they entered three screens ago.
+
+### 10. Make progress visible
+
+A visible sequence, three filled dots and one empty one, a progress bar moving forward, gives people a reason to keep going that an unmarked, open-ended task doesn't. This relates to the goal-gradient effect: motivation to finish increases as the visible distance to the end decreases.
+
+Where it backfires: a progress indicator that lies (jumping to 90% and stalling) does more damage to trust than no progress indicator at all.
+
+### 11. Choose defaults deliberately
+
+Most people accept whatever is preselected rather than actively evaluating every option. That makes a default a decision the designer is making on the user's behalf, whether or not it's treated that way.
+
+| Situation                   | No default         | Deliberate default                                                         |
+| --------------------------- | ------------------ | -------------------------------------------------------------------------- |
+| Notification frequency      | Blank until chosen | Preselect the setting most users actually want, editable                   |
+| Country field               | Empty dropdown     | Inferred from IP or locale, editable                                       |
+| Subscription tier on a form | Unselected         | The plan genuinely typical for a new user, clearly labeled as a suggestion |
+
+This same mechanism turns into a dark pattern when the default quietly benefits the business over the user, a pre-checked upsell, a default set to the most expensive plan, used against the person it should be serving.
+
+### 12. Put the important items first or last, not buried
+
+People recall items at the beginning and end of a list far better than items in the middle, the Serial Position Effect. A navigation menu, a pricing table, or a list of plan features that buries the option you most want someone to notice in position four of seven is fighting against how attention naturally distributes across a list.
+
+In a list of plan tiers, the recommended plan usually belongs first or last, not centered by size alone. In a settings menu, the most-used items belong at the top, not alphabetized into the middle.
+
+## Give people control, and a way to recover
+
+These five principles matter less during the smooth middle of a task and more at its edges: when a mistake is possible, when it happens anyway, or when the task is ending.
+
+### 13. Prevent errors before they happen
+
+The best error message is the one that was never needed. Constrain input formats where you can (a date picker instead of a free-text date field), disable a submit button until required fields are valid, and show format expectations before someone types the wrong thing rather than after.
+
+This principle is about stopping the mistake from being possible in the first place. Confirmation (below) is about catching it right before it becomes permanent. Products need both, at different points.
+
+### 14. Confirm before anything destructive happens
+
+Interrupt with a confirmation before any action that can't be easily undone: deleting an account, discarding unsaved changes, removing a payment method. The cost of a false-positive confirmation (a half-second of friction) is far smaller than the cost of an accidental, unrecoverable action.
+
+Low-stakes, easily reversible actions (archiving an email) don't need the same friction. Adding a confirmation there just trains people to click through every dialog without reading it.
+
+### 15. Always leave a way back
+
+Beyond preventing and confirming errors, people need a genuine exit from a state they didn't mean to enter: an undo option after a delete, a "back" path out of a multi-step flow, a way to cancel a subscription that doesn't require calling someone. Nielsen's usability heuristics call this user control and freedom, and it matters most in exactly the moments people are already anxious: mid-transaction, mid-signup, mid-deletion.
+
+A common mistake is offering "undo" as a toast notification that disappears in three seconds, which technically satisfies the principle while failing almost everyone who needed it.
+
+### 16. Keep the system responsive, or explain the wait
+
+A tenth-of-a-second response feels instantaneous and needs no extra feedback. A response within about a second keeps a person's train of thought unbroken even though they'll notice the delay, a finding often referred to as the Doherty Threshold. Past roughly a second, people benefit from an explicit signal that something is happening: a skeleton screen, a moving progress indicator, a status message.
+
+You can't always make something load in under a second. What you can always do is acknowledge the wait honestly instead of leaving a blank screen.
+
+### 17. End on an unmistakable, clear state
+
+How an experience ends shapes how it's remembered, often more than the smooth middle of it does, the Peak-End Rule. A vague or ambiguous ending, like "your request has been submitted" with no indication of what happens next, leaves people uncertain whether the task actually succeeded.
+
+A completed purchase should look and read differently from a pending one. A saved document should confirm it saved.
+
+## Design for people who aren't like you
+
+This is the category most "good UX" lists skip, and it's not a minor one: the principles above assume a user who can see the screen clearly, use a mouse or a precise touch, and process information at a typical pace. A meaningful share of every product's audience doesn't fit all three assumptions, and the [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/WAI/standards-guidelines/wcag/) exist specifically to define what "usable" means when you stop assuming a single kind of user.
+
+### 18. Design for people who aren't like you
+
+Concretely, that means:
+
+- Every interactive element reachable and operable by keyboard alone, not just mouse or touch
+- Color never used as the _only_ signal for meaning (a red border alone doesn't communicate "error" to someone who can't distinguish red from green)
+- Text and interactive elements meeting minimum contrast ratios against their background
+- Meaningful labels on icons and images for screen readers, not decorative-only markup
+- Motion and autoplay that can be reduced or disabled, for people sensitive to it
+
+This belongs on the list and not in a separate compliance checklist because most accessibility failures are usability failures that happen to be invisible to whoever didn't personally hit them. A button that only works with a mouse isn't a niche edge case; it's a Fitts's Law failure and a keyboard-navigation failure at the same time, for a different set of users.
+
+### 19. Don't mistake beautiful for usable
+
+This one is a caution rather than an instruction. The Aesthetic-Usability Effect describes a real, measured bias: people perceive more attractive designs as easier to use, even when the underlying usability is identical or worse. That's genuinely useful to know, and genuinely dangerous if it's the only thing you know about it.
+
+A well-designed, polished interface earns real patience from users during minor friction that an ugly one wouldn't get. But the same bias means a beautiful interface can hide real usability problems from a design team during internal review, because everyone in the room is subject to the same effect. Aesthetic polish isn't evidence that something works. Usability testing with actual users is the only way to tell the difference.
+
+---
+
+## Where these principles compete with each other
+
+None of these nineteen exist in isolation, and several of them pull in opposite directions depending on the situation:
+
+- **Fewer choices (Hick's Law) vs. showing all the options (recognition over recall).** Reducing choices helps for fast, low-stakes decisions. Showing more options helps when someone needs to compare before deciding.
+- **Familiar patterns (Jakob's Law) vs. a genuinely better new pattern.** Novelty has a real cost in learnability. It's worth paying only when the new pattern solves a problem the familiar one can't.
+- **Deliberate defaults vs. user control.** A well-chosen default speeds most people up. The same default, if it can't be easily changed, becomes a trap for the people it doesn't fit.
+- **Aesthetic polish vs. verified usability.** A design can pass every visual review and still fail its first real usability test, precisely because reviewers are as subject to the Aesthetic-Usability Effect as anyone else.
+
+None of these tensions have a universal answer. They're the actual judgment calls that separate a designer applying a checklist from one making a real decision.
+
+## Frequently asked questions
+
+**Are these principles the same as Nielsen's usability heuristics?**
+
+Related but not identical. Nielsen's ten heuristics are broad rules of thumb, developed to catch usability problems during an interface review. The "laws of UX" referenced throughout this article (Hick's Law, Miller's Law, Fitts's Law) are individual psychological findings that explain _why_ certain heuristics hold. Accessibility principles come from a third source, WCAG, which is a formal standard rather than a heuristic or a psychological finding.
+
+**Do I need to apply all nineteen principles to every screen?**
+
+No. Most screens will be governed by three or four of these at once, not all nineteen. Treat this as a reference to check a specific design decision against, not a checklist every screen must satisfy in full.
+
+**Which of these should never be skipped, even under deadline pressure?**
+
+Accessibility and error prevention for destructive actions are the two categories with the highest real cost when skipped: one excludes real users outright, the other causes irreversible harm. The remaining principles trade off against each other situationally; those two are closer to non-negotiable minimums.
+
+## Use these as a working reference, not a poster
+
+The value in these nineteen principles isn't in memorizing them. It's in having language for what's actually going wrong when a screen feels harder to use than it should, or when it works fine for you and fails for someone else entirely.
+
+Keep this as a reference the next time a design review stalls on "something feels off but I can't say what." Most of the time, one of these nineteen names it.
+
+If you're applying these inside a broader design process, [how user flows, prioritization, and design trade-offs work together in practice](/blog/design-process-applied) covers the decision-making habits that sit around individual UX principles like these. And if the friction you're diagnosing shows up specifically in conversion-critical flows, [nine UX fixes that boost conversion](/blog/ux-fixes-boost-conversions) applies several of these same principles to specific, shippable changes.
+
+---
+
+
 ### Modern Product Design Is a System, Not Just Screens
 URL: https://sanjayshrestha.com/blog/modern-product-design-explained
 Date: 2026-09-01
