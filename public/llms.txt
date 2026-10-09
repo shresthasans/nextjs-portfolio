@@ -21,6 +21,7 @@ Full text of every case study and blog post: https://sanjayshrestha.com/llms-ful
 
 ## Blog
 
+- [Tokens, UI, Components, Context, Enforce: How I Build a Design System With Claude](https://sanjayshrestha.com/blog/building-a-design-system-with-claude): Most design systems start with components and hope screens fit. With Claude, I build in five steps: tokens, real UI, components, agent context, enforcement.
 - [From UX to AX: How Experience Design Is Evolving From Users to AI Agents](https://sanjayshrestha.com/blog/from-ux-to-ax): UX isn't being replaced; the user is expanding. How design moved from screens people operate, to AI people steer, to products AI agents use for them.
 - [Presenting to Non-Designers: A Framework for Defending a Design Decision](https://sanjayshrestha.com/blog/presenting-design-decisions-to-non-designers): Stakeholders don't speak design. A five-part framework for presenting and defending design decisions so the room debates your reasoning, not your taste.
 - [Designing Trust Into AI Features: Why Explainability Beats Accuracy](https://sanjayshrestha.com/blog/designing-trust-into-ai-features): Users don't trust AI because it's accurate. They trust it because they can see why it did what it did. A framework for designing calibrated trust into AI features.

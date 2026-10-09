@@ -89,6 +89,12 @@
     border-right-color: rgba(255, 255, 255, 0.15);
   }
 
+  /* Opt-in for two-column comparison tables: split width evenly instead of a narrow label column */
+  /* :nth-child(n) lifts specificity above the th's first:w-28 / first:sm:w-36 utilities */
+  .table-equal-cols th:nth-child(n) {
+    width: 50%;
+  }
+
   .container-portfolio {
     @apply max-w-6xl mx-auto px-6 sm:px-8 lg:px-12;
   }
