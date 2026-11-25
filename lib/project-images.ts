@@ -14,6 +14,10 @@ const projectImages: Record<string, ProjectImages> = {
     hero: '/images/work/decisions-platform/hero.webp',
     gallery: [],
   },
+  'mocksnap-device-mockup-generator': {
+    hero: '/images/work/mocksnap/hero.webp',
+    gallery: [],
+  },
   'pagevamp-onboarding-redesign': {
     hero: '/images/work/pagevamp/hero.webp',
     gallery: [

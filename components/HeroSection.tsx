@@ -190,6 +190,35 @@ export default function HeroSection() {
                   Get In Touch
                 </Link>
               </motion.div>
+
+              {/* Side product strip */}
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.55, ease: 'easeOut' }}
+                className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-stone-600 dark:text-stone-400"
+              >
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-xs font-medium text-emerald-800 dark:text-emerald-300">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
+                  Now shipping
+                </span>
+                <a
+                  href="https://mocksnap.app/"
+                  target="_blank"
+                  rel="noopener"
+                  onClick={() => trackEvent('mocksnap_click', { location: 'hero' })}
+                  className="font-semibold text-stone-900 dark:text-stone-50 hover:text-amber-700 dark:hover:text-amber-400 underline-offset-2 hover:underline transition-colors"
+                >
+                  MockSnap
+                </a>
+                <span>free, private device mockups.</span>
+                <Link
+                  href="/work/mocksnap-device-mockup-generator"
+                  className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-400 hover:underline underline-offset-2"
+                >
+                  Case study <ArrowRight size={13} aria-hidden="true" />
+                </Link>
+              </motion.p>
             </div>
 
             {/* ── Right: Achievement cards (lg+) ────────────────── */}

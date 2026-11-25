@@ -81,6 +81,25 @@ export function getMDXComponents(): MDXComponents {
       </th>
     ),
 
+    // Standalone call-to-action, e.g. <LinkButton href="https://mocksnap.app/">Try MockSnap live</LinkButton>.
+    // External links open in a new tab.
+    LinkButton: ({ href, children }: { href: string; children: ReactNode }) => {
+      const external = /^https?:\/\//.test(href)
+      return (
+        <p className="not-prose my-8">
+          <a
+            href={href}
+            {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+            className="inline-flex items-center gap-2 px-6 py-3.5 bg-stone-900 dark:bg-stone-50 text-stone-50 dark:text-stone-900 rounded-lg font-medium text-sm no-underline hover:bg-amber-700 dark:hover:bg-amber-400 transition-colors duration-200"
+          >
+            {children}
+            <span aria-hidden="true">{external ? '↗' : '→'}</span>
+            {external && <span className="sr-only">(opens in a new tab)</span>}
+          </a>
+        </p>
+      )
+    },
+
     td: ({ children }) => (
       <td className="sticky-col px-4 py-3 border-b border-stone-100 dark:border-stone-800 text-stone-700 dark:text-stone-300 align-top break-words first:sticky first:left-0 first:z-10 first:bg-stone-50 dark:first:bg-stone-950 first:transition-colors first:duration-200">
         {children}

@@ -58,6 +58,16 @@ interface Frontmatter {
       rating?: number
     }[]
   }
+  // Sanjay's own shipped product (not a third-party review): emits a SoftwareApplication
+  // authored by his Person entity, with no ratings.
+  ownProduct?: {
+    name: string
+    url: string
+    applicationCategory?: string
+    operatingSystem?: string
+    description?: string
+    free?: boolean
+  }
 }
 
 async function getCaseStudy(slug: string) {
@@ -598,6 +608,25 @@ export default async function CaseStudyPage({
       })()
     : null
 
+  const ownProductJsonLd = fm.ownProduct
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: fm.ownProduct.name,
+        url: fm.ownProduct.url,
+        ...(fm.ownProduct.description ? { description: fm.ownProduct.description } : {}),
+        ...(fm.ownProduct.applicationCategory
+          ? { applicationCategory: fm.ownProduct.applicationCategory }
+          : {}),
+        ...(fm.ownProduct.operatingSystem ? { operatingSystem: fm.ownProduct.operatingSystem } : {}),
+        ...(heroImage ? { image: `https://sanjayshrestha.com${heroImage}` } : {}),
+        author: { '@id': 'https://sanjayshrestha.com/#person' },
+        ...(fm.ownProduct.free
+          ? { offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } }
+          : {}),
+      }
+    : null
+
   const faqJsonLd = fm.faqs
     ? {
         '@context': 'https://schema.org',
@@ -627,6 +656,12 @@ export default async function CaseStudyPage({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
+      {ownProductJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ownProductJsonLd) }}
         />
       )}
       {productReviewJsonLd && (

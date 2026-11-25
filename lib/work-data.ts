@@ -57,6 +57,30 @@ export const allWork: CaseStudy[] = [
     ],
   },
   {
+    slug: 'mocksnap-device-mockup-generator',
+    title: 'MockSnap',
+    client: 'Personal Product',
+    role: 'Designer & Builder',
+    outcome:
+      'Designed, built, and shipped a free device mockup generator. It runs in the browser, needs no sign-up, and never uploads a screenshot.',
+    type: 'SaaS',
+    year: '2026',
+    coverImage: '/images/work/mocksnap/hero.webp',
+    imageAlt:
+      'MockSnap editor with device, layout, and export controls framing two StreamShare app screens in iPhones on a gradient, above badges reading Free, No sign-up, and Screenshots stay on your device',
+    metaLabel: 'Personal Product • Live',
+    productName: 'MockSnap',
+    caseStudyTitle: 'A Free, Private Device Mockup Generator',
+    summary:
+      'Making a five-minute launch job take five minutes: device mockups with no account, no upload, and export sizes for wherever the image is going.',
+    keyFocus: ['Product Design', 'Front-end Build', 'Privacy by Design'],
+    stats: [
+      { value: 'Free', label: 'Core Features' },
+      { value: '0', label: 'Uploads' },
+      { value: '0', label: 'Sign-ups Needed' },
+    ],
+  },
+  {
     slug: 'streamshare-streaming-app-design',
     title: 'Streamshare',
     client: 'Personal Project',

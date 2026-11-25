@@ -41,5 +41,6 @@ export const CLUSTER_CASE_STUDIES: Record<string, string[]> = {
     'pagevamp-onboarding-redesign',
     'streamshare-streaming-app-design',
     'linkedin-feed-redesign',
+    'mocksnap-device-mockup-generator',
   ],
 }
