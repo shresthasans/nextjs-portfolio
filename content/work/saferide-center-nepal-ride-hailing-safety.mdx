@@ -1,0 +1,352 @@
+---
+title: "SafeRide Center: Making Safety Visible and Enforceable in Nepal's Ride-Hailing Apps"
+seoTitle: "Designing Ride-Hailing Safety for Riders in Nepal"
+client: "Personal Project (self-initiated, not affiliated with Pathao, inDrive, Yango, or Uber)"
+role: "Product Designer"
+year: "2026"
+timeline: "Self-paced, mid-2026 (around August to September 2026)"
+teamSize: "Solo"
+tools: ["Desk Research", "Informal Rider Conversations", "Competitive Analysis", "Journey Mapping", "Service Design", "Concept Design"]
+type: "Consumer / Mobility / Trust & Safety"
+outcome: "A research-led concept for SafeRide Center, a shared safety layer that could sit inside Pathao, inDrive, Yango, and Uber without replacing their branding or backend. It connects ride verification, fare protection, trip sharing, graded emergency help, and case-based incident handling into one visible workflow, with a scoped MVP."
+description: "People close to me kept telling stories about rides that went wrong: fares renegotiated mid-trip, drivers who weren't the person in the app, and conversations that crossed a line. The apps already advertise safety features. I wanted to understand why riders still don't feel safe, and what would change that."
+duration: "Research and concept phase, written up in September 2026"
+roleSummary: "Ran every part of the research and concept work, solo:"
+roleItems:
+  - "Desk Research & Synthesis"
+  - "Informal Rider Conversations"
+  - "Competitive Analysis (Pathao, inDrive, Yango, Uber)"
+  - "Problem Framing & Journey Mapping"
+  - "Concept & Service Design (no UI or build yet)"
+team:
+  - "1 Product Designer (me)"
+impact: "No shipped product and no measured outcome. The deliverable is a reframed problem, an evidence-backed concept with a defined MVP, and a plan for validating it next."
+highlights:
+  - title: "The apps don't lack safety features. Riders don't trust them."
+    text: "inDrive, Yango, and Pathao each advertise parts of a safety system. The gap is that the parts are scattered, easy to bypass, and not clearly connected to a human response."
+  - title: "The riskiest moment is when a ride goes offline."
+    text: "Pathao's own insurance terms exclude offline rides. Once a trip leaves the app, tracking, identity, insurance, and the complaint trail all disappear together."
+  - title: "Not another SOS button."
+    text: "I replaced a single panic button with three levels of help, because most unsafe moments aren't emergencies, and a rider who only has an emergency button often presses nothing."
+  - title: "Safety has to protect drivers too."
+    text: "A system that looks like it always sides with passengers pushes drivers off the platform, which is exactly the outcome it's trying to prevent."
+---
+
+## Overview
+
+Several of my friends and family use ride-hailing apps in Kathmandu every day. Over time, their stories started to sound alike: a driver who asked them to cancel and pay cash, a fare that changed at the destination, a rider who wasn't the person shown in the app, a conversation that turned uncomfortable on the way home at night.
+
+I wanted to know whether these were isolated bad luck or a pattern. I talked informally with riders around me, reviewed news reporting, public complaints, and forums, and compared how Pathao, inDrive, Yango, and Uber handle safety today.
+
+<mark>The finding that shaped everything: the apps already advertise many safety features, but they're scattered across menus, easy to bypass, and every one of them stops working the moment a ride leaves the platform.</mark>
+
+My response is **SafeRide Center**, a shared safety layer that any of the four apps could adopt while keeping its own branding and backend. It connects verification, fare protection, trip sharing, emergency help, and incident handling into one workflow the rider can see.
+
+- **Scope:** Solo, self-initiated. No access to any platform's data, drivers, or engineering constraints
+- **Research:** Desk research and competitive analysis, informed by informal conversations with riders close to me. Structured interviews are the first step of validation
+- **Output:** A concept, a defined MVP, and a validation plan. No UI or build yet
+
+## Context
+
+Ride-hailing has operated in Nepal for close to a decade with almost no formal regulation. Pathao alone reports around 6 million downloads and roughly 65,000 daily rides. ([Pathao figures, Kathmandu Post, September 2025](https://kathmandupost.com/money/2025/09/23/passengers-complain-of-overcharging-rude-riders-delays-on-ride-hailing-apps)) inDrive's negotiated fares, Yango's low prices, and Uber's arrival in Kathmandu in mid-2026 have made the market more crowded, not more predictable. ([Uber's Kathmandu launch, Kathmandu Post](https://kathmandupost.com/money/2026/05/21/uber-launches-ride-sharing-service-in-kathmandu-valley))
+
+In April 2026, the government drafted the _Digital Mobility Service Operation Standards_. It proposes vehicle QR stickers for verification, 24-hour emergency response teams, an option for women passengers to choose women drivers, and an accident fund. As of late July it still hadn't been approved. ([Draft regulation, Kathmandu Post](https://kathmandupost.com/money/2026/04/24/nepal-moves-to-regulate-ride-sharing-ride-hailing-after-nearly-a-decade))
+
+<mark>That context mattered for scoping: a concept that only adds features the law may soon require wouldn't be worth much.</mark> I needed to find the problem underneath the feature list.
+
+## The Problem
+
+Riders value ride-hailing for price and convenience, but they can't count on a ride being available, fairly priced, or safe. The recurring issues fell into three groups:
+
+- **Reliability:** long waits, drivers who accept and then cancel, and service that collapses during rain, festivals, and strikes
+- **Price integrity:** drivers asking passengers to cancel and pay offline, or demanding more money after pickup or at the destination
+- **Personal safety:** reckless driving, drivers who don't match the app profile, intrusive or harassing behaviour, and support that doesn't respond
+
+These problems compound. A rider stranded at night is more likely to accept an offline fare. A rider on an offline ride has no trip record if something goes wrong. ([Passenger complaints, Kathmandu Post](https://kathmandupost.com/money/2025/09/23/passengers-complain-of-overcharging-rude-riders-delays-on-ride-hailing-apps))
+
+<mark>Left alone, the pattern pushes the people most at risk, especially women travelling alone at night, to either avoid the service or accept rides with no protection at all.</mark>
+
+> 📍 **Visual suggestion**
+>
+> **Purpose:** Show that the problems are connected, not a flat list.
+>
+> **Suggested artifact:** A chain diagram: unavailability → pressure to accept an offline fare → ride leaves the app → no tracking, identity, insurance, or complaint trail.
+>
+> **Suggested caption:** _Each failure makes the next one more likely. By the time a safety incident happens, the ride often isn't in the system anymore._
+
+## Starting Point
+
+I started with a narrower assumption: that harassment and misconduct were the core problem, and that the answer was better in-ride tools such as an SOS button or live location sharing. I also assumed the existing apps were missing these features.
+
+I didn't yet know:
+
+- How often incidents happened versus how often people feared them
+- Whether riders knew about the safety features that already existed
+- Why drivers moved rides offline in the first place
+- What happened after someone reported a problem
+
+## Discovery and Learning
+
+### Starting point: conversations with riders
+
+This project started with stories, not a research plan. People close to me who use these apps regularly kept describing rides that went wrong: fares renegotiated mid-trip, drivers who weren't the person in the app, and conversations that crossed a line.
+
+These were informal conversations, not structured interviews. They told me **where to look**, not how often things happen. The evidence below comes from public reporting, complaints, and each app's own published terms, and every finding links to its source.
+
+> **What the conversations pointed me to:** problems rarely started with the incident itself. They started earlier, with a missed ride, a fare that changed, or a pickup nobody checked.
+
+### Desk research: news, forums, and public reviews
+
+I used Perplexity to scan news coverage, Reddit threads, app reviews, and an academic study on inDrive passengers in Nepal, then checked the key claims against primary reporting. Online complaints over-represent bad experiences, so I treated this as a map of where problems happen, not how often.
+
+Three findings changed my thinking:
+
+- **Police warned about offline rides specifically.** Nepal Police said offline rides make it difficult to track drivers after an incident and to claim insurance after an accident. ([Police crackdown on offline rides, Kathmandu Post](https://kathmandupost.com/money/2023/10/16/police-crack-down-on-offline-ride-hailing))
+- **The regulatory gap is about accountability, not only fares.** Reporting repeatedly pointed to weak grievance handling and unclear responsibility after incidents. ([Stalled ride-hailing rules, Kathmandu Post](https://kathmandupost.com/money/2026/07/30/government-yet-to-finalise-ride-hailing-rules-as-disputes-over-fares-persist))
+- **Drivers have their own grievances.** In August 2026, inDrive bike drivers protested over commission, VAT deductions, and fares they said barely covered operating costs. Offline bargaining isn't only opportunism. ([Driver protest, Kathmandu Post](https://kathmandupost.com/money/2026/08/13/ride-hailing-riders-suspend-protest-but-fare-dispute-remains-unresolved))
+
+### Competitive analysis
+
+I reviewed what each app says it offers across the ride: before pickup, during the trip, and after.
+
+- **inDrive** lists driver name, photo, and vehicle details, trusted contacts, live location sharing, masked calling, an SOS button, and 24/7 support. ([inDrive's Nepal safety measures, The Himalayan Times](https://thehimalayantimes.com/business/indrive-highlights-ride-safety-measures-as-urban-mobility-expands-in-nepal))
+- **Yango** lists more than 30 safety features, including driver selfie and licence checks, speed monitoring, harsh-braking detection, SOS, and route sharing. ([Yango's Nepal safety features](https://meatechwatch.com/2025/12/15/yango-ride-introduces-enhanced-in-app-safety-features-for-users-in-nepal/))
+- **Pathao** offers ride insurance for accidents. Its terms state that coverage applies only between "started" and "ended" on the app, and excludes offline rides. ([Pathao's safety coverage terms](https://pathao.com/np/blog/pathao-ride-sharing-insurance/)) It also offers live location sharing with friends and family, and tracks the real-time location of rider and driver on every ride. ([Pathao Safety](https://pathao.com/safety/))
+- **Uber** started in the Kathmandu Valley in May 2026, through local fleet partners, with car and bike options. Nepal coverage lists driver identity details, real-time trip tracking, trip sharing, and emergency assistance, but Uber hasn't published Nepal-specific safety terms. ([Uber's Kathmandu launch, Kathmandu Post](https://kathmandupost.com/money/2026/05/21/uber-launches-ride-sharing-service-in-kathmandu-valley), [Uber features in Nepal, Nepali Telecom](https://www.nepalitelecom.com/top-features-of-uber-in-nepal))
+
+<mark>The apps weren't short of safety features. The problem was that they were scattered, optional, and easy to walk away from. Pathao's insurance terms made the point in writing: the protection only exists while the ride stays in the app.</mark>
+
+> 📍 **Visual suggestion**
+>
+> **Purpose:** Show where existing apps protect riders, and where protection ends.
+>
+> **Suggested artifact:** A matrix with the four apps as columns and ride stages (booking, pickup, in-ride, drop-off, after an incident) as rows. Shade the cells where protection exists. Add a final column, "Ride moved offline", empty across the board.
+>
+> **Suggested caption:** _Every app covers part of the journey. None covers a ride that has left the platform, and that's where riders are most exposed._
+
+## Reframing the Problem
+
+My original framing was "riders need better tools to stay safe during a ride." The research showed that was incomplete in two ways.
+
+First, the tools mostly exist. The gap is trust: riders don't know where the tools are, don't believe verification is enforced, and don't expect a report to lead anywhere.
+
+Second, the most dangerous moment isn't a single incident. It's the point where a ride leaves the app. <mark>At that moment, the rider loses identity verification, tracking, fare protection, insurance coverage, and any record to support a complaint, all at once.</mark>
+
+The reframed problem:
+
+> **Riders can't see their protection, can't rely on it being enforced, and lose all of it the moment a ride leaves the app.**
+
+This shifted my goal from adding features to making safety **easier to find, harder to bypass, and reliably connected to a person.**
+
+## Exploring Directions
+
+I considered four directions before committing:
+
+- **A women-only or "safe mode" service.** Addresses an urgent need, and the draft regulation already proposes women-driver matching. But it depends on driver supply, which is thinnest when riders need it most, and it doesn't touch offline rides or fare disputes.
+- **Heavier in-ride monitoring.** Cameras, audio recording, facial recognition. Strong for evidence, but raises privacy, accuracy, and consent concerns for both sides, and adds nothing once a ride is offline.
+- **A new, safety-first ride app.** Clean slate, but it would have to compete for drivers in a market where drivers are already unhappy with platform economics. Riders would also have to switch apps to be safe.
+- **A shared safety layer inside the existing apps.** Works with the drivers and riders already on those platforms, and fits the direction regulation is moving. This is the direction I chose.
+
+## The Concept: SafeRide Center
+
+SafeRide Center is a persistent shield icon visible on the booking screen and throughout the trip. Each app keeps its own branding and backend. The shared part is the workflow, which has five functions:
+
+1. **Verify the ride** before the passenger gets in
+2. **Share the trip** with a trusted contact
+3. **Detect abnormal situations** such as route changes or long stops
+4. **Get help** at the right level of urgency
+5. **Report and resolve** incidents as tracked cases
+
+```text
+SafeRide Center
+
+Driver: Suman K.
+Vehicle: BA 12 PA 3456
+Ride status: Verified
+Fare ceiling: NPR 420
+Trusted contact: Anita, sharing live location
+
+[Share ride]     [Call support]
+
+Are you safe?
+[Yes] [Need help] [Emergency]
+
+Report:
+[Route changed]
+[Driver requested extra money]
+[Unsafe driving]
+[Driver/vehicle mismatch]
+```
+
+_Example in-ride view. Names and plate are illustrative._
+
+> 📍 **Visual suggestion**
+>
+> **Purpose:** Show the whole system in one picture before the detailed decisions.
+>
+> **Suggested artifact:** A journey map from booking to after the ride, with each SafeRide function placed at the moment it acts, and the "ride goes offline" exit marked as the point the system is designed to close.
+>
+> **Suggested caption:** _Five functions, one workflow. Each acts at a moment where trust currently breaks._
+
+## Key Design Decisions
+
+### 1. The ride doesn't start until it's verified
+
+**The question:** How does a rider know the person who arrives is the driver in the app, on the vehicle in the app?
+
+**Evidence:** Public complaints describe drivers who didn't match their profile. Driver photos and plate numbers are already shown, but nothing requires anyone to check them. The [draft regulation](https://kathmandupost.com/money/2026/04/24/nepal-moves-to-regulate-ride-sharing-ride-hailing-after-nearly-a-decade) proposes vehicle QR stickers for the same reason: identity is shown, but not verified.
+
+**Alternatives:**
+
+- Photo and plate only: already standard, and relies on the rider noticing a mismatch on a busy roadside
+- Vehicle QR sticker, as the draft regulation proposes: useful for police checks, but asks a rider to scan a sticker on a bike at the kerb
+
+**Direction:** A large verification card before pickup shows the driver's verified name and photo, plate, vehicle make, model and colour, licence status, completed trips, and a four-digit pickup PIN or QR code. The trip can't officially start until the driver enters the PIN or scans the code.
+
+If anything doesn't match, the rider taps **"This is not the verified driver or vehicle."** That one action cancels the ride without a penalty, preserves the original driver and vehicle details, flags the driver for review, and offers a replacement ride.
+
+**Why this matters:** A mismatch stops being something the rider has to argue about at the kerb. It becomes a recorded event with a consequence.
+
+**Tradeoff:** It adds a few seconds at pickup, and drivers may resist a step that blocks them from starting a trip.
+
+### 2. A negotiated fare becomes a locked fare
+
+**The question:** How do we stop fares from changing after the rider has committed, without removing inDrive-style negotiation?
+
+**Evidence:** Drivers asking riders to cancel and pay cash, or demanding extra at the destination, came up repeatedly in public complaints. ([Passenger complaints, Kathmandu Post](https://kathmandupost.com/money/2025/09/23/passengers-complain-of-overcharging-rude-riders-delays-on-ride-hailing-apps))
+
+**Alternatives:**
+
+- Fixed pricing only: removes negotiation, which many price-sensitive riders value
+- Stricter penalties alone: needs detection, and offline rides are invisible by definition
+
+**Direction:** Negotiation stays. But once both sides accept a price, it becomes a fare ceiling shown before pickup: _"Your maximum payable fare is NPR X, excluding only the adjustments listed below."_ If an adjustment is genuinely needed, such as the passenger changing destination, the app shows the revised fare and both sides approve it. Drivers see the fare rules before accepting a ride.
+
+After the ride, the rider gets three options: **"Fare was correct," "Driver requested extra cash,"** or **"Driver asked me to cancel and pay offline."** The last two attach the trip record to the complaint automatically.
+
+**Tradeoff:** This only holds if staying on the platform also works for drivers. The August protests suggest drivers already feel squeezed, so enforcement without a fair fare floor could push more of them offline.
+
+### 3. Three levels of help instead of one SOS button
+
+**The question:** Why would a rider who feels uncomfortable not press SOS?
+
+**Evidence:** Many uncomfortable moments, such as intrusive questions or a driver ignoring requests to slow down, aren't emergencies. Complaints about rude and unsafe riding show up alongside overcharging in public reporting, yet a single panic button asks the rider to escalate all the way or do nothing.
+
+**Direction:** Three controls, available from the locked ride screen without navigating menus:
+
+| Control                  | When                                         | What happens                                                                              |
+| ------------------------ | -------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| **I need help**          | Uncomfortable, not in immediate danger       | Opens a discreet chat with a safety agent and shares trip details                         |
+| **Stop at a safe place** | Wants to leave the ride                      | Requests a stop at a nearby public location and starts monitoring                         |
+| **Emergency**            | Threat, assault, crash, or medical emergency | Calls local emergency services, alerts trusted contacts, opens priority platform response |
+
+For moments when a rider can't openly touch the screen, which matters on the back of a motorbike, a user-configured silent option could alert the safety team and trusted contacts through a hardware shortcut or a discreet code typed into chat.
+
+Every urgent report becomes a case with a number, the trip ID, identities, vehicle, GPS route and timestamps, and fare history attached automatically. The rider sees whether the report was received, who is handling it, whether contacts and emergency services were notified, and when the next update is due.
+
+**A rule I held to:** the app never says police or an ambulance has been dispatched unless the call or alert has actually connected. False reassurance in an emergency is worse than none.
+
+**Tradeoff:** This depends on the platform staffing a trained response team. Design can make the process visible, but it can't make it happen on its own. Hardware shortcuts are also limited by what iOS and Android allow apps to intercept.
+
+### 4. Safety gets its own rating, and reporting can wait
+
+**The question:** Why do unsafe drivers keep high ratings?
+
+**Evidence:** A single star rating blends politeness, speed, and safety. A driver who is friendly but drives dangerously can score well.
+
+**Direction:** After every ride, a short question: _"Did you feel safe during this ride?"_ with specific options: unsafe driving, fare problem, harassment, driver or vehicle mismatch, accident or medical problem, or other. This is a separate safety rating, not part of the service rating. Riders can also report later, because many won't file a complaint while standing next to the driver.
+
+**Tradeoff:** Delayed reports are harder to verify, which makes the evidence attached to the trip record more important.
+
+## Supporting Features
+
+**Trusted-contact mode.** Riders can share a ride manually, share all night rides automatically, or share rides to chosen destinations such as home, college, or work. The contact gets the driver, plate, route, live location, and ETA, plus a "Passenger may be unsafe" button and a direct line to the safety team. The link works without the ride app installed. Sharing already exists in most apps, so the difference is making it automatic and giving the contact a way to act.
+
+**Route and driving monitoring.** The system watches for route deviations, long unexpected stops, trips ending far from the destination, excessive speed, harsh braking, and the rider's phone moving separately from the vehicle. When a signal appears, the rider gets a check-in: _"Your route appears different from the planned route. Are you safe?"_ The driver gets a neutral prompt too, because deviations are often caused by traffic, closures, or the passenger's own instructions. The system flags risk without accusing anyone.
+
+## Protecting Drivers Too
+
+Early on I framed safety entirely around passengers. The driver protests changed that. <mark>If the system looks like it automatically sides with passengers, drivers will avoid it, refuse difficult trips, or move more rides offline, which is the outcome it's designed to prevent.</mark>
+
+The driver side includes:
+
+- Passenger confirmation through the same pickup PIN
+- A "passenger is threatening or abusive" report and emergency support for crashes or assaults
+- Automatic recording of fare and destination changes, so disputes have evidence on both sides
+- Protection against false complaints through evidence review and appeals
+
+## Fitting Into Four Different Apps
+
+Each app starts from a different place, so the integration priority differs. These are priorities based on what each app advertises, not claims about their technical implementation.
+
+| App         | Highest-priority integration                                                                                                                     |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Pathao**  | Make existing safety and insurance features easier to find; add pickup PIN, fare lock, and visible complaint tracking                            |
+| **inDrive** | Turn the negotiated fare into a locked, enforceable price; counter "cancel and pay offline" pressure; strengthen driver and vehicle matching     |
+| **Yango**   | Connect existing SOS, route sharing, and insurance to human case management with clear updates                                                   |
+| **Uber**    | Adapt its established safety workflow to Nepal: local emergency contacts, Nepali language support, local insurance, and local regulation         |
+
+## Scoping the MVP
+
+The full concept is large. For a first version, I kept only the features that address the most serious trust failures:
+
+- Driver and vehicle re-verification
+- Pickup PIN
+- Fare lock and offline-payment warning
+- One-tap trusted-contact sharing
+- Three-level emergency controls
+- Automatic trip and route record
+- Human safety support
+- Post-ride safety reporting with a case number
+
+**What I deliberately left out:** AI driver monitoring and facial recognition. <mark>They raise privacy, accuracy, and consent problems, and they add little if the platform can't first guarantee the right driver, the agreed fare, and a person who answers.</mark>
+
+## Iteration and Validation
+
+The concept hasn't been tested with riders or drivers yet. Every direction above is a hypothesis grounded in public evidence, and the next step is to check it with the people it's for.
+
+**How I'd validate this next:**
+
+- Run structured interviews with regular riders, mixed by gender, time of day, and bike versus car, to check whether the problems I found in public evidence match their experience
+- Test the pickup PIN and fare lock with regular riders using a clickable prototype, to see whether the extra step feels reassuring or like friction
+- Test whether riders can reach "I need help" under pressure, including on a moving bike
+- Interview drivers, the biggest gap in this research, to test the fare lock and false-complaint protections
+- Run a short survey to understand how often each problem happens, split by gender, time of day, and bike versus car
+
+## Outcome
+
+This is a concept proposal, not a shipped product. What I can stand behind is the research trail: a clearer problem than the one I started with, a concept where each part traces back to evidence, a scoped MVP, and an honest account of what still needs validating.
+
+<mark>The core principle is visible safety with enforceable consequences. A rider should know who is driving, what the ride will cost, where the vehicle is going, how to get help, and what will happen after a complaint.</mark>
+
+## Reflection
+
+I started this project thinking about harassment and in-ride safety tools. The most useful thing I learned is that the incidents people fear are often the end of a chain that starts much earlier, with a missed ride, an offline offer, or an unverified pickup.
+
+I'd also approach the driver side earlier next time. Several parts of the concept depend on driver behaviour, and I only came to that through news reporting rather than conversation. And I'd run structured interviews earlier. The stories that started this came from people I know, who likely share similar routes, backgrounds, and habits, so they could point me to problems but couldn't tell me how common they are.
+
+## Key Takeaways
+
+- **Riders don't lack safety features, they lack trust in them.** The apps offer many tools. The gap is visibility, enforcement, and a human response.
+- **The riskiest moment is when a ride leaves the app.** Even insurance stops at the platform's edge, which makes offline bargaining a safety issue as much as a pricing one.
+- **Three levels of help, not one panic button.** Most unsafe moments aren't emergencies, and the design has to give riders a proportionate option.
+- **Safety has to work for drivers too.** A one-sided system pushes drivers offline, undoing the protection it creates.
+- **The MVP fixes trust basics before adding AI.** Right driver, agreed fare, and a person who answers come first.
+
+## References and Further Reading
+
+- [Nepal moves to regulate ride-sharing and ride-hailing after nearly a decade](https://kathmandupost.com/money/2026/04/24/nepal-moves-to-regulate-ride-sharing-ride-hailing-after-nearly-a-decade) (Kathmandu Post)
+- [Government yet to finalise ride-hailing rules as disputes over fares persist](https://kathmandupost.com/money/2026/07/30/government-yet-to-finalise-ride-hailing-rules-as-disputes-over-fares-persist) (Kathmandu Post)
+- [Passengers complain of overcharging, rude riders, and delays](https://kathmandupost.com/money/2025/09/23/passengers-complain-of-overcharging-rude-riders-delays-on-ride-hailing-apps) (Kathmandu Post)
+- [Police crack down on offline ride-hailing in Kathmandu](https://kathmandupost.com/money/2023/10/16/police-crack-down-on-offline-ride-hailing) (Kathmandu Post)
+- [Ride-hailing riders suspend protest, but fare dispute remains unresolved](https://kathmandupost.com/money/2026/08/13/ride-hailing-riders-suspend-protest-but-fare-dispute-remains-unresolved) (Kathmandu Post)
+- [Uber launches ride-sharing service in Kathmandu Valley](https://kathmandupost.com/money/2026/05/21/uber-launches-ride-sharing-service-in-kathmandu-valley) (Kathmandu Post)
+- [inDrive highlights ride safety measures in Nepal](https://thehimalayantimes.com/business/indrive-highlights-ride-safety-measures-as-urban-mobility-expands-in-nepal) (The Himalayan Times)
+- [Yango Ride introduces in-app safety features in Nepal](https://meatechwatch.com/2025/12/15/yango-ride-introduces-enhanced-in-app-safety-features-for-users-in-nepal/) (MEA Tech Watch)
+- [Pathao ride-sharing safety coverage](https://pathao.com/np/blog/pathao-ride-sharing-insurance/) (Pathao Nepal)
+- [Pathao Safety](https://pathao.com/safety/) (Pathao)
+- [Top features of Uber in Nepal](https://www.nepalitelecom.com/top-features-of-uber-in-nepal) (Nepali Telecom)
+
+---
+
+_Self-initiated research and concept work: desk research, informal rider conversations, competitive analysis, journey mapping, and concept and service design. No user testing, UI, or production build behind this phase yet._

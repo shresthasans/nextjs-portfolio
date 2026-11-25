@@ -102,6 +102,7 @@ const UNLISTED_SLUGS = new Set([
   'avira-antivirus-redesign',
   'stratus-maas-saas-dashboard-redesign',
   'reddit-home-feed-redesign',
+  'saferide-center-nepal-ride-hailing-safety',
 ])
 
 export async function generateMetadata({
@@ -502,6 +503,12 @@ const slugTheme: Record<string, SlugTheme> = {
     cardBg: 'from-sky-50/70 via-white to-stone-50 dark:from-sky-950/10 dark:via-stone-900 dark:to-stone-900/60',
     cardBorder: 'border-sky-200/70 dark:border-sky-800/30',
     accentBar: 'from-sky-400 via-sky-300 to-transparent dark:from-sky-500 dark:via-sky-600',
+  },
+  'saferide-center-nepal-ride-hailing-safety': {
+    headerFrom: 'from-orange-50/70 dark:from-orange-950/20',
+    cardBg: 'from-orange-50/70 via-white to-stone-50 dark:from-orange-950/10 dark:via-stone-900 dark:to-stone-900/60',
+    cardBorder: 'border-orange-200/70 dark:border-orange-800/30',
+    accentBar: 'from-orange-400 via-orange-300 to-transparent dark:from-orange-500 dark:via-orange-600',
   },
   _default: {
     headerFrom: 'from-amber-50/70 dark:from-amber-950/20',
