@@ -4,7 +4,7 @@ Personal portfolio site built with Next.js (App Router), TypeScript, and Tailwin
 
 ## Stack
 
-- [Next.js 15](https://nextjs.org/) (App Router)
+- [Next.js 16](https://nextjs.org/) (App Router)
 - TypeScript
 - Tailwind CSS
 - MDX (`next-mdx-remote`, `gray-matter`, `remark-gfm`) for blog posts
